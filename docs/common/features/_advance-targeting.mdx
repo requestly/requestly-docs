@@ -1,0 +1,73 @@
+Advanced Request targeting feature helps you define better targeting conditions and
+restrict rules to be applied on specific webpages (or domains), request types,
+request methods, or request payload. Provides more control on how the rules should be applied.
+
+To apply advanced targeting (aka **source filter**) there are different options available.
+You can make a source filter through the funnel icon you see on the rules editor page.
+
+<img
+  width="70%"
+  alt="source filter icon"
+  src="/img/docs/source-filter-icon.png"
+/>
+
+<img width="70%" alt="source filter" src="/img/docs/source-filter.png" />
+
+First you can select page URL on which you want to add source filter.
+There are 4 ways to add your page URL of the site on which you want to apply this filter. <br/>
+It let's you apply your rule to a particular website instead of all the websites you open in your browser.
+In the select drop-down you will see 4 options. below is described how you can use them.
+
+#### Page URL Targeting
+
+Page URL based targeting allows developers to restrict requestly rules to be applied when the request URL originates from within the targeted page URL (or domain) only.
+
+<img
+  width="70%"
+  alt="source filter page url options"
+  src="/img/docs/source-filter-page-url-options.png"
+/>
+
+#### Resource Type Targeting- JS, CSS, Main Document, IFrame etc
+
+From it you can select the exact type of file on which you want to apply your rule. By default it is selected to all types but you can specify the type of file on which you want to apply this rule from the drop-down.
+
+<img
+  width="70%"
+  alt="source filter resource type"
+  src="/img/docs/source-filter-resource-type.png"
+/>
+
+Example 1
+
+> If you want to block all the images which appear on a particular website, than you can do so by selecting Resource type as image.
+
+Example 2
+
+> You want to block all the CSS file which load on a particular website than you can select CSS in Resource Type to do so. It will block all CSS file on that website.
+
+#### Request Method - GET, POST, etc
+
+From it you can modify a particular type on network request going from your desired website. By default it will apply on all type of network request but you can target a particular one from the drop-down.
+
+<img
+  width="70%"
+  alt="source filter request method"
+  src="/img/docs/source-filter-request-method.png"
+/>
+
+Example
+
+> If you want to block a particular GET Request going from the entered site you can target it from here.
+
+#### Request Payload Targeting - GraphQL Queries
+
+This is currently only available for Response modification rule. It allows you to target a request based on the data that is sent along with it. <br/>
+In case of a GET request, the data would be matched from the search parameters (a.k.a. query string). In a POST request, the request body will be used for targeting (currently only supports json data)<br/>
+You can use JSON-like syntax for targeting as shown below.
+
+<img
+  width="70%"
+  alt="source filter request payload"
+  src="/img/docs/source-filter-request-payload.png"
+/>
