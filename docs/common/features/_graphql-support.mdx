@@ -1,0 +1,26 @@
+With Requestly, you can alter GraphQL API requests and responses through the use of the [request payload](/browser-extension/chrome/features/advance-targetting) filter
+in the [modify request](/browser-extension/chrome/http-modifications/request-body-rule) and [modify response](/browser-extension/chrome/http-modifications/response-rule) rules.
+
+## Targeting graphQL queries
+
+GraphQL requests are directed at a single endpoint. So for quering, it is a common practice to pass `operationName`
+to differentiate similar queries or for verbose logging on the backend.
+
+## Modifying graphQL responses
+
+Modify response rule targets graphQL requests using request payload.
+
+![Modify graphQL response](/img/docs/graphql-payload.gif)
+
+- The `operationName` is passed as the Request payload of the HTTP request that is meant to carry the GraphQL query to alter the response data returned.
+- The response can be modified programmatically or take static data.
+
+> Payload also supports nested path.
+
+## Modifying graphQL queries
+
+@todo Add annotated ss
+
+The graphQL queries can be modified by using the [modify request body](/browser-extension/chrome/http-modifications/request-body-rule) rule where the request body can be altered.
+
+> You can refer [this blog](https://requestly.io/blog/mocking-graphql-api-response/) for detailed explanation.
