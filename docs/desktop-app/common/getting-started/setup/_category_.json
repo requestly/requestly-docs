@@ -1,0 +1,10 @@
+{
+    "position": 1,
+    "label": "Setup",
+    "link": {
+        "type": "generated-index",
+        "title": "Docusaurus Guides",
+        "description": "Learn about the most important Docusaurus concepts!",
+        "slug": "/"
+    }
+}

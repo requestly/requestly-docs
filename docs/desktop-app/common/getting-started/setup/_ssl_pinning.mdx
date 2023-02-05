@@ -1,0 +1,30 @@
+<details>
+  <summary>SSL pinning</summary>
+  <div>
+    <div>
+        Requestly currently makes it very easy to debug network traffic on your mobile device. But this is known to sometimes cause network glitches on some commonly used mobile apps like youtube and google drive.
+        <br/>
+        <br/>
+        This is why most mobile debugging tools have the concept of SSL pinning to only decrypt and work with network streams that you know you want to debug. The remaining packets, although still passing through the proxy, remain untampered.
+        <br/>
+        <br/>
+        SSL pinning works by specifying an inclusion/exclusion list to specifying traffic that is allowed to be intercepted and decrypted by the proxy.
+        <br/>
+        <br/>
+        
+        <details>
+        <summary>
+            SSL pinning in Requestly
+        </summary>
+        <div>
+            Although Requestly does not offer this feature... <strong>yet</strong>, it is good to know about this problem that you will inevitably face once you start intercepting mobile traffic. 
+        
+            In our experience most browsers and basic apps tend to work unhinged even the proxy intercepting all of their traffic, but feel free to raise an issue to help us debug the different cases for this further 
+            <br/>
+            
+        </div>
+        </details>
+    </div>
+    
+  </div>
+</details>
