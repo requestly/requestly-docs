@@ -3,13 +3,23 @@ request parameters for any website. It makes it easy to manage query
 parameters and headers for any website, allowing more control and flexibility
 in how requests are handled.
 
-## Parts of Query params rule
+`Add` a new query param, `change` the value of the existing param or `remove`
+all/specific query param from the URL.
 
-<img src="/img/docs/modify-query-params-editor.png" alt="Replace Rule" />
+### Parts of Query params rule
 
-## Popular cases
+<img
+  src="/img/docs/modify-query-param-editor.png"
+  alt="Modify query param editor"
+/>
 
-- Add a new query param, change the value of the existing param or remove all/specific query param from the URL.
+1. **Source Condition** : If the request URL matches this _source condition_, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Param Name** : Name of param which you want to add, overrride or remove.
+3. **Param Value** : Value of the respective param name.
+4. **Param Modification** : This is the actual query param modification which needs to be performed. You can `Add`, `Remove`, `Override` the query params of the matched URL.
+
+### Popular cases
+
 - Using query params, you can burst cache for a request by assigning it a newer version.
 - Sending additional Information to some API calls to inform your backend & database that this is internal testing.
 - Remove UTM tracking parameters.
