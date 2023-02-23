@@ -1,8 +1,7 @@
 import { PLATFORM } from "../../../common/_constants.mdx";
 import Admonition from "@theme/Admonition";
 
-Inspecting network traffic from browser developer tools allows you to see the
-requests and responses between your browser and the web server.
+Inspecting network traffic from browser developer tools allow you to see the requests and responses between your browser and the web server.
 
 You can see all the network requests initiated by the browser and the corresponding responses from the web server. Use this information to debug issues related to network requests, such as slow loading times, missing resources, or failed requests. This includes information such as:
 
@@ -12,10 +11,10 @@ You can see all the network requests initiated by the browser and the correspond
 - Request and response payloads
 - HTTP status code of the response
 
-## How to Use
+## How to Use?
 
 <>
-  Following are the steps to inspect network traffic in{" "}
+  Following the below steps to inspect network traffic in{" "}
   {props.platform.toLowerCase()} developer tools
 </>
 
@@ -30,20 +29,20 @@ You can see all the network requests initiated by the browser and the correspond
   ) : null}
 </>
 
-1.  Navigate to the page whose network traffic you want to inspect.
-2.  Open the developer tools: `F12` or `Cmd+Shift+C` / `Ctrl+Shift+C`.
+1.  Go to the page whose network traffic you want to inspect.
+2.  Press `F12` or `Cmd+Shift+C` / `Ctrl+Shift+C` to open the developer tools.
     <>
       {props.platform === PLATFORM.OPERA ? (
         <Admonition type="note">
           <p>
-            Set up a shortcut in the <strong>settings</strong> to open the dev
+            Set up a shortcut in the <strong>Settings</strong> to open the dev
             tools, or alternatively, it can be opened by right-clicking and
-            selecting `Inspect Element`.
+            selecting <strong>Inspect Element</strong>.
           </p>
         </Admonition>
       ) : null}
     </>
-3.  Switch to Network tab.
+3.  Switch to the <strong>Network</strong> tab.
 
     <>
       {props.platform === PLATFORM.FIREFOX ? (
@@ -55,13 +54,13 @@ You can see all the network requests initiated by the browser and the correspond
       )}
     </>
 
-4.  Reload the page, You'll now see all the network requests and responses occured in the page.
-5.  Filter the list based on `Status Codes`, `URL` and the predefined `filters` based on the type of network request or response like:
+4.  Reload the page to see all the network requests and responses that occured on the page.
+5.  Filter the list based on `Status Codes`, `URL`, and the predefined `filters` based on the type of network request or response like:
     - Fetch/XHR
     - JS
     - CSS
     - Img
-6.  Analyze the network request details, For each network request, you can inspect the details such as the URL, HTTP method, request and response headers, response payload, timing information, and more.
+6.  You can analyze the each network request details by inspecting the details such as the URL, HTTP method, request and response headers, response payload, timing information, and more.
 
     <>
       {props.platform === PLATFORM.FIREFOX ? (
