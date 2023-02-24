@@ -1,1 +1,15 @@
-<>http-modifications - User Agent - Plaform: {props.platform}</>
+The [User-Agent Request Header](https://requestly.io/feature/cross-device-testing) is most commonly used by servers to identify its client's application type, operating system, software vendor or software version. Based on the User-Agent string, server selects suitable content to be sent in response. For instance, when a website is opened in a mobile device, it usually looks quite compact and different compared to the way it opens in desktop.
+
+Now imagine if your browser allows you to override the User-Agent string, you could see any version of a website you like! All you need to do is to install [Requestly](https://requestly.io/downloads) extension in your browser and enjoy the fun.
+You can choose among popular devices like Android Phone, iPhone, tablets or web browsers like Internet Explorer, Safari, etc. Or you may also specify a Custom User-Agent string to experience a specific version of website.
+
+
+<figure style={{ width: "75%"}}>
+    <img src="/img/docs/annotated-user-agent-rule.png" alt="User Agent Rule"/>
+    <center><figcaption>User Agent Rule</figcaption></center>
+</figure>
+
+1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Device/Browser Selector** : Select whether you want to test on a device or a browser.
+3. **Device/Browser Type Selector** : Select the type of browser/deivce which you want to test on.
+4. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).

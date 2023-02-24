@@ -1,23 +1,26 @@
 The redirect rule allows you to redirect a request URL (or matching pattern) to another URL. 
 
-### Parts of Redirect Rule
 <img src="/img/docs/annotated-redirect-rule.png" alt="Redirect Rule"/>
 
-- **Source Condition** : This is the *source condition* when rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
-- **Destination Url** : This is the destination url for the redirect when request Source Condition Matches.
+1. **Source Condition** : This is the *source condition* for which rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request. Learn more about source conditions [here](/guides/source-condition).
+2. **Destination Url** : This is the destination url for the redirect when request Source Condition Matches.
+3. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
 
 ### Popular use cases
 
-- **Redirect Production to Local Environment:** Map your production scripts or APIs to your local running code and test your local code directly on production sites without deployment.
-- **Redirect to local System files (Map Local):** With Requestly, you get our very own Mock Server Integration out of the box with the Redirect Request Rule. No need for a separate localhost server when the work can be easier! You can find more details [here](https://docs.requestly.tech/browser-extension/chrome/features/map-local).
-- **Test API version changes:** Suppose there is a new version of some API which you are using. To test the backward compatibility of the API, you can just set up a redirect rule to redirect all URLs from the older version to the newer version and check if your application behaves as expected. This way, you don’t need to change a single line of your code and test the API upgrades.
+- **Redirect Production to Local Environment:** Map your production scripts or APIs to your local running code and test your local code directly on production sites without deployment. [Here's](https://requestly.io/blog/how-to-load-local-js-files-on-live-production-sites) an article with more explanation.
+- **Redirect to local System files (Map Local):** With Requestly, you get our very own Mock Server Integration out of the box with the Redirect Request Rule. No need for a separate localhost server when the work can be easier! You can find more details [here](../features/map-local).
+- **Test API version changes:** Suppose there is a new version of some API which you are using. To test the backward compatibility of the API, you can just set up a redirect rule to redirect all URLs from the older version to the newer version and check if your application behaves as expected. This way, you don't need to change a single line of your code and test the API upgrades.
 - **Fix Broken Urls, Redirect dead bookmarks, and Create URL shortcuts:** You can setup a redirect rule to fix some broken URLs, redirect the dead bookmarks to new working bookmarks and create URL shortcuts.
 - **Swap Tag Manager scripts from production to staging/dev environment:** Test your dev implementation in tag manager scripts like Adobe DTM, Tealium Tag, Google Tag Manager Containers before pushing them live on client websites. Learn more [here](https://requestly.io/blog/replace-adobe-launch-production-script-with-development-script).
 
 
-### Demo 43
+### Demo
  
 <center>
   <iframe width="768" height="480" src="https://www.youtube.com/embed/lOt1kGKTq-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
+
+### Templates
+TODO: Add Templates here

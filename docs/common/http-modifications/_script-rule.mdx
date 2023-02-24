@@ -1,1 +1,32 @@
-<>http-modifications -Script - Plaform: {props.platform}</>
+Using “Insert Scripts” rule, you can make on-the-fly changes to a webpage content. It allows you to automate, scrape & change webpages behaviour without needed to access the page source code.
+
+
+<figure style={{ width: "75%"}}>
+    <img src="/img/docs/annotated-script-rule.png" alt="Insert Script Rule"/>
+    <center><figcaption>Insert Script Rule</figcaption></center>
+</figure>
+
+1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Script Language** : Script language (JS/CSS) which needs to be inserted.
+3. **Script Source** : Source (Code/URL) of the Script which needs to be inserted.
+4. **Script Load Time** : When is the script loaded in the webpage. (Before Page Load/After Page Load)
+
+
+## Common use cases
+
+- Inject popular libraries or hosted scripts or execute custom code-snippet before or after page load using simple rule builder.
+- Themify Twitter according to you. Remove/hide unwanted sections from page
+
+## Demo:
+
+<center>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/4dvucRjLwGY"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</center>

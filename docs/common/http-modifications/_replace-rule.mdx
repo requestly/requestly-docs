@@ -1,11 +1,11 @@
 Replace Rule allows users to replace a string (or matching pattern) with another string in the URL. 
 
-### Parts of Replace Rule
 <img src="/img/docs/annotated-replace-rule.png" alt="Replace Rule"/>
 
-1. **Replace From** : This is the text the request which is replaced.
-2. **Replace With** : This is what `Replace from` text is replaced with.
-3. **Source Url** : This is the *source condition* when rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+1. **Source Condition** : This is the *source condition* for which rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request. Learn more about source conditions [here](/guides/source-condition).
+2. **Replace From** : This is the text in the request URL which need to be replaced.
+3. **Replace With** : This is what `Replace from` text is replaced with.
+4. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
 
 ### Popular use cases
@@ -19,3 +19,6 @@ Replace Rule allows users to replace a string (or matching pattern) with another
 <center>
   <iframe width="768" height="480" src="https://www.youtube.com/embed/3esnRDWUBdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
+
+### Templates
+TODO: Add Templates here

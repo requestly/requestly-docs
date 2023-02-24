@@ -1,0 +1,15 @@
+Cancel Rule is primarily used for Blocking Requests to avoid distraction.
+
+<figure style={{ width: "75%"}}>
+    <img src="/img/docs/annotated-cancel-rule.png" alt="Cancel Rule"/>
+    <center><figcaption>Cancel Rule</figcaption></center>
+</figure>
+
+1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
+
+
+## Common use cases
+
+- **Blocking Websites** — You can use Cancel Rule to avoid distraction by blocking websites e.g. youtube, twitter, facebook. 
+- **Testing error scenarios** - Test your app when certain resource is not loaded. You can use Cancel rule to block a certain request which is not mandatory in your app and test how your app behaves without that resource.

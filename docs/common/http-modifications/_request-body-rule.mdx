@@ -1,9 +1,47 @@
 Modifying the request payload is the process of changing the data that is sent to a server when making an HTTP request. You can use Modify Request Body rule to override the API request body with static data or programmatically modify the existing request payload.
 
-TODO ADD ANNOTATED SCREENSHOT
+
+### Static Request Body Modification
+
+In this mode you can enter static request body (JSON) which you want to forward to the server.
+
+
+<figure style={{ width: "75%"}}>
+    <img src="/img/docs/annotated-request-rule-static.png" alt="Response Rule Static"/>
+    <center><figcaption>Response Rule - Static Body</figcaption></center>
+</figure>
+
+1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Static Request Body** : Define the static request body which needs to be passes to the server.
+3. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
+
+### Programmatic Request Body Modification
+
+The existing request body can be modified programmatically using JavaScript. 
+
+<figure style={{ width: "75%"}}>
+    <img src="/img/docs/annotated-request-rule-programmatic.png" alt="Response Rule - Programmatic"/>
+    <center><figcaption>Response Rule - Programmatic</figcaption></center>
+</figure>
+
+1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+2. **Status Code** : Update the Response status code. (2XX, 3XX, 4XX, 5XX ...). If left empty, original status code is returned.
+3. **Programmatic Modification Script (JS)** : Write a JavaScript script which can modify the existing request body programmatically.
+3. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
+
+#### Arguments of `modifyRequestBody`
+
+1. `method` (string)- The HTTP method of the request.
+2. `url` (string) - The request URL.
+3. `body` (string)- The original request body stringified.
+4. `responseAsJson` (JSON obj)- The original request body parsed into json using JSON.parse(body).
+
 
 # Popular Use Cases:
 
 - **Primarily used in Sending additional data in request payload to the API server:** There might be situations where additional data needs to be sent in request payloads to the API server when making a POST or PUT request.
 - **Modifying GraphQL Queries:** GraphQL queries can be modified by modifying the request body of the request. This can be done by changing the query string or variables in the request body.
 - **Testing different edge cases:** You may modify an API request payload to include an invalid or unsupported field. The API request will likely be rejected by the server, and an error message will be returned.
+
+## Demo:
+TODO: add demo video here

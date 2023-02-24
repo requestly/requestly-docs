@@ -2,13 +2,13 @@ HTTP(s) Headers are key-value pairs that are used to pass additional information
 
 Requestly provides a simple solution to accomplish this, allowing developers to add new headers, remove existing headers and override existing header values in a few clicks.
 
-### Parts of Headers Rule
-<img src="/img/docs/annotated-headers-rule.png" alt="Replace Rule"/>
+<img src="/img/docs/annotated-headers-rule.png" alt="Headers Rule"/>
 
 1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
 2. **Modify Request Headers** : Select this tab to modify the Request Headers of the Request. 
 3. **Modify Response Headers** : Select this tab to modify the Response Headers of the Request.
-4. **Header Modifaction** : This is the actual header modification which need to be performed. You can `Add`, `Remove`, `Override` the headers.
+4. **Header Modification** : This is the actual header modification which need to be performed. You can `Add`, `Remove`, `Override` the headers.
+5. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
 
 ### Popular use cases
