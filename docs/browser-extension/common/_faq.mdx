@@ -1,1 +1,12 @@
-<>FAQ - Plaform: {props.platform}</>
+## Why is there a limit of 500 characters for code in Script Rule?
+We use Chrome Storage for storing your rules. While everyone loves this choice from Privacy point of view (yeah, you own your data), this comes with certain limitations on the size of the object we can store in Chrome Storage. You can use Requestly File server to host your JS/CSS/JSON file and pick the file from Library in your rule definition. 
+
+## How do I find Requestly version?
+
+import GeneralInstuctionsToFindVersion from "./_find-version.mdx";
+
+export const FindVersion = ({PropComponent}) => {
+    return PropComponent ? <PropComponent /> : <GeneralInstuctionsToFindVersion />
+}
+
+<FindVersion PropComponent={props.findVersion} />

@@ -1,1 +1,9 @@
-<>FAQ - Plaform: {props.platform}</>
+## How do I find Requestly version?
+
+import FindVersionFromConsole from "./_find-version.mdx";
+
+export const FindVersion = ({PropComponent}) => {
+    return PropComponent ? <PropComponent /> : <FindVersionFromConsole />
+}
+
+<FindVersion PropComponent={props.findVersion} />
