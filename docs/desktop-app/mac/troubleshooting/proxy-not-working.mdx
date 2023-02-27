@@ -1,0 +1,38 @@
+---
+sidebar_postion: 1
+sidebar_label: Proxy not working
+---
+
+# Requestly Proxy not working
+
+Steps for Troubleshooting Requestly System wide proxy on OSX
+
+### Check Certificate[](#check-certificate)
+
+For Requestly to intercept HTTPS traffic, you need to install Requestly Certificate in the keychain
+
+- Open keychain access (Press cmd + enter and then type "keychain")
+- Select login keychain
+- Check whether **RequestlyCA** is present and trusted or not.
+
+If certificates are not installed & trusted correctly, then follow the steps [here](/desktop-app/how-to.../osx-setup#setup-certificate).
+
+<img src="/img/docs/troubleshooting/mac/RequestlyCA-keychain.png" />
+
+![](https://2589039487-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M8_rkNM0hmQ1buX8NUJ%2Fuploads%2FMn6WGhJgleyh3b4mAU1X%2FScreenshot%202022-01-10%20at%201.42.28%20PM.png?alt=media&token=967bf335-4c92-4c2f-822c-6e044d6184f5)
+
+### Check Proxy[](#check-proxy)
+
+- Navigate to System Preferences > Network > Advanced > Proxies
+- Click on **Web Proxy (HTTP)**
+  - Check whether the settings are set to **127.0.0.1** & **8080** (Port might be different. Check which port Requestly proxy is running on from top right of desktop app
+  - Check whether it is enabled or not
+- Click on Secure Web Proxy (HTTPS)
+  - Check whether the settings are set to **127.0.0.1** & **8080** (Port might be different. Check which port Requestly proxy is running on from top right of desktop app)
+  - Check whether it is enabled or not
+
+![](https://2589039487-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M8_rkNM0hmQ1buX8NUJ%2Fuploads%2FsXdDSKHrKoyvvsggxihS%2FScreenshot%202022-01-10%20at%201.53.48%20PM.png?alt=media&token=082a15ff-9afb-4f6f-9ab3-b42b50207bcc)
+
+![](https://2589039487-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M8_rkNM0hmQ1buX8NUJ%2Fuploads%2FxxQZ7UuoBLedbgdzPBnQ%2FScreenshot%202022-01-10%20at%201.53.56%20PM.png?alt=media&token=c7302244-9720-45f0-8ff6-d2faf477d6db)
+
+If any of the HTTP or HTTPS proxies aren't set, then follow the steps [here](/desktop-app/how-to.../osx-setup#setup-proxy).

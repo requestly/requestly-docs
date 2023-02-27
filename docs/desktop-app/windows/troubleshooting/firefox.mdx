@@ -1,0 +1,79 @@
+---
+sidebar_postion: 1
+sidebar_label: Firefox
+---
+
+# Troubleshooting Firefox on Desktop app
+
+<p>
+  After launching a new Firefox instance from Requestly if you see the following
+  screen, chances are that the certificates for the newly spawned browser window
+  were not correctly applied.
+</p>
+<img src="/img/docs/troubleshooting/firefox/firefox-warning.png" width="70%" />
+
+<p>
+
+<span>
+  In this case you can go through the following steps to install the certificate
+  manually:
+</span>
+<br />
+<ol>
+  <li>
+    Download Requestly Certificate
+    <br />
+    You can download the Requestly certificate file from the button available at
+    the bottom of the connected apps section.
+    <br />
+    <img
+      src="/img/docs/troubleshooting/firefox/manual-cert-dl.png"
+      width="70%"
+    />
+    <br />
+    Click on Save Certificate to download the certificate.
+    <br />
+    <img src="/img/docs/troubleshooting/firefox/save-cert.png" width="70%" />
+    <br />
+  </li>
+      <li>
+      <span>Open certificates install settings</span>
+      <br />
+        Go to the launched browser instance and open settings.
+      <br />
+      <img
+        src="/img/docs/troubleshooting/firefox/icon-context.png"
+        width="30%"
+      /><br/>
+      Search for Certificates and select the View Certificates option <br/>
+       <img
+        src="/img/docs/troubleshooting/firefox/view-cert.png"
+        width="50%"
+      />
+  </li>
+   <li>
+      <span>
+Import Certificate
+</span>
+      <br />
+      Go to Authorities, and click Import.
+      <br />
+             <img
+        src="/img/docs/troubleshooting/firefox/cert-manager.png"
+        width="50%"
+      />
+      <br/>
+      Select the certificate that you previously downloaded. In order for your browser to trust this certificate, tick the following two options and click Ok.
+    <br/>
+              <img
+        src="/img/docs/troubleshooting/firefox/downloading-cert.png"
+        width="60%"
+      />
+      <br/>
+      Your certificate is now successfully installed.
+   
+  </li>
+
+</ol>
+
+</p>
