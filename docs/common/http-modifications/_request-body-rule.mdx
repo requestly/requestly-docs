@@ -1,14 +1,14 @@
 Modifying the request payload is the process of changing the data sent to the server when making an HTTP request. You can use Modify Request Body rule to override the API request body with static data or programmatically modify the existing request payload.
 
-
 ### Static Request Body Modification
 
 In this mode, you can enter a static request body (JSON) you want to forward to the server.
 
-
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/annotated-request-rule-static.png" alt="Response Rule Static"/>
-
+<figure style={{ width: "75%" }}>
+  <img
+    src="/img/docs/annotated-request-rule-static.png"
+    alt="Response Rule Static"
+  />
 </figure>
 
 1. **Source Condition**: Source condition is where you set criteria for the rules. You can use `URL`, `Host`, or `Path` with `Regex`, `Contains`, `Wildcard`, or `Equals` to match the source request. Learn more about source conditions [here](/guides/source-condition).
@@ -17,23 +17,74 @@ In this mode, you can enter a static request body (JSON) you want to forward to 
 
 ### Programmatic Request Body Modification
 
-The existing request body can be modified programmatically using JavaScript. 
+The existing request body can be modified programmatically using JavaScript.
 
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/annotated-request-rule-programmatic.png" alt="Response Rule - Programmatic"/>
+<figure style={{ width: "75%" }}>
+  <img
+    src="/img/docs/annotated-request-rule-programmatic.png"
+    alt="Response Rule - Programmatic"
+  />
 </figure>
 
 > **Programmatic Modification Script (JS)** is where you write a JavaScript script that can modify the existing request body programmatically.
 
 #### Arguments of `modifyRequestBody`
 
-1. `method` (string)- The HTTP method of the request.
+1. `method` (string)- The [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) of the request. `GET | POST | PUT | DELETE etc.`
 2. `url` (string) - The request URL.
-3. `body` (string)- The original request body stringified.
-4. `bodyAsJson` (JSON obj)- The original request body parsed into json using JSON.parse(body).
+3. `body` (string)- The original request body stringified:
+```
+'{"app":"requestly","feature":"modify-request"}'
+```
+4. `bodyAsJson` (JSON object)- The original request body parsed into JSON object:
+```
+{
+    "app":"requestly",
+    "feature":"modify-request"
+}
+```
 
+#### `Return` type of `modifyRequestBody`
 
-# Popular Use Cases:
+You can `return` modified body as `string` or `JSON` object.
+
+### How to modify the body of a POST request.
+
+We use `https://echo.hoppscotch.io/` to test this which echoes back the request.
+
+1. We make the following `POST` request.
+
+```
+const options = {
+  method: 'POST',
+  headers: {'content-type': 'application/json'},
+  body: '{"app":"requestly"}'
+};
+
+fetch('https://echo.hoppscotch.io/', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+```
+
+2. Create a `Modify Request Body` rule uses the following JavaScript. You can find the rule [here](https://app.requestly.io/rules#sharedList/1677676857339-modify-request-payload).
+
+```
+function modifyRequestBody(args) {
+  const { method, url, body, bodyAsJson } = args;
+  // Change request body below depending upon request attributes received in args
+  let newBody;
+  if (method === "POST") {
+    newBody = bodyAsJson;
+    newBody["feature"] = "modify request";
+  }
+  return newBody;
+}
+```
+
+3. You can see the key `feature` being added to the request body when `hoppscotch` echoes back the request.
+
+### Popular Use Cases:
 
 - **Primarily used in sending additional data in request payload to the API server:** There might be situations where additional data needs to be sent in request payloads to the API server when making a POST or PUT request.
 - **Modifying GraphQL Queries:** GraphQL queries can be modified by modifying the request body of the request. This can be done by changing the query string or variables in the request body.
