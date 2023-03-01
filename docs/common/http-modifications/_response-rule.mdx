@@ -5,52 +5,66 @@ The Modify Response Rule allows you to mock the response body of an HTTP request
 - When you edit the rule, please refresh the page on which you are modifying the HTTP response after saving the changes.
 :::
 
-
-### Static Response Modification
+## Static Response Modification
 
 In this mode, you can enter the response body which you want as the response.
 
-
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/annotated-response-rule-static.png" alt="Response Rule Static"/>
-    <center><figcaption>Response Rule - Static Body</figcaption></center>
+<figure style={{ width: "75%" }}>
+  <img
+    src="/img/docs/annotated-response-rule-static.png"
+    alt="Response Rule Static"
+  />
+  <center>
+    <figcaption>Response Rule - Static Body</figcaption>
+  </center>
 </figure>
 
-1. **Source Condition** : If the request url matches this *source condition*, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
+1. **Source Condition** : If the request url matches this _source condition_, then only the rule is applied. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request.
 2. **Status Code** : Update the Response status code. (2XX, 3XX, 4XX, 5XX ...). If left empty, original status code is returned.
 3. **Static Response Body** : Define the updated response body which needs to be returned.
 4. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
-### Programmatic Response Modification
-
-The existing response can be modified programmatically using JavaScript. 
-
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/annotated-response-rule-programmatic.png" alt="Response Rule - Programmatic"/>
-
-</figure>
+## Programmatic Response Modification
 
 > **Programmatic Modification Script (JS)** : Write a JavaScript script which can modify the existing response programmatically.
 
-#### Arguments of `modifyResponse`
+<figure style={{ width: "75%" }}>
+  <img
+    src="/img/docs/annotated-response-rule-programmatic.png"
+    alt="Response Rule - Programmatic"
+  />
+</figure>
 
-1. `method` (string)- The HTTP method of the request.
+### Arguments of `modifyResponse`
+
+1. `method` (string)- The [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) of the request. `GET | POST | PUT | DELETE` etc.
 2. `url` (string) - The request URL.
-3. `response` (string)- The original response object stringified.
-4. `responseType` (string)- The content-type of the HTTP response.
-5. `requestHeaders` (Object<string, string>)- The request headers sent for the HTTP request.
-6. `requestData` (string)- The HTTP request payload.
-7. `responseJSON` (JSON obj)- The original response object.
+3. `response` (string)- The original response object stringified:
+```
+'{"id":1,"app":"requestly","feature":"modify-request"}'
+```
+4. `responseType` (string)- The [content-type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of the HTTP response.
+5. `requestHeaders` (Object<string, string>)- The [request headers](https://developer.mozilla.org/en-US/docs/Glossary/Request_header) sent for the HTTP request.
+6. `requestData` (string)- The HTTP request payload in case of `POST | PUT | PATCH` requests.
+7. `responseJSON` (JSON object)- The original response object in JSON format:
+```
+{
+  "id":1,
+  "app":"requestly",
+  "feature":"modify-request"
+}
+```
 
+### `Return` type of `modifyResponseBody`
+
+You can `return` modified response as `string` or `JSON` object.
 
 ## Popular use cases
 
-- You want to work on front-end while back-end is not available or ready yet
+- You want to work on front-end while back-end is not available or ready yet.
+- You want to test application behaviour when provided altered data.
+- You want to simulate errors by returning different status codes.
 - You want to modify API responses but don't have access to the back-end.
-- You want to mock fluctuating API responses
-- You want to test application behaviour when provided altered data source
-
-
 
 <center>
   <iframe
