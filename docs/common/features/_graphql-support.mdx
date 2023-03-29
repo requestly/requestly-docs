@@ -10,7 +10,12 @@ to differentiate similar queries or for verbose logging on the backend.
 
 Modify response rule targets graphQL requests using request payload.
 
-![Modify graphQL response](/img/docs/graphql-payload.gif)
+<figure style={{ width: "75%" }}>
+  <img
+    alt="Response Rule - GraphQL payload"
+    src="/img/docs/graphql-payload.png"
+  />
+</figure>
 
 - The `operationName` is passed as the Request payload of the HTTP request that is meant to carry the GraphQL query to alter the response data returned.
 - The response can be modified programmatically or take static data.

@@ -19,6 +19,18 @@ The Modify Response Rule allows you to mock the response body of an HTTP request
   ></iframe>
 </center>
 
+## Create rule for different resource types
+
+<figure style={{ width: "75%" }}>
+  <img alt="Response Rule resource types" src="/img/docs/resource-types.png" />
+  <center>
+    <figcaption>Response Rule resource types</figcaption>
+  </center>
+</figure>
+
+- Rest API
+- Graphql API (Apply Request Payload Filter)
+- HTML / JS / CSS (Available in Desktop app)
 
 ## Static Response Modification
 
@@ -45,8 +57,8 @@ In this mode, you can enter the response body which you want as the response.
 
 <figure style={{ width: "75%" }}>
   <img
-    src="/img/docs/annotated-response-rule-programmatic.png"
     alt="Response Rule - Programmatic"
+    src="/img/docs/annotated-response-rule-programmatic.png"
   />
 </figure>
 
@@ -55,13 +67,16 @@ In this mode, you can enter the response body which you want as the response.
 1. `method` (string)- The [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) of the request. `GET | POST | PUT | DELETE` etc.
 2. `url` (string) - The request URL.
 3. `response` (string)- The original response object represented as string. Eg:
+
 ```
 '{"id":1,"app":"requestly","feature":"modify-request"}'
 ```
+
 4. `responseType` (string)- The [content-type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of the HTTP response.
 5. `requestHeaders` (Object<string, string>)- The [request headers](https://developer.mozilla.org/en-US/docs/Glossary/Request_header) sent to the server.
 6. `requestData` (string)- The HTTP request payload in case of `POST | PUT | PATCH` requests.
 7. `responseJSON` (JSON object)- The original response represented as JSON Object:
+
 ```
 {
   "id":1,
@@ -74,6 +89,20 @@ In this mode, you can enter the response body which you want as the response.
 
 You can modify both response or responseJSON and return any of them. Response Rule will automatically handle the response returned for the request.
 
+## Targeting GraphQL request using operation name
+
+For graphql request add operation name and value to modify the response.
+
+<figure style={{ width: "75%" }}>
+  <img
+    alt="Response Rule - GraphQL resource type"
+    src="/img/docs/annotated-response-rule-graphql-resource-type.png"
+  />
+</figure>
+
+To learn more about this checkout [GraphQL Support](../features/graphql-support).
+
 ## Guides
+
 - [Modifying Response asynchronously](/guides/async-response-modification): Async modifications lets you perform some long running tasks before returning the response
 - [Modifying Non Existent Domain](/guides/modifying-non-existent-domain-response): Helpful for frontend developers when the backend isn't ready yet.
