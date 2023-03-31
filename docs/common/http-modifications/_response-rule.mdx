@@ -19,7 +19,7 @@ The Modify Response Rule allows you to mock the response body of an HTTP request
   ></iframe>
 </center>
 
-## Create rule for different resource types
+## Supported resource types
 
 <figure style={{ width: "75%" }}>
   <img alt="Response Rule resource types" src="/img/docs/resource-types.png" />
@@ -28,11 +28,12 @@ The Modify Response Rule allows you to mock the response body of an HTTP request
   </center>
 </figure>
 
-- Rest API
-- Graphql API (Apply Request Payload Filter)
-- HTML / JS / CSS (Available in Desktop app)
+- Rest API: Supports modifying XHR/fetch requests.
+- GraphQL API: Target & modify GraphQL api using operation.
+- HTML/JS/CSS: Only available in Desktop app
 
-## Static Response Modification
+## Types of Modifications
+### Static Response Modification
 
 In this mode, you can enter the response body which you want as the response.
 
@@ -51,7 +52,7 @@ In this mode, you can enter the response body which you want as the response.
 3. **Static Response Body** : Define the updated response body which needs to be returned.
 4. **Source Filters** : This helps you define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
-## Programmatic Response Modification
+### Programmatic Response Modification
 
 **Programmatic Modification Script (JS)** : Write a JavaScript script which can modify the existing response programmatically.
 
@@ -62,7 +63,7 @@ In this mode, you can enter the response body which you want as the response.
   />
 </figure>
 
-### Arguments of `modifyResponse`
+#### Arguments of `modifyResponse`
 
 1. `method` (string)- The [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) of the request. `GET | POST | PUT | DELETE` etc.
 2. `url` (string) - The request URL.
@@ -85,13 +86,15 @@ In this mode, you can enter the response body which you want as the response.
 }
 ```
 
-### Return type of modifyResponse (`string` or `JSON` object)
+#### Return type of modifyResponse (`string` or `JSON` object)
 
 You can modify both response or responseJSON and return any of them. Response Rule will automatically handle the response returned for the request.
 
-## Targeting GraphQL request using operation name
+## Targeting GraphQL requests
 
-For graphql request add operation name and value to modify the response.
+You can target GraphQL requests using the operation name in request body. To do so add:
+-  Payload JSON Key, e.g., `operationName`
+-  Value, e.g., `getUsers`
 
 <figure style={{ width: "75%" }}>
   <img
