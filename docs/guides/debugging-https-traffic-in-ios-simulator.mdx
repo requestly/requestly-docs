@@ -1,0 +1,96 @@
+# Debug HTTPs requests in iOS Simulator
+
+To start debugging the network traffic of your apps running inside iOS simulator, follow these steps
+
+1. Download & install [Requestly Desktop app](https://requestly.io/desktop)
+
+2. To install Requestly Root Certificate on your Mac:
+
+    a.  Navigate to **`Connected Apps`** in the sidebar and choose target **`Everywhere: System Wide`**
+
+    b.  Enter system password if prompted
+
+    c.  Ensure that the **`Install & Trust Certs`** step is successful
+
+    ![Install and trust certs on macOS](/img/docs/guides/ios-simulator/install-and-trust-cert-systemwide.png)
+
+    
+
+3. Note the proxy URL and port shown at the top of the App. 
+    This is where requestly is running it's proxy and where you need to redirect your traffic to from iOS emulator
+
+    ![Requeslty proxy IP and Port](/img/docs/proxy-ip-port-banner.png)
+
+4. Open XCode and choose your project. 
+    In the menu click **`Product > Scheme > Edit Scheme`**
+
+    ![Edit XCode project schema](/img/docs/guides/ios-simulator/xcode-edit-scheme.png)
+
+
+5. Set enivronment variables `http_proxy` and `https_proxy` to the proxy URL given by Requestly (refer step #3)
+
+    ![Set environment proxy variables](/img/docs/guides/ios-simulator/schema-env-proxy.png)
+    
+
+6. Start the emulator **`Xcode > Open Developer Tool > Simulator`**
+
+    ![Launch Simulator](/img/docs/guides/ios-simulator/launch-simulator.png)
+
+7. To verify the proxy settings: 
+    Open Safari and navigate to `http://amiusing.requestly.io/`
+        If it says **`Success`**, all good till now
+        Else retry from Step 2
+
+    ![Proxy success message](/img/docs/guides/ios-simulator/safari-amiusing-success-resized.png)
+    
+
+8. Now you need to install Requestly's Root Certificate in the emulator
+
+    a. In Safari, navigate to `http://requestly.io/ssl` (**Use http here, not https**) and tap **`Allow`** to download the Requestly Root Certificate
+
+    ![Allow safari to download certificate](/img/docs/guides/ios-simulator/allow-cert-dowload-safari-resized.png)
+
+    b. After downloading the certificate, navigate to **`General`** in **`Settings`** and choose **`Device Management`**
+
+    ![iOS General Setting](/img/docs/guides/ios-simulator/general-settings-resized.png)
+
+    c. Open **`RQProxyCA`** and click **`Install`**
+
+    ![Install custom profile](/img/docs/guides/ios-simulator/install-custom-profile.png)
+
+9. Since this certificate has been installed, we need to mark it as trusted.
+    Navigate to **`Settings > About > Certificate Trust Settings`** and enable trust for **`RQProxy CA`**
+
+    ![Download custom profile](/img/docs/guides/ios-simulator/download-custom-profile.png)
+
+
+10. Once the certificate has been trusted, you can now intercept traffic using Requestly and create rules to modify them as required
+
+    ![Emulator intercepted by Requestly](/img/docs/guides/ios-simulator/running-emulator-with-requestly-desktop.png)
+
+
+You should now be able to see your rules being applied in the traffic table inside Requestly.
+
+But here are a few more tips to fully utilize requestly with the debugging tools that iOS simulator offers
+
+## Open native Web Inspector or Developer Tool for Safari
+In case you want to also see the requests in the safari devtools of your simulator:
+
+1. Launch Safari in iOS Simulator: 
+2. Launch Safari on your mac and navigate to **`Develop`** in the menu bar, 
+3. Find your Simulator device and tap the webpage you want to inspect.
+
+    ![Select the page that you want to debug](/img/docs/guides/ios-simulator/devtools-webpage-selection.png)
+
+    ![Safari devtools on emulator](/img/docs/guides/ios-simulator/safari-devtools-network-panel.png)
+    
+## Bypass CORS for Safari running in simulator
+You might sometimes run into CORS issues when trying to apply rules during debugging.
+
+To disable CORS for safari inside the iOS simulator:
+1. Navigate to the **`Develop`** menu in Safari and 
+2. Check **`Disable Cross-Origin Restrictions`** and **`Local FIle Restrictions`**
+
+    ![Disable CORS checks on safari](/img/docs/guides/ios-simulator/disable-cors-safari-resized.png)
+
+
