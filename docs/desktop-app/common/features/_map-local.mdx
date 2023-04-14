@@ -1,8 +1,16 @@
 Map Local feature lets you to serve any local file as the response of an intercepted request in realtime.
 You can make changes in the file locally and test them live without updating them on the server.
-The contents of the local file is returned to the client as if it was the normal remote response.
+when a request is made to a URL that matches a defined rule, Requestly intercepts the request and
+serves the specified local file as the response to the client, just as if it was the normal remote response.
+Making it ideal for testing different scenarios.
 
 ## How to use?
+
+:::info
+
+Map Local feature is currently only supported in the Requestly [Desktop app](https://requestly.io/desktop).
+
+:::
 
 You can use the [Redirect rule](../http-modifications/redirect-rule) to map a request to a local file.
 This redirects the request to the local file, causing it to be served in response to that request.
@@ -11,5 +19,79 @@ This redirects the request to the local file, causing it to be served in respons
 
 ## Popular Use Cases
 
-You can use it for testing css, images, javascript assets, etc. by mapping the local development file to the live version so that you can browse
-the actual site with the development assets without deploying.
+- Testing Offline or Unavailable Resources: Map Local allows users to serve local HTML, CSS, JavaScript, or other
+  static files as responses to requests for online resources. This can be useful when testing a web application offline
+  or when certain resources are temporarily unavailable.
+- Test local changes directly on production sites. This saves a lot of effort from deploying code to staging/production environment. Using Requestly, you can load
+  CSS, images, JavasScript, assets etc. in staging/production (or live) sites to test your local changes faster.
+
+## Example
+
+In this example, by utilizing Requestly's map local feature, we'll try to hit an external API endpoint which
+will intercept and redierct this request to the local file which we will be served as a respone to the client instead
+of what was intended from the production server.
+
+Consider this as the content of local file :
+
+```json
+{
+  "success": {
+    "status": "success",
+    "data": {
+      "name": "John Doe",
+      "age": 30,
+      "email": "john.doe@example.com"
+    }
+  },
+  "error": {
+    "status": "error",
+    "message": "Failed to retrieve data"
+  },
+  "timeout": {
+    "status": "timeout",
+    "message": "Request timed out"
+  }
+}
+```
+
+- Create a redirect rule and change the destination type to `Local file`
+- Add the source condition (the request URL which matches the source condition) and choose the local file
+  to which you want to redirect to.
+
+![Using redirect rule for local mapping example](/img/docs/redirect-rule-local-map-example.png)
+
+- Now the request to source URL we added will be intercepted and redirect to the local file we chose
+
+![Using redirect rule for local mapping response](/img/docs/redirect-rule-local-map-working.png)
+
+:::note
+
+The local file to which you want to redirect the request to, must be present in your local machine.
+
+:::
+
+## FAQ
+
+<details>
+  <summary>Will this rule work in extension?</summary>
+  <div>
+    Due to technical constraints, this rule does not work in extension. But you
+    can use the{" "}
+    <a href="https://requestly.io/desktop" target="_blank">
+      Desktop app
+    </a>{" "}
+    to map local files in redirect rule.
+  </div>
+</details>
+
+<details>
+  <summary>
+    Do I need to change rule after changing the contents of local file?
+  </summary>
+  <div>
+    Requestly intercepts the request and serves the specified local file as the
+    response to the client. This process happens in <strong>real-time</strong>,
+    meaning that any changes made to the local file are immediately reflected in
+    the responses served by Requestly, without needing to change the rule again.
+  </div>
+</details>
