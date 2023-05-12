@@ -1,0 +1,64 @@
+If you have been using `Charles Proxy` for network debugging, you may have created a set of settings using the Charles Proxy tools
+to modify HTTP requests. You can import these tool settings in Requestly in just few clicks.
+
+The following list contains the tools that you can import from Charles Proxy:
+
+- Block Cookies
+- Block lists
+- No Caching
+- Map Remote
+- Map Local
+- Rewrite
+
+## Steps to import
+
+:::info
+
+Due to some technical constraints, Importing **individual settings** from a tool in supported yet.
+
+:::
+
+1. From the menu bar select : `Tools > Import/Export Settings`
+
+<img
+  src="/img/docs/import-rules-from-charles-menubar.png"
+  align="centre"
+  alt="charles proxy menubar tools dropdown"
+/>
+
+2. A new popup window will open, switch to `Export` tab and de-select `Select all` checkbox
+
+3. Under `Tools` section, select the tools you want to export and click on `Export` button.
+
+   <img
+     src="/img/docs/import-from-charles-export-window.png"
+     align="centre"
+     width="500"
+     alt="charles proxy export window"
+   />
+
+4. Open Requestly Desktop app and select `Import settings from Charles`.
+
+   <img
+     src="/img/docs/import-from-charles-rq-app.png"
+     align="centre"
+     alt="charles proxy export window"
+   />
+
+5. Drop or select your exported file here and Import!
+
+   <img
+     src="/img/docs/import-from-charles-rq-modal.png"
+     align="centre"
+     width="500"
+     alt="charles proxy import modal"
+   />
+
+On importing the exported the files, the Charles tool settings will parsed into Requestly rules.
+See an example import below :
+
+<img
+  src="/img/docs/post-import-from-charles.png"
+  align="centre"
+  alt="requestly rules table"
+/>
