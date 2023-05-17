@@ -1,64 +1,124 @@
-If you have been using `Charles Proxy` for network debugging, you may have created a set of settings using the Charles Proxy tools
-to modify HTTP requests. You can import these tool settings in Requestly in just few clicks.
+If you have been using `Charles Proxy` for network debugging, you may have created a set of settings
+using the Charles Proxy tools to modify HTTP requests. You can import these tool settings in Requestly in just few clicks.
 
 The following list contains the tools that you can import from Charles Proxy:
 
-- Block Cookies
-- Block lists
-- No Caching
-- Map Remote
-- Map Local
 - Rewrite
+- Map Local
+- Map Remote
+- No Caching
+- Block lists
+- Block Cookies
 
 ## Steps to import
 
-:::info
+1. From the top menu bar select `Tools > Import/Export Settings`
 
-Due to some technical constraints, Importing **individual settings** from a tool in supported yet.
-
-:::
-
-1. From the menu bar select : `Tools > Import/Export Settings`
-
-<img
-  src="/img/docs/import-rules-from-charles-menubar.png"
-  align="centre"
-  alt="charles proxy menubar tools dropdown"
-/>
+<figure style={{ width: "75%" }}>
+  <img
+    width={630}
+    height={425}
+    alt="charles proxy menu bar tools dropdown"
+    src="/img/docs/import-rules-from-charles-menubar.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Charles Proxy menu bar tools dropdown
+    </figcaption>
+  </center>
+</figure>
 
 2. A new popup window will open, switch to `Export` tab and de-select `Select all` checkbox
 
-3. Under `Tools` section, select the tools you want to export and click on `Export` button.
+3. Under `Tools` section, select the tools you want to export and click on `Export` button appearing in bottom-right corner.
 
-   <img
-     src="/img/docs/import-from-charles-export-window.png"
-     align="centre"
-     width="500"
-     alt="charles proxy export window"
-   />
+<figure style={{ width: "60%" }}>
+  <img
+    width={500}
+    height={446}
+    align="centre"
+    alt="charles proxy export window"
+    src="/img/docs/import-from-charles-export-window.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Charles Proxy export window
+    </figcaption>
+  </center>
+</figure>
 
-4. Open Requestly Desktop app and select `Import settings from Charles`.
+:::note
 
-   <img
-     src="/img/docs/import-from-charles-rq-app.png"
-     align="centre"
-     alt="charles proxy export window"
-   />
+To import a single rule just follow the same process, while selecting
+the rule just select the specific rule which you want to export.
 
-5. Drop or select your exported file here and Import!
+:::
 
-   <img
-     src="/img/docs/import-from-charles-rq-modal.png"
-     align="centre"
-     width="500"
-     alt="charles proxy import modal"
-   />
+4. Open Requestly Desktop app, if you dont have any rules then you will see `Import settings from Charles Proxy` button, click on it.
 
-On importing the exported the files, the Charles tool settings will parsed into Requestly rules.
-See an example import below :
+<figure style={{ width: "80%" }}>
+  <img
+    width={602}
+    height={400}
+    alt="import from charles button"
+    src="/img/docs/import-from-charles-rq-app.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Import from Charles Proxy button
+    </figcaption>
+  </center>
+</figure>
 
-<img
-  src="/img/docs/post-import-from-charles.png"
-  align="centre"
-  alt="requestly rules table"
-/>
+Else goto to `HTTP Rules` and click on `Import`, then you will get option to for
+Charles proxy settings import.
+
+<figure style={{ width: "68%" }}>
+  <img
+    width={602}
+    height={284}
+    alt="import rules modal"
+    src="/img/docs/rules-table-charles-import-touch-point.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Import rules modal
+    </figcaption>
+  </center>
+</figure>
+
+5. Drop or select your exported `.xml` file here and import.
+
+<figure style={{ width: "60%" }}>
+  <img
+    width={500}
+    height={300}
+    alt="charles proxy import modal"
+    src="/img/docs/import-from-charles-rq-modal.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Charles Proxy import modal
+    </figcaption>
+  </center>
+</figure>
+
+On importing the exported files, the Charles Proxy tool settings will be parsed into Requestly rules.<br/>
+See an example import below:
+
+<figure style={{ width: "75%" }}>
+  <img
+    width={635}
+    height={360}
+    alt="requestly rules table"
+    src="/img/docs/post-import-from-charles.png"
+  />
+  <center>
+    <figcaption style={{ color: "#52525b", fontSize: "12px" }}>
+      Requestly rules table
+    </figcaption>
+  </center>
+</figure>
+
+Your rules will be grouped in Requestly according to the tool name from Charles Proxy for all the tools except for `Rewrite`,
+where rules will be grouped according to the different source URLs.
