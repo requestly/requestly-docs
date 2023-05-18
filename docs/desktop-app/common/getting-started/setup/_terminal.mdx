@@ -1,28 +1,31 @@
-
 You can intercept and modify network traffic from any terminal instance.
 
 ### Steps
+
 1. Launch the terminal of your choice
-2. Go to `Connected Apps` and click on `Open` on Terminal.
+2. Click on `Connect apps` button and a popup modal will open. Under `Terminal processes` section click on `Setup instruction` for Terminal.
 3. Copy the command shown and paste it in terminal.
 
 ```
 . <(curl -sS localhost:7040/tpsetup)
 ```
 
-> Note: This command might different depending upon port availability. Checkout in Connected Apps > Terminal
+:::note
+This command might different depending upon port availability. Checkout in Connected Apps > Terminal
+:::
 
-
-<img src="/img/docs/terminal-proxy.png" alt="Terminal Proxy" width="70%"/>
+<img src="/img/docs/terminal-proxy.png" alt="Terminal Proxy" width="70%" />
 
 4. If the command succeeds, you should see `Requestly interception` enabled in your terminal.
 5. Now all you requests from you Terminal should show up in the Network Traffic Tab.
 
-
 ### Testing Proxy
+
 1. Go to `Network Traffic` tab in Requestly Desktop App.
 2. Now Make a curl request to https://amiusing.requestly.io/ using your terminal and look for that request in the network interception tab.
+
 ```
 curl https://amiusing.requestly.io/
 ```
+
 3. You should see the Request in the `Network Traffic` Table.

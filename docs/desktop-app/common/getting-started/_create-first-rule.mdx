@@ -1,18 +1,60 @@
-Rules in Requestly helps you modify a specific network requests or responses.
+Rules in Requestly helps you modify a specific network requests or responses.<br/>
+For this you need to [connect the app](./inspect-traffic#how-to-use), once you see the network traffic, follow below steps to
+create the rule.
 
-To create your first rule:
-1. Go to `HTTP Rules` in Requestly Desktop App.
-2. Select which type of rule you want to create. Learn about different types of rules from [here](../http-modifications/overview).
+1. Right-click on any of the request to open a context-menu.
 
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/rules-list.png" alt="Rules list"/>
-    <center><figcaption>Different types of rules</figcaption></center>
+   <figure style={{ width: "75%" }}>
+     <img
+       width={600}
+       height={350}
+       alt="request right-click"
+       src="/img/docs/desktop/create-first-rule/request-right-click.gif"
+     />
+     <center>
+       <figcaption>Right-click on request</figcaption>
+     </center>
+   </figure>
+
+2. Now from context-menu click on the appropriate rule type for your usecase. Learn about different types of rules from [here](../http-modifications/overview).
+
+   <figure style={{ width: "75%" }}>
+     <img
+       width={600}
+       height={350}
+       alt="context-menu option click"
+       src="/img/docs/desktop/create-first-rule/context-menu-option-click.png"
+     />
+     <center>
+       <figcaption>Context-menu option click</figcaption>
+     </center>
+   </figure>
+
+3. It will open the rule editor, in that fill the details for the rule and click on **Create rule** on top-right in the editor modal.
+
+<figure style={{ width: "75%" }}>
+  <img
+    width={600}
+    height={350}
+    alt="Create rule"
+    src="/img/docs/desktop/create-first-rule/create-rule.png"
+  />
+  <center>
+    <figcaption>Create rule</figcaption>
+  </center>
 </figure>
 
-3. Click on *Create Rules*.
-4. Fill in the details of the rule and click **Create Rule**.
+Now when the same request is triggered again, you can see that the rule which you created is applied on it.
+You can verify this by clicking on request which will be highlighted (indicates rule applied), below in request pane you can see the modified request.
 
-<figure style={{ width: "75%"}}>
-    <img src="/img/docs/google-to-ddg-rule.png" alt="google to ddg rule"/>
-    <center><figcaption>Redirect Rule - Google to Ddg</figcaption></center>
+<figure style={{ width: "75%" }}>
+  <img
+    width={600}
+    height={350}
+    alt="Modified request"
+    src="/img/docs/desktop/create-first-rule/modified-request.png"
+  />
+  <center>
+    <figcaption>Modified request</figcaption>
+  </center>
 </figure>

@@ -106,9 +106,8 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: {
-          trackingID: 'G-DQXL90RCKD',
-          anonymizeIP: true,
+        googleTagManager: {
+          containerId: 'GTM-TCTH4MB',
         },
       }),
     ],
@@ -127,7 +126,7 @@ const config = {
 
   scripts: [
     // This is changing global theme. Removing this for now
-    {src: '/js/docsGPT.js', async: true, defer: true},
+    // {src: '/js/docsGPT.js', async: true, defer: true},
   ],
 
   themeConfig:

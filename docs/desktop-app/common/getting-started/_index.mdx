@@ -12,3 +12,63 @@ Go to Connected Apps section to launch a browser or Connect to external devices 
 import PopularUseCases from "../../../common/_popular_use_cases.mdx";
 
 <PopularUseCases/>
+
+- Save and share network session with teammates for collaborative debugging.
+- You can review network requests, inspect response payloads, and analyze the sequence of events during the debugging session.
+
+## Traffic Table and filtering
+
+After connecting apps, all the network traffic is logged in the traffic table. The traffic table supports filtering based on-
+
+- method, status code, content type.
+- apps or domains
+
+Traffic table can be searched using keyword as well as using regex.
+
+ <figure style={{ width: "75%" }}>
+     <img
+       width={600}
+       height={350}
+       alt="request right-click"
+       src="/img/docs/traffic-table-filtering.png"
+     />
+     <center>
+       <figcaption>Filtering on network traffic table</figcaption>
+     </center>
+   </figure>
+
+## Right-click on a network request for more options
+
+When right-clicking any request, a context menu is opened which shows options to copy URL, copy cURL, edit and replay the request, create rules etc.
+
+ <figure style={{ width: "75%" }}>
+     <img
+       width={600}
+       height={350}
+       alt="request right-click"
+       src="/img/docs/desktop/create-first-rule/request-right-click.gif"
+     />
+     <center>
+       <figcaption>Right-click on request</figcaption>
+     </center>
+   </figure>
+
+### Edit and replay a request
+
+Any of the network request edited and replayed by right-clicking on it and selecting `edit and replay`.
+
+ <figure style={{ width: "75%" }}>
+     <img
+       width={600}
+       height={350}
+       alt="request right-click"
+       src="/img/docs/edit-replay-request.png"
+     />
+     <center>
+       <figcaption>Edit and replay the request</figcaption>
+     </center>
+   </figure>
+
+## Github
+
+You can visit [Requestly's Github repository](https://github.com/requestly) to stay updated with our progress, report bugs, and submit requests to our team.

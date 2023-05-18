@@ -1,15 +1,26 @@
-# Setup your android device for interception with Requestly
-<!-- needs assets -->
-Setting up an android device requires the following one-time manual setup.
-In case you forget, you can get these detailed steps inside the desktop app by navigating to `Connect App -> android`
-
 ## Prerequisites
+
 1. Download the Requestly Desktop app, if you haven’t already.
-2. Start the App and make sure that your android device and your computer are on the same network
+2. Start the App and make sure that your android device and your computer are on
+   the same network
+
+# Setup your android device for interception with Requestly
+
+<!-- needs assets -->
+
+Setting up an android device requires the following one-time manual setup.
+In case you forget, you can get these detailed steps inside the desktop app by by clicking on `Connect Apps` button as shown below. A popup modal will open, click on `Setup instructions` for Android under `Mobile apps & browsers` section.
+
+<img
+  src="/img/docs/connect-apps-touch-point.png"
+  alt="Connect apps button"
+  width="700"
+/>
 
 ## Setup android proxy
+
 1. Open Wifi Settings by navigate to `Settings > Wi-Fi > Select current Wi-Fi > Modify`
-2. Set `Proxy` settings  to `Manual`.
+2. Set `Proxy` settings to `Manual`.
 3. Enter the host IP and the proxy port. You can find these on the top banner inside the Requestly desktop app
 
 ![Proxy condfigs in requestly app](/img/docs/proxy-ip-port-banner.png)
@@ -17,16 +28,18 @@ In case you forget, you can get these detailed steps inside the desktop app by n
 4. To ensure that the proxy has been set, visit . If the rendered page shows success as follows, means the proxy is now correctly configured setting up proxy in iOS wifi settings
 
 ## Download certificate
+
 1. Open Incognito window in your browser
-2. Go to [http://requestly.io/ssl](http://requestly.io/ssl) **(Use http here. Not https)** 
+2. Go to [http://requestly.io/ssl](http://requestly.io/ssl) **(Use http here. Not https)**
 
 This will download `RQProxyCA.pem.cert`
 
 ## Trust certificate
-1. Open Trusted Certificate Settings by navigating to  `Settings -> Security -> Encryption & Credentials -> Install a Certificate -> CA Certificate`
+
+1. Open Trusted Certificate Settings by navigating to `Settings -> Security -> Encryption & Credentials -> Install a Certificate -> CA Certificate`
 2. To install this certificate, select `Install Anyway` and select the certificate `RQProxyCA.pem.cert`.
-3. To verify Certificate trust settings are now active, go to `Trusted Credentials -> User`. `RQProxyCA` should be present here. 
-Or you could just start making requests and see them getting logged inside the Requestly Network Tab
+3. To verify Certificate trust settings are now active, go to `Trusted Credentials -> User`. `RQProxyCA` should be present here.
+   Or you could just start making requests and see them getting logged inside the Requestly Network Tab
 
 import SSLPinning from "./_ssl_pinning.mdx";
 

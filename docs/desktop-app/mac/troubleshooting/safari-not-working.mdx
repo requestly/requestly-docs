@@ -1,0 +1,62 @@
+---
+sidebar_postion: 3
+sidebar_label: Safari not working
+title: Troubleshooting Safari
+---
+
+Safari does not support setting a proxy on the browser instance due to technical constraints. Therefore, we have to set up a system-wide proxy to connect to Safari. This may lead to some issues, which can be resolved by following troubleshooting steps:
+
+Before following the troubleshooting steps, make sure you have done both of these setup for Safari: 
+
+1. **Make sure to launch Safari App from the Connected Apps modal.** In case Safari doesn't open automatically, you can open it yourself also.
+2. Try opening [https://amiusing.requestly.io/](https://amiusing.requestly.io/) after launching Safari. 
+If it shows `Failure` message, then it indicates that traffic is not being intercepted by Requestly and your proxy isn't set up properly. Follow the below steps to troubleshoot the most common problems with setting up Safari.
+
+
+### VPN Issue
+
+Safari connection might not work with VPN because of the system-wide proxy setup. **If you are using Requestly with VPN, you need to disable VPN first, then launch Safari from `Connected Apps` and then restart your VPN.**
+
+### Check Proxy
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="os">
+  <TabItem value=">=13" label="Before macOS 13 Ventura" default>
+    <div>
+        <ol type="1">
+            <li>Open System Preferences</li>
+            <li>Go to Network</li>
+            <li>Select Advanced</li>
+            <li>Go to Proxies</li>
+            <li>Check whether Web Proxy (HTTP) and Secure Web Proxy (HTTPS) are enabled or not. And the Port mentioned there matches the port mentioned on the header of Requestly Desktop App</li>
+        </ol>
+        <center><img src="/img/docs/disabling-system-wide-proxy-before-ventura.gif" width="600" alt="Disabling System Wide Proxy"/></center>
+    </div>
+  </TabItem>
+  <TabItem value="<13" label="macOS 13 Ventura or later">
+    <div>
+        <ol type="1">
+            <li>Open System Preferences</li>
+            <li>Type Proxies in Search</li>
+            <li>Select Proxies</li>
+            <li>Check whether Web Proxy (HTTP) and Secure Web Proxy (HTTPS) are enabled or not. And the Port mentioned there matches the port mentioned on the header of Requestly Desktop App</li>
+        </ol>
+        <center><img src="/img/docs/disabling-system-wide-proxy-ventura.gif" width="600" alt="Disabling System Wide Proxy"/></center>
+    </div>
+  </TabItem>
+</Tabs>
+
+### Check Certificate
+
+For Requestly to intercept HTTPS traffic, you need to install Requestly Certificate in the keychain
+- Open keychain access (Press cmd + enter and then type "keychain")
+- Select login keychain
+- Check whether RQProxyCA is present and trusted or not.
+
+![](/img/docs/macos-certificate-trusted.png)
+
+### Check Firewall
+
+Check if you are using any Firewall software like Sophos. Firewalls generally block web proxies for security reasons and mistake Requestly as a web proxy but Requestly only runs on yourlocal device. Sending them an email will get Requestly unblocked for you.
