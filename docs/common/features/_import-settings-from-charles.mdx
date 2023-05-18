@@ -12,7 +12,7 @@ The following list contains the tools that you can import from Charles Proxy:
 
 ## Steps to import
 
-1. From the top menu bar select `Tools > Import/Export Settings`
+1. From the Charles top menu bar, select `Tools > Import/Export Settings`
 
 <figure style={{ width: "75%" }}>
   <img
@@ -28,9 +28,7 @@ The following list contains the tools that you can import from Charles Proxy:
   </center>
 </figure>
 
-2. A new popup window will open, switch to `Export` tab and de-select `Select all` checkbox
-
-3. Under `Tools` section, select the tools you want to export and click on `Export` button appearing in bottom-right corner.
+2. A new popup window will open. Switch to `Export` tab and under `Tools` section, select the tools you want to export and click on `Export` button appearing in bottom-right corner.
 
 <figure style={{ width: "60%" }}>
   <img
@@ -54,7 +52,7 @@ the rule just select the specific rule which you want to export.
 
 :::
 
-4. Open Requestly Desktop app, if you dont have any rules then you will see `Import settings from Charles Proxy` button, click on it.
+3. Open Requestly Desktop app, if you don't have any rules then you will see `Import settings from Charles Proxy` button, click on it.
 
 <figure style={{ width: "80%" }}>
   <img
@@ -70,7 +68,7 @@ the rule just select the specific rule which you want to export.
   </center>
 </figure>
 
-Else goto to `HTTP Rules` and click on `Import`, then you will get option to for
+Else goto to `HTTP Rules` from Sidebar and click on `Import`, then you will get option for
 Charles proxy settings import.
 
 <figure style={{ width: "68%" }}>
@@ -87,7 +85,7 @@ Charles proxy settings import.
   </center>
 </figure>
 
-5. Drop or select your exported `.xml` file here and import.
+5. Drop or select your exported Charles `.xml` file here.
 
 <figure style={{ width: "60%" }}>
   <img
@@ -103,9 +101,8 @@ Charles proxy settings import.
   </center>
 </figure>
 
-On importing the exported files, the Charles Proxy tool settings will be parsed into Requestly rules.<br/>
+> On Successful import, the Charles Proxy tool settings will show up as Requestly rules.<br/>
 See an example import below:
-
 <figure style={{ width: "75%" }}>
   <img
     width={635}
@@ -120,5 +117,4 @@ See an example import below:
   </center>
 </figure>
 
-Your rules will be grouped in Requestly according to the tool name from Charles Proxy for all the tools except for `Rewrite`,
-where rules will be grouped according to the different source URLs.
+> Your rules will be grouped in Requestly according to the tool name from Charles Proxy
