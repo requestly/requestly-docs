@@ -4,7 +4,9 @@ As a frontend developer or QA, Testing certain parts of web applications require
 
 1. **Source Condition:** Source condition is where you set criteria for the rules. You can use `URL`, `Host` or `Path` with `Regex`, `Contains`, `Wildcard` or `Equals` to match the source request. Learn more about source conditions [here](/guides/source-condition).
 2. **Delay Amount** : The delay time (in milliseconds) that is applied to the request matching the source condition. Delay is capped automatically to avoid browsing performance degradation.
-   For XHR/Fetch, max delay is `5000ms` & for other resources (`JS`, `CSS`, `Images` etc), max delay is `10000ms`.
+   For XHR/Fetch, max delay is `5000ms` & for other resources (`JS`, `CSS`, `Images` etc), max delay is `10000ms`. <br />
+   Try [Desktop app](https://requestly.io/desktop) which does not have such limit on delay amount.
+
 3. **Source Filters** : You can define better targeting conditions and restrict rules to be applied on specific webpages (or domains), request types, request methods, or request payload. Learn more about source filters [here](../features/advance-targeting).
 
 ### Popular Use Cases
