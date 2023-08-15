@@ -1,0 +1,33 @@
+---
+sidebar_position: 7
+slug: /architecture  
+sidebar_label: Architecture
+title: Session Replay Architecture
+---
+
+This document aims to provide an understanding of the architecture of session replay and its security aspects in the Requestly app.
+
+## Session replay on a Website
+
+When auto-recording a particular website, the extension adds a JavaScript library in the website - **`request-web-sdk.`js** - which observes the mouse movement, console logs, and network logs. The recorded data is **locally stored** in the page’s context (an in-memory JS variable).
+
+Please note, as soon as the page navigates or refreshes, the local context is cleared by the browser, and data recorded so far is lost. In Network logs, **request headers are NOT captured** as they are more likely to hold sensitive information like authorization tokens, auth id, session id, resource id, cookies, etc.
+
+## Reviewing a Session
+
+Once the session is recorded on the website, you can review it, add details, save online or download the session file locally by clicking on `Save` . The Requestly UI retrieves the session data and renders the session player and other details.
+
+<img src="/img/docs/session-recording/architecture.png" alt="Session Recording Architecture" width="600" />
+
+While saving the session, you can choose if Console logs and Network logs are to be included in the replay. If not included, they will not be saved on the Requestly server.
+
+## Security Aspects
+
+The security of session replay in Requestly is ensured by the following measures:
+
+1. **Local Storage of Data**: All **session data is stored locally** in the page's context. No details of the session are stored on the Requestly server **unless explicitly saved online**. This data is lost if you click the "Discard" button or close the Requestly UI and website, ensuring that no residual data is left on the server. You can also choose to **save session locally** using by clicking on `Save`  >   `Download File.`
+2. **No Capture of Sensitive Information**: The Requestly extension does not capture request headers in network logs, which are more likely to hold sensitive information like authorization tokens, auth id, session id, resource id, cookies, etc. This measure further enhances the security of session replay.
+3. **Sync Storage and Firebase**: The extension stores the configuration in the browser’s local storage and also on the Requestly server (Firebase), ensuring it is available across all devices or browser instances logged in using the same account. This ensures that the data is securely stored and accessible only to the authorized user.
+4. **Requestly is OpenSource tool:**  Source code is freely available for inspection on GitHub. This transparency allows developers to verify the security measures implemented in the tool, providing an additional layer of trust and security. Please checkout Github for [UI code](https://github.com/requestly/requestly) and [requestly-web-sdk](https://github.com/requestly/requestly-web-sdk)
+
+Requestly takes several measures to ensure the security of session replay, including local storage of data, not capturing sensitive information, and secure storage of configuration.
