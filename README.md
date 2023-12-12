@@ -1,3 +1,5 @@
+<quote>These docs are now being managed separately through notion. You can view the updated docs at https://developers.requestly.io </quote>
+
 <p align="center"><img src="https://user-images.githubusercontent.com/16779465/194505910-b6a7be70-df20-4b1a-9730-06a48cdd75ac.png" alt="Requestly Logo" width="50%"/></p>
 
 <h3 align="center"></h3>
