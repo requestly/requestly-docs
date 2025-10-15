@@ -444,6 +444,9 @@
     "options": ["copy", "view", "chatgpt", "claude"]
   },
   "integrations": {
+    "ga4": {
+      "measurementId": "G-7FZEBFLWK0"
+    },
     "telemetry": {
       "enabled": true
     }
