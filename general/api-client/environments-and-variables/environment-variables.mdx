@@ -1,0 +1,63 @@
+---
+title: "Environment Variables"
+slug: "environment-variables"
+path: "/api-client/environments-and-variables/environment-variables"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+**Environment Variables** in Requestly allow you to configure API requests based on different environments—such as **Development**, **Staging**, or **Production**. They help you manage environment-specific values like base URLs, tokens, or credentials without manually editing each request when switching contexts.
+
+<iframe src="https://youtu.be/0m00eSkuDcc" />
+
+### Why Use Environment Variables?
+
+Environment variables let you:
+
+* Switch between Dev, Staging, and Prod configurations easily
+
+* Avoid editing request details manually for each environment
+
+* Keep secrets scoped to the environment where they’re needed
+
+* Enable environment-specific behavior in scripts and tests
+
+Example use cases:
+
+* `{{base_url}}` points to [`https://dev.api.com`](https://dev.api.com) in development and [`https://api.com`](https://api.com) in production
+
+* Different `{{auth_token}}` for each environment
+
+## **How to Create Environment Variables**
+
+### **Step 1: Access the Environments Tab**
+
+Click on the **Environments** tab in the side menu.
+
+<img src="/images/environment-variables/acbc49e8-3d19-404f-944c-450bf66b98f8.png" align="center" fullwidth="false" />
+
+### **Step 2: Select an Environment**
+
+Select the environment you want to add variables to.
+
+<img src="/images/environment-variables/30c3ea2f-5bc2-4523-97e2-ed61318bf2e6.png" align="center" fullwidth="false" />
+
+### **Step 3: Add Variables**
+
+Add variables in the table by specifying the following details:
+
+* **Key:** The name of the variable that you will be referencing when sending requests. Note, an environment cannot have keys with the same name.
+
+* **Type:** The type of value the variable will store. It can be a **string**, **number**, or **boolean**.
+
+* **Initial value (synced):** Initial values will be synced across the workspace. These values will be used by default if no user-defined Current value is set for the variable.
+
+* **Current value (local):** Current values are user-defined entries that are not synced across the workspace. These values will override the defined Initial values. If the current value is empty or left blank, then the initial value of the variable will be used.
+
+<img src="/images/environment-variables/8c5dd425-186d-4953-8304-87032f9f62ab.png" align="center" fullwidth="false" />
+
+### **Step 4: Switch Environments**
+
+To switch environments, use the dropdown on the top bar of the API Client’s sidebar. Select the desired environment to ensure that the variables associated with it are used in your API requests.
+
+<img src="/images/environment-variables/cad0bf2f-265e-4d8a-80a8-878f24278746.png" align="center" fullwidth="false" />

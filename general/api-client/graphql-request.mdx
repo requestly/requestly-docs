@@ -1,0 +1,95 @@
+---
+title: GraphQL Request
+label: GraphQL Request
+slug: graphql-request
+description: >-
+  Requestly supports GraphQL requests, allowing you to send querie, mutations,
+  and define variables
+visibility: PUBLIC
+---
+***
+
+GraphQL requests work over HTTP just like REST, but instead of defining multiple endpoints, you typically interact with a **single endpoint** (e.g., `/graphql`) and specify the exact data you want. This gives you flexibility, reduces over-fetching, and makes debugging APIs much simpler.
+
+<img src="/images/graphql-request/b393cc24-502b-4229-80e0-fd5b75a374cf.png" align="center" fullwidth="false" />
+
+## Create your first GraphQL request
+
+<Steps>
+  <Step title="Open API Client and Create a New Request">
+    Click the **API Client** link in the left sidebar of the Requestly application, then click the `+ New` button to create a new request and select **GraphQL request** from the menu.
+
+    <img src="/images/graphql-request/9e445125-233d-4086-bbb1-913887d4edfd.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Name Your API Request">
+    Give a descriptive title for your request to make it easy to identify later
+
+    <img src="/images/graphql-request/08acf961-0623-4ec8-a7a9-c9eebd57ca82.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Enter the GraphQL server URL">
+    Add your GraphQL endpoint.
+
+    <Info>
+      It will automatically perform **schema introspection** so you can explore available queries, mutations, and types.
+    </Info>
+
+    <img src="/images/graphql-request/8c9a443f-86dc-489c-94e5-84e5f33a7c9c.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Explore the schema">
+    Under the **Query** tab, you’ll see three panels:
+
+    * **Query/Mutation editor**: where you write or generate queries.
+
+    * **Variables editor**: where you define variables in JSON format.
+
+    * **Schema**: where you explore your API’s schema (Queries, Mutations, Subscriptions).
+
+    <img src="/images/graphql-request/c674ba8c-8ead-4c18-95a2-8197e8dc460c.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Build your query">
+    In the schema explorer, select a field and expand its arguments. A query will automatically appear in the **Query editor**.\
+    Alternatively, you can write your query manually
+
+    <img src="/images/graphql-request/468ee277-2628-4400-bfd1-06dcaaaa7583.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Add variables (optional)">
+    In the **Variables editor**, provide values in JSON format.
+
+    <img src="/images/graphql-request/e547f084-420b-409b-8d51-dd0b925a5b39.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Send the request">
+    Click **Send** to execute your query and view the response.
+
+    <img src="/images/graphql-request/6bbd5f6f-29c3-48d7-8e10-9384b2d86ff3.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+### Create a GraphQL request with multiple queries
+
+<Steps>
+  <Step title="Create a new request">
+    Click the **API Client** link in the left sidebar of the Requestly application, then click the `+ New` button to create a new request and select **GraphQL request** from the menu.
+
+    <img src="/images/graphql-request/9e445125-233d-4086-bbb1-913887d4edfd.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Select multiple fields">
+    From the schema explorer, select more than one field. Both queries will appear in the **Query editor**. Alternatively, you can manually new query / mutation
+
+    <img src="/images/graphql-request/c674ba8c-8ead-4c18-95a2-8197e8dc460c.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Choose a query to run">
+    Only one query runs at a time. First, click the **Send** button, then select the query you want to run from the dropdown.
+
+    To execute another query, click the Send button again and select the other query from the dropdown.
+
+    <img src="/images/graphql-request/6f82178d-a478-40a6-9f99-03f066ee2cb4.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>

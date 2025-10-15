@@ -1,0 +1,100 @@
+---
+title: Design APIs
+label: Design APIs
+slug: design-apis
+description: >-
+  Learn to design APIs within Requestly: Define Paths, create collections,
+  import APIs, and use variables.
+visibility: PUBLIC
+---
+***
+
+API builder in Requestly helps you define and organise your APIs with ease. You can further use these definitions to test APIs and develop your applications. This guide will walk you through the API Designing process within Requestly, which includes defining API Requests, managing APIs with collections, importing APIs, and using variables.
+
+## API Builder
+
+The **API Builder** in Requestly helps you design APIs, manage them using collections, and streamline workflows with variables. Let’s first explore the interface of the API Builder.
+
+* To start creating APIs, click the `+ New` button at the top left of the API Builder. This provides three options:
+
+  * **API Request**: [Create a new API request](/general/api-client/make-an-api-request).
+
+  * **API Collection**: Organise multiple requests under [a collection](/general/api-client/api-collections).
+
+  * **Environment**: [Define environment variables](/general/api-client/environments-and-variables) for testing and development.
+
+* The `Import` button allows you to import APIs from cURL, Requestly Collections, or Postman Collections.
+
+* Next to the Import button is the **Environment Switcher**, which lets you switch between environments.
+
+* On the left sidebar, you’ll find three icons:
+
+  1. **Collections**: Displays the list of API Collections and API Requests in the current workspace.
+
+  2. **Environments**: Shows the list of created environments.
+
+  3. **History**: Logs all API requests sent so far for easy reference.
+
+<img src="/images/design-apis/545f902b-7e45-4137-9a25-2831217679c5.png" align="center" fullwidth="false" />
+
+## Create API Request
+
+An API Request can be created in two ways: using the `+ New` button on the top left or from within a collection. The request creation process remains the same after that:
+
+**Step 1:** Name the request (e.g., “Create User”) for easy identification.
+
+<img src="/images/design-apis/e45a4c93-9c2d-4b85-a662-ebd3e9ca2079.png" align="center" fullwidth="false" />
+
+**Step 2:** Select the HTTP method (e.g., POST) and enter the API URL. You can use variables (explained below) to define a root URL and reference the variable in each API request.
+
+<img src="/images/design-apis/9a34be36-654e-4124-a9ed-e722785d0700.png" align="center" fullwidth="false" />
+
+**Step 3:** Define query parameters under the **Query Parameters** tab using a simple key-value format. Checkboxes allow you to disable specific query parameters when sending the request.
+
+**Step 4:** Add headers under the **Headers** tab. Similar to query parameters, headers are defined as key-value pairs.
+
+<img src="/images/design-apis/d415dead-8e81-45c5-8e0c-649a885f4c25.png" align="center" fullwidth="false" />
+
+**Step 5:** Use the **Body** tab to define the request body in one of three formats: Raw, JSON, or Form. This option is not available for GET & HEAD request due to the nature of these requests.
+
+<img src="/images/design-apis/d6f85316-ec64-4478-8ea7-2c8d44971f8c.png" align="center" fullwidth="false" />
+
+**Step 6:** Save the request.
+
+You can also enhance your API requests with **Scripts**, which allow you to [execute pre-request and post-response logic](/general/api-client/scripts) for custom workflows.
+
+## Create API Collection
+
+In projects requiring a large number of APIs, organizing them into groups is essential. **API Collections** allow you to group related APIs together for better structure and manageability. For instance, you can organize APIs by functionality (e.g., Auth, User Management, Payment) or by services in a microservices architecture (e.g., User Identity Service, Payment Service).
+
+**Step 1:** Click `+ New` and select **Collection**.
+
+<img src="/images/design-apis/58b09f6f-47bd-42ff-95e2-e203a2d8d9de.png" align="center" fullwidth="false" />
+
+**Step 2:** Provide a descriptive name (e.g., “User Management APIs”) and press **Enter**.
+
+For more details, refer to the [API Collections](/general/api-client/api-collections) section.
+
+## Import APIs & Collections
+
+Requestly makes API design simple by allowing you to import APIs from various sources. This feature is invaluable for integrating existing workflows or migrating from other tools.
+
+**Supported Imports:**
+
+**cURL Commands:** Paste a cURL command into the API Client to instantly convert it into a request.
+
+<img src="/images/design-apis/3d9d2d89-531b-47f6-b97b-7462888b3447.png" align="center" fullwidth="false" />
+
+**Requestly API Collections:** Import existing collections from another Requestly account for continuity.
+
+**Postman Collections:** Import APIs from Postman with 1-Click. Learn more about [Postman Imports](/general/api-client/migrate-from-postman).
+
+This flexibility ensures you can quickly set up your API workspace without starting from scratch.
+
+## Variables in APIs
+
+Requestly supports variables in two forms — **Collection Variables** and **Environment Variables**. Variables simplify managing repetitive or shared parts of APIs, such as base URLs or API keys. For example, multiple APIs can share the same base URL or authentication token.
+
+Variables can be defined in environments and used in API requests by enclosing them in double curly braces, e.g., `{{base_url}}`.
+
+Learn more about [Variables](/general/api-client/environments-and-variables) and how to use them effectively in your APIs.

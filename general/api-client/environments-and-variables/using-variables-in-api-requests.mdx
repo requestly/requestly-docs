@@ -1,0 +1,45 @@
+---
+title: "Using Variables in API Requests"
+slug: "using-variables-in-api-requests"
+path: "/api-client/environments-and-variables/using-variables-in-api-requests"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+Once you've defined variables in Requestly—whether global, environment, collection, or subcollection — you can reference them directly in your API requests. This allows you to dynamically inject values into URLs, headers, request bodies, scripts, and more.
+
+## **Use Variables in API Requests**
+
+### **Step 1: Create or Open a Request**
+
+Create or open an existing request in the **API Client**.
+
+<img src="/images/using-variables-in-api-requests/51b2389d-2186-42d7-99b8-a1fb295df6bb.png" align="center" fullwidth="false" />
+
+### **Step 2: Replace Static Values**
+
+Replace static values with your environment variables using the `{{variable_name}}` syntax.
+
+<img src="/images/using-variables-in-api-requests/f597030e-3b81-4656-8267-182280d2ee76.png" align="center" fullwidth="false" />
+
+### **Step 3: View Variable Values**
+
+Hover over a variable to see its resolved value.
+
+<img src="/images/using-variables-in-api-requests/0f1df5b5-d0e1-4cd5-b270-3f6ac6e40507.png" align="center" fullwidth="false" />
+
+## **Test Your Setup**
+
+### **Step 1: Execute the Request**
+
+Click **Send** to execute the request.
+
+### **Step 2: Verify Resolved Values**
+
+Check the resolved values in the **Request Preview** to ensure that variables are substituted correctly.
+
+<img src="/images/using-variables-in-api-requests/9c19eb9d-51f8-4a32-b8db-77fcd3d27a2a.png" align="center" fullwidth="false" />
+
+<Tip>
+  If a variable isn't resolving, verify that the variable name matches exactly (case-sensitive) and is present in the selected environment.
+</Tip>

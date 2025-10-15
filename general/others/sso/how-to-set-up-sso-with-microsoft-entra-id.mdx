@@ -1,0 +1,66 @@
+---
+title: "Set up Microsoft Entra ID"
+slug: "how-to-set-up-sso-with-microsoft-entra-id"
+path: "/others/sso/how-to-set-up-sso-with-microsoft-entra-id"
+visibility: "PUBLIC"
+format: "MDX"
+description: "Set up SSO with Microsoft Entra ID"
+---
+
+If your company uses [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id), you can set up the single sign-on feature for use with Requestly. This gives your employees the convenience of a one-click login, without using additional multi-factor authentication.
+
+## Step 1. **Create an Microsoft Entra ID enterprise application**
+
+1. Go to the <a target="_blank" href="https://entra.microsoft.com/">**Microsoft Entra ID**</a> portal.
+
+2. Go to **Identity > Applications > Enterprise applications.**
+
+3. Click on **+** **New application.**
+
+   <img src="/images/how-to-set-up-sso-with-microsoft-entra-id/4ca2707a-b5d7-432c-b658-be6ec164d66d.png" align="center" fullwidth="false" />
+
+4. Enter app name as desired, select **Integrate any other application you don’t find in the gallery (Non-gallery)**, and click **Create**
+
+   <img src="/images/how-to-set-up-sso-with-microsoft-entra-id/353eb1f4-5052-4ccb-a653-36744c7e44e9.png" align="center" fullwidth="false" />
+
+5. After this you're redirected to the newly created Requestly application **Overview**.
+
+## Step 2. Configure Microsoft Entra ID SAML Application
+
+1. On the app's **Overview** page, select **2. Set up single sign-on**. You can assign users and groups later.
+
+   <img src="/images/how-to-set-up-sso-with-microsoft-entra-id/68c57f5a-2641-4e40-8459-fd10163a37ee.png" align="center" fullwidth="false" />
+
+2. On the app's **Single sign-on** page, select **SAML** as the single sign-on method.
+
+3. Under the **Basic SAML Configuration** section, click **Edit.**
+
+4. Add the following values and **save**:
+
+   * **Identifier (Entity ID):** `urn:requestly.io`
+
+   * **Reply URL:** `https://app.requestly.io/__/auth/handler`
+
+   * **Sign on URL (optional):** Leave it empty. We don’t support IDP initiated SSO right now
+
+     <img src="/images/how-to-set-up-sso-with-microsoft-entra-id/290821e7-a92c-4cc6-b502-e1e19194c9af.png" align="center" fullwidth="false" />
+
+## Step 3. Setup SAML claims
+
+1. Under the **Attributes and Claims** section, click **Edit**. 
+
+2. Enter the following values:
+
+| Unique User Identifier (Name ID) | user.mail      |
+| -------------------------------- | -------------- |
+| first\_name                      | user.givenname |
+| last\_name                       | user.surname   |
+| email                            | user.mail      |
+
+<img src="/images/how-to-set-up-sso-with-microsoft-entra-id/1338f76e-6299-4eb6-b3a9-b35f6f1146b3.png" align="center" fullwidth="false" />
+
+## Step 4. Share SAML metadata with Requestly
+
+1. Under **SAML Certificates** section, copy the **App Federation Metadata URL**.
+
+2. Share the copied value with us `contact@requestly.io`

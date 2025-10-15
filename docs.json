@@ -1,0 +1,851 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Requestly",
+  "description": "Modify, Mock, Record & Debug HTTP requests - Comprehensive documentation for Requestly's powerful tools for API testing, debugging, and network request manipulation.",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#3b82f6",
+    "dark": "#1d4ed8"
+  },
+  "logo": {
+    "light": "/images/logo-light.webp",
+    "dark": "/images/logo-dark.webp",
+    "href": "https://docs.requestly.com"
+  },
+  "favicon": "/images/favicon.webp",
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://app.requestly.io"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "General",
+        "icon": "house",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "general/getting-started/introduction",
+              "general/getting-started/downloads",
+              {
+                "group": "Quick Start Guide",
+                "pages": [
+                  "general/getting-started/quick-start-guide",
+                  "general/getting-started/quick-start-guide/browser-extention-setup",
+                  "general/getting-started/quick-start-guide/desktop-app-setup"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "API Client",
+            "pages": [
+              "general/api-client/overview",
+              "general/api-client/design-apis",
+              "general/api-client/send-api-request",
+              "general/api-client/graphql-request",
+              "general/api-client/api-collections",
+              {
+                "group": "Environments and Variables",
+                "pages": [
+                  "general/api-client/environments-and-variables",
+                  "general/api-client/environments-and-variables/global-variables",
+                  "general/api-client/environments-and-variables/environment-variables",
+                  "general/api-client/environments-and-variables/runtime-variables",
+                  "general/api-client/environments-and-variables/collection-and-subcollection-variables",
+                  "general/api-client/environments-and-variables/variable-precedence",
+                  "general/api-client/environments-and-variables/using-variables-in-api-requests"
+                ]
+              },
+              "general/api-client/collection-runner",
+              "general/api-client/authorization",
+              "general/api-client/scripts",
+              "general/api-client/tests",
+              "general/api-client/replay-request-from-history",
+              "general/api-client/generate-client-code",
+              {
+                "group": "Import & Export",
+                "pages": [
+                  "general/api-client/import-export",
+                  "general/api-client/import-export/import-from-curl",
+                  "general/api-client/import-export/import-export-api-collections",
+                  "general/api-client/import-export/import-export-api-environment",
+                  "general/api-client/import-export/import-from-postman"
+                ]
+              },
+              "general/api-client/difference-between-desktop-app-and-browser-extension"
+            ]
+          },
+          {
+            "group": "HTTP Rules",
+            "pages": [
+              "general/http-rules/overview",
+              {
+                "group": "HTTP Rules",
+                "pages": [
+                  "general/http-rules/rule-types",
+                  "general/http-rules/rule-types/redirect-rule",
+                  "general/http-rules/rule-types/replace-strings",
+                  "general/http-rules/rule-types/modify-headers",
+                  "general/http-rules/rule-types/modify-request-body",
+                  "general/http-rules/rule-types/modify-query-params",
+                  "general/http-rules/rule-types/modify-user-agents",
+                  "general/http-rules/rule-types/delay-network-requests",
+                  "general/http-rules/rule-types/modify-response-body",
+                  "general/http-rules/rule-types/insert-scripts",
+                  "general/http-rules/rule-types/cancel-rule",
+                  "general/http-rules/rule-types/map-local",
+                  "general/http-rules/rule-types/map-remote"
+                ]
+              },
+              {
+                "group": "Advanced Usage",
+                "pages": [
+                  "general/http-rules/advanced-usage",
+                  "general/http-rules/advanced-usage/grouping",
+                  "general/http-rules/advanced-usage/pinning-rules",
+                  "general/http-rules/advanced-usage/graphql-modify-request-response",
+                  "general/http-rules/advanced-usage/source-conditions",
+                  "general/http-rules/advanced-usage/test-rules",
+                  "general/http-rules/advanced-usage/shared-state",
+                  "general/http-rules/advanced-usage/pauseresume-requestly",
+                  "general/http-rules/advanced-usage/rules-status-syncing",
+                  "general/http-rules/advanced-usage/advance-filters",
+                  "general/http-rules/advanced-usage/validate-rules-execution",
+                  "general/http-rules/advanced-usage/multiple-conditions-in-a-single-rule-in-requestly"
+                ]
+              },
+              {
+                "group": "Sharing",
+                "pages": [
+                  "general/http-rules/sharing",
+                  "general/http-rules/sharing/share-in-workspace",
+                  "general/http-rules/sharing/shared-list",
+                  "general/http-rules/sharing/download-rules"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "HTTP Interceptor",
+            "pages": [
+              "general/http-interceptor/overview",
+              {
+                "group": "Browser Extension",
+                "pages": [
+                  "general/http-interceptor/browser-extension",
+                  "general/http-interceptor/browser-extension/browser-interception"
+                ]
+              },
+              {
+                "group": "Desktop App",
+                "pages": [
+                  "general/http-interceptor/desktop-app",
+                  "general/http-interceptor/desktop-app/android-devices",
+                  "general/http-interceptor/desktop-app/android-simulator-interception",
+                  "general/http-interceptor/desktop-app/browser-interception",
+                  "general/http-interceptor/desktop-app/desktop-app-interception",
+                  "general/http-interceptor/desktop-app/ios-devices-interception",
+                  "general/http-interceptor/desktop-app/ios-simulator-interception",
+                  "general/http-interceptor/desktop-app/network-table",
+                  "general/http-interceptor/desktop-app/nodejs",
+                  "general/http-interceptor/desktop-app/saving-logs-to-local-file",
+                  "general/http-interceptor/desktop-app/terminal"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Api Mocking",
+            "pages": [
+              "general/api-mocking/api-mocking",
+              "general/api-mocking/create-cloud-based-mocks",
+              "general/api-mocking/create-local-api-mocks"
+            ]
+          },
+          {
+            "group": "Mock Server",
+            "pages": [
+              "general/mock-server/overview",
+              {
+                "group": "Create Mocks",
+                "pages": [
+                  "general/mock-server/create",
+                  "general/mock-server/create/create-mock-api",
+                  "general/mock-server/create/create-new-mock-file",
+                  "general/mock-server/create/mock-collection"
+                ]
+              },
+              "general/mock-server/test",
+              "general/mock-server/pre-configured-mocks",
+              "general/mock-server/templating-in-mocks",
+              "general/mock-server/import-and-export-mocks"
+            ]
+          },
+          {
+            "group": "Sessions",
+            "pages": [
+              "general/sessions/overview",
+              "general/sessions/record-api-sessions",
+              "general/sessions/record-bug-reports",
+              "general/sessions/import-view-har-file",
+              "general/sessions/access-control-of-session"
+            ]
+          },
+          {
+            "group": "Team",
+            "pages": [
+              "general/team/workspaces",
+              "general/team/local-workspace",
+              "general/team/multiple-workspaces",
+              {
+                "group": "Shared Workspace",
+                "pages": [
+                  "general/team/how-to-get-started-with-shared-workspace",
+                  "general/team/how-to-get-started-with-shared-workspace/managing-workspace",
+                  "general/team/how-to-get-started-with-shared-workspace/user-roles"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Imports",
+            "pages": [
+              "general/imports/bruno",
+              "general/imports/charles-proxy",
+              "general/imports/header-editor",
+              "general/imports/modheader",
+              "general/imports/postman",
+              "general/imports/resource-override"
+            ]
+          },
+          {
+            "group": "Others",
+            "pages": [
+              "general/others/billing-subscriptions",
+              "general/others/blocklist",
+              "general/others/how-is-bowser-extension-different-from-a-desktop-app",
+              {
+                "group": "SSO",
+                "pages": [
+                  "general/others/sso",
+                  "general/others/sso/how-to-set-up-sso-with-microsoft-entra-id",
+                  "general/others/sso/setup-sso-with-okta"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "icon": "lightbulb",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "guides/how-to-modify-cookies-using-requestly",
+              "guides/modify-http-headers-in-web-automation-using-requestly",
+              "guides/modify-html-document-using-modify-api-response-rule",
+              "guides/how-to-use-shared-state-to-aggregate-data-and-use-across-requestly-rules",
+              "guides/intercepting-and-modifying-network-requests-in-web-automation-frameworks-like-selenium-and-playwright",
+              "guides/disable-rule-application-status-widget",
+              "guides/disable-rules-syncing",
+              "guides/modifying-response-asynchronously",
+              "guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app",
+              "guides/how-to-conditionally-fail-requests-based-on-request-counts",
+              "guides/modify-network-request-for-browserstack-local",
+              "guides/record-and-mock-flaky-apis-in-bulk",
+              "guides/can-i-log-in-to-requestly-using-my-browserstack-account",
+              "guides/how-to-update-requestly-extension-manually"
+            ]
+          },
+          {
+            "group": "Other",
+            "pages": ["guides/other/claim-your-requestly-github-student-pack-benefit"]
+          }
+        ]
+      },
+      {
+        "tab": "Public APIs",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "public-apis/overview",
+              "public-apis/create-group",
+              "public-apis/create-rule",
+              "public-apis/get-group",
+              "public-apis/get-rule",
+              "public-apis/update-existing-groups",
+              "public-apis/update-rule",
+              "public-apis/delete-group",
+              "public-apis/delete-rule"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Troubleshoot",
+        "icon": "wrench",
+        "groups": [
+          {
+            "group": "HTTP Interceptor",
+            "pages": [
+              "troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator",
+              "troubleshoot/http-interceptor/intercepting-requests-from-localhost",
+              "troubleshoot/http-interceptor/system-wide-proxy-not-working-macos",
+              "troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate",
+              "troubleshoot/http-interceptor/troubleshooting-safari",
+              "troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
+            ]
+          },
+          {
+            "group": "HTTP  Rules",
+            "pages": [
+              "troubleshoot/http-rules/rules-not-working",
+              "troubleshoot/http-rules/error-on-saving-rule",
+              "troubleshoot/http-rules/rule-changes-not-reflecting-in-chrome-devtools"
+            ]
+          },
+          {
+            "group": "Miscellaneous",
+            "pages": [
+              "troubleshoot/miscellaneous/troubleshooting-login-issues",
+              "troubleshoot/miscellaneous/how-to-check-your-requestly-version-in-the-browser"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelogs",
+        "icon": "clock",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "changelogs/january-21-2025",
+              "changelogs/january-27-2025",
+              "changelogs/february-03-2025",
+              "changelogs/february-10-2025",
+              "changelogs/february-17-2025",
+              "changelogs/february-24-2025",
+              "changelogs/march-10-2025",
+              "changelogs/april-7-2025",
+              "changelogs/april-28-2025-lates",
+              "changelogs/may-12-2025",
+              "changelogs/may-26-2025",
+              "changelogs/jun-2-2025",
+              "changelogs/june-11-2025",
+              "changelogs/june-16-2025",
+              "changelogs/june-24-2025",
+              "changelogs/june-30-2025",
+              "changelogs/july-29-2025",
+              "changelogs/aug-182025",
+              "changelogs/aug-25-2025",
+              "changelogs/sep-2-2025",
+              "changelogs/sep-8-2025",
+              "changelogs/sep-15-2025",
+              "changelogs/sep-15-2025-1758561551098",
+              "changelogs/sep-29-2025",
+              "changelogs/aug",
+              "changelogs/mar"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/requestlyio",
+      "linkedin": "https://linkedin.com/company/requestly",
+      "github": "https://github.com/requestly",
+      "youtube": "https://youtube.com/@requestly"
+    },
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          {
+            "label": "Features",
+            "href": "https://requestly.com"
+          },
+          {
+            "label": "Pricing",
+            "href": "https://app.requestly.io/pricing"
+          },
+          {
+            "label": "Chrome Extension",
+            "href": "https://rqst.ly/chrome-store"
+          },
+          {
+            "label": "Desktop App",
+            "href": "https://requestly.com/desktop"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Blog",
+            "href": "https://requestly.com/blog"
+          },
+          {
+            "label": "Support",
+            "href": "mailto:contact@requestly.io"
+          },
+          {
+            "label": "Changelog",
+            "href": "https://docs.requestly.com/changelog"
+          }
+        ]
+      },
+      {
+        "header": "Company",
+        "items": [
+          {
+            "label": "About",
+            "href": "https://www.browserstack.com/company"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "https://requestly.com/privacy/"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "https://requestly.com/terms/"
+          }
+        ]
+      }
+    ]
+  },
+  "search": {
+    "prompt": "Search Requestly docs..."
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "og:type": "documentation",
+      "og:site_name": "Requestly Documentation",
+      "twitter:card": "summary_large_image",
+      "twitter:site": "@requestlyio"
+    }
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
+  "integrations": {
+    "telemetry": {
+      "enabled": true
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "The page you're looking for doesn't exist. Try searching or browse our documentation sections."
+    }
+  },
+  "redirects": [
+    {
+      "source": "/general/api-client/make-an-api-request",
+      "destination": "/general/api-client/send-api-request"
+    },
+    {
+      "source": "/general/api-client/migrate-from-postman",
+      "destination": "/general/imports/postman"
+    },
+    {
+      "source": "/general/http-rules/others/charles-proxy-importer",
+      "destination": "/general/imports/charles-proxy"
+    },
+    {
+      "source": "/general/api-client/environments-and-variables/create-and-switch-environments",
+      "destination": "/general/api-client/environments-and-variables"
+    },
+    {
+      "source": "/general/api-client/environments-and-variables/add-and-use-variables",
+      "destination": "/general/api-client/environments-and-variables"
+    },
+    {
+      "source": "/general/http-rules/others/sharing-rules",
+      "destination": "/general/http-rules/sharing"
+    },
+    {
+      "source": "/general/http-rules/advanced-usage/rule-operators",
+      "destination": "/general/http-rules/advanced-usage/source-conditions"
+    },
+    {
+      "source": "/general/http-rules/advanced-usage/advance-targeting",
+      "destination": "/general/http-rules/advanced-usage/source-conditions"
+    },
+    {
+      "source": "/general/http-rules/others/http-rules-testing/test-url-condition",
+      "destination": "/general/http-rules/advanced-usage/source-conditions"
+    },
+    {
+      "source": "/general/http-rules/others/http-rules-testing/test-this-rule",
+      "destination": "/general/http-rules/advanced-usage/test-rules"
+    },
+    {
+      "source": "/general/http-rules/rule-types/delay-request",
+      "destination": "/general/http-rules/rule-types/delay-network-requests"
+    },
+    {
+      "source": "/general/http-rules/rule-types/modify-dominject-scripts",
+      "destination": "/general/http-rules/rule-types/insert-scripts"
+    },
+    {
+      "source": "/general/session-book/configure",
+      "destination": "/general/session-book/record-bug-reports#configure-session-recording"
+    },
+    {
+      "source": "/general/session-book/record-session",
+      "destination": "/general/session-book/record-bug-reports#recording-sessions"
+    },
+    {
+      "source": "/general/session-book/save-session",
+      "destination": "/general/session-book/record-bug-reports#saving-a-session"
+    },
+    {
+      "source": "/general/session-book/share-session",
+      "destination": "/general/session-book/record-bug-reports#sharing-a-session"
+    },
+    {
+      "source": "/general/session-book/view-session",
+      "destination": "/general/session-book/record-bug-reports"
+    },
+    {
+      "source": "/general/http-rules/organizing-rule/grouping",
+      "destination": "/general/http-rules/advanced-usage/grouping"
+    },
+    {
+      "source": "/general/http-rules/organizing-rule/pinning-rules",
+      "destination": "/general/http-rules/advanced-usage/pinning-rules"
+    },
+    {
+      "source": "/general/http-rules/advanced-usage/map-local",
+      "destination": "/general/http-rules/rule-types/map-local"
+    },
+    {
+      "source": "/general/http-rules/advanced-usage/map-remote",
+      "destination": "/general/http-rules/rule-types/map-remote"
+    },
+    {
+      "source": "/general/http-rules/others/importexport-rules-from-file",
+      "destination": "/general/http-rules/sharing/download-rules"
+    },
+    {
+      "source": "/general/http-rules/organizing-rule",
+      "destination": "/general/http-rules/advanced-usage/grouping"
+    },
+    {
+      "source": "/general/session-book/architecture",
+      "destination": "/security-privacy/sessions"
+    },
+    {
+      "source": "/general/others/workspaces",
+      "destination": "/general/team/team-collaboration"
+    },
+    {
+      "source": "/general/others/billing-subscriptions/billing-team",
+      "destination": "/general/others/billing-subscriptions"
+    },
+    {
+      "source": "/general/api-client/authorization/authorization-types",
+      "destination": "/general/api-client/authorization"
+    },
+    {
+      "source": "/desktop-app/introduction",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/quick-start-guide",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/downloads",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/downloads/mac",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/downloads/linux",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/downloads/windows",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/setup/browsers",
+      "destination": "/general/http-interceptor/browser-interception"
+    },
+    {
+      "source": "/desktop-app/setup/connect-existing-browser-profile",
+      "destination": "/general/http-interceptor/browser-interception"
+    },
+    {
+      "source": "/desktop-app/setup/android",
+      "destination": "/general/http-interceptor/android-devices"
+    },
+    {
+      "source": "/desktop-app/setup/android/android-devices",
+      "destination": "/general/http-interceptor/android-devices"
+    },
+    {
+      "source": "/desktop-app/setup/android/android-emulators",
+      "destination": "/general/http-interceptor/android-simulator-interception"
+    },
+    {
+      "source": "/desktop-app/setup/ios",
+      "destination": "/general/http-interceptor/ios-devices-interception"
+    },
+    {
+      "source": "/desktop-app/setup/ios/ios-devices",
+      "destination": "/general/http-interceptor/ios-devices-interception"
+    },
+    {
+      "source": "/desktop-app/setup/ios/ios-emulators",
+      "destination": "/general/http-interceptor/ios-simulator-interception"
+    },
+    {
+      "source": "/desktop-app/setup/nodejs",
+      "destination": "/general/http-interceptor/nodejs"
+    },
+    {
+      "source": "/desktop-app/setup/terminal",
+      "destination": "/general/http-interceptor/terminal"
+    },
+    {
+      "source": "/desktop-app/setup/systemwide-proxy",
+      "destination": "/general/http-interceptor/desktop-app-interception"
+    },
+    {
+      "source": "/desktop-app/features/traffic-inspector",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/features/network-modification",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/features/others",
+      "destination": "/general/http-interceptor/overview"
+    },
+    {
+      "source": "/desktop-app/features/others/import-export-network-sessions",
+      "destination": "/general/session-book/record-api-sessions"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting",
+      "destination": "/guides/troubleshooting"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting/system-wide-proxy-not-working-macos",
+      "destination": "/guides/troubleshooting/system-wide-proxy-not-working-macos"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting/troubleshooting-untrusted-ssl-certificate",
+      "destination": "/guides/troubleshooting/troubleshooting-untrusted-ssl-certificate"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting/disable-system-wide-proxy-macos",
+      "destination": "/guides/troubleshooting/disable-system-wide-proxy-macos"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting/troubleshooting-safari",
+      "destination": "/guides/troubleshooting/troubleshooting-safari"
+    },
+    {
+      "source": "/desktop-app/others/troubleshooting/intercepting-requests-from-localhost",
+      "destination": "/guides/troubleshooting/intercepting-requests-from-localhost"
+    },
+    {
+      "source": "/general/others/charles-proxy-importer",
+      "destination": "/general/imports/charles-proxy"
+    },
+    {
+      "source": "/general/public-api/endpoints/rules-api",
+      "destination": "/public-apis/create-rule"
+    },
+    {
+      "source": "/general/public-api/endpoints/groups-api",
+      "destination": "/public-apis/create-group"
+    },
+    {
+      "source": "/general/public-api/schema/rules",
+      "destination": "/public-apis/create-rule#rule-type-details"
+    },
+    {
+      "source": "/general/public-api/schema/groups",
+      "destination": "/public-apis/create-group"
+    },
+    {
+      "source": "/general/public-api/introduction-to-the-public-api",
+      "destination": "/public-apis/overview"
+    },
+    {
+      "source": "/general/advanced-usage/rule-operators",
+      "destination": "/general/http-rules/advanced-usage/source-conditions"
+    },
+    {
+      "source": "/general/others/sharing-rules",
+      "destination": "/general/http-rules/sharing"
+    },
+    {
+      "source": "/general/api-client/collections",
+      "destination": "/general/api-client/api-collections"
+    },
+    {
+      "source": "/general/api-client/export-as",
+      "destination": "/general/api-client/generate-client-code"
+    },
+    {
+      "source": "/general/troubleshooting/rules-not-working",
+      "destination": "/guides/troubleshooting/rules-not-working"
+    },
+    {
+      "source": "/general/http-interceptor/browser-interception",
+      "destination": "/general/http-interceptor/overview#ways-to-intercept-http-traffic"
+    },
+    {
+      "source": "/general/http-interceptor/network-table",
+      "destination": "/general/http-interceptor/overview#ways-to-intercept-http-traffic"
+    },
+    {
+      "source": "/general/http-interceptor/ios-devices-interception",
+      "destination": "/general/http-interceptor/desktop-app/ios-devices-interception"
+    },
+    {
+      "source": "/general/http-interceptor/android-devices",
+      "destination": "/general/http-interceptor/desktop-app/android-devices"
+    },
+    {
+      "source": "/general/http-interceptor/android-simulator-interception",
+      "destination": "/general/http-interceptor/desktop-app/android-simulator-interception"
+    },
+    {
+      "source": "/general/http-interceptor/desktop-app-interception",
+      "destination": "/general/http-interceptor/desktop-app/desktop-app-interception"
+    },
+    {
+      "source": "/general/http-interceptor/terminal",
+      "destination": "/general/http-interceptor/desktop-app/terminal"
+    },
+    {
+      "source": "/general/http-interceptor/nodejs",
+      "destination": "/general/http-interceptor/desktop-app/nodejs"
+    },
+    {
+      "source": "/general/http-interceptor/ios-simulator-interception",
+      "destination": "/general/http-interceptor/desktop-app/ios-simulator-interception"
+    },
+    {
+      "source": "80",
+      "destination": "/public-apis/"
+    },
+    {
+      "source": "/guides/troubleshooting/how-to-check-your-requestly-version-in-the-browser",
+      "destination": "/troubleshoot/how-to-check-your-requestly-version-in-the-browser"
+    },
+    {
+      "source": "/guides/troubleshooting/system-wide-proxy-not-working-macos",
+      "destination": "/troubleshoot/system-wide-proxy-not-working-macos"
+    },
+    {
+      "source": "/guides/troubleshooting/troubleshooting-untrusted-ssl-certificate",
+      "destination": "/troubleshoot/troubleshooting-untrusted-ssl-certificate"
+    },
+    {
+      "source": "/guides/troubleshooting/disable-system-wide-proxy-macos",
+      "destination": "/troubleshoot/disable-system-wide-proxy-macos"
+    },
+    {
+      "source": "/guides/troubleshooting/troubleshooting-safari",
+      "destination": "/troubleshoot/troubleshooting-safari"
+    },
+    {
+      "source": "/guides/troubleshooting/intercepting-requests-from-localhost",
+      "destination": "/troubleshoot/intercepting-requests-from-localhost"
+    },
+    {
+      "source": "/guides/troubleshooting/rules-not-working",
+      "destination": "/troubleshoot/rules-not-working"
+    },
+    {
+      "source": "/general/others/workspace",
+      "destination": "/general/team/workspaces"
+    },
+    {
+      "source": "/general/others/workspace/how-to-get-started-with-shared-workspace",
+      "destination": "/general/team/how-to-get-started-with-shared-workspace"
+    },
+    {
+      "source": "/general/others/workspace/user-roles",
+      "destination": "/general/team/how-to-get-started-with-shared-workspace/user-roles"
+    },
+    {
+      "source": "/general/others/workspace/managing-workspace",
+      "destination": "/general/team/how-to-get-started-with-shared-workspace/managing-workspace"
+    },
+    {
+      "source": "/general/others/workspace/local-workspace",
+      "destination": "/general/team/local-workspace"
+    },
+    {
+      "source": "/security-privacy/overview",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/general/getting-started/security-privacy",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/open-source",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/infrastructure",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/soc-ii",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/api-client",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/http-rules",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/http-interceptor",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/mockfile-server",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/security-privacy/sessions",
+      "destination": "https://requestly.com/privacy/"
+    },
+    {
+      "source": "/general/api-client/import-from-curl",
+      "destination": "/general/api-client/import-export/import-from-curl"
+    }
+  ]
+}

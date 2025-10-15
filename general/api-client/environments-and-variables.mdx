@@ -1,0 +1,46 @@
+---
+title: Variables and Environment
+label: Variables and Environment
+slug: environments-and-variables
+description: ''
+visibility: PUBLIC
+---
+Variables in Requestly’s API Client let you store and reuse dynamic values—like API keys, base URLs, and user IDs—across your API requests. They help you avoid hardcoding, make your collections more modular, and simplify switching between different environments like development, staging, and production.
+
+A **variable** is a named placeholder you define once and reference anywhere in your API collections using the `{{variable_name}}` syntax.
+
+When you run a request, Requestly replaces each `{{variable}}` with its actual value based on its scope.
+
+Example: `https://{{base_url}}/users/{{user_id}}`
+
+If you've defined `base_url = api.example.com` and `user_id = 123`, the request resolves to - [`https://api.example.com/users/123`](https://api.example.com/users/123)
+
+<Tip>
+  +TIP: Hover over any `{{variable}}` in your request to preview its resolved value instantly.
+</Tip>
+
+### Explore Variable Types and Features
+
+[Global Variables](/general/api-client/environments-and-variables/global-variables)
+
+Use values that apply across all requests and collections.
+
+[Environment Variables](/general/api-client/environments-and-variables/environment-variables)
+
+Define values based on your working environment (e.g., dev, staging, prod).
+
+[Runtime Variables](/general/api-client/environments-and-variables/runtime-variables)
+
+Temporary values that last only for the current session—ideal for tokens or session IDs. They aren’t synced and can auto-clear after use.
+
+[Collection & SubCollection Variables](/general/api-client/environments-and-variables/collection-and-subcollection-variables)
+
+Scope variables to specific collections or groups of requests.
+
+[Variable Precedence](/general/api-client/environments-and-variables/variable-precedence)
+
+Understand how Requestly resolves variable conflicts when the same name exists in multiple scopes.
+
+[Using Variables in API Requests](/general/api-client/environments-and-variables/using-variables-in-api-requests)
+
+Learn where and how to use variables in your API request URLs, headers, bodies, and scripts.

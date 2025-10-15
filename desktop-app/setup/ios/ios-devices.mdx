@@ -1,0 +1,61 @@
+---
+title: "IOS Devices"
+slug: "ios-devices"
+path: "/setup/ios/ios-devices"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+# Prerequisites
+
+1. [Download](https://requestly.io/desktop) the Requestly Desktop app, if you haven’t already.
+
+2) Start the App and make sure that your iOS device and your computer are on the same network.
+
+# Setup
+
+## 1. Setup the Proxy
+
+1. On your iOS device, navigate to `Settings` → `Wi-Fi` → `Select current Wi-Fi` → `Configure Proxy`
+
+2) Set the proxy settings to `Manual` . Then, enter the IP address of the computer and the proxy port. You can find these on the top banner inside the Requestly desktop app
+
+3. <img src="https://imagedelivery.net/IEMzXmjRvW0g933AN5ejrA/wwwnotionso-image-docsrequestlyio-assets-images-configure-ios-proxy-a887dfa5a8f8188e9ddb5352cf69e2c5gif/public" alt="" align="center" fullwidth="false" />
+
+   To ensure that the proxy has been set, visit [http://amiusing.requestly.io](http://amiusing.requestly.io/) . If the rendered page shows success, the proxy is now correctly configured.
+
+   <img src="/images/ios-devices/ae0a95f4-147c-4aec-a5c8-6be7c7594962.png" alt="" align="center" fullwidth="false" />
+
+## 2. Install CA Certificate
+
+### a. Download the SSL certificate as a custom profile
+
+1. Now open Safari on your IOS device and go to [http://requestly.io/ssl](https://requestly.io/ssl)**(remember to use HTTP, not HTTPS)**.
+
+2) This should download a custom profile on your device which contains the Requestly CA certificate.
+
+<img src="https://imagedelivery.net/IEMzXmjRvW0g933AN5ejrA/wwwnotionso-image-docsrequestlyio-assets-images-download-ios-profile-3c930531c40e0b95205ecff4d7aa0101gif/public" alt="" align="center" fullwidth="false" />
+
+### b. Install a custom iOS profile
+
+1. Now to install the downloaded custom profile go to Settings. You should see a new option at the top that says Profile Downloaded. Select that to install the profile
+
+2. Click on Install. This will also ask you to enter your PIN/passphrase. Once everything is complete, click Done on the top right to finish the installation and navigate out
+
+3. Install the new custom iOS profile
+
+### c. Enable trust for SSL certificate
+
+1. Finally, you need to enable trust for CA certificates that were installed along with this custom profile. Go to `Settings` → `General` → `About` → `Certificate Trust Settings`
+
+2) You should see a certificate under the name RQProxyCA. Enable the trust for Requestly's certificate authority for intercepting HTTPS traffic.
+
+<img src="https://imagedelivery.net/IEMzXmjRvW0g933AN5ejrA/wwwnotionso-image-docsrequestlyio-assets-images-trust-ios-profile-5e19956f707681ef40016a6663b677cegif/public" alt="" align="center" fullwidth="false" />
+
+# Reverting the setup
+
+Remember to disable the HTTP Proxy in your Settings when you stop using Requestly, otherwise, you'll get confusing network failures in your applications! You just need to set the network proxy the next time you want to debug with Requestly.
+
+1. Navigate to `Settings` → `Wi-Fi` → `Select current Wi-Fi` → `Configure Proxy`
+
+2. Set the proxy settings to `Off`

@@ -1,0 +1,32 @@
+---
+title: 'April 7, 2025'
+label: 'April 7, 2025'
+slug: april-7-2025
+description: 'RBAC now supports Viewer Role, & bug fixes...'
+visibility: PUBLIC
+---
+<img src="/images/april-7-2025/cec16075-5417-4575-92e9-48ba5ab7b2cc.png" align="left" fullwidth="false" />
+
+### 🚀 New
+
+* Role-Based Access Control (RBAC) now supports a **Viewer** role\
+  The new Viewer role allows read-only access, ensuring sensitive actions like editing or deleting are restricted.\
+  👉 [Learn more about user roles](/general/others/workspace/user-roles)
+
+### 🐛 Fixes
+
+* Fixed minification issue in Editor and removed `EditorV1` dependency
+
+* Prevented Google Translate from breaking the app by overriding `Node` methods
+
+* Resolved Sentry error for `undefined(length)`
+
+* Prevented app crash due to empty/null values in Typography
+
+* Fixed initialization bug in `clientStorageService`
+
+* Fixed issue with unsaved tab changes appearing for existing requests
+
+### 🧹 Chores
+
+* Optimized code to reduce bundle size

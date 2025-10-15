@@ -1,0 +1,80 @@
+---
+title: Network Inspector
+label: Network Inspector
+slug: traffic-inspector
+description: ''
+visibility: PUBLIC
+---
+## Introduction
+
+Whether you’re a developer, QA engineer, or anyone working with HTTP requests and APIs, Requestly can help you intercept and analyze network traffic in real-time, making it easier to debug issues or test changes without touching the code.
+
+## How does Requestly Interceptor work?
+
+Requestly HTTP interceptor is a web proxy that runs on your computer. By routing network requests through Requestly, you can intercept all the network traffic made by the browser or your application.
+
+Reading and modifying any web request and response opens up a world of possibilities for debugging and analyzing your application. You can:
+
+* **Pinpoint Issues**: Identify network errors, slow responses, or missing resources.
+
+* **Test Edge Cases**: Simulate server errors or unexpected payloads.
+
+* **Inject Mock Data**: Replace live responses with custom data.
+
+* **Optimize APIs**: Refine requests to enhance performance.
+
+## Configure HTTP Interceptor
+
+Requestly’s HTTP interceptor can be used with various applications and devices, Explore these guides to learn how to set it up for your specific needs.
+
+* [Browsers](/desktop-app/setup/browsers) - Configure Requestly with popular web browsers like Chrome, Firefox, Edge, etc
+
+* [Android devices](/desktop-app/setup/android/android-devices) - Intercept Traffic from your Android smartphones and tablets.
+
+* [Android emulator](/desktop-app/setup/android/android-emulators) - Configure Android emulators in Android Studio.
+
+* [iOS Devices](/desktop-app/setup/ios/ios-devices) - Set up your iPhones and iPads to intercept their traffic
+
+* [iOS Emulator](/desktop-app/setup/ios/ios-emulators) - Use Requestly with iOS simulators in Xcode.
+
+* [Node.js](/desktop-app/setup/nodejs) - Integrate Requestly with Node.js applications to debug server-side network requests and responses during development or testing
+
+* [Terminal](/desktop-app/setup/terminal) - Use Requestly with command-line tools or scripts to intercept and manipulate HTTP requests for automation and debugging purposes.
+
+* [Systemwide proxy](/desktop-app/setup/systemwide-proxy) - Configure Requestly as a systemwide proxy to capture and manipulate traffic across all applications and devices connected to your network.
+
+After you set up your desired application to Requestly’s proxy you can easily view all the network requests and responses in the network table.
+
+## Network Table
+
+<img src="/images/traffic-inspector/1a5029bc-2ddf-4d53-9d09-522b94792ca1.png" align="center" fullwidth="false" />
+
+The **Network Table** is the heart of Requestly’s Desktop App; here you can monitor, inspect, and manage all intercepted network traffic. It’s packed with powerful features to help you debug with ease. Here's a quick overview of its key components:
+
+1. **Traffic Table -** Displays all intercepted requests and responses with key details like URL, status, and time.
+
+2) **Export HAR button** **-** Export captured network traffic as a HAR file for analysis or sharing. [Read more](/general/session-book/import-view-har-file).
+
+3. **Save Session Button** **-** Save the current network session for future debugging or comparison.
+
+4. **Request / Response Details -** Show detailed headers, payloads, and cookies for selected requests or responses.
+
+5. **Search and Filter options -** Quickly find traffic entries using search keywords or advanced filters.
+
+6. **Clear Logs or Pause Button -** Clears logs or pauses traffic capture to reduce noise and focus.
+
+7. **App and Domains Filter -** Filters traffic by specific apps or domains for focused analysis.
+
+## **Filtering Traffic**
+
+Use the filter option to find a set of particular requests from hundreds of intercepted requests. There are 4 types of filters available as follows:
+
+* **URL**: Filter requests by using string search on the URL of the request.
+
+* **Method**: Filter by HTTP methods such as: GET, POST, PUT, PATCH, or DELETE.
+
+* **Status Code**: Narrow down by response status codes, including 1XX (Informational), 2XX (Success), 3XX (Redirection), 4XX (Client Errors), and 5XX (Server Errors).
+
+* **Resource Type**: Focus on specific resource types like HTML, JSON, JavaScript, CSS, Images, Media (Audio and Video), FormData, or Fonts.
+
+<img src="/images/traffic-inspector/c0d29f93-a101-4cf3-ae63-12283c3abace.png" align="center" fullwidth="false" />

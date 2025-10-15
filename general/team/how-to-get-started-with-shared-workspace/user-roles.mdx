@@ -1,0 +1,121 @@
+---
+title: "User Roles and Permissions"
+slug: "user-roles"
+path: "/team/how-to-get-started-with-shared-workspace/user-roles"
+visibility: "PUBLIC"
+format: "MDX"
+description: "Learn how to manage team collaboration securely in Requestly with Role-Based Access Control (RBAC) by defining roles and setting permissions."
+---
+
+***
+
+Requestly enhances collaboration and security by allowing workspace admins to assign specific roles to users. This role-based access control (RBAC) ensures that only authorized members can access sensitive configurations, such as API keys and authentication tokens, and helps prevent unauthorised modifications.
+
+In this doc, you'll learn how Requestly's RBAC works, the specific roles available, the permissions associated with each role, and how to change user roles within your workspace
+
+## How RBAC Works in Requestly
+
+Requestly uses role-based access control (RBAC) to ensure that every team member only gets access to what they need. It has three roles — **Admin**, **Editor**, and **Viewer**, each with permissions to protect sensitive data like API keys and tokens and reduce mistakes or unauthorised changes, making teamwork smoother and more efficient.
+
+## User Roles and Their Permissions
+
+Each workspace has three roles, each with distinct permissions:
+
+#### **Admin**
+
+* Full control over **workspace settings, member management, and permissions**.
+
+* Can **create, edit, delete, and execute** Rules, APIs, and Sessions.
+
+#### **Editor**
+
+* Can **create, edit, delete, and execute** Rules, APIs, and Sessions.
+
+* **Cannot** manage team settings, members, or workspace-wide configurations.
+
+#### **Viewer**
+
+<Tip>
+  Viewers cannot edit Rules or API requests, but they can **execute** them.
+</Tip>
+
+* **Read-only access**.
+
+* Can **view and execute** Rules, APIs, and Sessions but **cannot make any changes** or access sensitive workspace settings.
+
+### Permissions Table
+
+Below is a table that outlines key permissions for each role:
+
+<Tabs>
+  <Tab title="Workspace">
+    | **Permission**       | **Admin** | **Editor**           | **Viewer** |
+    | -------------------- | --------- | -------------------- | ---------- |
+    | Add a new user       | ✅         | ✅ (Add as an editor) | ❌          |
+    | Remove a user        | ✅         | ❌                    | ❌          |
+    | Generate public link | ✅         | ❌                    | ❌          |
+  </Tab>
+
+  <Tab title="Rules">
+    | **Permission**                       | **Admin** | **Editor** | **Viewer** |
+    | ------------------------------------ | --------- | ---------- | ---------- |
+    | Enable/Disable a rule                | ✅         | ✅          | ✅          |
+    | Pin rules to extension               | ✅         | ✅          | ✅          |
+    | Create, Edit and Delete a rule/group | ✅         | ✅          | ❌          |
+    | Duplicate rule/group                 | ✅         | ✅          | ❌          |
+    | Import rules                         | ✅         | ✅          | ❌          |
+    | Share + Export rules                 | ✅         | ✅          | ❌          |
+  </Tab>
+
+  <Tab title="API Client">
+    | **Permission**                                                    | **Admin** | **Editor** | **Viewer** |
+    | ----------------------------------------------------------------- | --------- | ---------- | ---------- |
+    | Send a request                                                    | ✅         | ✅          | ✅          |
+    | Save, update, or delete a request                                 | ✅         | ✅          | ❌          |
+    | Create, update, or delete a collection                            | ✅         | ✅          | ❌          |
+    | Switch an environment                                             | ✅         | ✅          | ✅          |
+    | Create, update, or delete a Environment variable                  | ✅         | ✅          | ❌          |
+    | Define current/local values in a Environment variable             | ✅         | ✅          | ✅          |
+    | View secrets                                                      | ✅         | ✅          | ❌          |
+    | Export Requests, Collections and Environment                      | ✅         | ✅          | ❌          |
+    | Create new draft requests                                         | ✅         | ✅          | ❌          |
+    | Import collection/environments from Requestly, Bruno, and Postman | ✅         | ✅          | ❌          |
+    | Import cURL                                                       | ✅         | ✅          | ❌          |
+  </Tab>
+
+  <Tab title="Sessions">
+    | **Permission**                      | **Admin** | **Editor** | **Viewer** |
+    | ----------------------------------- | --------- | ---------- | ---------- |
+    | Create, manage, and delete sessions | ✅         | ✅          | ❌          |
+    | View active sessions                | ✅         | ✅          | ✅          |
+    | Export session data                 | ✅         | ✅          | ❌          |
+  </Tab>
+</Tabs>
+
+## Changing Roles
+
+At times, you may need to update a team member’s role. Follow these steps to change roles within your workspace:
+
+<Steps>
+  <Step title="Switch to the Workspace">
+    Navigate to the Requestly dashboard and switch to the workspace where you want to add members.
+
+    <img src="/images/user-roles/d26f4d28-084f-4277-bcf1-abafe660efec.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Open Manage Workspace">
+    Open the switch workspace panel and select **“Manage workspace”**
+
+    <img src="/images/user-roles/0b2e28a4-07c3-44a8-b35c-34cf0908a18a.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Select a Member">
+    Find the member whose role you want to change in the members list.
+  </Step>
+
+  <Step title="Update Role">
+    Use the dropdown next to their name to select the new role (e.g. Admin, Editor, or Viewer) and confirm the change.
+
+    <img src="/images/user-roles/64491626-b123-4083-a67d-d3563ed0e51a.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>

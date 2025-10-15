@@ -1,0 +1,104 @@
+---
+title: Introduction
+label: Introduction
+slug: introduction
+description: Welcome to Requestly’s Documentation!
+visibility: PUBLIC
+---
+***
+
+Requestly is an open-source tool for API Mocking, Testing, and Debugging. It serves as a valuable companion for developers, offering the following features:
+
+* Send API requests using the API Client
+
+* Create, manage, and collaborate on API contracts
+
+* Override APIs by modifying headers, request bodies, response bodies, status codes, and adding delays
+
+* Mock API responses
+
+* Record Bug Reports
+
+This documentation provides official information on incorporating Requestly into your development workflows.
+
+Below is an introduction to each section of this documentation, allowing you to quickly navigate to the solution you need.
+
+## Getting Started
+
+If you are new to Requestly, We recommend you start with the [getting started](/general/getting-started/quick-start-guide) section.
+
+## API Client
+
+### Send API Request
+
+Use Requestly to send requests to the APIs you're working with. Learn more about [Send API requests and get response data](/general/api-client/make-an-api-request) in Requestly.
+
+### Design APIs
+
+Requestly supports designing APIs using its API Builder embedded into [API Client](/general/api-client/overview). Designing APIs in Requestly helps you streamline the rest of the development flow like testing, mocking, and debugging your APIs.
+
+Support of [collections](/general/api-client/api-collections), [environments](/general/api-client/environments-and-variables), and [scripts](/general/api-client/scripts) lets you design your API contracts quickly. Your API definition can serve as the single source of truth for your projects. Sharing APIs within or across teams is fast and easy.
+
+Start [designing your APIs in Requestly using API Builder](/general/api-client/make-an-api-request).
+
+### Develop APIs
+
+Use Requestly to help you during API development, learn how to use Requestly to speed up API Development.
+
+### Using Variables
+
+Use variables to control the variable parts of API Requests, such as the root URL, tokens, etc., that vary across environments. Learn more under [environment variables](/general/api-client/environments-and-variables). Requestly also supports collection-level variables for use within a collection.
+
+## HTTP Rules
+
+### Override APIs / Network Calls
+
+Requestly offers powerful HTTP Rules that enable you to modify network requests and responses effortlessly. You can override headers, edit the request body, customize the response body, or even change the response status code quickly. Additionally, you can modify query parameters to add, update, or delete parameters in a URL, and modify user-agent strings to simulate different devices or browsers. You can also cancel requests before they are executed.
+
+Explore [Modify Headers](/general/http-rules/rule-types/modify-headers), [Modify Query Parameters](/general/http-rules/rule-types/modify-query-params), [Modify User-Agent](/general/http-rules/rule-types/modify-user-agents), [Modify Request Body](/general/http-rules/rule-types/modify-request-body), [Modify API Response](/general/http-rules/rule-types/modify-response-body), and [Cancel Request](/general/http-rules/rule-types/cancel-rule) for step-by-step instructions and examples.
+
+### Redirect Network Calls/APIs
+
+Requestly provides two ways to redirect a network request, whether it is a script file, image, API, or any other resource. The [Redirect Rule](/general/http-rules/rule-types/redirect-rule) matches URL conditions and redirects all matching requests to a predefined URL. The [Replace Rule](/general/http-rules/rule-types/replace-strings) is more versatile, allowing you to match a URL, replace a part of it to create a new URL and redirect the request to this newly constructed URL.
+
+### Add Network Delay
+
+You can simulate network delays using the [Delay Rule](/general/http-rules/rule-types/delay-request), which allows you to add a delay (in milliseconds) to matching URLs. This is particularly helpful for testing your application's behavior under slow network conditions or during a slow process.
+
+### Insert Scripts
+
+The [Insert Scripts Rule](/general/http-rules/rule-types/modify-dominject-scripts) in Requestly enables you to make dynamic, on-the-fly changes to a webpage’s content or behavior without needing to access or modify the source code.
+
+## API Mocking
+
+API Mocking enables you to simulate APIs for testing and development without depending on live backend systems. Requestly supports two types of API Mocking: [Local Mocks](/general/http-rules/rule-types/modify-response-body), which can be created individually or in bulk by recording a live session for offline or quick testing, and [Cloud-Based Mocks](/general/mock-server/overview), which are hosted on Requestly’s platform for easy sharing and collaboration.
+
+## Team Collaboration
+
+Requestly makes teamwork seamless and efficient with [Team Workspaces](/general/others/workspaces). You can [add team members](/general/others/workspace/how-to-get-started-with-shared-workspace#adding-new-members), [assign specific roles](/general/others/workspace/user-roles), and manage [permissions](/general/others/workspace/user-roles#permissions-overview) through Role-Based Access Control (RBAC). This ensures that only authorized users can access or modify sensitive resources. Workspaces allow you to share HTTP Rules, saved sessions, API collections, environment variables, and mocks while maintaining security and control. With well-defined roles and permissions, Requestly helps you organize resources effectively and enables effortless collaboration without compromising access control.
+
+## Sessions
+
+Requestly’s **Sessions** feature provides powerful tools for capturing, analyzing, and sharing network activity. You can <a target="_blank" href="/general/session-book/record-api-sessions">record API sessions</a>, replay them for testing, and even use them for bulk mocking. It also allows you to [record bug reports](/general/session-book/record-session), capturing screen activity, console logs, network logs, and environment details to create replicable bug reports for developers.
+
+Additionally, you can <a target="_blank" href="/general/session-book/import-view-har-file">import and view HAR files</a> directly within Requestly for seamless analysis. To ensure security, sessions come with <a target="_blank" href="/general/session-book/access-control-of-session">access control options</a>, allowing you to manage who can view or use the recorded sessions.
+
+<Info>
+  We do not record Request Headers because they often contain authentication and authorization information.
+</Info>
+
+## Requestly Public API
+
+Requestly's [Public API](/public-apis/overview) enables seamless integration into your CI/CD pipelines, allowing you to programmatically manage HTTP rules for automated testing and deployments. With the API, you can add, update, delete, and retrieve rules, simplifying workflows like creating staging environments or updating configurations dynamically.
+
+## Imports
+
+Requestly's Imports feature lets you easily migrate configurations from tools like [Postman](/general/api-client/migrate-from-postman), [Charles Proxy](/general/http-rules/others/charles-proxy-importer), <a target="_blank" href="/general/imports/modheader">Modheader</a>, and <a target="_blank" href="/general/imports/resource-override">Resource Override</a>, unifying your workflows within a single platform.
+
+## Security & Privacy
+
+At Requestly, we prioritize [security and privacy](/general/getting-started/security-privacy) across all aspects of our platform. Being <a target="_blank" href="/security-privacy/open-source">open source</a>, our codebase is transparent and auditable. Our robust <a target="_blank" href="/security-privacy/infrastructure">infrastructure</a> ensures reliable performance and data security, further backed by <a target="_blank" href="/security-privacy/soc-ii">SOC 2 compliance</a> for industry-standard safeguards. Learn more about the security and privacy measures implemented for the <a target="_blank" href="/security-privacy/api-client">API Client</a>, <a target="_blank" href="/security-privacy/http-rules">HTTP Rules</a>, <a target="_blank" href="/security-privacy/http-interceptor">HTTP Interceptor</a>, and [Session Book](/security-privacy/sessions) in our detailed documentation.
+
+## Billing
+
+Requestly's [Billing section](/general/others/billing-subscriptions) simplifies license and subscription management for teams. Through the Billing Team Dashboard, admins can assign or revoke licenses and manage roles like Billing Manager, Admin, and Member to streamline access and collaboration.
