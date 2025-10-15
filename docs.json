@@ -508,23 +508,35 @@
     },
     {
       "source": "/general/session-book/configure",
-      "destination": "/general/session-book/record-bug-reports#configure-session-recording"
+      "destination": "/general/sessions/record-bug-reports#configure-session-recording"
     },
     {
       "source": "/general/session-book/record-session",
-      "destination": "/general/session-book/record-bug-reports#recording-sessions"
+      "destination": "/general/sessions/record-bug-reports#recording-sessions"
     },
     {
       "source": "/general/session-book/save-session",
-      "destination": "/general/session-book/record-bug-reports#saving-a-session"
+      "destination": "/general/sessions/record-bug-reports#saving-a-session"
     },
     {
       "source": "/general/session-book/share-session",
-      "destination": "/general/session-book/record-bug-reports#sharing-a-session"
+      "destination": "/general/sessions/record-bug-reports#sharing-a-session"
     },
     {
       "source": "/general/session-book/view-session",
-      "destination": "/general/session-book/record-bug-reports"
+      "destination": "/general/sessions/record-bug-reports"
+    },
+    {
+      "source": "/general/session-book/record-bug-reports",
+      "destination": "/general/sessions/record-bug-reports"
+    },
+    {
+      "source": "/general/session-book/import-view-har-file",
+      "destination": "/general/sessions/import-view-har-file"
+    },
+    {
+      "source": "/general/session-book/access-control-of-session",
+      "destination": "/general/sessions/access-control-of-session"
     },
     {
       "source": "/general/http-rules/organizing-rule/grouping",
@@ -552,11 +564,11 @@
     },
     {
       "source": "/general/session-book/architecture",
-      "destination": "/security-privacy/sessions"
+      "destination": "https://requestly.com/privacy/"
     },
     {
       "source": "/general/others/workspaces",
-      "destination": "/general/team/team-collaboration"
+      "destination": "/general/team/workspaces"
     },
     {
       "source": "/general/others/billing-subscriptions/billing-team",
@@ -592,43 +604,43 @@
     },
     {
       "source": "/desktop-app/setup/browsers",
-      "destination": "/general/http-interceptor/browser-interception"
+      "destination": "/general/http-interceptor/desktop-app/browser-interception"
     },
     {
       "source": "/desktop-app/setup/connect-existing-browser-profile",
-      "destination": "/general/http-interceptor/browser-interception"
+      "destination": "http://localhost:3000/general/http-interceptor/desktop-app/browser-interception#connect-existing-browser-profile"
     },
     {
       "source": "/desktop-app/setup/android",
-      "destination": "/general/http-interceptor/android-devices"
+      "destination": "/general/http-interceptor/desktop-app/android-devices"
     },
     {
       "source": "/desktop-app/setup/android/android-devices",
-      "destination": "/general/http-interceptor/android-devices"
+      "destination": "/general/http-interceptor/desktop-app/android-devices"
     },
     {
       "source": "/desktop-app/setup/android/android-emulators",
-      "destination": "/general/http-interceptor/android-simulator-interception"
+      "destination": "/general/http-interceptor/desktop-app/android-simulator-interception"
     },
     {
       "source": "/desktop-app/setup/ios",
-      "destination": "/general/http-interceptor/ios-devices-interception"
+      "destination": "/general/http-interceptor/desktop-app/ios-devices-interception"
     },
     {
       "source": "/desktop-app/setup/ios/ios-devices",
-      "destination": "/general/http-interceptor/ios-devices-interception"
+      "destination": "/general/http-interceptor/desktop-app/ios-devices-interception"
     },
     {
       "source": "/desktop-app/setup/ios/ios-emulators",
-      "destination": "/general/http-interceptor/ios-simulator-interception"
+      "destination": "/general/http-interceptor/desktop-app/ios-simulator-interception"
     },
     {
       "source": "/desktop-app/setup/nodejs",
-      "destination": "/general/http-interceptor/nodejs"
+      "destination": "/general/http-interceptor/desktop-app/nodejs"
     },
     {
       "source": "/desktop-app/setup/terminal",
-      "destination": "/general/http-interceptor/terminal"
+      "destination": "/general/http-interceptor/desktop-app/terminal"
     },
     {
       "source": "/desktop-app/setup/systemwide-proxy",
@@ -648,31 +660,47 @@
     },
     {
       "source": "/desktop-app/features/others/import-export-network-sessions",
-      "destination": "/general/session-book/record-api-sessions"
+      "destination": "/general/sessions/record-api-sessions"
+    },
+    {
+      "source": "/general/session-book/record-api-sessions",
+      "destination": "/general/sessions/record-api-sessions"
     },
     {
       "source": "/desktop-app/others/troubleshooting",
-      "destination": "/guides/troubleshooting"
+      "destination": "/troubleshoot/http-interceptor/system-wide-proxy-not-working-macos"
     },
     {
       "source": "/desktop-app/others/troubleshooting/system-wide-proxy-not-working-macos",
-      "destination": "/guides/troubleshooting/system-wide-proxy-not-working-macos"
+      "destination": "/troubleshoot/http-interceptor/system-wide-proxy-not-working-macos"
     },
     {
       "source": "/desktop-app/others/troubleshooting/troubleshooting-untrusted-ssl-certificate",
-      "destination": "/guides/troubleshooting/troubleshooting-untrusted-ssl-certificate"
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate"
+    },
+    {
+      "source": "/troubleshoot/troubleshooting-untrusted-ssl-certificate",
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate"
     },
     {
       "source": "/desktop-app/others/troubleshooting/disable-system-wide-proxy-macos",
-      "destination": "/guides/troubleshooting/disable-system-wide-proxy-macos"
+      "destination": "/troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
     },
     {
       "source": "/desktop-app/others/troubleshooting/troubleshooting-safari",
-      "destination": "/guides/troubleshooting/troubleshooting-safari"
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-safari"
+    },
+    {
+      "source": "/troubleshoot/troubleshooting-safari",
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-safari"
     },
     {
       "source": "/desktop-app/others/troubleshooting/intercepting-requests-from-localhost",
-      "destination": "/guides/troubleshooting/intercepting-requests-from-localhost"
+      "destination": "/troubleshoot/http-interceptor/intercepting-requests-from-localhost"
+    },
+    {
+      "source": "/troubleshoot/intercepting-requests-from-localhost",
+      "destination": "/troubleshoot/http-interceptor/intercepting-requests-from-localhost"
     },
     {
       "source": "/general/others/charles-proxy-importer",
@@ -716,7 +744,7 @@
     },
     {
       "source": "/general/troubleshooting/rules-not-working",
-      "destination": "/guides/troubleshooting/rules-not-working"
+      "destination": "/troubleshoot/http-rules/rules-not-working"
     },
     {
       "source": "/general/http-interceptor/browser-interception",
@@ -755,36 +783,32 @@
       "destination": "/general/http-interceptor/desktop-app/ios-simulator-interception"
     },
     {
-      "source": "80",
-      "destination": "/public-apis/"
-    },
-    {
       "source": "/guides/troubleshooting/how-to-check-your-requestly-version-in-the-browser",
-      "destination": "/troubleshoot/how-to-check-your-requestly-version-in-the-browser"
+      "destination": "/troubleshoot/miscellaneous/how-to-check-your-requestly-version-in-the-browser"
     },
     {
       "source": "/guides/troubleshooting/system-wide-proxy-not-working-macos",
-      "destination": "/troubleshoot/system-wide-proxy-not-working-macos"
+      "destination": "/troubleshoot/http-interceptor/system-wide-proxy-not-working-macos"
     },
     {
       "source": "/guides/troubleshooting/troubleshooting-untrusted-ssl-certificate",
-      "destination": "/troubleshoot/troubleshooting-untrusted-ssl-certificate"
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate"
     },
     {
       "source": "/guides/troubleshooting/disable-system-wide-proxy-macos",
-      "destination": "/troubleshoot/disable-system-wide-proxy-macos"
+      "destination": "/troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
     },
     {
       "source": "/guides/troubleshooting/troubleshooting-safari",
-      "destination": "/troubleshoot/troubleshooting-safari"
+      "destination": "/troubleshoot/http-interceptor/troubleshooting-safari"
     },
     {
       "source": "/guides/troubleshooting/intercepting-requests-from-localhost",
-      "destination": "/troubleshoot/intercepting-requests-from-localhost"
+      "destination": "/troubleshoot/http-interceptor/intercepting-requests-from-localhost"
     },
     {
       "source": "/guides/troubleshooting/rules-not-working",
-      "destination": "/troubleshoot/rules-not-working"
+      "destination": "/troubleshoot/http-rules/rules-not-working"
     },
     {
       "source": "/general/others/workspace",
@@ -807,7 +831,7 @@
       "destination": "/general/team/local-workspace"
     },
     {
-      "source": "/security-privacy/overview",
+      "source": "/security-privacy/*",
       "destination": "https://requestly.com/privacy/"
     },
     {
@@ -815,40 +839,12 @@
       "destination": "https://requestly.com/privacy/"
     },
     {
-      "source": "/security-privacy/open-source",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/infrastructure",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/soc-ii",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/api-client",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/http-rules",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/http-interceptor",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/mockfile-server",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
-      "source": "/security-privacy/sessions",
-      "destination": "https://requestly.com/privacy/"
-    },
-    {
       "source": "/general/api-client/import-from-curl",
       "destination": "/general/api-client/import-export/import-from-curl"
+    },
+    {
+      "source": "/general/others/workspaces/local-workspace",
+      "destination": "/general/team/local-workspace"
     }
   ]
 }
