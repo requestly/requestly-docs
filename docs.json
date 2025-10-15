@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "palm",
   "name": "Requestly",
   "description": "Modify, Mock, Record & Debug HTTP requests - Comprehensive documentation for Requestly's powerful tools for API testing, debugging, and network request manipulation.",
   "colors": {
@@ -331,32 +331,32 @@
           {
             "group": "Overview",
             "pages": [
-              "changelogs/january-21-2025",
-              "changelogs/january-27-2025",
-              "changelogs/february-03-2025",
-              "changelogs/february-10-2025",
-              "changelogs/february-17-2025",
-              "changelogs/february-24-2025",
-              "changelogs/march-10-2025",
-              "changelogs/april-7-2025",
-              "changelogs/april-28-2025-lates",
-              "changelogs/may-12-2025",
-              "changelogs/may-26-2025",
-              "changelogs/jun-2-2025",
-              "changelogs/june-11-2025",
-              "changelogs/june-16-2025",
-              "changelogs/june-24-2025",
-              "changelogs/june-30-2025",
-              "changelogs/july-29-2025",
-              "changelogs/aug-182025",
-              "changelogs/aug-25-2025",
-              "changelogs/sep-2-2025",
-              "changelogs/sep-8-2025",
-              "changelogs/sep-15-2025",
-              "changelogs/sep-15-2025-1758561551098",
               "changelogs/sep-29-2025",
+              "changelogs/sep-15-2025-1758561551098",
+              "changelogs/sep-15-2025",
+              "changelogs/sep-8-2025",
+              "changelogs/sep-2-2025",
+              "changelogs/aug-25-2025",
+              "changelogs/aug-182025",
               "changelogs/aug",
-              "changelogs/mar"
+              "changelogs/july-29-2025",
+              "changelogs/june-30-2025",
+              "changelogs/june-24-2025",
+              "changelogs/june-16-2025",
+              "changelogs/june-11-2025",
+              "changelogs/jun-2-2025",
+              "changelogs/may-26-2025",
+              "changelogs/may-12-2025",
+              "changelogs/april-28-2025-lates",
+              "changelogs/april-7-2025",
+              "changelogs/march-10-2025",
+              "changelogs/mar",
+              "changelogs/february-24-2025",
+              "changelogs/february-17-2025",
+              "changelogs/february-10-2025",
+              "changelogs/february-03-2025",
+              "changelogs/january-27-2025",
+              "changelogs/january-21-2025"
             ]
           }
         ]
@@ -401,11 +401,11 @@
           },
           {
             "label": "Support",
-            "href": "mailto:contact@requestly.io"
+            "href": "http://requestly.com/contact-us"
           },
           {
             "label": "Changelog",
-            "href": "https://docs.requestly.com/changelog"
+            "href": "https://docs.requestly.com/changelogs"
           }
         ]
       },
