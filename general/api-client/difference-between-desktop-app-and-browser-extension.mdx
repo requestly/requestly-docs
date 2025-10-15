@@ -1,0 +1,42 @@
+---
+title: Differences Between Desktop App and Browser Extension
+label: Differences Between Desktop App and Browser Extension
+slug: difference-between-desktop-app-and-browser-extension
+seoTitle: Differences Between the Desktop App and Browser Extension
+visibility: PUBLIC
+---
+Requestly API Client is available as both a **Desktop App** and a **Browser Extension**.\
+While both versions let you create, test, and debug APIs efficiently, they differ in capabilities due to platform constraints.
+
+This document highlights key differences to help you choose the right version for your workflow.
+
+### Platform Availability
+
+| **Feature**          | **Browser Extension** | **Desktop App** |
+| -------------------- | --------------------- | --------------- |
+| **Platform Support** | Chrome, Firefox, Edge | Windows, macOS  |
+
+### API & Request Capabilities
+
+| **Feature**                             | **Browser Extension** | **Desktop App**                               |
+| --------------------------------------- | --------------------- | --------------------------------------------- |
+| **Supported Request Types**             | REST, GraphQL         | REST, GraphQL                                 |
+| **Multipart / Form Data**               | ❌ Not supported       | ✅ Supported                                   |
+| **Send Files in Multipart / Form data** | ❌ Not supported       | ✅ Supported                                   |
+| **Access APIs on Localhost**            | ✅ Supported           | ✅ Supported                                   |
+| **Replay Requests from Interceptor**    | ❌ Not supported       | ✅ (Replay recorded requests from interceptor) |
+| **Collection Runner**                   | ✅ Supported           | ✅ Supported                                   |
+
+### Workspace & Collaboration
+
+| **Feature**              | **Browser Extension** | **Desktop App** |
+| ------------------------ | --------------------- | --------------- |
+| **Local Workspaces**     | ❌ Not supported       | ✅ Supported     |
+| **Team Workspaces**      | ✅ Supported           | ✅ Supported     |
+| **File Import / Export** | ✅ Supported           | ✅ Supported     |
+
+### Summary
+
+* **Use the Browser Extension** for a lightweight, in-browser API client ideal for quick testing and debugging.
+
+* **Use the Desktop App** if you need advanced capabilities like file uploads, multipart requests, local workspaces, or replaying intercepted requests.

@@ -1,0 +1,47 @@
+---
+title: 'January 21, 2025'
+label: 'January 21, 2025'
+slug: january-21-2025
+description: >-
+  New Resource Override Importer, Markdown Support in Collection Overview,
+  Autocompletion, and much more...
+visibility: PUBLIC
+---
+### **✨ New**
+
+1. **Resource Override Chrome Extension Importer**\
+   Introduced the ability to import configurations directly from Resource Override Chrome Extension, making it easier to transition. Refer [docs](/general/imports/resource-override).
+
+2. **Markdown Support in Collections Overview**\
+   Added Markdown support for the Collection Overview tab, enabling users to format descriptions, notes, and documentation within collections.
+
+3. **Variables Autocompletion in API Client Requests**\
+   Implemented autocompletion for variables, improving speed and accuracy when working with dynamic data in requests.
+
+### **💎 Improvements**
+
+1. Tabs and cursor positions are now preserved when switching between API Client tabs, whereas previously, switching back to a tab would default to the query parameters view.
+
+2. Collections are now sorted alphabetically, improving readability and ensuring easy accessibility.
+
+3. The API Client history screen now clearly informs users that history data is stored in local storage, with a message displayed at the top.
+
+4. Collections are now collapsed by default upon import, improving readability and reducing visual clutter compared to the previous behavior where all collections were expanded.
+
+### **🐞 Fixes**
+
+1. Resolved an issue where unsaved changes to environment variables were lost when opening the importer modal.
+
+2. Fixed a bug in Codemirror where the cursor jumped to the beginning of the editor when typing rapidly, improving text editing functionality.
+
+3. Request and Response bodies in the API Client now load prettified by default, enhancing readability.
+
+4. Secret values are no longer visible in the autocomplete dropdown of the API Client.
+
+5. Resolved an issue where tabs would display data from a different request when switching.
+
+6. Fixed an issue where unsaved changes to a request were lost upon duplicating it.
+
+7. Fixed an issue where query parameters were lost when a request was loaded from history.
+
+8. Addressed an issue where current values of API Client variables were cleared upon switching workspaces.

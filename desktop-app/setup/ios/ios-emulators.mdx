@@ -1,0 +1,43 @@
+---
+title: "iOS Simulators"
+slug: "ios-emulators"
+path: "/setup/ios/ios-emulators"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+# Setup
+
+## 0. Prerequisites
+
+1. Download the [Requestly Desktop app,]() if you haven’t already.
+
+2) Start the iOS simulator you want to intercept
+
+## 1. Scan and connect to available devices
+
+> Works only with Requestly Desktop App `>v1.7.7`
+
+1. Click `Connect Apps`
+
+2. Go to `Mobile Apps & Browsers` tab
+
+3. Click on `Connect All` button for iOS simulator button.
+
+<img src="/images/ios-emulators/f506ff21-8f3f-4f3c-8c18-ee8c7177a657.gif" align="center" fullwidth="false" />
+
+## Troubleshooting
+
+If you do not see the iOS simulator that you want to connect to:
+
+1. Make sure that that simulator is already running
+
+2. Trigger a re-scan using the `Refresh Devices` button
+
+   <img src="/images/ios-emulators/7f418e9a-31b4-4acf-8a5a-3dc58bc25b25.png" align="center" fullwidth="false" />
+
+### Note:
+
+In order to be able to intercept traffic from the running simulators, Requestly sets the systemwide proxy on your device, which is why you might see many network logs from other sources that are making web requests on your device.
+
+You can filter through this noise by selecting the specific iOS app from the filters in the sidebar or<a target="_blank" href="/desktop-app/features/traffic-inspector">use the other filters</a> that are available in the traffic inspector

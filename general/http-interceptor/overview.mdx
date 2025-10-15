@@ -1,0 +1,72 @@
+---
+title: Overview
+label: Overview
+slug: overview
+description: >-
+  Learn how to use Requestly’s HTTP Interceptor to debug, analyze, and modify
+  HTTP requests in real-time. Configure it for browsers, mobile, Node.js, and
+  systemwide setups.
+seoDescription: >-
+  Debug HTTP requests in real-time with Requestly's HTTP Interceptor. Configure
+  it for browsers, mobile, Node.js, and system-wide setups.
+visibility: PUBLIC
+---
+***
+
+Whether you’re a developer, QA engineer, or anyone working with HTTP requests and APIs, Requestly can help you intercept and analyze network traffic in real-time. This makes debugging issues or testing changes easier without touching the code.
+
+## How does Requestly Interceptor work?
+
+Requestly HTTP interceptor is a web proxy that runs on your computer. By routing network requests through Requestly, you can intercept all the network traffic made by the browser or your application.
+
+Reading and modifying any web request and response opens up a world of possibilities for debugging and analyzing your application. You can:
+
+* **Pinpoint Issues**: Identify network errors, slow responses, or missing resources.
+
+* **Test Edge Cases**: Simulate server errors or unexpected payloads.
+
+* **Inject Mock Data**: Replace live responses with custom data.
+
+* **Optimize APIs**: Refine requests to enhance performance.
+
+## Ways to intercept HTTP traffic
+
+Requestly offers two flexible ways to intercept HTTP traffic depending on your workflow and use case:
+
+### 1. **Browser extension**
+
+The **Requestly browser extension** lets you intercept and modify HTTP traffic directly inside your browser—perfect for front-end development and quick debugging.
+
+* **Best for**: Intercepting and modifying traffic in the browser
+
+* **Works across**: Web pages, browser-based applications
+
+<a target="_blank" href="/general/http-interceptor/browser-extension/browser-interception">Learn how to set up interceptor in browser extension.</a>
+
+### 2. **Desktop app**
+
+The **Requestly Desktop App** runs a local proxy server that intercepts HTTP(S) traffic from any source, not just the browser. It’s designed for more advanced and system-wide debugging needs.
+
+* **Best for**: Advanced use cases, mobile and backend debugging
+
+* **Works across:** Browsers, mobile devices, emulators, terminal, Node.js, and system-wide applications
+
+**Platform-specific setup guides:**
+
+* [Browser Interception](/general/http-interceptor/desktop-app/browser-interception) - Configure Requestly with popular web browsers like Chrome, Firefox, Edge, etc
+
+* [Android devices](/general/http-interceptor/desktop-app/android-devices) - Intercept Traffic from your Android smartphones and tablets[.](/general/http-interceptor/browser-interception)
+
+* [Android emulator](/general/http-interceptor/desktop-app/android-simulator-interception) - Configure Android emulators in Android Studio.
+
+* [iOS Devices](/general/http-interceptor/desktop-app/ios-devices-interception) - Set up your iPhones and iPads to intercept their traffic
+
+* [iOS Emulator](/general/http-interceptor/desktop-app/ios-simulator-interception) - Use Requestly with iOS simulators in Xcode.
+
+* [Node.js](/general/http-interceptor/desktop-app/nodejs) - Integrate Requestly with Node.js applications to debug server-side network requests and responses during development or testing
+
+* [Terminal](/general/http-interceptor/desktop-app/terminal) - Use Requestly with command-line tools or scripts to intercept and manipulate HTTP requests for automation and debugging.
+
+* [Systemwide proxy](/general/http-interceptor/desktop-app/desktop-app-interception) - Configure Requestly as a systemwide proxy to capture and manipulate traffic across all applications and devices connected to your network.
+
+Once interception is set up, you can explore and debug traffic in the [**network table**](/general/http-interceptor/network-table), [export HAR files](/general/sessions/import-view-har-file), [save sessions](/general/sessions/record-api-sessions), and [create rules](/general/http-rules/rule-types) to simulate responses or rewrite requests in real-time.

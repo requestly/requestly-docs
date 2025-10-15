@@ -1,0 +1,86 @@
+---
+title: How is the Browser Extension Different from the Desktop App
+label: Browser Extension vs Desktop App
+slug: how-is-bowser-extension-different-from-a-desktop-app
+visibility: PUBLIC
+---
+Requestly is available as both a **browser extension** and a **desktop application**. While both platforms offer a similar set of features, their capabilities differ slightly to address platform-specific limitations and better cater to distinct use cases.
+
+The **browser extension** is comparatively a **lighter tool** that runs directly within the browsers and is ideal for **browser-focused workflows**. The **desktop app** is designed to provide more control over network traffic across the **entire system**, including apps outside the browser. This comparison outlines functional differences to help you choose the right setup for your use case.
+
+## Platform & Browser Support
+
+**Browser Extension -** Supports all major web browsers, including all Chromium-based browsers, Firefox, and Safari (limited support)
+
+**Desktop App -** Supports all browsers and any app making network requests. like desktop apps, backend services, mobile devices, etc.
+
+> 📎 The extension runs inside the browser environment. The desktop app operates system-wide and works with any browser, application or even hardware devices like smartphones etc.
+
+## HTTP Interception
+
+> 🔧 Use the desktop app if you need to work with network traffic beyond the browser, such as from curl, Postman, mobile devices, or backend services.
+
+| **Feature**                        | **Browser Extension** | **Desktop App** |
+| ---------------------------------- | --------------------- | --------------- |
+| Browser Interception               | ✅                     | ✅               |
+| System-wide Proxy                  | ❌                     | ✅               |
+| Mobile App Interception            | ❌                     | ✅               |
+| Locally Installed App Interception | ❌                     | ✅               |
+
+## HTTP Rules
+
+| **Feature**                 | **Browser Extention**                                  | **Desktop App** |
+| --------------------------- | ------------------------------------------------------ | --------------- |
+| HTTP Rules                  | ✅ \[Limitations below]👇                               | ✅               |
+| Delay Rule max delay        | 5000ms (Fetch/ XHR requests) 10000ms (Other resources) | Unlimited       |
+| Redirect to local file      | ❌                                                      | ✅               |
+| Serve local file Response   | ❌                                                      | ✅               |
+| Modify HTML/JS/CSS Response | ❌                                                      | ✅               |
+| Map Local                   | ❌                                                      | ✅               |
+| Map Remote                  | ✅                                                      | ✅               |
+
+> 💡 The extension works within the limitations of browser APIs. Features like serving local files or modifying HTML/CSS content are only supported in the desktop app due to broader system access.
+
+## Mocking & Debugging
+
+| **Feature**      | **Browser Extension** | **Desktop App** |
+| ---------------- | --------------------- | --------------- |
+| Mock Server      | ✅                     | ✅               |
+| Bulk Mocking     | ❌                     | ✅               |
+| Session Book     | ✅                     | ❌               |
+| Network Sessions | ❌                     | ✅               |
+
+> 📌 Tip: Use Desktop App when mocking multiple endpoints or importing HAR files.
+
+## Workspaces & Import/Export
+
+| **Feature**              | **Browser Extension** | **Desktop App** |
+| ------------------------ | --------------------- | --------------- |
+| Local Workspace (Beta)   | 🚧 (Coming Soon)      | ✅               |
+| Import / Export HAR file | 🚧 (Coming Soon)      | ✅               |
+
+## Visibility of Executed Rules
+
+The way Requestly shows rule executions varies between the browser extension and desktop app, tailored to their respective environments:
+
+<Tabs>
+  <Tab title="Browser Extension">
+    1\. A **pop-up notification** shows which rule was triggered when browsing.
+
+    <img src="/images/how-is-bowser-extension-different-from-a-desktop-app/c16facc7-0a43-449a-a2bc-2b175a443f8c.png" align="left" fullwidth="false" />
+
+    2\. Requestly Extension’s **icon turns green** in the extension toolbar.
+
+    <img src="/images/how-is-bowser-extension-different-from-a-desktop-app/48bfa7f8-5eb1-44f7-bff2-6b7ad79ec86d.png" align="left" fullwidth="false" />
+
+    3\. The **extension popup panel** also lists recently executed rules, making it easy to confirm if a rule applied.
+
+    <img src="/images/how-is-bowser-extension-different-from-a-desktop-app/b13f05bd-d271-45d5-872a-e4ea2381336b.png" align="left" fullwidth="false" />
+  </Tab>
+
+  <Tab title="Desktop App">
+    The **rules table** visually highlights which rules were applied by turning the corresponding request rows **green**.
+
+    <img src="/images/how-is-bowser-extension-different-from-a-desktop-app/ce0d85d4-1396-4a96-96cc-8f3945dc4ae1.png" align="center" fullwidth="false" />
+  </Tab>
+</Tabs>

@@ -1,0 +1,99 @@
+---
+title: Browsers
+label: Browsers
+slug: browsers
+visibility: PUBLIC
+---
+Once you're familiar with the HTTP Interceptor and network table, you can proceed to set up Requestly with your browser. Requestly’s browser integration enables you to monitor, debug, and modify network requests seamlessly, all within your development environment. Whether you're an API developer debugging endpoints, a QA tester simulating error conditions, or a front-end developer testing changes without updating the backend, Requestly simplifies these tasks effortlessly.
+
+## **Connect b**rowsers with Requestly
+
+Requestly allows you to connect multiple browsers, making it easy to configure and switch between them for network interception.
+
+To open the **Connect Panel**, follow these steps:
+
+<Steps>
+  <Step title="Navigate to the Network Traffic tab on the right sidebar." />
+
+  <Step title="Click any of the Connect Apps buttons, as shown below">
+    <img src="/images/browsers/eee9bbf1-de2a-49b4-b731-65f074ad9cc0.png" align="center" fullwidth="false" />
+
+    This will open the **Connect Panel**, displaying all supported browsers on your system, along with other sources that Requestly supports.
+  </Step>
+
+  <Step title="Select your preferred browser and click on Launch/Open. Requestly will start a new instance of the selected browser with the Requestly proxy configured.">
+    <img src="/images/browsers/b7819290-87d6-497a-8156-23eb1d117088.png" align="center" fullwidth="false" />
+
+    1. For Chromium-based browsers, Requestly applies the `--proxy-server` flag, configuring the browser to route all network traffic through the Requestly proxy server
+
+    2. Then requestly automatically installs CA certificate to your system’s certificate store.
+  </Step>
+
+  <Step title="This newly launched instance should open amiusing.requestly.io where you can see a success message that confirms that it is using requestly’s proxy">
+    <img src="/images/browsers/64151f01-599f-4ba9-b74c-9bbda13095b3.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Return to the Requestly dashboard to view all the captured traffic from the browser in the network table.">
+    <img src="/images/browsers/a2ac18d0-594c-4329-9f84-b0b8541cb2e4.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+## Supported Browsers & Profiles
+
+The **Connect Panel** shows a list of browsers that Requestly supports. You can select from various profiles for browsers such as Google Chrome, Firefox, and Safari. Here are the details of each browser and its profile options:
+
+* **Google Chrome (New Profile)**:
+
+  Launch a new browser profile without any pre-configured settings, logins, or extensions. This is ideal for testing requests in a clean environment.
+
+* **Google Chrome (Existing Profile)**:
+
+  Use an existing Chrome profile to connect, keeping all your extensions, settings, and history intact.
+
+* **Firefox**:
+
+  Connect to Firefox for testing your network requests on this browser. it will launch a new profile with a clean environment.
+
+* **Arc**:
+
+  Arc is another modern browser supported by Requestly. You can create a new profile or use an existing one.
+
+* **Safari**:
+
+  Connect to Safari browser, clicking the connect button will open a new safari window.
+
+<Info>
+  When you launch safari from Requestly, it sets a system wide proxy due to technical constraints. Make sure to turn it off after done debugging
+</Info>
+
+For other browsers, find the proxy IP and port at the top of Requestly’s dashboard and refer to your browser's documentation to configure proxy settings.
+
+## Custom Browser Launch Options
+
+Requestly offers **custom browser launch options** for certain browsers, specifically Chromium-based ones. These options allow you to tweak the behavior of the browser during interception.
+
+Use the buttons next to the browser selection to customize the launch options. Here's a quick rundown of the **preset configurations**:
+
+<img src="/images/browsers/000714ac-1c0e-4389-86ed-9b1ac01b036f.png" align="center" fullwidth="false" />
+
+**Without Safety Checks** Disables security restrictions, allowing insecure content to run and third-party modules to load. Flags used:
+
+* `--allow-running-insecure-content` Allows the browser to load content from websites that are not served over HTTPS.
+
+* `--allow-insecure-localhost` Allows insecure content to be loaded from `localhost`
+
+* `--allow-third-party-modules` Allows third-party modules (which could include extensions or custom scripts) to run even if they are not from trusted sources
+
+**Without CORS** The `--disable-web-security` flag disables CORS (Cross-Origin Resource Sharing) restrictions in the browser, allowing requests to be made across different domains without security checks, to learn more on cors check out our blogpost <a target="_blank" href="https://requestly.com/blog/what-is-cors-and-how-to-bypass-it/">here</a>.
+
+**With Custom Arguments**
+
+Launch the browser with custom flags (only supported for Chromium-based browsers). Here are some interesting flags for launching Chromium-based browsers with custom arguments:
+
+`--incognito`: Launches Chromium in Incognito mode by default.
+
+`--window-size`: Sets the initial window size. Provided as string in the format "800,600".
+
+`--user-agent` : A string used to override the default user agent with a custom one.
+
+A full list of available arguments can be found <a target="_blank" href="https://gist.github.com/dodying/34ea4760a699b47825a766051f47d43b">**here**</a>.

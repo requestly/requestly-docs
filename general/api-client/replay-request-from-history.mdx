@@ -1,0 +1,43 @@
+---
+title: API Call History
+label: API Call History
+slug: replay-request-from-history
+description: >-
+  Track and manage API requests with a clear, editable history view in the API
+  Client.
+seoDescription: >-
+  Track and manage API requests with a clear, editable history view in the API
+  Client.
+visibility: PUBLIC
+---
+***
+
+The API Call History feature allows users to track and manage all requests triggered from the API Client. The most recent request is displayed at the top of the history panel, providing a clear chronological view of interactions.
+
+<Warning>
+  History is stored locally in your browser's local storage and is not synced to the cloud considering the security and privacy of your data.
+</Warning>
+
+### Viewing API Call History
+
+All API calls made from the client are listed in the left sidebar. Each entry can be clicked to load the request details back into the API Client. This enables users to quickly replay a request after editing some fields.
+
+<img src="/images/replay-request-from-history/f708edc8-da2e-4fdb-970c-31643c7c76d0.png" align="center" fullwidth="false" />
+
+Additionally, the response for any request made during the current session is cached and can be revisited without making a new call, provided the page has not been refreshed.
+
+<img src="/images/replay-request-from-history/aa41d107-1019-4432-833b-7988e889b32b.png" align="center" fullwidth="false" />
+
+### Clearing History
+
+Click the "Clear History" button located at the top of the history sidebar. This will permanently remove all recorded requests.
+
+<img src="/images/replay-request-from-history/288129ca-1d03-4b29-94d0-114d18d01aa0.png" align="center" fullwidth="false" />
+
+### Limitations
+
+* **Browser Dependency:** The history is only maintained for the browser in which it was created.
+
+* **Session Constraints:** Responses are cached only within the active browser session. Closing the tab clears all cached responses.
+
+* **Request Limit:** Only the last 20 requests are preserved in the history. Older entries are automatically removed as new requests are made.

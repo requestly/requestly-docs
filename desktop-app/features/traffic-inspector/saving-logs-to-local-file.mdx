@@ -1,0 +1,23 @@
+---
+title: "Saving Logs to local file "
+slug: "saving-logs-to-local-file"
+path: "/features/traffic-inspector/saving-logs-to-local-file"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+For external scripts to work on top of the intercepted logs you can enable savings logs to a local file.
+
+Navigate to settings from the icon on the top right and under `Desktop Settings` there is a section for `Session Log Storage`
+
+<img src="/images/saving-logs-to-local-file/db0a723e-f16f-44ee-824b-651433dcf6f0.png" align="center" fullwidth="false" />
+
+The mentions the path of the file where the log is stored.
+
+This is a `.jsonl` file where each line is an intercepted request stored as a `har` with one entry.
+
+The request is added to the file only if the url matches any of the substrings that you add as matching strings
+
+<Card title="Note: The logs do get cleared whenever app restarts">
+  This is done to avoid the log file from getting unnecessarily large which has shown to cause performance issues
+</Card>

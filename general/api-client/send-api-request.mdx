@@ -1,0 +1,145 @@
+---
+title: Send API Request
+label: Send API Request
+slug: send-api-request
+description: >-
+  Simplify API testing with Requestly's API client. Send HTTP requests, view
+  responses, and add parameters.
+seoTitle: Send API Request
+seoDescription: >-
+  Simplify API testing with Requestly's API client. Send HTTP and GraphQL
+  requests, view responses, and add parameters.
+visibility: PUBLIC
+---
+***
+
+The API client in Requestly allows you to easily send API requests, without the need for writing code or using a terminal. It lets you test APIs, retrieve data, and explore how they work by simply creating a request, clicking Send, and viewing the response within Requestly.
+
+This feature is perfect for developers testing API endpoints during development, QA engineers validating API responses for edge cases, and support engineers debugging API issues in real-time.
+
+<img src="/images/send-api-request/cb0bd862-28ab-4900-b501-2c25ec881e37.png" align="center" fullwidth="false" />
+
+## **Send Your First API Request**
+
+<Steps>
+  <Step title="Open API Client and Create a New Request">
+    Click the **API Client** link in the left sidebar of the Requestly application, then click the `+ New` button to create a new request and select **Request** from the menu.
+
+    <img src="/images/send-api-request/fdef96c4-3da6-4a3a-a885-8999e89898f1.png" alt="The image shows the Requestly interface with the &#x22;New&#x22; button highlighted, displaying options: &#x22;Request,&#x22; &#x22;Collection,&#x22; and &#x22;Environment&#x22; in a dropdown menu." align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Name Your API Request">
+    Choose a descriptive title for your request to make it easy to identify later.
+
+    <img src="/images/send-api-request/23b0f1b3-f06c-411b-b329-6e0c2794170d.png" alt="The image shows the Requestly interface's new request creation flow, with an input field for entering the request name, labeled &#x22;Send API Request&#x22;." align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Enter the API URL and HTTP Method">
+    Pick the HTTP method (e.g., GET, POST) and type the URL of the API you want to test.
+
+    <img src="/images/send-api-request/b027f3b9-8d3c-49ee-9f5e-f7a66f7a5fd0.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Save & Send the Request">
+    Click the **Save** & **Send** button to execute your request.
+
+    <img src="/images/send-api-request/0143b46a-7adf-4483-bc4f-e81c8a6b1f0f.png" alt="The image shows the Requestly API client interface with a POST request to https://app.requestly.io/echo and the &#x22;Send&#x22; button towards the top right corner highlighted for executing the request." align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+***
+
+## **Response**
+
+### **1. View the Response Body**
+
+Once the request is sent, check the response body in the **Response Body** section. You can switch between formatted (pretty) and raw views.
+
+<img src="/images/send-api-request/e258dee4-e903-417a-a847-1f1c7e438553.png" alt="Response Body - Send API Request" align="center" fullwidth="false" />
+
+### **2. Check the Response Headers**
+
+Review the headers sent back by the server in the **Headers** tab.
+
+<img src="/images/send-api-request/3c04e205-9117-4730-b0e1-8a7c0379f4ce.png" alt="Response Headers - Send API Request" align="center" fullwidth="false" />
+
+***
+
+## Query Parameters
+
+In the **Query Params** section, you can add query parameters as **key-value pairs** to send extra information with the URL. To add more parameters, click on the `+ Add More` button.
+
+For example:
+
+* Adding `uid=123` to `https://app.requestly.io/echo` results in: `https://app.requestly.io/echo?uid=123`
+
+<Tip>
+  The checkboxes next to each parameter let you include or exclude them without deleting them. For instance, if you uncheck the `Key` parameter, the final URL will not include it
+</Tip>
+
+<img src="/images/send-api-request/5190d975-f6da-46c6-82ec-f909d9725752.png" alt="Query Param - Send API Request" align="center" fullwidth="false" />
+
+***
+
+## Request Body
+
+For POST or PUT requests, use the **Body** tab to send data
+
+### Supported Form Types
+
+1. **RAW**
+
+   * Send raw data as plain **text** or structured **JSON**.
+
+   * You can select the language:
+
+     **JSON** – for structured data like API payloads.\
+     **Text** – for plain string or unstructured data
+
+   <img src="/images/send-api-request/76a50480-84ca-4ffd-87c0-cf27e0e5208b.png" align="center" fullwidth="false" />
+
+2. **x-www-form-urlencoded**
+
+   * Sends data as URL-encoded key-value pairs.
+
+   * Commonly used for web for
+
+   <img src="/images/send-api-request/79119883-fd9d-4b33-b617-4f7a7bf36f0e.png" align="center" fullwidth="false" />
+
+3. **multipart/form-data**
+
+   * Used when uploading files along with form fields.
+
+   * Each field is sent as a separate part of the request body.
+
+   * Example use case: Uploading an image along with user detail
+
+   <img src="/images/send-api-request/fa74f6c1-8ebb-4652-8667-7993cc3d57f7.png" align="center" fullwidth="false" />
+
+> 💡 Tip: For both `x-www-form-urlencoded` and `multipart/form-data`, you can add fields using the key-value form editor. If you need to send files, choose **multipart/form-data**.
+
+***
+
+## Headers
+
+The **Headers** tab allows you to include additional information in your API request. Headers are key-value pairs that provide essential details for the request, such as authentication tokens, content type, or other metadata required by the API. To add more headers, click on the `+ Add More` button.
+
+For example: You can add headers like `Authorization: Bearer <token>` to authenticate your request, or `Content-Type: application/json` to specify the format of the data you're sending.
+
+<Tip>
+  The checkboxes next to each parameter let you include or exclude them without deleting them. For instance, if you uncheck the `Key` parameter, the final URL will not include it
+</Tip>
+
+<img src="/images/send-api-request/a7cde3d7-d48e-4fa5-ab0d-75805d4f4899.png" alt="Headers - Send API Request" align="center" fullwidth="false" />
+
+***
+
+## Scripts
+
+* **Pre-Scripts**: Execute code before sending the request, like generating tokens or setting dynamic headers.
+
+* **Post-Scripts**: Execute code after receiving the response, useful for processing or saving the response data.
+
+<img src="/images/send-api-request/7485bf2f-72b9-4e9a-bb5d-6ad2504aad4a.png" alt="Scripts - Send API Request" align="center" fullwidth="false" />
+
+To learn more about using scripts visit <a target="_blank" href="/general/api-client/scripts">Scripts Documentation</a>.

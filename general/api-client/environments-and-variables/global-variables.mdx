@@ -1,0 +1,36 @@
+---
+title: "Global Variables"
+slug: "global-variables"
+path: "/api-client/environments-and-variables/global-variables"
+visibility: "PUBLIC"
+format: "MDX"
+description: "Learn about global variables in requestly"
+---
+
+**Global Variables** in Requestly are shared values accessible across all requests, environments, and collections in your workspace. They are ideal for constants or secrets that don’t change frequently—like API keys, common headers, or service base URLs.
+
+Using global variables makes your API collections more reusable, consistent, and easier to update across your workspace.
+
+<iframe src="https://youtu.be/XlEvZ4LIfDs" />
+
+## **How to Create Global Variables**
+
+### **Step 1: Access Global Variables**
+
+Click on the **Environments** icon in the side menu. The first item in the list is labeled as "Global variables."
+
+<img src="/images/global-variables/00d3b176-4a5e-4c9e-97a4-609bb5227742.png" align="center" fullwidth="false" />
+
+### **Step 2: Add Variables**
+
+Add variables in the table by specifying the following details:
+
+* **Key:** The name of the variable that you will be referencing when sending requests. Note, global variables cannot have duplicate keys.
+
+* **Type:** The type of value the variable will store. It can be a **string**, **number**, or **boolean**.
+
+* **Initial value (synced):** Initial values will be synced across the workspace. These values will be used by default if no user-defined Current value is set for the variable.
+
+* **Current value (local):** Current values are user-defined entries that are not synced across the workspace. These values will override the defined Initial values. If the current value is empty or left blank, then the initial value of the variable will be used.
+
+<img src="/images/global-variables/eb07a0bd-0a44-490b-bd94-94c8c58e73fa.png" align="center" fullwidth="false" />

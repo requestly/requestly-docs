@@ -1,0 +1,48 @@
+---
+title: "Variable Precedence"
+slug: "variable-precedence"
+path: "/api-client/environments-and-variables/variable-precedence"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+Variable precedence in Requestly ensures that when multiple variables with the same name exist, the most relevant one is chosen based on scope. The precedence order is as follows:
+
+> Environment Variables → SubCollection Variables → Collection Variables → Global Variables
+
+In other words:
+
+* Environment variables always take the highest priority and override any variable with the same name in other scopes.
+
+* If no matching environment variable exists, Requestly checks for the variable in the collection scope.
+
+* Global variables serve as a fallback when the variable is not found in the environment or collection scopes.
+
+This approach simplifies managing configurations across different use cases, ensuring that environment-specific values are prioritized without interfering with globally defined values.
+
+Or in developer's languages:
+
+```jsx
+Copyif (variable_name in environment_variables) {        //Check in environment
+    return environment_variables[variable_name];
+} else if (variable_name in collection_variables) {  //Check in collection
+    return collection_variables[variable_name];
+} else if (variable_name in global_variables) {      //Check in global
+    return global_variables[variable_name];
+} else {
+    return null; // Variable not found in any scope
+}
+```
+
+### Example Scenario
+
+Let’s say the variable `{{base_url}}` is defined in multiple places:
+
+| Scope         | Value                                                      |
+| ------------- | ---------------------------------------------------------- |
+| Global        | [`https://global.api.com`](https://global.api.com)         |
+| Collection    | [`https://collection.api.com`](https://collection.api.com) |
+| SubCollection | [`https://sub.api.com`](https://sub.api.com)               |
+| Environment   | [`https://env.api.com`](https://env.api.com)               |
+
+If you send a request inside the **SubCollection** with an active **Environment**, the variable `{{base_url}}` will resolve to [`https://env.api.com`](https://env.api.com) because **environment variables** have the highest precedence.

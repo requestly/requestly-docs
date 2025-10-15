@@ -1,0 +1,105 @@
+---
+title: Working with Multiple Workspaces
+label: Working with Multiple Workspaces
+slug: multiple-workspaces
+visibility: PUBLIC
+---
+Requestly allows you to **work with multiple local workspaces at once**. This makes it easier to collaborate across services (Auth, Payments, Orders, etc.) without merging everything into a single workspace.
+
+<Warning>
+  **Note:** Multi-workspace view works only with **local workspaces** at this time.
+</Warning>
+
+## How to Use Multiple Workspaces
+
+Follow these steps to open multiple local workspaces in one view:
+
+<Steps>
+  <Step title="Open the API Tab">
+    Open Requestly and navigate to the **API tab** from the sidebar.
+  </Step>
+
+  <Step title="Open the Workspace Selector">
+    In the top-right corner, click on your current workspace name to open the **Workspace Selector** dropdown.
+
+    <img src="/images/multiple-workspaces/fb94f8c2-6c48-4935-b058-06844c154fe0.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Select Multiple Workspaces">
+    Check the boxes next to the local workspaces you want to load together.
+
+    <img src="/images/multiple-workspaces/0d2cc730-080d-40ac-9355-4ab1c7d6ea50.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="View Workspaces in the Selector">
+    Your chosen workspaces will appear grouped in the selector.
+
+    <img src="/images/multiple-workspaces/8abc940c-2520-4915-b68a-a08cfdea0d6f.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+That’s it! You can now test APIs across multiple workspaces in one seamless view.
+
+## Using Environments in Multi-Workspace View
+
+When working with multiple workspaces, each workspace keeps its own **separate environment**. This ensures that variables from one workspace do not interfere with another.
+
+### **Switching Environments**
+
+You can switch environments using the **dropdown below the workspace name** in the sidebar. This lets you quickly toggle between different setups for the same workspace.
+
+<img src="/images/multiple-workspaces/d1037ea6-e3c5-4134-b7d2-655034740c40.png" align="center" fullwidth="false" />
+
+### **Editing Environment Variables**
+
+To edit variables for a workspace:
+
+1. Go to the **Environments tab**.
+
+2. Select the workspace whose environment you want to edit.
+
+3. You’ll see all variables for that workspace listed, and you can add, update, or remove them as needed.
+
+   <img src="/images/multiple-workspaces/60cea11b-0135-4d76-ae7e-51845142f3a3.png" align="center" fullwidth="false" />
+
+## Moving Requests Across Workspaces
+
+You can easily move or share requests between different workspaces in multi-workspace view. There are two ways to do this:
+
+### **Method 1: Drag and Drop**
+
+<img src="/images/multiple-workspaces/3e18caf2-cb3a-404b-8133-d882ae9e2410.gif" align="center" fullwidth="false" />
+
+### **Method 2: Move via Menu**
+
+<Steps>
+  <Step title="Open the Request Menu">
+    Click on the **three dots** menu next to the request you want to move.
+
+    <img src="/images/multiple-workspaces/a26eaf76-dae1-4ad6-924a-b92b90df9481.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Select “Move to Collection”">
+    Choose the **Move to Collection** option from the menu.
+
+    <img src="/images/multiple-workspaces/61b77b01-58ea-4fe3-8b4b-53505b04b69b.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Choose Workspace and Collection">
+    Select the target workspace and the collection within it where you want to move the request.
+
+    <img src="/images/multiple-workspaces/ecd11d53-178d-4337-8d20-25b586246cd8.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Confirm Move">
+    Click **Move** to complete the action. The request will now appear in the selected workspace and collection.
+
+    <img src="/images/multiple-workspaces/1114b6e6-ab46-4710-9866-0bf88514724e.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+## Sharing Data Across Workspaces
+
+To share values (like tokens) across different workspaces, you can use [**Runtime Variables**](/general/api-client/environments-and-variables/runtime-variables). These act as **super-global variables** that are accessible across all workspaces. They can be created as temporary values for quick testing or persisted for longer use. You can view, edit, or clear them anytime from the **Runtime Variables tab** on the left.
+
+<img src="/images/multiple-workspaces/23463a1c-cdde-4070-b4b3-93e9b230d24a.png" align="center" fullwidth="false" />

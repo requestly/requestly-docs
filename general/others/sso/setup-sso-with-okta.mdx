@@ -1,0 +1,39 @@
+---
+title: "SAML SSO with Okta"
+slug: "setup-sso-with-okta"
+path: "/others/sso/setup-sso-with-okta"
+visibility: "PUBLIC"
+format: "MDX"
+---
+
+If your company uses Okta as an Identity Provider, then you can set up the single sign-on feature for use with Requestly. This gives your employees the convenience of a one-click login, without using additional multi-factor authentication.
+
+## **Step 1. Create and configure a SAML application in Okta**
+
+1. Log in to your Okta account and head to the **Applications** page.
+
+2. Click on `Create App Integration` and select `SAML 2.0`
+
+3/images/setup-sso-with-okta/a70c4b4f-a380-424e-b1c6-de6ef0559d4b.png" align="center" fullwidth="false" />
+
+   In the `1. General Settings` step, add App Name as `Requestly` and then click `Next`
+
+<img src="/images/setup-sso-with-okta/fb983e56-46c8-4a1d-96db-7e22f361727c.png" align="center" fullwidth="false" />
+
+4. In the `2. Configure SAML` step, add the following details and then click `Next`
+
+| Single sign-on URL          | `https://app.requestly.io/__/auth/handler` |
+| --------------------------- | ------------------------------------------ |
+| Audience URI (SP Entity ID) | `urn:requestly.io`                         |
+| Name ID format              | Email Addresss                             |
+| Application username        | Email                                      |
+
+<img src="/images/setup-sso-with-okta/0821978f-4009-4189-b3a8-7a76e5f2e8ef.png" align="center" fullwidth="false" />
+
+## **Step 2. Share SAML metadata with Requestly**
+
+1/images/setup-sso-with-okta/fb4784b9-6f59-4525-87bb-bbdfc1d457a1.png" align="center" fullwidth="false" />
+
+   Copy the **Metadata URL**.
+
+2. Share the copied value with us [`contact@requestly.io`](mailto:contact@requestly.io)
