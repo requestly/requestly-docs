@@ -1,0 +1,74 @@
+---
+title: 'Import From OpenAPI Spec'
+description: 'Learn how to import OpenAPI Specification (Swagger) files to instantly generate API collections and environments.'
+---
+
+Import your **OpenAPI Specification** files directly into the **Requestly,** and instantly create organized API collections without any manual setup.
+
+This helps you bring your existing API definitions from Swagger, Postman, or your backend documentation straight into Requestly in just a few clicks.
+
+## What You Can Import
+
+The importer supports both **YAML** and **JSON** OpenAPI files.
+When you upload a spec, Requestly automatically reads the file and creates API collections and requests based on your defined endpoints.
+
+## How It Works
+
+<Steps>
+  <Step title="Open the API Client">
+    Go to your **API Client workspace** in Requestly. Make sure you’re in the workspace where you want to import your API collection.
+
+    <img src="/images/import-from-openapi-spec/414a2152-813e-41de-b431-2d5bb26206fa.png" align="left" fullwidth="false" />
+  </Step>
+
+  <Step title="Import Your OpenAPI File">
+    Click **Import → OpenAPI** and select your `.yaml` or `.json` file.
+
+    <img src="/images/import-from-openapi-spec/08259fe4-3f9d-40b8-8cf3-12061d4eccbd.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Preview Before Import">
+    Requestly will show a preview of what will be imported — including:
+
+    * The collections that will be created
+
+    * The environments and variables that will be set up
+
+    Review the preview and confirm to complete the import.
+
+    <img src="/images/import-from-openapi-spec/09014102-1733-4f1b-b08a-d3222a630f93.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Requestly builds your collection">
+    * Each **path** in your OpenAPI file becomes an individual **request**.
+
+    * Requests are grouped under collections named after your API or service.
+
+    * Requestly automatically fills in the **method, URL, headers, and body** (if defined in the spec).
+
+    <img src="/images/import-from-openapi-spec/d9055f27-0b15-4076-babe-dc2b8e65cd5c.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Environments are created automatically">
+    * If your spec defines multiple servers (e.g., staging, production), Requestly creates matching environments.
+
+    * Each environment includes a `{{base_url}}` variable set to the server URL.
+
+    * You can switch environments easily from the environment dropdown.
+
+    <img src="/images/import-from-openapi-spec/e00529b0-d431-4388-97e7-3a63a052fc33.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+## What Happens After Import
+
+Once imported, Requestly automatically maps elements from your OpenAPI file to your workspace structure.
+
+| **OpenAPI Element**             | **Where It Appears in Requestly**                                       |
+| ------------------------------- | ----------------------------------------------------------------------- |
+| **Paths**                       | Individual requests inside the imported collection                      |
+| **Methods (GET, POST, etc.)**   | Reflected automatically in each request                                 |
+| **Servers (root level)**        | Creates environments with a `{{base_url}}` variable for each server URL |
+| **Servers (path level)**        | Used as **collection variables in parent**                              |
+| **Schemas / Components**        | Used internally for request and response structure                      |
+| **Request bodies & parameters** | Automatically mapped to request body and query params                   |
