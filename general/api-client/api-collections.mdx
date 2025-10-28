@@ -1,17 +1,14 @@
 ---
-title: API Collections
-label: API Collections
-slug: api-collections
-description: >-
-  Organise and manage APIs with Requestly’s API Collections. Learn to create,
-  rename, delete collections, use folders, and explore collection variables.
-seoTitle: API Collections
-seoDescription: >-
-  Organise and manage APIs with Requestly’s API Collections. Learn to create,
-  rename, delete collections, use folders, and explore collection variables.
-visibility: PUBLIC
+title: "API Collections"
+label: "API Collections"
+slug: "api-collections"
+description: "Organise and manage APIs with Requestly’s API Collections. Learn to create, rename, delete collections, use folders, and explore collection variables."
+seoTitle: "API Collections"
+seoDescription: "Organise and manage APIs with Requestly’s API Collections. Learn to create, rename, delete collections, use folders, and explore collection variables."
+visibility: "PUBLIC"
 ---
-***
+
+---
 
 API Collections help developers and QA teams organize and group APIs for better management. They also offer additional features such as detailed API information and collection-specific variables. Let's explore how to create, manage, and utilize API Collections and their features.
 
@@ -19,13 +16,21 @@ API Collections help developers and QA teams organize and group APIs for better 
 
 ## Create API Collection
 
-**Step 1:** Click **+ New** and select **Collection**.
+**Step 1:** Click **\+ New** and select **Collection**.
 
-<img src="/images/api-collections/dd563ae7-3b5e-4cc3-bc1b-cab7f320e655.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/dd563ae7-3b5e-4cc3-bc1b-cab7f320e655.png"
+  align="center"
+  fullwidth="false"
+/>
 
 **Step 2:** Provide a descriptive name (e.g., “User Management APIs”) and hit **Enter**.
 
-<img src="/images/api-collections/b70f2bcc-babf-4cc7-88ae-041b34ee52c4.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/b70f2bcc-babf-4cc7-88ae-041b34ee52c4.png"
+  align="center"
+  fullwidth="false"
+/>
 
 Once a collection is created, you can add requests and sub-collections.
 
@@ -33,11 +38,19 @@ Once a collection is created, you can add requests and sub-collections.
 
 **Step 1:** Click the **More** icon next to the collection name you want to rename, then select Rename.
 
-<img src="/images/api-collections/20d1b453-9b81-41d6-9ccb-b1d88565bbb4.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/20d1b453-9b81-41d6-9ccb-b1d88565bbb4.png"
+  align="center"
+  fullwidth="false"
+/>
 
 **Step 2:** An inline input field will appear with the current name. Update the name and press **Enter** to save the changes.
 
-<img src="/images/api-collections/4de28886-60d0-43ef-bdc2-6276b620ba67.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/4de28886-60d0-43ef-bdc2-6276b620ba67.png"
+  align="center"
+  fullwidth="false"
+/>
 
 ## Delete API Collection
 
@@ -45,7 +58,12 @@ Once a collection is created, you can add requests and sub-collections.
 
 **Step 2:** Confirm the action in the Delete Collection prompt.
 
-<img src="/images/api-collections/d2a40907-a43b-49fb-a0a7-993ac656194a.png" alt="Confirm Delete Collection prompt with buttons labeled Cancel and Delete Collection" align="center" fullwidth="true" />
+<img
+  src="/images/api-collections/d2a40907-a43b-49fb-a0a7-993ac656194a.png"
+  alt="Confirm Delete Collection prompt with buttons labeled Cancel and Delete Collection"
+  align="center"
+  fullwidth="true"
+/>
 
 <Warning>
   Make sure you are deleting the correct collection. Deleted collections are permanently removed and cannot be recovered.
@@ -57,14 +75,30 @@ Folders allow you to create sub-groups within a collection. They can have their 
 
 **Step 1:** Click on the Add Folder icon next to the collection name.
 
-<img src="/images/api-collections/5c310619-cd51-4d23-bbd5-100c88839522.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/5c310619-cd51-4d23-bbd5-100c88839522.png"
+  align="center"
+  fullwidth="false"
+/>
 
 **Step 2:** Provide a descriptive name (e.g., “Login APIs”) and press **Enter**.
 
-<img src="/images/api-collections/d1cd375d-dbd3-4c1c-a8b3-f623428a8fec.png" align="center" fullwidth="false" />
+<img
+  src="/images/api-collections/d1cd375d-dbd3-4c1c-a8b3-f623428a8fec.png"
+  align="center"
+  fullwidth="false"
+/>
 
 ## Collection Variables
 
 Collections include a **collection variables** feature that allows you to define and manage reusable values specific to the collection. Collection Variables are defined as key-value pairs that work as the base set of variables for collections. They can be used in API definitions with double curly braces `{{collection_variable}}`
 
 Learn more about this feature on the [Variables](/general/api-client/environments-and-variables) page.
+
+## Collection Runner
+
+The **Collection Runner** allows you to execute multiple API requests from a collection sequentially in a single run. It helps automate request workflows such as _login → create resource → fetch resource_ while utilizing existing variables and scripting capabilities.
+
+Use it to configure iterations, delays, and environments, view detailed run results, debug failed requests, and export summaries for analysis.
+
+Learn more about this feature on the [**Collection Runner**](https://docs.requestly.com/general/api-client/collection-runner) page.
