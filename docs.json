@@ -76,7 +76,7 @@
                   "general/api-client/import-export/import-from-curl",
                   "general/api-client/import-export/import-export-api-collections",
                   "general/api-client/import-export/import-export-api-environment",
-                  "general/api-client/import-export/import-from-openapi-spec",
+                  "general/api-client/import-export/import-openapi-spec",
                   "general/api-client/import-export/import-from-postman"
                 ]
               },
@@ -852,6 +852,10 @@
     {
       "source": "/general/others/workspaces/local-workspace",
       "destination": "/general/team/local-workspace"
+    },
+    {
+      "source": "/general/api-client/import-export/import-from-openapi-spec",
+      "destination": "/general/api-client/import-export/import-openapi-spec"
     }
   ]
 }
