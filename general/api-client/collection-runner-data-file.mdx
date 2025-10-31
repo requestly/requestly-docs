@@ -29,8 +29,9 @@ Follow these steps to run a collection with custom data:
   <Step title="Select a Data File">
     In the Runner configuration panel, click **Select Data File**.
 
-    You can choose a **CSV** or **JSON** file from your system.
-
+   <Note>
+      Supports JSON & CSV files (max 100MB)
+    </Note>
     ![Runner configuration panel in Requestly showing the Select Data File option to upload a CSV or JSON file for data-driven API testing.](/images/DataFilesupportinCollectionRunner\(addfile\).png)
 
     Once added, Requestly will automatically detect the file type and preview its structure.
@@ -41,7 +42,7 @@ Follow these steps to run a collection with custom data:
     - For CSV files: verify column names and types
     - For JSON files: check object keys and structure
 
-    ![Requestly data preview screen displaying CSV and JSON structures, allowing users to verify columns, keys, and map variables like {city} or {user_id}.](/images/DatafilesupportforCollectionRunner\(preview\).png)
+    ![Requestly data preview screen displaying CSV and JSON structures, allowing users to verify columns, keys, and map variables like city or user_id.](/images/DatafilesupportforCollectionRunner\(preview\).png)
 
     Each key or column name should match the variable used in your requests, such as `{{city}}` or `{{user_id}}`.
   </Step>
