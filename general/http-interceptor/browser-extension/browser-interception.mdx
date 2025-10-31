@@ -18,17 +18,28 @@ Once you’ve installed the Requestly browser extension, you can start intercept
   <Step title="Open DevTools">
     Right-click on the webpage and click **Inspect**.
 
-    <img src="/images/browser-interception/0f3b0c8d-0a6f-47e8-8162-d286ecaa8e6c.png" align="center" fullwidth="false" />
+    <img
+      src="/images/browser-interception/0f3b0c8d-0a6f-47e8-8162-d286ecaa8e6c.png"
+      align="center"
+      fullwidth="false"
+    />
   </Step>
-
   <Step title="Open Requestly Panel">
     Click on the **Requestly** tab.
 
-    <img src="/images/browser-interception/96cebd5a-c4cb-4866-86ac-97b05679a175.png" align="center" fullwidth="false" />
+    <img
+      src="/images/browser-interception/96cebd5a-c4cb-4866-86ac-97b05679a175.png"
+      align="center"
+      fullwidth="false"
+    />
 
-    If it is not visible, click on the **>>** button to expand the hidden tabs and then select **Requestly**
+    If it is not visible, click on the **\>\>** button to expand the hidden tabs and then select **Requestly**
 
-    <img src="/images/browser-interception/bbfbefb3-9a0b-4589-aeb1-aa9f85529561.png" align="center" fullwidth="false" />
+    <img
+      src="/images/browser-interception/bbfbefb3-9a0b-4589-aeb1-aa9f85529561.png"
+      align="center"
+      fullwidth="false"
+    />
   </Step>
 </Steps>
 
@@ -36,36 +47,35 @@ Once open, this tab will list out all the requests made by your browser. Here, y
 
 <Tabs>
   <Tab title="Network Traffic">
-    <img src="/images/browser-interception/cc488288-573b-4a99-bb01-f45a28af8e3b.png" align="center" fullwidth="false" />
+    <Tabs>
+      <Tab title="Network Traffic">
+        <img
+          src="/images/browser-interception/cc488288-573b-4a99-bb01-f45a28af8e3b.png"
+          align="center"
+          fullwidth="false"
+        />
 
-    The **Network Traffic** tab displays a network table where all requests and responses from the webpage are listed. This tab provides debugging options such as:
+        <Note>
+          If you want to intercept traffic from another browser extension, please use the [Requestly Desktop App](https://docs.requestly.com/general/http-interceptor/desktop-app#desktop-app) instead.
+        </Note>
+        The **Network Traffic** tab displays a network table where all requests and responses from the webpage are listed. This tab provides debugging options such as:
 
-    * **Add JavaScript to Page**: Injects custom JavaScript into the webpage.
+        - **Add JavaScript to Page**: Injects custom JavaScript into the webpage.
+        - **Add CSS to Page**: Applies custom styles to the page.
+        - **Emulate a Different Device**: Simulates how the page renders on different devices.
 
-    * **Add CSS to Page**: Applies custom styles to the page.
+        Clicking on any request in the network table reveals detailed information, including request headers, request body, and response body. Additionally, users have the option to create a rule directly from the network table for the selected request.
 
-    * **Emulate a Different Device**: Simulates how the page renders on different devices.
+        The available rule creation options are:
 
-    Clicking on any request in the network table reveals detailed information, including request headers, request body, and response body. Additionally, users have the option to create a rule directly from the network table for the selected request.
+        - **Redirect to Another URL**
+        - **Replace Host**
+        - **Replace Part of URL**
+        - **Delay Request**
+        - **Cancel Request**
 
-    The available rule creation options are:
-
-    * **Redirect to Another URL**
-
-    * **Replace Host**
-
-    * **Replace Part of URL**
-
-    * **Delay Request**
-
-    * **Cancel Request**
-
-    Clicking any of these buttons will take you to the Requestly dashboard with some parameters set, Here you can customize and apply your modifications.
-  </Tab>
-
-  <Tab title="Rules Execution">
-    <img src="/images/browser-interception/c7f6191d-bead-406e-8749-86157c652bf5.png" align="center" fullwidth="false" />
-
-    The **Rules Execution** tab shows all the rules that have been executed on the current webpage. This helps users track which modifications have been applied to network requests and ensure that their configured rules are working as expected.
+        Clicking any of these buttons will take you to the Requestly dashboard with some parameters set, Here you can customize and apply your modifications.
+      </Tab>
+    </Tabs>
   </Tab>
 </Tabs>
