@@ -24,38 +24,34 @@ Follow these steps to run a collection with custom data:
   <Step title="Open Collection Runner">
     In the Collections sidebar, find the collection you want to execute and click the **Run** icon next to it.
 
-    ![Requestly Collection Runner interface showing how to open and run an API collection from the Collections sidebar or Runner tab.](/images/DataFileSupportincollectionRunner(runcollection).png)
+    ![Requestly Collection Runner interface showing how to open and run an API collection from the Collections sidebar or Runner tab.](/images/DataFileSupportincollectionRunner\(runcollection\).png)
   </Step>
-
   <Step title="Select a Data File">
     In the Runner configuration panel, click **Select Data File**.
 
     You can choose a **CSV** or **JSON** file from your system.
 
-    ![Runner configuration panel in Requestly showing the Select Data File option to upload a CSV or JSON file for data-driven API testing.](/images/DataFilesupportinCollectionRunner(addfile).png)
+    ![Runner configuration panel in Requestly showing the Select Data File option to upload a CSV or JSON file for data-driven API testing.](/images/DataFilesupportinCollectionRunner\(addfile\).png)
 
     Once added, Requestly will automatically detect the file type and preview its structure.
   </Step>
-
   <Step title="Preview Data and Map Variables">
     After selecting the file, click **Preview** to view your data.
 
-    - For CSV files: verify column names and types  
-    - For JSON files: check object keys and structure  
+    - For CSV files: verify column names and types
+    - For JSON files: check object keys and structure
 
-    ![Requestly data preview screen displaying CSV and JSON structures, allowing users to verify columns, keys, and map variables like {{city}} or {{user_id}}.](/images/DatafilesupportforCollectionRunner(preview).png)
+    ![Requestly data preview screen displaying CSV and JSON structures, allowing users to verify columns, keys, and map variables like {city} or {user_id}.](/images/DatafilesupportforCollectionRunner\(preview\).png)
 
     Each key or column name should match the variable used in your requests, such as `{{city}}` or `{{user_id}}`.
   </Step>
-
   <Step title="Start the Run">
     Click **Save** and then **Start Run**.\
     The Collection Runner will replace variables with data from your file for each iteration.
 
-    ![Requestly Collection Runner executing an API collection with data variables replaced from the selected CSV or JSON file.](/images/DataSupportinCollectionRunner(save&run).png)
+    ![Requestly Collection Runner executing an API collection with data variables replaced from the selected CSV or JSON file.](/images/DataSupportinCollectionRunner\(save&run\).png)
   </Step>
 </Steps>
-
 
 ### How Data Files Work
 
@@ -75,7 +71,7 @@ When you attach a CSV or JSON file to your manual run:
 
 **Example:**
 
-```
+```bash
 city,temperature  
 Vancouver,10  
 Austin,24  
@@ -89,7 +85,7 @@ London,12
 
 **Example:**
 
-```
+```json
 [  
   { "city": "Vancouver", "temperature": 10 },  
   { "city": "Austin", "temperature": 24 },  
@@ -99,13 +95,19 @@ London,12
 
 ### Example Use Case
 
-For a request like\
-`GET https://api.example.com/weather?city={{city}}`
+For a request like
 
-and a data file containing\
-city\
-Vancouver\
-Austin\
+```bash
+GET https://api.example.com/weather?city={{city}}
+```
+
+and a data file containing
+
+```bash
+city
+Vancouver
+Austin
 London
+```
 
 Requestly will automatically replace `{{city}}` with each value during the run.
