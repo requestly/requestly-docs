@@ -1,0 +1,116 @@
+---
+title: "Run Collections with Custom Data"
+label: "Run Collections with Custom Data"
+slug: "collection-runner-data-file"
+visibility: "PUBLIC"
+seotitle: "Run Collections with Custom Data - Requestly"
+description: "Learn how to use CSV or JSON data files with the Requestly Collection Runner to iterate requests with multiple input values."
+---
+
+You can use **custom data files** (CSV or JSON) when running a collection manually in Requestly.  
+This enables you to iterate through your requests using multiple sets of input values — without modifying your request parameters each time.
+
+Use this feature to test APIs with dynamic inputs, such as running the same workflow for multiple users, IDs, or configurations.
+
+
+### Using a Data File in Collection Runner
+
+Follow these steps to run a collection with custom data:
+
+<Steps>
+  <Step title="Open Collection Runner">
+    In the Collections sidebar, find the collection you want to execute and click the **Run** icon next to it.
+
+  </Step>
+
+  <Step title="Select a Data File">
+    In the Runner configuration panel, under **Test Data File**, click **Select File**.
+
+    You can choose a **CSV** or **JSON** file from your system.
+
+    Once added, Requestly will automatically detect the file type and preview its structure.
+  </Step>
+
+  <Step title="Preview Data and Map Variables">
+    After selecting the file, click **Preview** to view your data.  
+    - For CSV files: verify column names and types  
+    - For JSON files: check object keys and structure  
+
+    Each key or column name should match the variable used in your requests, such as `{{city}}` or `{{user_id}}`.
+
+  </Step>
+
+  <Step title="Start the Run">
+    Click **Use File** and then **Start Run**.  
+    The Collection Runner will replace variables with data from your file for each iteration.
+
+  </Step>
+</Steps>
+
+
+### How Data Files Work
+
+When you attach a CSV or JSON file to your manual run:
+
+- Each **row (CSV)** or **object (JSON)** represents one **iteration**
+- Variables inside your requests (like `{{name}}` or `{{email}}`) are replaced with the corresponding values
+- Requestly automatically cycles through each data set until all iterations are complete
+
+
+### Supported File Formats
+
+#### CSV Format
+- The first row defines variable names  
+- Each subsequent row represents one iteration  
+- Each row must have the same number of columns  
+
+**Example:**  
+```
+city,temperature  
+Vancouver,10  
+Austin,24  
+London,12
+```
+
+#### JSON Format
+- Must be an array of key-value objects  
+- Each object defines one iteration  
+
+**Example:**  
+```
+[  
+  { "city": "Vancouver", "temperature": 10 },  
+  { "city": "Austin", "temperature": 24 },  
+  { "city": "London", "temperature": 12 }  
+]
+```
+
+
+### Example Use Case
+
+For a request like  
+`GET https://api.example.com/weather?city={{city}}`
+
+and a data file containing  
+city  
+Vancouver  
+Austin  
+London  
+
+Requestly will automatically replace `{{city}}` with each value during the run.
+
+
+### Best Practices
+
+- Keep your file under **5 MB** for optimal performance  
+- Ensure variable names in your file **match exactly** (case-sensitive) with those used in your requests  
+- Use **Pre-request Scripts** and **Post-response Tests** to validate results across iterations  
+- Preview files before running to confirm correct structure and mapping  
+
+### Troubleshooting
+
+If you face issues while running with data files:
+
+- Ensure your file is properly formatted and saved in UTF-8 encoding  
+- Confirm that all required variables exist in both the collection and the data file  
+- Re-select or re-upload the file if it fails to parse correctly  
