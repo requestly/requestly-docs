@@ -64,6 +64,7 @@
                 ]
               },
               "general/api-client/collection-runner",
+              "general/api-client/collection-runner-data-file",
               "general/api-client/authorization",
               "general/api-client/scripts",
               "general/api-client/tests",
