@@ -37,7 +37,7 @@
                 "group": "Quick Start Guide",
                 "pages": [
                   "general/getting-started/quick-start-guide",
-                  "general/getting-started/quick-start-guide/browser-extention-setup",
+                  "general/getting-started/quick-start-guide/browser-extension-setup",
                   "general/getting-started/quick-start-guide/desktop-app-setup"
                 ]
               }

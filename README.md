@@ -162,6 +162,6 @@ Thank you to all our contributors who help make Requestly documentation better!
 
 <div align="center">
   <strong>Built with ❤️ by the Requestly Team</strong>
-  <br>
+  <br />
   <sub>Powered by <a href="https://mintlify.com">Mintlify</a></sub>
 </div>
