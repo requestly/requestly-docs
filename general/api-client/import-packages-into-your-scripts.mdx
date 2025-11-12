@@ -1,0 +1,104 @@
+---
+title: "Import packages into your scripts"
+description: "Import external libraries in Requestly API Client scripts to extend functionality. Use require to add modules like moment, lodash, uuid, and more to customize requests and responses."
+---
+
+You can use the `require` method to import preloaded libraries or global helpers directly inside your **Requestly Script Tab** in API Client requests.
+
+The script environment supports JavaScript-based transformations, validations, and dynamic request logic for HTTP and GraphQL APIs.
+
+## **require**
+
+The `require` method lets you import supported modules into your script. Declare the result as a variable to access functions or objects from that module.
+
+### **Syntax**
+
+```javascript
+const variableName = require('module-name');
+```
+
+If the module provides functions or objects, assign it to a variable as shown above.
+
+### **Example**
+
+```javascript
+// Importing moment for date formatting
+const moment = require('moment');
+
+const current = moment().format('YYYY-MM-DD HH:mm:ss');
+console.log('Current Time:', current);
+
+// Importing uuid to generate unique IDs
+const { v4: uuidv4 } = require('uuid');
+console.log('Generated ID:', uuidv4());
+```
+
+## **Use Global Objects**
+
+Requestly script sandbox provides several global variables and utilities you can access directly.
+
+### **Available Globals**
+
+| **Global**   | **Description**                                | **Example**                                  |
+| :----------- | :--------------------------------------------- | :------------------------------------------- |
+| **require**  | Import supported libraries into your script.   | `const moment = require('moment');`          |
+| **xml2Json** | Convert XML string to JSON object.             | `const data = xml2Json(responseBody);`       |
+| **\_**       | Lodash global for data manipulation utilities. | `const result = _.map([1,2,3], n => n * 2);` |
+
+## **Use External Libraries**
+
+The `require` method enables you to use preloaded libraries in the Requestly script environment.
+
+All supported modules are sandboxed for safe execution.
+
+### **Supported Libraries**
+
+The following external libraries are available:
+
+| Library                | Description                                                    | Documentation                                       |
+| :--------------------- | :------------------------------------------------------------- | :-------------------------------------------------- |
+| **ajv**                | JSON Schema validator for validating API responses.            | [Ajv Docs](https://ajv.js.org/)                     |
+| **chai**               | Assertion library for adding test-like validations in scripts. | [Chai Docs](https://www.chaijs.com/api/)            |
+| **cheerio**            | Parse and manipulate HTML/XML using a jQuery-like syntax.      | [Cheerio Docs](https://cheerio.js.org/)             |
+| **csv-parse/lib/sync** | Parse CSV data synchronously into objects.                     | [csv-parse Docs](https://csv.js.org/parse/)         |
+| **lodash**             | Utility library for data manipulation.                         | [Lodash Docs](https://lodash.com/docs)              |
+| **moment**             | Library for date and time formatting and manipulation.         | [Moment.js Docs](https://momentjs.com/docs/)        |
+| **uuid**               | Generate unique identifiers (UUID v4, etc.).                   | [uuid Docs](https://www.npmjs.com/package/uuid)     |
+| **xml2Js**             | XML parsing and building utilities.                            | [xml2js Docs](https://www.npmjs.com/package/xml2js) |
+
+**Example**
+
+```javascript
+const moment = require('moment');
+const cheerio = require('cheerio');
+const { v4: uuidv4 } = require('uuid');
+
+const id = uuidv4();
+const time = moment().format('HH:mm:ss');
+
+const $ = cheerio.load('<h1>Hello Requestly</h1>');
+console.log('Text:', $('h1').text());
+console.log('Request ID:', id, 'Time:', time);
+```
+
+## **Use Built-in Globals**
+
+Requestly also provides a few helper functions and contextual variables for working with request and response data.
+
+### **Examples**
+
+```javascript
+if (rq.response.code === 200) {
+  const parsed = xml2Json(responseBody);
+  console.log('Converted XML:', parsed);
+}
+
+const upper = _.toUpper('requestly');
+console.log(upper);
+```
+
+## **Notes**
+
+- Only the libraries listed above are supported for use with `require()`.
+- No installation or internet access is needed, all libraries are pre-bundled within the Requestly scripting environment.
+- The sandbox is isolated for security; access to system-level Node APIs or network calls from `require()` is restricted.
