@@ -67,7 +67,6 @@
               "general/api-client/collection-runner-data-file",
               "general/api-client/authorization",
               "general/api-client/scripts",
-              "general/api-clent/import-packages-into-your-scripts",
               "general/api-client/tests",
               "general/api-client/replay-request-from-history",
               "general/api-client/generate-client-code",
