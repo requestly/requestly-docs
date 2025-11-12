@@ -37,7 +37,7 @@
                 "group": "Quick Start Guide",
                 "pages": [
                   "general/getting-started/quick-start-guide",
-                  "general/getting-started/quick-start-guide/browser-extention-setup",
+                  "general/getting-started/quick-start-guide/browser-extension-setup",
                   "general/getting-started/quick-start-guide/desktop-app-setup"
                 ]
               }
@@ -47,42 +47,63 @@
             "group": "API Client",
             "pages": [
               "general/api-client/overview",
-              "general/api-client/design-apis",
-              "general/api-client/send-api-request",
-              "general/api-client/graphql-request",
-              "general/api-client/api-collections",
               {
-                "group": "Environments and Variables",
+                "group": "Getting Started",
+                "pages": [
+                  "general/api-client/quick-start",
+                  "general/api-client/difference-between-desktop-app-and-browser-extension"
+                ]
+              },
+              {
+                "group": "Sending Requests",
+                "pages": [
+                  "general/api-client/send-api-request",
+                  "general/api-client/graphql-request",
+                  "general/api-client/authorization",
+                  "general/api-client/replay-request-from-history",
+                  "general/api-client/generate-client-code"
+                ]
+              },
+              {
+                "group": "Organizing APIs",
+                "pages": [
+                  "general/api-client/design-apis",
+                  "general/api-client/api-collections",
+                  {
+                    "group": "Import & Export APIs",
+                    "pages": [
+                      "general/api-client/import-export",
+                      "general/api-client/import-export/import-from-curl",
+                      "general/api-client/import-export/import-from-postman",
+                      "general/api-client/import-export/import-openapi-spec",
+                      "general/api-client/import-export/import-export-api-collections",
+                      "general/api-client/import-export/import-export-api-environment"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Variables & Environments",
                 "pages": [
                   "general/api-client/environments-and-variables",
-                  "general/api-client/environments-and-variables/global-variables",
                   "general/api-client/environments-and-variables/environment-variables",
-                  "general/api-client/environments-and-variables/runtime-variables",
                   "general/api-client/environments-and-variables/collection-and-subcollection-variables",
+                  "general/api-client/environments-and-variables/global-variables",
+                  "general/api-client/environments-and-variables/runtime-variables",
                   "general/api-client/environments-and-variables/variable-precedence",
                   "general/api-client/environments-and-variables/using-variables-in-api-requests"
                 ]
               },
-              "general/api-client/collection-runner",
-              "general/api-client/collection-runner-data-file",
-              "general/api-client/authorization",
-              "general/api-client/scripts",
-              "general/api-client/import-packages-into-your-scripts",
-              "general/api-client/tests",
-              "general/api-client/replay-request-from-history",
-              "general/api-client/generate-client-code",
               {
-                "group": "Import & Export",
+                "group": "Automation & Testing",
                 "pages": [
-                  "general/api-client/import-export",
-                  "general/api-client/import-export/import-from-curl",
-                  "general/api-client/import-export/import-export-api-collections",
-                  "general/api-client/import-export/import-export-api-environment",
-                  "general/api-client/import-export/import-openapi-spec",
-                  "general/api-client/import-export/import-from-postman"
+                  "general/api-client/scripts",
+                  "general/api-client/import-packages-into-your-scripts",
+                  "general/api-client/tests",
+                  "general/api-client/collection-runner",
+                  "general/api-client/collection-runner-data-file"
                 ]
-              },
-              "general/api-client/difference-between-desktop-app-and-browser-extension"
+              }
             ]
           },
           {
@@ -131,6 +152,15 @@
                   "general/http-rules/sharing/share-in-workspace",
                   "general/http-rules/sharing/shared-list",
                   "general/http-rules/sharing/download-rules"
+                ]
+              },
+              {
+                "group": "Import Rules",
+                "pages": [
+                  "general/imports/charles-proxy",
+                  "general/imports/header-editor",
+                  "general/imports/modheader",
+                  "general/imports/resource-override"
                 ]
               }
             ]
@@ -217,17 +247,7 @@
               }
             ]
           },
-          {
-            "group": "Imports",
-            "pages": [
-              "general/imports/bruno",
-              "general/imports/charles-proxy",
-              "general/imports/header-editor",
-              "general/imports/modheader",
-              "general/imports/postman",
-              "general/imports/resource-override"
-            ]
-          },
+
           {
             "group": "Others",
             "pages": [

@@ -1,0 +1,326 @@
+---
+title: Quick Start Guide
+label: Quick Start
+slug: quick-start
+description: >-
+  Get started with Requestly API Client in 5 minutes. Learn how to send your first API request, organize with collections, and use variables.
+seoDescription: >-
+  Quick start guide for Requestly API Client. Send your first API request, create collections, set up environments, and start testing APIs in minutes.
+visibility: PUBLIC
+---
+***
+
+Welcome to Requestly API Client! This guide will help you get started in just a few minutes. By the end, you'll know how to send requests, organize them into collections, and use variables to manage different environments.
+
+## Prerequisites
+
+You'll need either:
+- **Browser Extension** ([Chrome](https://chrome.google.com/webstore/detail/requestly/mdnleldcmiljblolnjhpnblkcekpdkpa), Firefox, Edge, Brave) - Best for web API testing
+- **Desktop App** ([Download](https://requestly.com/downloads/)) - Best for mobile apps, local APIs, and advanced use cases
+
+<Tip>
+  Not sure which to use? Check out our [comparison guide](/general/api-client/difference-between-desktop-app-and-browser-extension) to help you decide.
+</Tip>
+
+***
+
+## Step 1: Send Your First API Request
+
+Let's start by sending a simple GET request to test the API Client.
+
+<Steps>
+  <Step title="Open API Client and Create a New Request">
+    Click the API Client link in the left sidebar of the Requestly application, then click the <code>+ New</code> button to create a new request and select <code>Request</code> from the menu.
+    
+    
+    <img src="/images/send-api-request/fdef96c4-3da6-4a3a-a885-8999e89898f1.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Configure Your Request">
+    - **Name**: `Send API Request`
+    - **Method**: `GET`
+    - **URL**: `https://app.requestly.io/echo`
+    
+    <img src="/images/send-api-request/b027f3b9-8d3c-49ee-9f5e-f7a66f7a5fd0.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Send the Request">
+    Click **Save** and then **Send**. You should see a JSON response with data in the response panel below.
+    
+    <img src="/images/send-api-request/e258dee4-e903-417a-a847-1f1c7e438553.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+🎉 **Congratulations!** You've sent your first API request with Requestly.
+
+***
+
+## Step 2: Understand the Interface
+
+The API Client interface is divided into key sections:
+
+<Tabs>
+  <Tab title="Left Sidebar">
+  <img src="/images/design-apis/545f902b-7e45-4137-9a25-2831217679c5.png" align="center" fullwidth="false" />
+    - **Collections**: View all your API collections and requests
+    - **Environments**: Manage environment variables
+    - **History**: Access previously sent requests
+  </Tab>
+  
+  <Tab title="Request Panel">
+    <img src="/images/design-apis/9a34be36-654e-4124-a9ed-e722785d0700.png" align="center" fullwidth="false" />
+
+    - **URL Bar**: Enter endpoint URL and select HTTP method
+    - **Query Params**: Add URL query parameters
+    - **Headers**: Configure request headers
+    - **Body**: Add request payload (for POST, PUT, PATCH)
+    - **Authorization**: Set up authentication
+    - **Scripts**: Add pre-request and post-response scripts
+  </Tab>
+  
+  <Tab title="Response Panel">
+  <img src="/images/send-api-request/e258dee4-e903-417a-a847-1f1c7e438553.png" align="center" fullwidth="false" />
+    - **Body**: View response data (formatted or raw)
+    - **Headers**: See response headers
+    - **Status**: Check HTTP status code and response time
+  </Tab>
+</Tabs>
+
+***
+
+## Step 3: Create Your First Collection
+
+Collections help you organize related API requests. Let's create one for a sample project.
+
+<Steps>
+  <Step title="Create a Collection">
+    Click **+ New** → **Collection**
+    
+    Name it `User Management APIs` and press Enter.
+    
+    <img src="/images/api-collections/dd563ae7-3b5e-4cc3-bc1b-cab7f320e655.png" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Add Requests to Collection">
+    Drag your previously created request into the collection, or create a new request directly inside the collection by clicking the **+** icon next to the collection name.
+  </Step>
+
+  <Step title="Organize with Folders">
+    For larger projects, create sub-folders within collections:
+    - Click the folder icon next to your collection name
+    - Name it (e.g., `Auth APIs`, `User APIs`)
+    
+    <img src="/images/api-collections/5c310619-cd51-4d23-bbd5-100c88839522.png" align="center" fullwidth="false" />
+  </Step>
+</Steps>
+
+<Tip>
+  Collections can have their own variables and authorization settings that apply to all requests inside them. [Learn more about collections →](/general/api-client/api-collections)
+</Tip>
+
+***
+
+## Step 4: Set Up Environment Variables
+
+Variables allow you to switch between different API environments (dev, staging, production) without changing your requests.
+
+<Steps>
+  <Step title="Create an Environment">
+    Click **+ New** → **Environment**
+    
+    Name it `Development` and press Enter.
+    <img src="/images/api-client/quick-start/new-dropdown.webp" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Add Variables">
+    Add these variables to your environment:
+    ```
+    Key: base_url
+    Value: https://jsonplaceholder.typicode.com
+    
+    Key: api_token
+    Value: your_dev_token_here
+    ```
+    
+    Click **Save**.
+    <img src="/images/api-client/quick-start/development-environment.webp" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Use Variables in Requests">
+    Update your request URL to use the variable:
+    ```
+    {{base_url}}/users/1
+    ```
+    
+    Variables are referenced using double curly braces: `{{variable_name}}`
+    <img src="/images/api-client/quick-start/environment-variable.webp" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Switch Environments">
+    Use the environment dropdown in the top-right corner to switch between different environments.
+  </Step>
+</Steps>
+
+<Card title="Master Variables" href="/general/api-client/environments-and-variables" icon="graduation-cap">
+  Learn about different variable types: Global, Environment, Collection, and Runtime variables
+</Card>
+
+***
+
+## Step 5: Try Advanced Features
+
+Now that you know the basics, explore these powerful features:
+
+### Add Authorization
+
+Protect your APIs with built-in auth support:
+
+<Steps>
+  <Step title="Open Authorization Tab">
+    Click the **Authorization** tab in your request
+  </Step>
+
+  <Step title="Select Auth Type">
+    Choose from:
+    - API Key
+    - Bearer Token
+    - Basic Auth
+    - OAuth 2.0
+    <img src="/images/api-client/quick-start/authorization-dropdown.webp" align="center" fullwidth="false" />
+  </Step>
+
+  <Step title="Enter Credentials">
+    Fill in your authentication details (can use variables for security)
+    <img src="/images/api-client/quick-start/bearer-token.webp" align="center" fullwidth="false" />
+
+  </Step>
+</Steps>
+
+[Full Authorization Guide →](/general/api-client/authorization)
+
+### Write Scripts
+
+Automate your workflow with JavaScript:
+
+```javascript
+// Pre-request Script: Add timestamp
+rq.environment.set("timestamp", new Date().getTime());
+
+// Post-response Script: Save token
+const response = JSON.parse(rq.response.body);
+rq.environment.set("auth_token", response.token);
+```
+
+[Learn about Scripts →](/general/api-client/scripts)
+
+### Add Tests
+
+Validate API responses automatically:
+
+```javascript
+// Test if response is 200 OK
+if (rq.response.code === 200) {
+    console.log("✓ Request successful");
+}
+
+// Test if response contains expected data
+const body = JSON.parse(rq.response.body);
+if (body.id) {
+    console.log("✓ User ID exists");
+}
+```
+
+[Testing Documentation →](/general/api-client/tests)
+
+***
+
+## Common Use Cases
+
+<AccordionGroup>
+  <Accordion title="Testing REST APIs" icon="code">
+    1. Create a collection for your API
+    2. Add requests for each endpoint
+    3. Use variables for base URL and auth tokens
+    4. Write tests to validate responses
+    
+    [Send API Request Guide →](/general/api-client/send-api-request)
+  </Accordion>
+
+  <Accordion title="Working with GraphQL" icon="diagram-project">
+    1. Create a new GraphQL request
+    2. Use the GraphQL editor for queries and mutations
+    3. Add variables in the GraphQL Variables section
+    
+    [GraphQL Guide →](/general/api-client/graphql-request)
+  </Accordion>
+
+  <Accordion title="Running API Test Suites" icon="play">
+    1. Organize tests in a collection
+    2. Use Collection Runner to execute all requests
+    3. Add test scripts to validate responses
+    4. Export results for reporting
+    
+    [Collection Runner Guide →](/general/api-client/collection-runner)
+  </Accordion>
+
+  <Accordion title="Team Collaboration" icon="users">
+    1. Create collections for shared APIs
+    2. Export collections to JSON
+    3. Share with team members
+    4. Use workspace features for real-time collaboration
+    
+    [Team Workspaces →](/general/team/workspaces)
+  </Accordion>
+</AccordionGroup>
+
+***
+
+## Import Existing APIs
+
+Already using another API client? Import your work instantly:
+
+<CardGroup cols={3}>
+  <Card title="From cURL" href="/general/api-client/import-export/import-from-curl" icon="terminal">
+    Paste cURL commands
+  </Card>
+  <Card title="From Postman" href="/general/api-client/import-export/import-from-postman" icon="box">
+    Import Postman collections
+  </Card>
+  <Card title="OpenAPI/Swagger" href="/general/api-client/import-export/import-openapi-spec" icon="file-code">
+    Import API specifications
+  </Card>
+</CardGroup>
+
+***
+
+## Next Steps
+
+You're now ready to use Requestly API Client effectively! Here's what to explore next:
+
+<CardGroup cols={2}>
+  <Card title="API Collections Deep Dive" href="/general/api-client/api-collections" icon="folder-tree">
+    Master collection organization and management
+  </Card>
+  
+  <Card title="Variables & Environments" href="/general/api-client/environments-and-variables" icon="brackets-curly">
+    Learn about all variable types and scoping
+  </Card>
+  
+  <Card title="Pre/Post Scripts" href="/general/api-client/scripts" icon="code">
+    Automate your API testing workflow
+  </Card>
+  
+  <Card title="Generate Client Code" href="/general/api-client/generate-client-code" icon="file-code">
+    Export requests as code snippets
+  </Card>
+</CardGroup>
+
+***
+
+## Need Help?
+
+<Card title="Full API Client Documentation" href="/general/api-client/overview" icon="book">
+  Explore comprehensive guides for all features
+</Card>
+
+**Having issues?** Check out our [troubleshooting guides](/troubleshoot) or reach out to our support team.

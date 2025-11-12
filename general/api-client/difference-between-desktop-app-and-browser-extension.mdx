@@ -1,42 +1,218 @@
 ---
-title: Differences Between Desktop App and Browser Extension
+title: Desktop App vs Browser Extension
 label: Differences Between Desktop App and Browser Extension
 slug: difference-between-desktop-app-and-browser-extension
-seoTitle: Differences Between the Desktop App and Browser Extension
+description: >-
+  Compare Requestly Desktop App and Browser Extension features to choose the right platform for your API testing needs.
+seoTitle: Requestly API Client - Desktop App vs Browser Extension Comparison
+seoDescription: >-
+  Detailed comparison of Requestly Desktop App and Browser Extension for API testing. Learn which platform fits your workflow best.
 visibility: PUBLIC
 ---
-Requestly API Client is available as both a **Desktop App** and a **Browser Extension**.\
-While both versions let you create, test, and debug APIs efficiently, they differ in capabilities due to platform constraints.
 
-This document highlights key differences to help you choose the right version for your workflow.
+---
+
+## Choose Your Platform
+
+Requestly API Client is available on **two platforms**, each with unique strengths:
+
+<CardGroup cols={2}>
+  <Card title="Browser Extension" icon="chrome" href="/general/http-interceptor/browser-extension">
+    **Best for:** Quick API testing, web development, lightweight workflows
+  </Card>
+  
+  <Card title="Desktop App" icon="desktop" href="/general/http-interceptor/desktop-app">
+    **Best for:** Advanced testing, file uploads, mobile app debugging
+
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Can't decide?** Both platforms sync your collections and environments
+  through Team Workspaces, so you can use whichever suits your current task.
+</Tip>
+
+---
+
+## Feature Comparison
+
+Use this table to compare capabilities and choose the right platform for your needs.
 
 ### Platform Availability
 
-| **Feature**          | **Browser Extension** | **Desktop App** |
-| -------------------- | --------------------- | --------------- |
-| **Platform Support** | Chrome, Firefox, Edge | Windows, macOS  |
+| Feature                | Browser Extension                                 | Desktop App           |
+| ---------------------- | ------------------------------------------------- | --------------------- |
+| **Supported Browsers** | Chrome, Firefox, Edge, Brave, Arc, Vivaldi, Opera | N/A                   |
+| **Supported OS**       | Any OS with supported browser                     | Windows, macOS, Linux |
+| **Installation**       | Chrome Web Store / Firefox Add-ons                | Download installer    |
+| **Launch Speed**       | Instant (already in browser)                      | Fast (standalone app) |
 
-### API & Request Capabilities
+---
 
-| **Feature**                             | **Browser Extension** | **Desktop App**                               |
-| --------------------------------------- | --------------------- | --------------------------------------------- |
-| **Supported Request Types**             | REST, GraphQL         | REST, GraphQL                                 |
-| **Multipart / Form Data**               | ❌ Not supported       | ✅ Supported                                   |
-| **Send Files in Multipart / Form data** | ❌ Not supported       | ✅ Supported                                   |
-| **Access APIs on Localhost**            | ✅ Supported           | ✅ Supported                                   |
-| **Replay Requests from Interceptor**    | ❌ Not supported       | ✅ (Replay recorded requests from interceptor) |
-| **Collection Runner**                   | ✅ Supported           | ✅ Supported                                   |
+### API Testing Capabilities
 
-### Workspace & Collaboration
+| Feature                       | Browser Extension                                    | Desktop App      |
+| ----------------------------- | ---------------------------------------------------- | ---------------- |
+| **REST API Support**          | ✅ Full support                                      | ✅ Full support  |
+| **GraphQL Support**           | ✅ Full support                                      | ✅ Full support  |
+| **HTTP Methods**              | ✅ All methods (GET, POST, PUT, PATCH, DELETE, etc.) | ✅ All methods   |
+| **Custom Headers**            | ✅ Supported                                         | ✅ Supported     |
+| **Query Parameters**          | ✅ Supported                                         | ✅ Supported     |
+| **Request Body (JSON, Text)** | ✅ Supported                                         | ✅ Supported     |
+| **Form Data (URL-encoded)**   | ✅ Supported                                         | ✅ Supported     |
+| **Multipart Form Data**       | ❌ Not supported                                     | ✅ **Supported** |
+| **File Uploads**              | ❌ Not supported                                     | ✅ **Supported** |
+| **Access Localhost APIs**     | ✅ Supported                                         | ✅ Supported     |
+| **Custom Timeout Settings**   | ⚠️ Browser-limited                                   | ✅ Configurable  |
 
-| **Feature**              | **Browser Extension** | **Desktop App** |
-| ------------------------ | --------------------- | --------------- |
-| **Local Workspaces**     | ❌ Not supported       | ✅ Supported     |
-| **Team Workspaces**      | ✅ Supported           | ✅ Supported     |
-| **File Import / Export** | ✅ Supported           | ✅ Supported     |
+---
 
-### Summary
+### Organization & Workflow
 
-* **Use the Browser Extension** for a lightweight, in-browser API client ideal for quick testing and debugging.
+| Feature                          | Browser Extension | Desktop App      |
+| -------------------------------- | ----------------- | ---------------- |
+| **API Collections**              | ✅ Full support   | ✅ Full support  |
+| **Sub-collections / Folders**    | ✅ Supported      | ✅ Supported     |
+| **Environment Variables**        | ✅ Supported      | ✅ Supported     |
+| **Collection Variables**         | ✅ Supported      | ✅ Supported     |
+| **Global Variables**             | ✅ Supported      | ✅ Supported     |
+| **Request History**              | ✅ Supported      | ✅ Supported     |
+| **Collection Runner**            | ✅ Supported      | ✅ Supported     |
+| **Collection Runner Data Files** | ❌ Not supported  | ✅ **Supported** |
+| **Pre-request Scripts**          | ✅ Supported      | ✅ Supported     |
+| **Post-response Scripts**        | ✅ Supported      | ✅ Supported     |
+| **Tests / Assertions**           | ✅ Supported      | ✅ Supported     |
 
-* **Use the Desktop App** if you need advanced capabilities like file uploads, multipart requests, local workspaces, or replaying intercepted requests.
+---
+
+### Authentication & Security
+
+| Feature                      | Browser Extension  | Desktop App         |
+| ---------------------------- | ------------------ | ------------------- |
+| **API Key Auth**             | ✅ Supported       | ✅ Supported        |
+| **Bearer Token**             | ✅ Supported       | ✅ Supported        |
+| **Basic Auth**               | ✅ Supported       | ✅ Supported        |
+| **OAuth 2.0**                | ✅ Supported       | ✅ Supported        |
+| **Custom Auth Headers**      | ✅ Supported       | ✅ Supported        |
+| **SSL Certificate Handling** | ⚠️ Browser-managed | ✅ Advanced control |
+
+---
+
+### Import & Export
+
+| Feature                       | Browser Extension | Desktop App  |
+| ----------------------------- | ----------------- | ------------ |
+| **Import from cURL**          | ✅ Supported      | ✅ Supported |
+| **Import from Postman**       | ✅ Supported      | ✅ Supported |
+| **Import OpenAPI/Swagger**    | ✅ Supported      | ✅ Supported |
+| **Export Collections (JSON)** | ✅ Supported      | ✅ Supported |
+| **Export Environments**       | ✅ Supported      | ✅ Supported |
+| **Generate Code Snippets**    | ✅ Supported      | ✅ Supported |
+
+---
+
+### Collaboration & Workspaces
+
+| Feature                | Browser Extension                  | Desktop App                        |
+| ---------------------- | ---------------------------------- | ---------------------------------- |
+| **Local Workspace**    | ❌ Not available                   | ✅ **Supported**                   |
+| **Team Workspaces**    | ✅ Supported                       | ✅ Supported                       |
+| **Real-time Sync**     | ✅ Supported (Team workspaces)     | ✅ Supported (Team workspaces)     |
+| **Share Collections**  | ✅ Via export/import or workspaces | ✅ Via export/import or workspaces |
+| **Share Environments** | ✅ Via export/import or workspaces | ✅ Via export/import or workspaces |
+
+---
+
+### Advanced Features
+
+| Feature                              | Browser Extension       | Desktop App                                         |
+| ------------------------------------ | ----------------------- | --------------------------------------------------- |
+| **Replay Requests from Interceptor** | ❌ Not available        | ✅ **Supported** - Replay captured network requests |
+| **HAR File Integration**             | ⚠️ Limited              | ✅ **Full support** - Import and analyze HAR files  |
+| **Mock API Responses**               | ✅ Via HTTP Rules       | ✅ Via HTTP Rules + Mock Server                     |
+| **Network Traffic Interception**     | ✅ Browser traffic only | ✅ **All apps** (mobile, desktop, browsers)         |
+| **Debug Mobile Apps**                | ❌ Not available        | ✅ **Supported** - iOS/Android devices              |
+| **Custom Proxy Configuration**       | ⚠️ Browser-limited      | ✅ Full control                                     |
+| **Session Recording**                | ⚠️ Limited              | ✅ **Full support** with screen recording           |
+
+---
+
+## Decision Guide
+
+<Tabs>
+  <Tab title="Browser Extension">
+    ### Choose **Browser Extension** if you:
+
+    - ✅ Primarily test web APIs during frontend development
+    - ✅ Want zero-install, instant access in your browser
+    - ✅ Don't need file upload testing
+    - ✅ Work mostly with JSON/text payloads
+    - ✅ Prefer a lightweight tool integrated with your browser
+
+    <Card title="Get Browser Extension" icon="chrome" href="https://chrome.google.com/webstore/detail/requestly/mdnleldcmiljblolnjhpnblkcekpdkpa">
+      Install from Chrome Web Store and start testing APIs instantly
+    </Card>
+
+  </Tab>
+
+  <Tab title="Desktop App">
+    ### Choose **Desktop App** if you:
+
+    - ✅ Need to test file uploads or multipart form data
+    - ✅ Want to intercept and debug mobile app traffic
+    - ✅ Require local workspace for offline work
+    - ✅ Need to replay captured network requests
+    - ✅ Work with HAR files frequently
+    - ✅ Debug APIs from non-browser applications
+
+    <Card title="Download Desktop App" icon="desktop" href="https://requestly.com/downloads/">
+      Get the full-featured desktop application for advanced testing
+    </Card>
+
+  </Tab>
+</Tabs>
+
+---
+
+## Can I Use Both?
+
+**Absolutely!** Many users use both platforms:
+
+- **Browser Extension** for quick web API testing during development
+- **Desktop App** for advanced testing, mobile debugging, and session recording
+
+Your collections and environments sync across both platforms when you use Team Workspaces, giving you the flexibility to switch based on your current task.
+
+---
+
+## Need Help Choosing?
+
+<CardGroup cols={2}>
+  <Card
+    title="Browser Extension Guide"
+    href="/general/http-interceptor/browser-extension"
+    icon="chrome"
+  >
+    Learn more about the browser extension
+  </Card>
+
+  <Card
+    title="Desktop App Guide"
+    href="/general/http-interceptor/desktop-app"
+    icon="desktop"
+  >
+    Explore desktop app capabilities
+  </Card>
+
+  <Card
+    title="Quick Start"
+    href="/general/api-client/quick-start"
+    icon="rocket"
+  >
+    Get started with API Client in 5 minutes
+  </Card>
+
+  <Card title="Team Workspaces" href="/general/team/workspaces" icon="users">
+    Sync your work across platforms
+  </Card>
+</CardGroup>

@@ -1,39 +1,198 @@
 ---
-title: Overview
+title: API Client Overview
 label: Overview
 slug: overview
 description: >-
-  Learn about the key features of Requestly's API Client, including tools for
-  designing, testing, and managing APIs, with links to detailed guides for each.
+  Build, test, and debug APIs with Requestly's powerful API Client. A modern, intuitive platform for API development, testing, and collaboration.
 seoDescription: >-
-  Learn about the key features of Requestly's API Client, including tools for
-  designing, testing, and managing APIs, with links to detailed guides for each.
+  Learn about Requestly's API Client - a comprehensive tool for designing, testing, and managing APIs with support for collections, environments, scripts, and team collaboration.
 visibility: PUBLIC
 ---
 ***
 
-Requestly's API Client offers a range of tools to help you design, manage, and test APIs effectively. Below, we introduce the key features of the API Client with links to detailed guides for each.
+## What is Requestly API Client?
 
-## **1. Design APIs**
+Requestly API Client is a modern, browser-based and desktop tool for designing, testing, and debugging APIs. Whether you're a frontend developer testing endpoints, a backend engineer validating API contracts, or a QA professional running test suites, the API Client streamlines your entire API workflow.
 
-API design involves defining how requests and responses are structured for different operations. Requestly simplifies this process by allowing you to create individual API requests, specify HTTP methods, headers, query parameters, and request bodies, and validate responses for accuracy. Learn more on the [Design APIs page](/general/api-client/design-apis).
+<CardGroup cols={2}>
+  <Card title="Send Requests" icon="paper-plane" href="/general/api-client/send-api-request">
+    Test any REST API or GraphQL endpoint with full support for all HTTP methods
+  </Card>
+  <Card title="Organize with Collections" icon="folder-tree" href="/general/api-client/api-collections">
+    Group related APIs into collections for better project structure
+  </Card>
+  <Card title="Dynamic Variables" icon="code" href="/general/api-client/environments-and-variables">
+    Use environment and collection variables to switch contexts seamlessly
+  </Card>
+  <Card title="Automate with Scripts" icon="wand-magic-sparkles" href="/general/api-client/scripts">
+    Write pre-request and post-response scripts in JavaScript
+  </Card>
+</CardGroup>
 
-## **2. Send API Requests**
+***
 
-Sending API requests is at the core of API testing. Configure HTTP methods, headers, query parameters, and request bodies to test different scenarios. Responses can be viewed in detail, including status codes, headers, and payloads. The <a target="_blank" href="/general/api-client/replay-request-from-history">History</a> feature also allows you to revisit and resend previous requests. Explore the full process of [Sending API Requests](/general/api-client/send-api-request).
+## Why Choose Requestly API Client?
 
-## **3. API Collections**
+<AccordionGroup>
+  <Accordion title="Fast and Lightweight" icon="bolt">
+    Works directly in your browser or desktop app with no complex setup required. Start testing APIs in seconds.
+  </Accordion>
+  
+  <Accordion title="Environment Management" icon="globe">
+    Switch between development, staging, and production environments with a single click using environment variables.
+  </Accordion>
+  
+  <Accordion title="Full Request History" icon="clock-rotate-left">
+    Never lose a request - access your complete request history and replay any previous API call instantly.
+  </Accordion>
+  
+  <Accordion title="Team Collaboration" icon="users">
+    Share collections, environments, and requests with your team through workspaces for seamless collaboration.
+  </Accordion>
+  
+  <Accordion title="Multiple Auth Methods" icon="lock">
+    Built-in support for API Key, Bearer Token, Basic Auth, and OAuth 2.0 authentication methods.
+  </Accordion>
+</AccordionGroup>
 
-API Collections allow you to group related API requests for better organization and collaboration. They make it easy to share a set of APIs with your team or switch environments seamlessly. Collections also support reusable variables and pre-request/post-response scripts, enhancing productivity. Learn how to create and manage [API Collections](/general/api-client/api-collections).
+***
 
-## **4. Using Variables**
+## Core Features
 
-Variables in Requestly simplify API testing and management by allowing you to replace hardcoded values with placeholders. We support different types of variables — Collection Variables, Environment Variables, and Global Variables — each serving unique purposes. Understanding these variables will help you use them efficiently. Find more details on [defining and using Variables](/general/api-client/environments-and-variables) in your projects.
+### **Build & Test APIs**
 
-## **5. Scripts (Pre & Post)**
+Create and send HTTP requests with an intuitive interface. Configure methods, headers, query parameters, and request bodies with ease.
 
-Scripts in Requestly let you automate and customize your API workflows. **Pre-request scripts** allow you to add logic or modify requests before they are sent, such as adding timestamps or dynamic tokens. **Post-response scripts**, on the other hand, help process responses and manipulate variables that can be used in subsequent API calls. Use JavaScript to handle tasks like validating responses, saving tokens, or setting environment variables. Learn more about using [Pre & Post Scripts](/general/api-client/scripts).
+<CardGroup cols={2}>
+  <Card title="Send API Requests" href="/general/api-client/send-api-request" icon="rocket">
+    Learn how to send your first API request and view responses
+  </Card>
+  <Card title="GraphQL Support" href="/general/api-client/graphql-request" icon="diagram-project">
+    Test GraphQL APIs with query and mutation support
+  </Card>
+</CardGroup>
 
-## 6. **Authorization**
+### **Organize Your Workflow**
 
-Authorization ensures secure access to your APIs by managing permissions and authentication. Requestly supports various authorization mechanisms, including API keys, OAuth 2.0, Bearer Tokens, and Basic Authentication. You can easily configure authorization details at the request level or apply them globally across your API Collections for consistency. This flexibility simplifies testing APIs that require authentication and helps ensure compliance with security standards. Explore more about setting up and using [Authorization](/general/api-client/authorization) in your workflows.
+Keep your API projects organized with collections and smart grouping features.
+
+<CardGroup cols={2}>
+  <Card title="API Collections" href="/general/api-client/api-collections" icon="folder">
+    Group related requests into collections and sub-folders
+  </Card>
+  <Card title="Collection Runner" href="/general/api-client/collection-runner" icon="play">
+    Execute multiple requests sequentially for testing workflows
+  </Card>
+</CardGroup>
+
+### **Dynamic Configuration**
+
+Use variables and environments to make your API testing flexible and reusable across different contexts.
+
+<CardGroup cols={3}>
+  <Card title="Variables Guide" href="/general/api-client/environments-and-variables" icon="brackets-curly">
+    Master environment, collection, and global variables
+  </Card>
+  <Card title="Environment Variables" href="/general/api-client/environments-and-variables/environment-variables" icon="earth-americas">
+    Switch between dev, staging, and production
+  </Card>
+  <Card title="Variable Precedence" href="/general/api-client/environments-and-variables/variable-precedence" icon="layer-group">
+    Understand how variable scoping works
+  </Card>
+</CardGroup>
+
+### **Automate & Extend**
+
+Add custom logic to your API requests with scripts and automated testing.
+
+<CardGroup cols={3}>
+  <Card title="Pre/Post Scripts" href="/general/api-client/scripts" icon="code">
+    Run JavaScript before and after requests
+  </Card>
+  <Card title="Tests" href="/general/api-client/tests" icon="vial">
+    Write automated tests for your API responses
+  </Card>
+  <Card title="Generate Code" href="/general/api-client/generate-client-code" icon="file-code">
+    Export requests as code in multiple languages
+  </Card>
+</CardGroup>
+
+### **Secure Your APIs**
+
+Configure authentication for protected endpoints with multiple auth methods.
+
+<Card title="Authorization" href="/general/api-client/authorization" icon="shield-halved">
+  Set up API Key, Bearer Token, Basic Auth, and more
+</Card>
+
+### **Import & Export**
+
+Migrate from other tools or share your work with team members.
+
+<CardGroup cols={2}>
+  <Card title="Import from cURL" href="/general/api-client/import-export/import-from-curl" icon="terminal">
+    Convert cURL commands to requests instantly
+  </Card>
+  <Card title="Import from Postman" href="/general/api-client/import-export/import-from-postman" icon="box">
+    Migrate your Postman collections seamlessly
+  </Card>
+  <Card title="OpenAPI Import" href="/general/api-client/import-export/import-openapi-spec" icon="file-code">
+    Import OpenAPI/Swagger specifications
+  </Card>
+  <Card title="Export Collections" href="/general/api-client/import-export/import-export-api-collections" icon="download">
+    Export and share your API collections
+  </Card>
+</CardGroup>
+
+***
+
+## Getting Started
+
+Ready to start testing APIs? Follow these quick steps:
+
+<Steps>
+  <Step title="Choose Your Platform">
+    Use the [Browser Extension](/general/http-interceptor/browser-extension) or [Desktop App](/general/http-interceptor/desktop-app). See the [comparison guide](/general/api-client/difference-between-desktop-app-and-browser-extension) to help you decide.
+  </Step>
+  
+  <Step title="Send Your First Request">
+    Navigate to API Client → Click **+ New** → Select **Request** → Enter a URL and click **Send**. [View detailed guide →](/general/api-client/send-api-request)
+  </Step>
+  
+  <Step title="Organize with Collections">
+    Group related APIs into collections for better project management. [Learn more →](/general/api-client/api-collections)
+  </Step>
+  
+  <Step title="Use Variables">
+    Set up environment variables to manage different API environments. [Configure environments →](/general/api-client/environments-and-variables)
+  </Step>
+</Steps>
+
+***
+
+## Need Help?
+
+<CardGroup cols={2}>
+  <Card title="View Request History" href="/general/api-client/replay-request-from-history" icon="clock-rotate-left">
+    Access and replay previous API requests
+  </Card>
+  <Card title="Design API Contracts" href="/general/api-client/design-apis" icon="pen-ruler">
+    Learn best practices for API design
+  </Card>
+</CardGroup>
+
+***
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Master Variables" href="/general/api-client/environments-and-variables" icon="graduation-cap">
+    Deep dive into variable types and usage
+  </Card>
+  <Card title="Write Tests" href="/general/api-client/tests" icon="flask">
+    Add automated testing to your workflow
+  </Card>
+  <Card title="Collaborate" href="/general/team/workspaces" icon="users">
+    Share APIs with your team workspace
+  </Card>
+</CardGroup>
