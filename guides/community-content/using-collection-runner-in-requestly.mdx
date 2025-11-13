@@ -55,7 +55,7 @@ Inside my collection, I added the following 4 requests:
 3. `POST /users` — Create a new user
 4. `DELETE /users/1` — Delete a user (mock)
 
-![Setting Up](/images/using-collection-runner-in-requestly/image1.png)
+![Setting Up](/images/using-collection-runner-in-requestly/setting-up.png)
 
 Each request can include pre-request scripts, test scripts, and variables.
 
@@ -96,7 +96,7 @@ rq.test("Response body is JSON object", () => {
 });
 ```
 
-![Scripts](/images/using-collection-runner-in-requestly/image2.png)
+![Scripts](/images/using-collection-runner-in-requestly/add-scripts.png)
 
 These tests automatically validate the response when your collection runs. So now, after every run, I could instantly see if a request passed or failed — without manually checking the response body.
 
@@ -106,7 +106,7 @@ Once my collection was ready, I clicked the little **▶ Run** icon beside it (h
 
 This opened the Collection Runner, where I could configure:
 
-![Collection Runner](/images/using-collection-runner-in-requestly/image3.png)
+![Collection Runner](/images/using-collection-runner-in-requestly/collection-runner.png)
 
 - **Iterations**: How many times to repeat the run
 - **Delay**: How long to wait between requests (useful if your server needs a breather)
@@ -118,11 +118,11 @@ Here's something I really liked — before running, I could reorder the requests
 
 I dragged my "Delete User" request to the end (because, obviously, who deletes before testing?). That small UX detail made the workflow feel super flexible.
 
-![Reordering](/images/using-collection-runner-in-requestly/image4.png)
+![Reordering](/images/using-collection-runner-in-requestly/reordering.png)
 
 After setting everything up, I hit **Run Collection** — and boom! Requestly started running all my requests in order, one after another, while I just watched it go.
 
-![Collection-Running](/images/using-collection-runner-in-requestly/image5.png)
+![Collection-Running](/images/using-collection-runner-in-requestly/collection-successful-running.png)
 
 ### Step 5: Making It Dynamic with Variables & Environments
 
@@ -136,7 +136,7 @@ That's where variables come in. Instead of writing full URLs, you can use placeh
 
 Then, in your **Variables** tab, define your base URL:
 
-![Variables](/images/using-collection-runner-in-requestly/image6.png)
+![Variables](/images/using-collection-runner-in-requestly/setting-variables.png)
 
 This way, you can easily switch between different environments without modifying each request individually.
 
@@ -158,7 +158,7 @@ Each request had its own section showing:
 - Test outcomes for each assertion you wrote
 - Response body preview
 
-![Final Tests](/images/using-collection-runner-in-requestly/image7.png)
+![Final Tests](/images/using-collection-runner-in-requestly/final-tests.png)
 
 Another really neat feature is the **History** tab in the top right corner. It automatically saves each run, so you can:
 
