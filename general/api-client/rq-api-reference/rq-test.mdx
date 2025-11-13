@@ -1,0 +1,147 @@
+---
+title: Test Object (rq.test)
+label: rq.test
+slug: rq-test
+description: >-
+  Complete reference for the rq.test object in Requestly scripts to write and execute tests for your API requests and responses.
+seoDescription: >-
+  Learn how to use the rq.test object in Requestly to write tests, validate API responses, and ensure your APIs work as expected using post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.test` object allows you to write tests in your post-response scripts to validate API responses and ensure your APIs are working as expected. Tests help you automate quality assurance and catch issues early in development.
+
+## Properties and Methods
+
+### `rq.test(name, function)`
+
+Creates a test with a given name and a test function. The test function should contain assertions using `rq.expect`.
+
+**Parameters:**
+- `name` (string): The name of the test (will be displayed in test results)
+- `function` (function): A function containing test assertions
+
+**Example:**
+
+```jsx
+rq.test("Status code is 200", function() {
+    rq.expect(rq.response.code).to.equal(200);
+});
+```
+
+## Writing Tests
+
+Tests are typically written in post-response scripts to validate the API response after it's received.
+
+### Basic Test Example
+
+```jsx
+// Test that the response status is 200
+rq.test("Response is successful", function() {
+    rq.expect(rq.response.code).to.equal(200);
+});
+
+// Test that response contains expected data
+rq.test("Response has user data", function() {
+    const data = rq.response.json();
+    rq.expect(data).to.have.property("id");
+    rq.expect(data).to.have.property("name");
+});
+```
+
+### Multiple Assertions in One Test
+
+You can include multiple assertions within a single test:
+
+```jsx
+rq.test("User object is valid", function() {
+    const user = rq.response.json();
+    
+    rq.expect(user).to.have.property("id");
+    rq.expect(user.id).to.be.a("number");
+    rq.expect(user.name).to.be.a("string");
+    rq.expect(user.email).to.include("@");
+});
+```
+
+## Common Test Patterns
+
+### Validate Status Code
+
+```jsx
+rq.test("Status code is 200", function() {
+    rq.expect(rq.response.code).to.equal(200);
+});
+```
+
+### Validate Response Structure
+
+```jsx
+rq.test("Response has correct structure", function() {
+    const data = rq.response.json();
+    
+    rq.expect(data).to.be.an("object");
+    rq.expect(data).to.have.property("status");
+    rq.expect(data).to.have.property("data");
+});
+```
+
+### Validate Response Time
+
+```jsx
+rq.test("Response time is acceptable", function() {
+    rq.expect(rq.response.responseTime).to.be.below(1000);
+});
+```
+
+### Conditional Tests
+
+```jsx
+if (rq.response.code === 200) {
+    rq.test("Successful response has data", function() {
+        const data = rq.response.json();
+        rq.expect(data).to.have.property("result");
+    });
+}
+```
+
+For more assertion examples and patterns, see the [rq.expect documentation](/general/api-client/rq-expect) and [Chai.js official documentation](https://www.chaijs.com/api/bdd/).
+
+## Best Practices
+
+1. **Use Descriptive Test Names**: Make test names clear and specific
+2. **One Concept Per Test**: Each test should validate one logical concept
+3. **Test Expected Behavior**: Focus on what should happen
+4. **Handle Different Response Codes**: Write tests for both success and error scenarios
+5. **Store Values for Later Use**: Combine tests with variable storage
+
+**Example:**
+```jsx
+rq.test("Response contains user ID", function() {
+    const data = rq.response.json();
+    rq.expect(data).to.have.property("id");
+    
+    // Store for use in subsequent requests
+    rq.environment.set("userId", data.id);
+});
+```
+
+## Test Results
+<img src="/images/api-client/rq-test/post-response-tests.webp" alt="Test Results in Requestly API Client" />
+
+Test results are displayed in the Requestly API Client interface, showing:
+- ✅ Passed tests (green)
+- ❌ Failed tests (red)
+- Test execution time
+- Assertion details for failed tests
+
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)
+- [rq.request Object](/general/api-client/rq-api-reference/rq-request)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [Tests Documentation](/general/api-client/tests)

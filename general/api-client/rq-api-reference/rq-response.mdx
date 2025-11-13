@@ -1,0 +1,167 @@
+---
+title: Response Object (rq.response)
+label: rq.response
+slug: rq-response
+description: >-
+  Complete reference for the rq.response object in Requestly scripts, including properties and methods to access and process API response data.
+seoDescription: >-
+  Learn how to use the rq.response object in Requestly to access response body, headers, status code, response time, and parse JSON data in post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.response` object provides access to all details of the API response in your Requestly scripts. You can use these properties and methods primarily in post-response scripts to process, validate, and extract data from API responses.
+
+## Properties and Methods
+
+### `rq.response.body`
+
+The body of the response as a string.
+
+**Example:**
+
+```jsx
+console.log("Response Body:", rq.response.body);
+```
+
+### `rq.response.responseTime`
+
+The time taken by the request to complete, in milliseconds.
+
+**Example:**
+
+```jsx
+console.log("Response Time:", rq.response.responseTime);
+```
+
+### `rq.response.headers`
+
+An list of header rows each having `key`, `value` for each custom header you create.
+
+**Example:**
+
+```jsx
+console.log("Response Headers:", JSON.stringify(rq.response.headers));
+```
+
+### `rq.response.code`
+
+The HTTP status code of the response.
+
+**Example:**
+
+```jsx
+console.log("Response Code:", rq.response.code);
+```
+
+```jsx
+if (rq.response.code !== 200) {
+    console.error("Unexpected Response Code:", rq.response.code);
+}
+```
+
+### `rq.response.json()`
+
+Parses the response body as JSON and returns it as a JavaScript object.
+
+**Example:**
+
+```jsx
+console.log("Response JSON:", JSON.stringify(rq.response.json()));
+```
+
+### `rq.response.text()`
+
+Returns the response body as a plain string.
+
+**Example:**
+
+```jsx
+console.log("Response Body as String:", rq.response.text());
+```
+
+## Common Use Cases
+
+### Validate Response Code
+
+Check if the API returned the expected status code:
+
+```jsx
+if (rq.response.code !== 200) {
+    console.error("Unexpected Response Code:", rq.response.code);
+} else {
+    console.log("Request successful!");
+}
+```
+
+### Extract Data from JSON Response
+
+Parse the response and extract specific fields:
+
+```jsx
+const responseData = rq.response.json();
+const userId = responseData.id;
+const userName = responseData.name;
+
+console.log("User ID:", userId);
+console.log("User Name:", userName);
+
+// Store extracted data for use in other requests
+rq.environment.set("user_id", userId);
+```
+
+### Check Response Time
+
+Monitor API performance:
+
+```jsx
+if (rq.response.responseTime > 1000) {
+    console.warn("Slow response detected:", rq.response.responseTime + "ms");
+} else {
+    console.log("Response time OK:", rq.response.responseTime + "ms");
+}
+```
+
+### Extract Authentication Token
+
+Get auth token from response and save it:
+
+```jsx
+const responseData = rq.response.json();
+if (responseData.token) {
+    rq.environment.set("authToken", responseData.token);
+    console.log("Auth token saved successfully");
+}
+```
+
+### Access Response Headers
+
+```jsx
+rq.response.headers.forEach(header => {
+    console.log(`${header.key}: ${header.value}`);
+});
+```
+
+### Validate Response Structure
+
+```jsx
+const data = rq.response.json();
+if (data.error) {
+    console.error("API Error:", data.error);
+} else if (!data.id) {
+    console.error("Missing expected field: id");
+} else {
+    console.log("Response validation passed");
+}
+```
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.request Object](/general/api-client/rq-api-reference/rq-request)
+- [rq.environment Object](/general/api-client/rq-api-reference/rq-environment)
+- [rq.collectionVariables Object](/general/api-client/rq-api-reference/rq-collection-variables)
+- [rq.globals Object](/general/api-client/rq-api-reference/rq-globals)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)

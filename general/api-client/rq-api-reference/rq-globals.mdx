@@ -1,0 +1,254 @@
+---
+title: Global Variables (rq.globals)
+label: rq.globals
+slug: rq-globals
+description: >-
+  Complete reference for the rq.globals object in Requestly scripts to manage global variables accessible across all collections and environments.
+seoDescription: >-
+  Learn how to use the rq.globals object in Requestly to set, get, and unset global variables in pre-request and post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.globals` object provides methods to manage global variables during script execution. Global variables work similarly to environment variables, but they are available to all collections and requests across all environments. This makes them ideal for storing truly global configuration or state that needs to be shared everywhere.
+
+## Methods
+
+### `rq.globals.set(key, value)`
+
+Sets a global variable with the given key and value. If the variable already exists, it will be updated with the new value.
+
+**Parameters:**
+- `key` (string): The name of the global variable
+- `value` (any): The value to store (will be converted to string)
+
+**Example:**
+
+```jsx
+rq.globals.set("appVersion", "1.0.0");
+```
+
+### `rq.globals.get(key)`
+
+Retrieves the value of the specified global variable.
+
+**Parameters:**
+- `key` (string): The name of the global variable to retrieve
+
+**Returns:** The value of the global variable, or `undefined` if it doesn't exist.
+
+**Example:**
+
+```jsx
+const version = rq.globals.get("appVersion");
+console.log("App Version:", version);
+```
+
+### `rq.globals.unset(key)`
+
+Removes the specified global variable.
+
+**Parameters:**
+- `key` (string): The name of the global variable to remove
+
+**Example:**
+
+```jsx
+rq.globals.unset("appVersion");
+```
+
+## Common Use Cases
+
+### Store Application Version
+
+Keep track of the application or API version being tested:
+
+```jsx
+// In setup script
+rq.globals.set("appVersion", "1.0.0");
+rq.globals.set("apiVersion", "v2");
+
+// In any request
+const version = rq.globals.get("appVersion");
+console.log("Testing with app version:", version);
+```
+
+### Global Configuration
+
+Store configuration that applies to all collections and environments:
+
+```jsx
+// Set global configuration
+rq.globals.set("defaultTimeout", "30000");
+rq.globals.set("maxRetries", "3");
+rq.globals.set("userAgent", "Requestly API Client/1.0");
+
+// Use in any request
+const timeout = rq.globals.get("defaultTimeout");
+const retries = rq.globals.get("maxRetries");
+```
+
+### Track Global State
+
+Maintain state that needs to be shared across all collections:
+
+```jsx
+// Track total requests made
+const totalRequests = parseInt(rq.globals.get("totalRequests") || "0");
+rq.globals.set("totalRequests", totalRequests + 1);
+console.log("Total requests made:", totalRequests + 1);
+```
+
+### Store User Preferences
+
+Keep user preferences that apply globally:
+
+```jsx
+rq.globals.set("preferredLanguage", "en");
+rq.globals.set("dateFormat", "YYYY-MM-DD");
+rq.globals.set("timezone", "UTC");
+```
+
+### Global Timestamp
+
+Set a global timestamp that all requests can reference:
+
+```jsx
+// Set once at the beginning of a test run
+rq.globals.set("testRunStartTime", Date.now());
+
+// Reference in any request
+const startTime = rq.globals.get("testRunStartTime");
+const elapsed = Date.now() - parseInt(startTime);
+console.log("Time since test start:", elapsed, "ms");
+```
+
+### Feature Flags
+
+Implement global feature flags:
+
+```jsx
+// Enable/disable features globally
+rq.globals.set("enableLogging", "true");
+rq.globals.set("enableDebugMode", "false");
+rq.globals.set("useNewEndpoint", "true");
+
+// Check flags in any request
+const debugMode = rq.globals.get("enableDebugMode") === "true";
+if (debugMode) {
+    console.log("Debug mode is enabled");
+}
+```
+
+### Store Common Constants
+
+Define constants that are used across all collections:
+
+```jsx
+rq.globals.set("MAX_PAGE_SIZE", "100");
+rq.globals.set("DEFAULT_PAGE_SIZE", "20");
+rq.globals.set("API_KEY_HEADER", "X-API-Key");
+```
+
+## Variable Scope Hierarchy
+
+Understanding the hierarchy of variables in Requestly:
+
+1. **Global Variables** (`rq.globals`) - Highest level, available everywhere
+2. **Collection Variables** (`rq.collectionVariables`) - Available to all requests in a collection
+3. **Environment Variables** (`rq.environment`) - Available to all collections in a specific environment
+
+When a variable with the same name exists at multiple levels, the most specific scope takes precedence:
+```
+Environment Variables > Collection Variables > Global Variables
+```
+
+### Example of Variable Precedence
+
+```jsx
+// If all three have a variable named "apiUrl"
+const url = rq.environment.get("apiUrl") ||           // Check environment first
+            rq.collectionVariables.get("apiUrl") ||   // Then collection
+            rq.globals.get("apiUrl") ||               // Finally global
+            "https://default.api.com";                // Fallback default
+```
+
+## Comparison of Variable Types
+
+| Feature | Global Variables | Collection Variables | Environment Variables |
+|---------|-----------------|---------------------|----------------------|
+| **Scope** | All collections and environments | Specific collection | Specific environment |
+| **Use Case** | Universal settings and state | Collection-specific data | Environment-specific config |
+| **Access** | `rq.globals` | `rq.collectionVariables` | `rq.environment` |
+| **Persistence** | Across everything | Within collection | Within environment |
+| **Priority** | Lowest | Medium | Highest |
+
+### When to Use Global Variables
+
+Use global variables when:
+- Values need to be accessible from any collection or environment
+- Storing truly universal configuration or constants
+- Tracking cross-collection state or metrics
+- Setting up application-wide preferences
+
+### When to Use Collection Variables
+
+Use collection variables when:
+- Values are specific to a particular collection
+- Need to share data between requests in the same collection
+- Want consistent values across all environments for that collection
+
+### When to Use Environment Variables
+
+Use environment variables when:
+- Values differ between environments (dev, staging, production)
+- Storing environment-specific URLs, credentials, or settings
+- Need to switch contexts quickly by changing environments
+
+## Best Practices
+
+1. **Use Sparingly**: Reserve global variables for truly global data. Prefer collection or environment variables when possible.
+
+2. **Naming Convention**: Use clear, uppercase names for global constants
+   ```jsx
+   rq.globals.set("MAX_RETRY_ATTEMPTS", "5");
+   rq.globals.set("DEFAULT_TIMEOUT_MS", "30000");
+   ```
+
+3. **Document Purpose**: Comment your global variable usage
+   ```jsx
+   // Global feature flag for new API version
+   rq.globals.set("useV2Api", "true");
+   ```
+
+4. **Check Existence**: Always verify a variable exists before using it
+   ```jsx
+   const value = rq.globals.get("myGlobalVar");
+   if (!value) {
+       console.error("Global variable 'myGlobalVar' not set");
+   }
+   ```
+
+5. **Initialize Early**: Set global variables in a dedicated setup script or request
+
+6. **Clean Up**: Remove globals that are no longer needed
+   ```jsx
+   rq.globals.unset("temporaryFlag");
+   ```
+
+7. **Type Conversion**: Remember values are stored as strings
+   ```jsx
+   const maxRetries = parseInt(rq.globals.get("maxRetries") || "3");
+   const enableFeature = rq.globals.get("enableFeature") === "true";
+   ```
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.request Object](/general/api-client/rq-api-reference/rq-request)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [rq.environment Object](/general/api-client/rq-api-reference/rq-environment)
+- [rq.collectionVariables Object](/general/api-client/rq-api-reference/rq-collection-variables)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)

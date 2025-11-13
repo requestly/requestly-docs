@@ -94,14 +94,33 @@
                   "general/api-client/environments-and-variables/using-variables-in-api-requests"
                 ]
               },
-              {
-                "group": "Automation & Testing",
+                            {
+                "group": "Scripts & Tests",
                 "pages": [
-                  "general/api-client/scripts",
-                  "general/api-client/import-packages-into-your-scripts",
-                  "general/api-client/tests",
-                  "general/api-client/collection-runner",
-                  "general/api-client/collection-runner-data-file"
+
+                      "general/api-client/scripts",
+                      "general/api-client/import-packages-into-your-scripts",
+                                                          "general/api-client/tests",
+
+                  {
+                    "group": "API Reference (rq)",
+                    "pages": [
+                      "general/api-client/rq-api-reference/rq-request",
+                      "general/api-client/rq-api-reference/rq-response",
+                      "general/api-client/rq-api-reference/rq-environment",
+                      "general/api-client/rq-api-reference/rq-collection-variables",
+                      "general/api-client/rq-api-reference/rq-globals",
+                      "general/api-client/rq-api-reference/rq-test",
+                      "general/api-client/rq-api-reference/rq-expect"
+                    ]
+                  },
+                  {
+                    "group": "Collection Runner",
+                    "pages": [
+                      "general/api-client/collection-runner",
+                      "general/api-client/collection-runner-data-file"
+                    ]
+                  }
                 ]
               }
             ]
@@ -879,6 +898,54 @@
     {
       "source": "/general/api-client/import-export/import-from-openapi-spec",
       "destination": "/general/api-client/import-export/import-openapi-spec"
+    },
+    {
+      "source": "/general/api-client/scripts#request-object-rqrequest",
+      "destination": "/general/api-client/rq-api-reference/rq-request"
+    },
+    {
+      "source": "/general/api-client/scripts#response-object-rqresponse",
+      "destination": "/general/api-client/rq-api-reference/rq-response"
+    },
+    {
+      "source": "/general/api-client/scripts#environment-variables-object-rqenvironment",
+      "destination": "/general/api-client/rq-api-reference/rq-environment"
+    },
+    {
+      "source": "/general/api-client/scripts#collection-variables-object-rqcollectionvariables",
+      "destination": "/general/api-client/rq-api-reference/rq-collection-variables"
+    },
+    {
+      "source": "/general/api-client/scripts#global-variables-object-rqglobals",
+      "destination": "/general/api-client/rq-api-reference/rq-globals"
+    },
+    {
+      "source": "/general/api-client/rq-request",
+      "destination": "/general/api-client/rq-api-reference/rq-request"
+    },
+    {
+      "source": "/general/api-client/rq-response",
+      "destination": "/general/api-client/rq-api-reference/rq-response"
+    },
+    {
+      "source": "/general/api-client/rq-environment",
+      "destination": "/general/api-client/rq-api-reference/rq-environment"
+    },
+    {
+      "source": "/general/api-client/rq-collection-variables",
+      "destination": "/general/api-client/rq-api-reference/rq-collection-variables"
+    },
+    {
+      "source": "/general/api-client/rq-globals",
+      "destination": "/general/api-client/rq-api-reference/rq-globals"
+    },
+    {
+      "source": "/general/api-client/rq-test",
+      "destination": "/general/api-client/rq-api-reference/rq-test"
+    },
+    {
+      "source": "/general/api-client/rq-expect",
+      "destination": "/general/api-client/rq-api-reference/rq-expect"
     }
   ]
 }

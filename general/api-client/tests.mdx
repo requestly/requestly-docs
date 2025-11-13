@@ -33,14 +33,14 @@ The Pre-request and Post-response tabs provide a scripting environment that allo
 
 Requestly provides a JavaScript runtime with built-in utilities. Here’s a quick reference table for key methods:
 
-| **Method/Interface**                                                                                                                            | **Description**                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `rq.test`                                                                                                                                       | Define a test with a name and callback for assertions.                                 |
-| `rq.expect`                                                                                                                                     | Use [Chai.js BDD ](https://www.chaijs.com/api/bdd/)style assertions to compare values. |
-| <a target="_blank" href="/general/api-client/scripts#environment-variables-object-rqenvironment">`rq.environment`</a> | Access and manage environment variables.                                               |
-| <a target="_blank" href="/general/api-client/scripts#global-variables-object-rqglobals">`rq.globals`</a>              | Access and manage global variables.                                                    |
-| <a target="_blank" href="/general/api-client/scripts#response-object-rqresponse">`rq.response`</a>                    | Access response details (status, body, headers, etc.).                                 |
-| [`rq.request`](/general/api-client/scripts#request-object-rqrequest)                                                  | Access request details (method, headers, body, URL, etc.).                             |
+| **Method/Interface**                                                                     | **Description**                                                                        |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`rq.test`](/general/api-client/rq-api-reference/rq-test)                                                 | Define a test with a name and callback for assertions.                                 |
+| [`rq.expect`](/general/api-client/rq-api-reference/rq-expect)                                             | Use [Chai.js BDD ](https://www.chaijs.com/api/bdd/)style assertions to compare values. |
+| [`rq.environment`](/general/api-client/rq-api-reference/rq-environment)                                   | Access and manage environment variables.                                               |
+| [`rq.globals`](/general/api-client/rq-api-reference/rq-globals)                                           | Access and manage global variables.                                                    |
+| [`rq.response`](/general/api-client/rq-api-reference/rq-response)                                         | Access response details (status, body, headers, etc.).                                 |
+| [`rq.request`](/general/api-client/rq-api-reference/rq-request)                                           | Access request details (method, headers, body, URL, etc.).                             |
 
 ## Writing Tests
 

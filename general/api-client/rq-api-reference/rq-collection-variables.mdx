@@ -1,0 +1,203 @@
+---
+title: Collection Variables (rq.collectionVariables)
+label: rq.collectionVariables
+slug: rq-collection-variables
+description: >-
+  Complete reference for the rq.collectionVariables object in Requestly scripts to manage collection-scoped variables dynamically.
+seoDescription: >-
+  Learn how to use the rq.collectionVariables object in Requestly to set, get, and unset collection variables in pre-request and post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.collectionVariables` object provides methods to manage collection variables during script execution. Collection variables are scoped to a specific collection and are only accessible within the requests that belong to that collection. Unlike environment variables (scoped to a specific environment), collection variables persist across all environments within the same collection.
+
+## Methods
+
+### `rq.collectionVariables.set(key, value)`
+
+Creates or updates a collection variable with the given key and value. If the variable already exists, it will be updated with the new value.
+
+**Parameters:**
+- `key` (string): The name of the collection variable
+- `value` (any): The value to store (will be converted to string)
+
+**Example:**
+
+```javascript
+rq.collectionVariables.set("basePath", "/v1/users");
+```
+
+### `rq.collectionVariables.get(key)`
+
+Retrieves the value of the specified collection variable.
+
+**Parameters:**
+- `key` (string): The name of the collection variable to retrieve
+
+**Returns:** The value of the collection variable, or `undefined` if it doesn't exist.
+
+**Example:**
+
+```javascript
+const path = rq.collectionVariables.get("basePath");
+console.log("Collection Variable basePath:", path);
+```
+
+### `rq.collectionVariables.unset(key)`
+
+Removes the specified collection variable.
+
+**Parameters:**
+- `key` (string): The name of the collection variable to remove
+
+**Example:**
+
+```javascript
+rq.collectionVariables.unset("basePath");
+```
+
+## Common Use Cases
+
+### Store API Base Path
+
+Set a base path that all requests in the collection can use:
+
+```javascript
+// In pre-request script
+rq.collectionVariables.set("basePath", "/api/v2");
+rq.collectionVariables.set("apiVersion", "v2");
+```
+
+Then use it in your request URL:
+```
+{{baseUrl}}{{basePath}}/users
+```
+
+### Store Collection-Wide Configuration
+
+Keep configuration values that apply to all requests in a collection:
+
+```javascript
+// In a setup request's post-response script
+rq.collectionVariables.set("apiKey", "your-api-key");
+rq.collectionVariables.set("timeout", "5000");
+rq.collectionVariables.set("maxRetries", "3");
+```
+
+### Share Data Between Collection Requests
+
+Pass data from one request to another within the same collection:
+
+```javascript
+// In the first request's post-response script
+const data = rq.response.json();
+rq.collectionVariables.set("createdResourceId", data.id);
+rq.collectionVariables.set("resourceName", data.name);
+
+// In the next request's pre-request script
+const resourceId = rq.collectionVariables.get("createdResourceId");
+console.log("Using resource ID:", resourceId);
+```
+
+### Store Default Values
+
+Set default values that can be overridden by environment variables:
+
+```javascript
+// In pre-request script
+const pageSize = rq.environment.get("pageSize") || 
+                 rq.collectionVariables.get("defaultPageSize") || 
+                 "20";
+console.log("Using page size:", pageSize);
+```
+
+### Track Collection State
+
+Maintain state across requests in a collection:
+
+```javascript
+// Track if authentication has been completed
+const isAuthenticated = rq.collectionVariables.get("isAuthenticated");
+if (!isAuthenticated) {
+    console.log("Need to authenticate first");
+    rq.collectionVariables.set("isAuthenticated", "true");
+}
+```
+
+### Store Computed Values
+
+Calculate and store values that multiple requests will use:
+
+```javascript
+// In pre-request script
+const timestamp = Date.now();
+const signature = generateSignature(timestamp); // Your custom function
+
+rq.collectionVariables.set("requestTimestamp", timestamp);
+rq.collectionVariables.set("requestSignature", signature);
+```
+
+## Collection Variables vs Environment Variables
+
+| Feature | Collection Variables | Environment Variables |
+|---------|---------------------|----------------------|
+| **Scope** | Specific to a collection | Specific to an environment |
+| **Persistence** | Available across all environments in the collection | Only available in selected environment |
+| **Use Case** | Collection-level configuration and shared data | Environment-specific settings (dev, staging, prod) |
+| **Access** | `rq.collectionVariables` | `rq.environment` |
+
+### When to Use Collection Variables
+
+Use collection variables when:
+- Values are specific to a collection, not an environment
+- You need to share data between requests in the same collection
+- You want consistent values across all environments
+- Storing collection-wide configuration or defaults
+
+### When to Use Environment Variables
+
+Use environment variables when:
+- Values differ between environments (dev, staging, production)
+- Storing environment-specific URLs, credentials, or settings
+- Need to switch contexts quickly by changing environments
+
+## Best Practices
+
+1. **Naming Convention**: Use clear, descriptive names that indicate the variable's purpose
+   ```javascript
+   rq.collectionVariables.set("authBaseEndpoint", "/auth");
+   rq.collectionVariables.set("apiVersion", "v2");
+   ```
+
+2. **Initialize in Setup Requests**: Create a setup or initialization request that sets default collection variables
+
+3. **Validate Before Use**: Check if a variable exists before using it
+   ```javascript
+   const value = rq.collectionVariables.get("myVar");
+   if (!value) {
+       console.error("Collection variable 'myVar' not found");
+   }
+   ```
+
+4. **Clean Up**: Remove variables that are no longer needed
+   ```javascript
+   rq.collectionVariables.unset("temporaryData");
+   ```
+
+5. **Document Variables**: Add comments in your scripts explaining what each variable is for
+   ```javascript
+   // Store the created user ID for use in subsequent requests
+   rq.collectionVariables.set("userId", data.id);
+   ```
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.request Object](/general/api-client/rq-api-reference/rq-request)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [rq.environment Object](/general/api-client/rq-api-reference/rq-environment)
+- [rq.globals Object](/general/api-client/rq-api-reference/rq-globals)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)

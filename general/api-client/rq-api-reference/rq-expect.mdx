@@ -1,0 +1,138 @@
+---
+title: Expect Object (rq.expect)
+label: rq.expect
+slug: rq-expect
+description: >-
+  Complete reference for the rq.expect object in Requestly scripts to write assertions for API testing using Chai.js assertion library.
+seoDescription: >-
+  Learn how to use the rq.expect object in Requestly to write powerful assertions for API testing. Built on Chai.js for flexible and readable test assertions.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.expect` object provides assertion methods for writing tests in Requestly. It is built on top of the popular [Chai.js](https://www.chaijs.com/) assertion library, giving you access to powerful and expressive assertions for validating API responses.
+
+<Note>
+**Using Chai.js**: Requestly uses the Chai.js BDD assertion library. For the complete list of assertions and advanced features, refer to the [Chai.js official documentation](https://www.chaijs.com/api/bdd/).
+</Note>
+
+## Basic Usage
+
+The `rq.expect` function is used within test functions created by `rq.test` to assert expected conditions:
+
+```jsx
+rq.test("Status code is 200", function() {
+    rq.expect(rq.response.code).to.equal(200);
+});
+```
+
+## Common Assertions
+
+Below are some commonly used Chai.js assertions. For a complete reference, visit the [Chai.js BDD API documentation](https://www.chaijs.com/api/bdd/).
+
+### Equality
+
+```jsx
+rq.expect(value).to.equal(expected);        // Strict equality (===)
+rq.expect(obj).to.eql(expected);            // Deep equality
+rq.expect(value).to.deep.equal(expected);   // Deep equality (alias)
+```
+
+### Type Checking
+
+```jsx
+rq.expect(value).to.be.a("string");
+rq.expect(value).to.be.an("array");
+rq.expect(value).to.be.a("number");
+rq.expect(value).to.be.a("boolean");
+```
+
+### Properties
+
+```jsx
+rq.expect(obj).to.have.property("key");
+rq.expect(obj).to.have.property("key", value);
+```
+
+### Strings
+
+```jsx
+rq.expect(str).to.include("substring");
+rq.expect(str).to.match(/regex/);
+```
+
+### Numbers
+
+```jsx
+rq.expect(num).to.be.above(value);
+rq.expect(num).to.be.below(value);
+rq.expect(num).to.be.within(min, max);
+```
+
+### Arrays & Length
+
+```jsx
+rq.expect(arr).to.have.lengthOf(value);
+rq.expect(arr).to.include(item);
+rq.expect(arr).to.be.empty;
+```
+
+### Booleans & Existence
+
+```jsx
+rq.expect(value).to.be.true;
+rq.expect(value).to.be.false;
+rq.expect(value).to.exist;
+rq.expect(value).to.be.null;
+rq.expect(value).to.be.undefined;
+```
+
+## Negation with `.not`
+
+Negate any assertion using `.not`:
+
+```jsx
+rq.expect(value).to.not.equal("deleted");
+rq.expect(arr).to.not.be.empty;
+```
+
+## Chaining Assertions
+
+Chain multiple assertions for better readability:
+
+```jsx
+rq.expect(data.id).to.be.a("number").and.to.be.above(0);
+rq.expect(data.name).to.be.a("string").that.is.not.empty;
+```
+
+## Example: Validate Response Structure
+
+```jsx
+rq.test("Response has correct structure", function() {
+    const data = rq.response.json();
+    
+    rq.expect(data).to.be.an("object");
+    rq.expect(data).to.have.property("status");
+    rq.expect(data).to.have.property("data");
+    rq.expect(data.data).to.be.an("array").and.not.be.empty;
+});
+```
+
+## More Assertions
+
+For the complete list of assertions including:
+- Advanced object and array matchers
+- Custom assertions with `.satisfy()`
+- Key checking with `.have.keys()`
+- And many more...
+
+Visit the **[Chai.js BDD API Documentation](https://www.chaijs.com/api/bdd/)**
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [Tests Documentation](/general/api-client/tests)
+- [Chai.js Official Documentation](https://www.chaijs.com/api/bdd/) - For complete assertion reference
