@@ -22,11 +22,11 @@ Scripts in Requestly allow you to extend and customize your API requests and res
 
 <img src="/images/scripts/f4d56b9b-e5d8-48c9-9d2d-8eb277b45b18.png" align="center" fullwidth="false" />
 
-Let’s try to understand the workings of pre-script using easy-to-follow examples.
+Let's try to understand the workings of pre-script using easy-to-follow examples.
 
 **Auto Increment Page Numbers**
 
-Let’s assume you have an endpoint that takes page number as query parameter, we use environment variable `{{page_number}}` to get value of page number.
+Let's assume you have an endpoint that takes page number as query parameter, we use environment variable `{{page_number}}` to get value of page number.
 
 ```json
 https://app.requestly.io/echo?page={{page_number}}
@@ -44,7 +44,7 @@ Now every time you click the Send button of this request it would send increment
 
 During development hitting an API with new data every time can be a pain, we can use Pre-Script to randomise the values and call the same API without getting duplicate entry error.
 
-Let’s setup our request with body as follows:
+Let's setup our request with body as follows:
 
 ```json
 POST: <https://app.requestly.io/echo>
@@ -70,7 +70,7 @@ rq.environment.set("phone_number", phone);
 
 You can also use pre-script to generate access tokens, validate the requests, generate some random data for the request.
 
-You can also access elements of the request, collection variables and environment variables, checkout Requestly’s JavaScript API.
+You can also access elements of the request, collection variables and environment variables, checkout Requestly's JavaScript API.
 
 ## **Post-Response Scripts**
 
@@ -78,7 +78,7 @@ You can also access elements of the request, collection variables and environmen
 
 <img src="/images/scripts/e1391ebd-3048-48c6-97ce-6cf36276f8e5.png" align="center" fullwidth="false" />
 
-Let’s try to understand the working of post script using easy to follow examples.
+Let's try to understand the working of post script using easy to follow examples.
 
 **Validate Response Code**
 
@@ -90,7 +90,36 @@ if (rq.response.code !== 200) {
 
 We can also fetch and set API Keys or auth tokens, id, and other data from response of an API and use it in other APIs.
 
-You can access elements of the request, response, collection variables and environment variables, checkout Requestly’s JavaScript API.
+You can access elements of the request, response, collection variables and environment variables, checkout Requestly's JavaScript API.
+
+## **Console Log Filtering**
+
+All console logs generated from your scripts are automatically prefixed with `#script` to help you easily identify and filter script-related logs in the browser console. This makes debugging and monitoring your scripts more efficient.
+
+**Example:**
+
+When you use `console.log()` in your script:
+
+```jsx
+console.log("Request sent successfully");
+console.error("An error occurred");
+```
+
+The output in the browser console will appear as:
+
+```
+#script Request sent successfully
+#script An error occurred
+```
+
+**Filtering Logs:**
+
+To view only script-related logs in your browser console, use the filter feature:
+- Open the browser DevTools console
+- Type `#script` in the filter box
+- Only logs from your API client scripts will be displayed
+
+This prefix is applied to all console methods including `log`, `error`, `warn`, `info`, `debug`, and `trace`.
 
 ***
 
@@ -104,7 +133,7 @@ These properties and methods let you access the details of the API request in sc
 
 `rq.request.method`
 
-Use this property to get the Request’s method. The HTTP method of the request (e.g. `GET`, `POST`, `PUT`, `OPTION`, `DELETE`, `PATCH`, `HEAD`).
+Use this property to get the Request's method. The HTTP method of the request (e.g. `GET`, `POST`, `PUT`, `OPTION`, `DELETE`, `PATCH`, `HEAD`).
 
 **Example:**
 
@@ -156,7 +185,7 @@ console.log("Query Params:", JSON.stringify(rq.request.queryParams));
 
 ### **Response Object** `rq.response`
 
-These properties and methods let you access the details of the API’s response in scripts.
+These properties and methods let you access the details of the API's response in scripts.
 
 `rq.response.body`
 
