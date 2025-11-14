@@ -16,35 +16,6 @@ Scripts in Requestly allow you to extend and customize your API requests and res
 
 <iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/jh3Pu4XnbxQ" />
 
-## **Console Log Filtering**
-
-All console logs generated from your scripts are automatically prefixed with `#script` to help you easily identify and filter script-related logs in the browser console. This makes debugging and monitoring your scripts more efficient.
-
-**Example:**
-
-When you use `console.log()` in your script:
-
-```jsx
-console.log("Request sent successfully");
-console.error("An error occurred");
-```
-
-The output in the browser console will appear as:
-
-```
-#script Request sent successfully
-#script An error occurred
-```
-
-**Filtering Logs:**
-
-To view only script-related logs in your browser console, use the filter feature:
-- Open the browser DevTools console
-- Type `#script` in the filter box
-- Only logs from your API client scripts will be displayed
-
-This prefix is applied to all console methods including `log`, `error`, `warn`, `info`, `debug`, and `trace`.
-
 ## **Pre-Request Scripts**
 
 **Pre-Request Scripts** run before the API request is sent to the server. They allow you to modify request attributes, such as headers, body, query parameters, or even the URL. Pre Scripts are useful for adding authentication tokens, generating timestamps, or altering the request dynamically based on certain conditions.
