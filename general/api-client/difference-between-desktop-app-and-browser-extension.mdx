@@ -17,11 +17,11 @@ visibility: PUBLIC
 Requestly is available on **two platforms**, each with unique strengths:
 
 <CardGroup cols={2}>
-  <Card title="Browser Extension" icon="chrome" href="/general/http-interceptor/browser-extension">
+  <Card title="Browser Extension" icon="chrome" href="https://rqst.ly/chrome">
     **Best for:** Quick API testing, web development, lightweight workflows
   </Card>
   
-  <Card title="Desktop App" icon="desktop" href="/general/http-interceptor/desktop-app">
+  <Card title="Desktop App" icon="desktop" href="https://requestly.com/downloads/">
     **Best for:** Advanced testing, file uploads, mobile app debugging
 
   </Card>
@@ -43,8 +43,8 @@ Use this table to compare capabilities and choose the right platform for your ne
 | Feature                | Browser Extension                                 | Desktop App           |
 | ---------------------- | ------------------------------------------------- | --------------------- |
 | **Supported Browsers** | Chrome, Firefox, Edge, Brave, Arc, Vivaldi, Opera | N/A                   |
-| **Supported OS**       | Any OS with supported browser                     | Windows, macOS, Linux |
-| **Installation**       | Chrome Web Store / Firefox Add-ons                | Download installer    |
+| **Supported OS**       | Any OS with supported browser                     | Windows, macOS       |
+| **Installation**       | Chrome Web Store / Firefox.                       | Download installer    |
 | **Launch Speed**       | Instant (already in browser)                      | Fast (standalone app) |
 
 ---
@@ -60,10 +60,9 @@ Use this table to compare capabilities and choose the right platform for your ne
 | **Query Parameters**          | ✅ Supported                                         | ✅ Supported     |
 | **Request Body (JSON, Text)** | ✅ Supported                                         | ✅ Supported     |
 | **Form Data (URL-encoded)**   | ✅ Supported                                         | ✅ Supported     |
-| **Multipart Form Data**       | ❌ Not supported                                     | ✅ **Supported** |
-| **File Uploads**              | ❌ Not supported                                     | ✅ **Supported** |
+| **Multipart Form Data**       | ❌ Not supported                                     | ✅ Supported     |
+| **File Uploads**              | ❌ Not supported                                     | ✅ Supported.    |
 | **Access Localhost APIs**     | ✅ Supported                                         | ✅ Supported     |
-| **Custom Timeout Settings**   | ⚠️ Browser-limited                                   | ✅ Configurable  |
 
 ---
 
@@ -78,7 +77,7 @@ Use this table to compare capabilities and choose the right platform for your ne
 | **Global Variables**             | ✅ Supported      | ✅ Supported     |
 | **Request History**              | ✅ Supported      | ✅ Supported     |
 | **Collection Runner**            | ✅ Supported      | ✅ Supported     |
-| **Collection Runner Data Files** | ❌ Not supported  | ✅ **Supported** |
+| **Collection Runner Data Files** | ❌ Not supported  | ✅ Supported.    |
 | **Pre-request Scripts**          | ✅ Supported      | ✅ Supported     |
 | **Post-response Scripts**        | ✅ Supported      | ✅ Supported     |
 | **Tests / Assertions**           | ✅ Supported      | ✅ Supported     |
@@ -92,9 +91,6 @@ Use this table to compare capabilities and choose the right platform for your ne
 | **API Key Auth**             | ✅ Supported       | ✅ Supported        |
 | **Bearer Token**             | ✅ Supported       | ✅ Supported        |
 | **Basic Auth**               | ✅ Supported       | ✅ Supported        |
-| **OAuth 2.0**                | ✅ Supported       | ✅ Supported        |
-| **Custom Auth Headers**      | ✅ Supported       | ✅ Supported        |
-| **SSL Certificate Handling** | ⚠️ Browser-managed | ✅ Advanced control |
 
 ---
 
@@ -105,9 +101,8 @@ Use this table to compare capabilities and choose the right platform for your ne
 | **Import from cURL**          | ✅ Supported      | ✅ Supported |
 | **Import from Postman**       | ✅ Supported      | ✅ Supported |
 | **Import OpenAPI/Swagger**    | ✅ Supported      | ✅ Supported |
-| **Export Collections (JSON)** | ✅ Supported      | ✅ Supported |
+| **Export Requestly Collections (JSON)** | ✅ Supported      | ✅ Supported |
 | **Export Environments**       | ✅ Supported      | ✅ Supported |
-| **Generate Code Snippets**    | ✅ Supported      | ✅ Supported |
 
 ---
 
@@ -115,25 +110,8 @@ Use this table to compare capabilities and choose the right platform for your ne
 
 | Feature                | Browser Extension                  | Desktop App                        |
 | ---------------------- | ---------------------------------- | ---------------------------------- |
-| **Local Workspace**    | ❌ Not available                   | ✅ **Supported**                   |
+| **Local Workspace**    | ❌ Not available                   | ✅ Supported                   |
 | **Team Workspaces**    | ✅ Supported                       | ✅ Supported                       |
-| **Real-time Sync**     | ✅ Supported (Team workspaces)     | ✅ Supported (Team workspaces)     |
-| **Share Collections**  | ✅ Via export/import or workspaces | ✅ Via export/import or workspaces |
-| **Share Environments** | ✅ Via export/import or workspaces | ✅ Via export/import or workspaces |
-
----
-
-### Advanced Features
-
-| Feature                              | Browser Extension       | Desktop App                                         |
-| ------------------------------------ | ----------------------- | --------------------------------------------------- |
-| **Replay Requests from Interceptor** | ❌ Not available        | ✅ **Supported** - Replay captured network requests |
-| **HAR File Integration**             | ⚠️ Limited              | ✅ **Full support** - Import and analyze HAR files  |
-| **Mock API Responses**               | ✅ Via HTTP Rules       | ✅ Via HTTP Rules + Mock Server                     |
-| **Network Traffic Interception**     | ✅ Browser traffic only | ✅ **All apps** (mobile, desktop, browsers)         |
-| **Debug Mobile Apps**                | ❌ Not available        | ✅ **Supported** - iOS/Android devices              |
-| **Custom Proxy Configuration**       | ⚠️ Browser-limited      | ✅ Full control                                     |
-| **Session Recording**                | ⚠️ Limited              | ✅ **Full support** with screen recording           |
 
 ---
 
@@ -149,7 +127,7 @@ Use this table to compare capabilities and choose the right platform for your ne
     - ✅ Work mostly with JSON/text payloads
     - ✅ Prefer a lightweight tool integrated with your browser
 
-    <Card title="Get Browser Extension" icon="chrome" href="https://chrome.google.com/webstore/detail/requestly/mdnleldcmiljblolnjhpnblkcekpdkpa">
+    <Card title="Get Browser Extension" icon="chrome" href="https://rqst.ly/chrome">
       Install from Chrome Web Store and start testing APIs instantly
     </Card>
 

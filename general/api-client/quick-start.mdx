@@ -15,7 +15,7 @@ Welcome to Requestly! This guide will help you get started in just a few minutes
 ## Prerequisites
 
 You'll need either:
-- **Browser Extension** ([Chrome](https://chrome.google.com/webstore/detail/requestly/mdnleldcmiljblolnjhpnblkcekpdkpa), Firefox, Edge, Brave) - Best for web API testing
+- **Browser Extension** ([Chrome](https://rqst.ly/chrome), Firefox, Edge, Brave) - Best for web API testing
 - **Desktop App** ([Download](https://requestly.com/downloads/)) - Best for mobile apps, local APIs, and advanced use cases
 
 <Tip>
@@ -185,7 +185,6 @@ Protect your APIs with built-in auth support:
     - API Key
     - Bearer Token
     - Basic Auth
-    - OAuth 2.0
     <img src="/images/api-client/quick-start/authorization-dropdown.webp" align="center" fullwidth="false" />
   </Step>
 
@@ -207,7 +206,7 @@ Automate your workflow with JavaScript:
 rq.environment.set("timestamp", new Date().getTime());
 
 // Post-response Script: Save token
-const response = JSON.parse(rq.response.body);
+const response = rq.response.json();
 rq.environment.set("auth_token", response.token);
 ```
 
@@ -224,54 +223,13 @@ if (rq.response.code === 200) {
 }
 
 // Test if response contains expected data
-const body = JSON.parse(rq.response.body);
+const body = rq.response.json();
 if (body.id) {
     console.log("✓ User ID exists");
 }
 ```
 
 [Testing Documentation →](/general/api-client/tests)
-
-***
-
-## Common Use Cases
-
-<AccordionGroup>
-  <Accordion title="Testing REST APIs" icon="code">
-    1. Create a collection for your API
-    2. Add requests for each endpoint
-    3. Use variables for base URL and auth tokens
-    4. Write tests to validate responses
-    
-    [Send API Request Guide →](/general/api-client/send-api-request)
-  </Accordion>
-
-  <Accordion title="Working with GraphQL" icon="diagram-project">
-    1. Create a new GraphQL request
-    2. Use the GraphQL editor for queries and mutations
-    3. Add variables in the GraphQL Variables section
-    
-    [GraphQL Guide →](/general/api-client/graphql-request)
-  </Accordion>
-
-  <Accordion title="Running API Test Suites" icon="play">
-    1. Organize tests in a collection
-    2. Use Collection Runner to execute all requests
-    3. Add test scripts to validate responses
-    4. Export results for reporting
-    
-    [Collection Runner Guide →](/general/api-client/collection-runner)
-  </Accordion>
-
-  <Accordion title="Team Collaboration" icon="users">
-    1. Create collections for shared APIs
-    2. Export collections to JSON
-    3. Share with team members
-    4. Use workspace features for real-time collaboration
-    
-    [Team Workspaces →](/general/team/workspaces)
-  </Accordion>
-</AccordionGroup>
 
 ***
 
@@ -318,9 +276,5 @@ You're now ready to use Requestly effectively! Here's what to explore next:
 ***
 
 ## Need Help?
-
-<Card title="Full API Client Documentation" href="/general/api-client/overview" icon="book">
-  Explore comprehensive guides for all features
-</Card>
 
 **Having issues?** Check out our [troubleshooting guides](/troubleshoot) or reach out to our support team.

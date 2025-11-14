@@ -330,7 +330,7 @@ Here's a typical workflow for designing a new feature's APIs:
   <Step title="Add Post-Response Script">
     ```javascript
     // Extract and save auth token
-    const response = JSON.parse(rq.response.body);
+    const response = rq.response.json();
     rq.environment.set("auth_token", response.token);
     ```
   </Step>
