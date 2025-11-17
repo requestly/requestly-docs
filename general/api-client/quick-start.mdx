@@ -218,15 +218,15 @@ Validate API responses automatically:
 
 ```javascript
 // Test if response is 200 OK
-if (rq.response.code === 200) {
-    console.log("✓ Request successful");
-}
+rq.test("Status is 200", () => {
+  rq.response.to.have.status(200);
+});
 
 // Test if response contains expected data
-const body = rq.response.json();
-if (body.id) {
-    console.log("✓ User ID exists");
-}
+rq.test("User exists", () => {
+  rq.response.to.have.jsonBody("user.name", "John");
+});
+
 ```
 
 [Testing Documentation →](/general/api-client/tests)

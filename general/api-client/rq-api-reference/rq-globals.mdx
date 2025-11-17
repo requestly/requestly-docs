@@ -74,21 +74,6 @@ const version = rq.globals.get("appVersion");
 console.log("Testing with app version:", version);
 ```
 
-### Global Configuration
-
-Store configuration that applies to all collections and environments:
-
-```jsx
-// Set global configuration
-rq.globals.set("defaultTimeout", "30000");
-rq.globals.set("maxRetries", "3");
-rq.globals.set("userAgent", "Requestly/1.0");
-
-// Use in any request
-const timeout = rq.globals.get("defaultTimeout");
-const retries = rq.globals.get("maxRetries");
-```
-
 ### Track Global State
 
 Maintain state that needs to be shared across all collections:
@@ -163,48 +148,6 @@ When a variable with the same name exists at multiple levels, the most specific 
 ```
 Environment Variables > Collection Variables > Global Variables
 ```
-
-### Example of Variable Precedence
-
-```jsx
-// If all three have a variable named "apiUrl"
-const url = rq.environment.get("apiUrl") ||           // Check environment first
-            rq.collectionVariables.get("apiUrl") ||   // Then collection
-            rq.globals.get("apiUrl") ||               // Finally global
-            "https://default.api.com";                // Fallback default
-```
-
-## Comparison of Variable Types
-
-| Feature | Global Variables | Collection Variables | Environment Variables |
-|---------|-----------------|---------------------|----------------------|
-| **Scope** | All collections and environments | Specific collection | Specific environment |
-| **Use Case** | Universal settings and state | Collection-specific data | Environment-specific config |
-| **Access** | `rq.globals` | `rq.collectionVariables` | `rq.environment` |
-| **Persistence** | Across everything | Within collection | Within environment |
-| **Priority** | Lowest | Medium | Highest |
-
-### When to Use Global Variables
-
-Use global variables when:
-- Values need to be accessible from any collection or environment
-- Storing truly universal configuration or constants
-- Tracking cross-collection state or metrics
-- Setting up application-wide preferences
-
-### When to Use Collection Variables
-
-Use collection variables when:
-- Values are specific to a particular collection
-- Need to share data between requests in the same collection
-- Want consistent values across all environments for that collection
-
-### When to Use Environment Variables
-
-Use environment variables when:
-- Values differ between environments (dev, staging, production)
-- Storing environment-specific URLs, credentials, or settings
-- Need to switch contexts quickly by changing environments
 
 ## Best Practices
 

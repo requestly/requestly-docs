@@ -75,17 +75,6 @@ Then use it in your request URL:
 {{baseUrl}}{{basePath}}/users
 ```
 
-### Store Collection-Wide Configuration
-
-Keep configuration values that apply to all requests in a collection:
-
-```javascript
-// In a setup request's post-response script
-rq.collectionVariables.set("apiKey", "your-api-key");
-rq.collectionVariables.set("timeout", "5000");
-rq.collectionVariables.set("maxRetries", "3");
-```
-
 ### Share Data Between Collection Requests
 
 Pass data from one request to another within the same collection:
@@ -138,30 +127,6 @@ const signature = generateSignature(timestamp); // Your custom function
 rq.collectionVariables.set("requestTimestamp", timestamp);
 rq.collectionVariables.set("requestSignature", signature);
 ```
-
-## Collection Variables vs Environment Variables
-
-| Feature | Collection Variables | Environment Variables |
-|---------|---------------------|----------------------|
-| **Scope** | Specific to a collection | Specific to an environment |
-| **Persistence** | Available across all environments in the collection | Only available in selected environment |
-| **Use Case** | Collection-level configuration and shared data | Environment-specific settings (dev, staging, prod) |
-| **Access** | `rq.collectionVariables` | `rq.environment` |
-
-### When to Use Collection Variables
-
-Use collection variables when:
-- Values are specific to a collection, not an environment
-- You need to share data between requests in the same collection
-- You want consistent values across all environments
-- Storing collection-wide configuration or defaults
-
-### When to Use Environment Variables
-
-Use environment variables when:
-- Values differ between environments (dev, staging, production)
-- Storing environment-specific URLs, credentials, or settings
-- Need to switch contexts quickly by changing environments
 
 ## Best Practices
 

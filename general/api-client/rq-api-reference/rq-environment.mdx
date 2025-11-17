@@ -96,20 +96,6 @@ rq.environment.set("user_email", data.email);
 rq.environment.set("created_at", data.created_at);
 ```
 
-### Generate Random Test Data
-
-Create random values for testing purposes:
-
-```jsx
-// In pre-request script
-const randomName = (+new Date).toString(36).slice(-5);
-const randomPhone = Math.round((Math.random())*(10**10));
-
-rq.environment.set("name", randomName);
-rq.environment.set("email", randomName + "@example.com");
-rq.environment.set("phone_number", randomPhone);
-```
-
 ### Conditional Token Management
 
 Check if a token exists and set it only if needed:

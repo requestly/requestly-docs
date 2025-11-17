@@ -1,381 +1,100 @@
 ---
-title: API Contract Design
+title: Design APIs
 label: Design APIs
 slug: design-apis
 description: >-
-  Design and document API contracts with Requestly. Define request schemas, organize with collections, and establish API specifications for your team.
-seoDescription: >-
-  Learn how to design API contracts in Requestly. Create structured API definitions, organize with collections, import specifications, and establish single source of truth for your APIs.
+  Learn to design APIs within Requestly: Define Paths, create collections,
+  import APIs, and use variables.
 visibility: PUBLIC
 ---
 ***
 
-## What is API Design in Requestly?
+API builder in Requestly helps you define and organise your APIs with ease. You can further use these definitions to test APIs and develop your applications. This guide will walk you through the API Designing process within Requestly, which includes defining API Requests, managing APIs with collections, importing APIs, and using variables.
 
-API Design in Requestly goes beyond just testing endpoints—it's about **creating and documenting API contracts** that serve as a single source of truth for your project. Whether you're planning new APIs, documenting existing ones, or establishing contracts between frontend and backend teams, Requestly helps you structure and organize your API specifications.
+## API Builder
 
-<Info>
-  **API Design vs. API Testing**: While [sending API requests](/general/api-client/send-api-request) focuses on executing and testing APIs, this guide covers how to **plan, structure, and document** your API architecture.
-</Info>
+The **API Builder** in Requestly helps you design APIs, manage them using collections, and streamline workflows with variables. Let’s first explore the interface of the API Builder.
 
-***
+* To start creating APIs, click the `+ New` button at the top left of the API Builder. This provides three options:
 
-## Understanding the API Builder Interface
+  * **API Request**: [Create a new API request](/general/api-client/make-an-api-request).
 
-The **API Builder** provides a comprehensive workspace for designing and organizing your APIs.
+  * **API Collection**: Organise multiple requests under [a collection](/general/api-client/api-collections).
+
+  * **Environment**: [Define environment variables](/general/api-client/environments-and-variables) for testing and development.
+
+* The `Import` button allows you to import APIs from cURL, Requestly Collections, or Postman Collections.
+
+* Next to the Import button is the **Environment Switcher**, which lets you switch between environments.
+
+* On the left sidebar, you’ll find three icons:
+
+  1. **Collections**: Displays the list of API Collections and API Requests in the current workspace.
+
+  2. **Environments**: Shows the list of created environments.
+
+  3. **History**: Logs all API requests sent so far for easy reference.
 
 <img src="/images/design-apis/545f902b-7e45-4137-9a25-2831217679c5.png" align="center" fullwidth="false" />
 
-### Key Interface Elements
+## Create API Request
 
-**+ New Button** - Create new resources:
-- **API Request**: Define a single API endpoint with full configuration
-- **API Collection**: Create a group of related APIs for organization
-- **Environment**: Set up variable environments (dev, staging, prod)
+An API Request can be created in two ways: using the `+ New` button on the top left or from within a collection. The request creation process remains the same after that:
 
-**Import Button** - Import API specifications from:
-- cURL commands
-- Postman collections
-- OpenAPI/Swagger specifications
-- Requestly collections (JSON export)
+**Step 1:** Name the request (e.g., “Create User”) for easy identification.
 
-**Environment Switcher** - Toggle between different variable environments
+<img src="/images/design-apis/e45a4c93-9c2d-4b85-a662-ebd3e9ca2079.png" align="center" fullwidth="false" />
 
-**Left Sidebar Tabs**:
-- **Collections**: Your API catalog with organized requests
-- **Environments**: Manage variables for different contexts
-- **History**: View and replay previous requests
+**Step 2:** Select the HTTP method (e.g., POST) and enter the API URL. You can use variables (explained below) to define a root URL and reference the variable in each API request.
 
-***
+<img src="/images/design-apis/9a34be36-654e-4124-a9ed-e722785d0700.png" align="center" fullwidth="false" />
 
-## Designing API Request Specifications
+**Step 3:** Define query parameters under the **Query Parameters** tab using a simple key-value format. Checkboxes allow you to disable specific query parameters when sending the request.
 
-Create well-documented API definitions that serve as contracts for your team.
+**Step 4:** Add headers under the **Headers** tab. Similar to query parameters, headers are defined as key-value pairs.
 
-<Steps>
-  <Step title="Name Your Endpoint">
-    Use descriptive, action-oriented names:
-    - `Create User Account`
-    - `Get Order Details`
-    - `Update Product Inventory`
-    
-    <img src="/images/design-apis/e45a4c93-9c2d-4b85-a662-ebd3e9ca2079.png" align="center" fullwidth="false" />
-  </Step>
+<img src="/images/design-apis/d415dead-8e81-45c5-8e0c-649a885f4c25.png" align="center" fullwidth="false" />
 
-  <Step title="Define the Endpoint Structure">
-    **HTTP Method**: Choose GET, POST, PUT, PATCH, or DELETE
-    
-    **URL Pattern**: Use variables for flexibility:
-    ```
-    {{base_url}}/api/{{api_version}}/users/{{user_id}}
-    ```
-    
-    <img src="/images/design-apis/9a34be36-654e-4124-a9ed-e722785d0700.png" align="center" fullwidth="false" />
-    
-    <Tip>
-      Variables make your API design environment-agnostic and reusable
-    </Tip>
-  </Step>
+**Step 5:** Use the **Body** tab to define the request body in one of three formats: Raw, JSON, or Form. This option is not available for GET & HEAD request due to the nature of these requests.
 
-  <Step title="Specify Query Parameters">
-    Document expected query parameters:
-    
-    | Parameter | Type | Required | Example |
-    |-----------|------|----------|---------|
-    | page | integer | No | 1 |
-    | limit | integer | No | 20 |
-    | sort_by | string | No | created_at |
-    
-    Add these in the **Query Params** tab
-  </Step>
+<img src="/images/design-apis/d6f85316-ec64-4478-8ea7-2c8d44971f8c.png" align="center" fullwidth="false" />
 
-  <Step title="Define Headers">
-    Specify required and optional headers:
-    ```
-    Content-Type: application/json
-    Authorization: Bearer {{auth_token}}
-    X-API-Version: {{api_version}}
-    ```
-    
-    <img src="/images/design-apis/d415dead-8e81-45c5-8e0c-649a885f4c25.png" align="center" fullwidth="false" />
-  </Step>
+**Step 6:** Save the request.
 
-  <Step title="Document Request Body Schema">
-    For POST/PUT/PATCH requests, define the payload structure:
-    
-    ```json
-    {
-      "user": {
-        "email": "user@example.com",
-        "first_name": "John",
-        "last_name": "Doe",
-        "role": "developer"
-      }
-    }
-    ```
-    
-    <img src="/images/design-apis/d6f85316-ec64-4478-8ea7-2c8d44971f8c.png" align="center" fullwidth="false" />
-  </Step>
+You can also enhance your API requests with **Scripts**, which allow you to [execute pre-request and post-response logic](/general/api-client/scripts) for custom workflows.
 
-  <Step title="Add Business Logic">
-    Use [scripts](/general/api-client/scripts) to document expected behavior:
-    - **Pre-request**: Data validation, token refresh
-    - **Post-response**: Extract values, validate structure
-  </Step>
+## Create API Collection
 
-  <Step title="Save Your Design">
-    Click **Save** to finalize your API definition
-  </Step>
-</Steps>
+In projects requiring a large number of APIs, organizing them into groups is essential. **API Collections** allow you to group related APIs together for better structure and manageability. For instance, you can organize APIs by functionality (e.g., Auth, User Management, Payment) or by services in a microservices architecture (e.g., User Identity Service, Payment Service).
 
-<Card title="Ready to Test?" href="/general/api-client/send-api-request" icon="rocket">
-  Learn how to send requests and validate responses
-</Card>
+**Step 1:** Click `+ New` and select **Collection**.
 
-***
+<img src="/images/design-apis/58b09f6f-47bd-42ff-95e2-e203a2d8d9de.png" align="center" fullwidth="false" />
 
-## Organizing APIs with Collections
+**Step 2:** Provide a descriptive name (e.g., “User Management APIs”) and press **Enter**.
 
-Collections are essential for maintaining a well-structured API catalog.
+For more details, refer to the [API Collections](/general/api-client/api-collections) section.
 
-### Organizational Strategies
+## Import APIs & Collections
 
-<CardGroup cols={2}>
-  <Card title="By Feature Module" icon="puzzle-piece">
-    Authentication, User Management, Billing, Analytics
-  </Card>
-  <Card title="By Microservice" icon="cubes">
-    User Service, Order Service, Payment Service
-  </Card>
-  <Card title="By API Version" icon="code-branch">
-    API v1, API v2, API v3
-  </Card>
-  <Card title="By Client App" icon="mobile">
-    Mobile APIs, Web APIs, Partner APIs
-  </Card>
-</CardGroup>
+Requestly makes API design simple by allowing you to import APIs from various sources. This feature is invaluable for integrating existing workflows or migrating from other tools.
 
-### Creating Collections
+**Supported Imports:**
 
-<Steps>
-  <Step title="Create Collection">
-    Click `+ New` → **Collection**
-    
-    <img src="/images/design-apis/58b09f6f-47bd-42ff-95e2-e203a2d8d9de.png" align="center" fullwidth="false" />
-  </Step>
+**cURL Commands:** Paste a cURL command into the API Client to instantly convert it into a request.
 
-  <Step title="Name Strategically">
-    Use clear names: `User Management APIs`, `Payment Gateway v2`
-  </Step>
+<img src="/images/design-apis/3d9d2d89-531b-47f6-b97b-7462888b3447.png" align="center" fullwidth="false" />
 
-  <Step title="Add Sub-Collections">
-    Create folders for further organization:
-    - Authentication
-    - Profile Management
-    - Permissions & Roles
-  </Step>
+**Requestly API Collections:** Import existing collections from another Requestly account for continuity.
 
-  <Step title="Set Collection Settings">
-    Configure variables and authorization for the entire collection
-  </Step>
-</Steps>
+**Postman Collections:** Import APIs from Postman with 1-Click. Learn more about [Postman Imports](/general/api-client/migrate-from-postman).
 
-[Deep dive into Collections →](/general/api-client/api-collections)
+This flexibility ensures you can quickly set up your API workspace without starting from scratch.
 
-***
+## Variables in APIs
 
-## Importing API Specifications
+Requestly supports variables in two forms — **Collection Variables** and **Environment Variables**. Variables simplify managing repetitive or shared parts of APIs, such as base URLs or API keys. For example, multiple APIs can share the same base URL or authentication token.
 
-Migrate from other tools or import existing documentation.
+Variables can be defined in environments and used in API requests by enclosing them in double curly braces, e.g., `{{base_url}}`.
 
-<CardGroup cols={2}>
-  <Card title="From cURL" href="/general/api-client/import-export/import-from-curl" icon="terminal">
-    Convert cURL commands instantly
-  </Card>
-  
-  <Card title="From Postman" href="/general/api-client/import-export/import-from-postman" icon="box">
-    1-click migration from Postman
-  </Card>
-  
-  <Card title="OpenAPI/Swagger" href="/general/api-client/import-export/import-openapi-spec" icon="file-code">
-    Import OpenAPI 3.0 specs
-  </Card>
-  
-  <Card title="Requestly Format" href="/general/api-client/import-export/import-export-api-collections" icon="file-import">
-    Import exported collections
-  </Card>
-</CardGroup>
-
-***
-
-## Using Variables for Flexible Design
-
-Variables make your API designs reusable across different environments.
-
-### Variable Types
-
-<Tabs>
-  <Tab title="Environment Variables">
-    Switch between dev, staging, production:
-    ```
-    {{base_url}} = https://api.dev.example.com
-    {{base_url}} = https://api.prod.example.com
-    ```
-    [Learn more →](/general/api-client/environments-and-variables/environment-variables)
-  </Tab>
-  
-  <Tab title="Collection Variables">
-    Share values across APIs in a collection:
-    ```
-    {{api_version}} = v2
-    {{service_path}} = /users
-    ```
-    [Learn more →](/general/api-client/environments-and-variables/collection-and-subcollection-variables)
-  </Tab>
-  
-  <Tab title="Global Variables">
-    Use across all collections:
-    ```
-    {{company_domain}} = example.com
-    ```
-    [Learn more →](/general/api-client/environments-and-variables/global-variables)
-  </Tab>
-</Tabs>
-
-### Variable Usage
-
-```
-URL: {{base_url}}/{{api_version}}/users/{{user_id}}
-Header: Authorization: Bearer {{auth_token}}
-Body: {"api_key": "{{api_key}}", "timestamp": "{{timestamp}}"}
-```
-
-[Complete Variables Guide →](/general/api-client/environments-and-variables)
-
-***
-
-## Best Practices
-
-<AccordionGroup>
-  <Accordion title="Use Semantic Naming" icon="tag">
-    Name APIs based on actions:
-    - ✅ `Create New Customer Order`
-    - ❌ `POST Request 1`
-    
-    Good names make your API catalog self-documenting.
-  </Accordion>
-
-  <Accordion title="Leverage Variables Everywhere" icon="brackets-curly">
-    Use variables for:
-    - Base URLs
-    - API versions
-    - Authentication tokens
-    - Resource IDs
-    
-    This makes designs environment-agnostic.
-  </Accordion>
-
-  <Accordion title="Group Logically" icon="folder-tree">
-    Organize by feature, service, or version:
-    - Feature: Auth, Users, Billing
-    - Service: User Service, Order Service
-    - Version: API v1, API v2
-  </Accordion>
-
-  <Accordion title="Document with Scripts" icon="code">
-    Use pre-request scripts to document:
-    - Expected input validation
-    - Required transformations
-    - Token refresh logic
-  </Accordion>
-
-  <Accordion title="Include API Versioning" icon="code-branch">
-    Plan for change:
-    - URL: `/api/v1/users`, `/api/v2/users`
-    - Collections: Separate by version
-    - Variables: `{{api_version}}`
-  </Accordion>
-
-  <Accordion title="Set Collection-Level Auth" icon="lock">
-    Configure authorization once at collection level:
-    - All child requests inherit settings
-    - Override per-request when needed
-    
-    [Authorization Guide →](/general/api-client/authorization)
-  </Accordion>
-</AccordionGroup>
-
-***
-
-## API Design Workflow Example
-
-Here's a typical workflow for designing a new feature's APIs:
-
-<Steps>
-  <Step title="Create Feature Collection">
-    `+ New` → `Collection` → Name: `User Authentication APIs`
-  </Step>
-
-  <Step title="Set Up Environment">
-    Create dev environment with `base_url`, `api_version` variables
-  </Step>
-
-  <Step title="Design Login Endpoint">
-    - Name: `Login User`
-    - Method: `POST`
-    - URL: `{{base_url}}/{{api_version}}/auth/login`
-    - Body: `{"email": "{{test_email}}", "password": "{{test_password}}"}`
-  </Step>
-
-  <Step title="Add Post-Response Script">
-    ```javascript
-    // Extract and save auth token
-    const response = rq.response.json();
-    rq.environment.set("auth_token", response.token);
-    ```
-  </Step>
-
-  <Step title="Design Protected Endpoints">
-    Create `Get User Profile` with:
-    - Header: `Authorization: Bearer {{auth_token}}`
-    - Inherits token from login response
-  </Step>
-
-  <Step title="Test the Flow">
-    Use [Collection Runner](/general/api-client/collection-runner) to test the complete flow
-  </Step>
-
-  <Step title="Share with Team">
-    Export collection and share or use [Workspaces](/general/team/workspaces)
-  </Step>
-</Steps>
-
-***
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title="Send API Requests" href="/general/api-client/send-api-request" icon="paper-plane">
-    Learn how to test your API designs
-  </Card>
-  
-  <Card title="Add Authorization" href="/general/api-client/authorization" icon="lock">
-    Configure authentication methods
-  </Card>
-  
-  <Card title="Write Scripts" href="/general/api-client/scripts" icon="code">
-    Add custom logic and automation
-  </Card>
-  
-  <Card title="Collection Runner" href="/general/api-client/collection-runner" icon="play">
-    Automate testing workflows
-  </Card>
-  
-  <Card title="Variables Deep Dive" href="/general/api-client/environments-and-variables" icon="brackets-curly">
-    Master all variable types
-  </Card>
-  
-  <Card title="Share with Team" href="/general/team/workspaces" icon="users">
-    Collaborate on API specifications
-  </Card>
-</CardGroup>
+Learn more about [Variables](/general/api-client/environments-and-variables) and how to use them effectively in your APIs.

@@ -9,7 +9,7 @@ seoDescription: >-
 visibility: PUBLIC
 ---
 
-***
+---
 
 The `rq.response` object provides access to all details of the API response in your Requestly scripts. You can use these properties and methods primarily in post-response scripts to process, validate, and extract data from API responses.
 
@@ -56,9 +56,9 @@ console.log("Response Code:", rq.response.code);
 ```
 
 ```jsx
-if (rq.response.code !== 200) {
-    console.error("Unexpected Response Code:", rq.response.code);
-}
+rq.test("Status is 200", () => {
+  rq.response.to.have.status(200);
+});
 ```
 
 ### `rq.response.json()`
@@ -89,9 +89,9 @@ Check if the API returned the expected status code:
 
 ```jsx
 if (rq.response.code !== 200) {
-    console.error("Unexpected Response Code:", rq.response.code);
+  console.error("Unexpected Response Code:", rq.response.code);
 } else {
-    console.log("Request successful!");
+  console.log("Request successful!");
 }
 ```
 
@@ -117,9 +117,9 @@ Monitor API performance:
 
 ```jsx
 if (rq.response.responseTime > 1000) {
-    console.warn("Slow response detected:", rq.response.responseTime + "ms");
+  console.warn("Slow response detected:", rq.response.responseTime + "ms");
 } else {
-    console.log("Response time OK:", rq.response.responseTime + "ms");
+  console.log("Response time OK:", rq.response.responseTime + "ms");
 }
 ```
 
@@ -130,16 +130,16 @@ Get auth token from response and save it:
 ```jsx
 const responseData = rq.response.json();
 if (responseData.token) {
-    rq.environment.set("authToken", responseData.token);
-    console.log("Auth token saved successfully");
+  rq.environment.set("authToken", responseData.token);
+  console.log("Auth token saved successfully");
 }
 ```
 
 ### Access Response Headers
 
 ```jsx
-rq.response.headers.forEach(header => {
-    console.log(`${header.key}: ${header.value}`);
+rq.response.headers.forEach((header) => {
+  console.log(`${header.key}: ${header.value}`);
 });
 ```
 
@@ -148,11 +148,11 @@ rq.response.headers.forEach(header => {
 ```jsx
 const data = rq.response.json();
 if (data.error) {
-    console.error("API Error:", data.error);
+  console.error("API Error:", data.error);
 } else if (!data.id) {
-    console.error("Missing expected field: id");
+  console.error("Missing expected field: id");
 } else {
-    console.log("Response validation passed");
+  console.log("Response validation passed");
 }
 ```
 
