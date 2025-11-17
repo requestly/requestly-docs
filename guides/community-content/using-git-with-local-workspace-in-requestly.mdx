@@ -10,9 +10,9 @@ difficulty: beginner
 
 ## 🚀 Introduction
 
-**Requestly's Local Workspace** lets you manage API collections, mock files, and rules right from your computer. When you connect it with **Git**, you get all the benefits of version control:
+**Requestly's Local Workspace** Track changes to your API collections and any mock files created inside the API Client. When you connect it with **Git**, you get all the benefits of version control:
 
-- ✅ **Track changes** to your APIs, mocks, and rules over time
+- ✅ **Track changes** to your API collections and mock files.
 - ✅ **Collaborate seamlessly** with your team using industry-standard Git workflows
 - ✅ **Sync updates** effortlessly across team members
 - ✅ **Roll back** to previous versions when needed
@@ -45,26 +45,26 @@ Before you begin, make sure you have the following set up:
 
 Start by creating a new Local Workspace in Requestly:
 
-**a)** Open the **Requestly Desktop App**  
-**b)** Click on **"Create Workspace"**  
-**c)** Select **"Local Workspace"**  
-**d)** Choose a folder on your system where your workspace files will be stored
+1. Open the **Requestly Desktop App**
+2. Click on **"Create Workspace"**
+3. Select **"Local Workspace"**
+4. Choose a folder on your system where your workspace files will be stored
 
 > **💡 Tip:** Choose a dedicated folder for your workspace to keep your project organized and easy to manage with Git.
 
-![Create Workspace](../../images/how-to-use-git-with-local-workspace/creating-workspace.gif)
+![Create Workspace](/images/how-to-use-git-with-local-workspace/creating-workspace.gif)
 
 ---
 
-### **Step 2: Add APIs, Rules, or Collections**
+### **Step 2: Build Your API Collection**
 
 Now that your workspace is set up, let's populate it with some content:
 
-**a)** Navigate to your newly created workspace  
-**b)** Create API collections, mock responses, or rules as needed  
-**c)** Save your changes within the Requestly interface
+1. Navigate to your newly created workspace
+2. Create API collections or mock responses as needed
+3. Save your changes within the Requestly interface
 
-![Create API's](../../images/how-to-use-git-with-local-workspace/creating-apis.gif)
+![Create API's](/images/how-to-use-git-with-local-workspace/creating-apis.gif)
 
 > **📝 Note:** All changes you make are automatically saved to your local workspace folder, making them ready for version control.
 
@@ -76,62 +76,62 @@ As the workspace creator (User A), you'll now set up version control and share y
 
 Let's connect your workspace to Git and push it to GitHub:
 
-**a) Create a New Repository on GitHub**
+1. **Create a New Repository on GitHub**
 
-- Go to [GitHub](https://github.com/new) and create a new repository
-- **Important:** Do not initialize it with a README, `.gitignore`, or license file
-- Copy the repository URL (you'll need it in step f)
+   - Go to [GitHub](https://github.com/new) and create a new repository
+   - **Important:** Do not initialize it with a README, `.gitignore`, or license file
+   - Copy the repository URL (you'll need it in step 6)
 
-**b) Navigate to Your Workspace Folder**
+2. **Navigate to Your Workspace Folder**
 
-Open your terminal (Command Prompt, PowerShell, or Terminal) and navigate to your workspace:
+   Open your terminal (Command Prompt, PowerShell, or Terminal) and navigate to your workspace:
 
-```bash
-cd path/to/your-workspace
-```
+   ```bash
+   cd path/to/your-workspace
+   ```
 
-**c) Initialize Git**
+3. **Initialize Git**
 
-Initialize a new Git repository in your workspace folder:
+   Initialize a new Git repository in your workspace folder:
 
-```bash
-git init
-```
+   ```bash
+   git init
+   ```
 
-**d) Stage and Commit Your Files**
+4. **Stage and Commit Your Files**
 
-Add all workspace files to Git and create your first commit:
+   Add all workspace files to Git and create your first commit:
 
-```bash
-git add .
-git commit -m "Initial commit: Add Requestly workspace"
-```
+   ```bash
+   git add .
+   git commit -m "Initial commit: Add Requestly workspace"
+   ```
 
-**e) Set the Default Branch**
+5. **Set the Default Branch**
 
-Rename your branch to `main` (GitHub's default):
+   Rename your branch to `main` (GitHub's default):
 
-```bash
-git branch -M main
-```
+   ```bash
+   git branch -M main
+   ```
 
-**f) Connect to GitHub**
+6. **Connect to GitHub**
 
-Link your local repository to the GitHub remote:
+   Link your local repository to the GitHub remote:
 
-```bash
-git remote add origin https://github.com/your-username/your-repository-name.git
-```
+   ```bash
+   git remote add origin https://github.com/your-username/your-repository-name.git
+   ```
 
-> **⚠️ Warning:** Replace `your-username` and `your-repository-name` with your actual GitHub username and repository name.
+   > **⚠️ Warning:** Replace `your-username` and `your-repository-name` with your actual GitHub username and repository name.
 
-**g) Push Your Code**
+7. **Push Your Code**
 
-Upload your workspace to GitHub:
+   Upload your workspace to GitHub:
 
-```bash
-git push -u origin main
-```
+   ```bash
+   git push -u origin main
+   ```
 
 🎉 Your workspace is now version-controlled and hosted on GitHub, ready for team collaboration!
 
@@ -143,25 +143,25 @@ Now that User A has pushed the workspace to GitHub, any team member (like User B
 
 As User B (or any other team member), follow these steps to get the shared workspace on your local machine:
 
-**a) Clone the Repository**
+1. **Clone the Repository**
 
-Open terminal and navigate to where you want to store the workspace:
+   Open terminal and navigate to where you want to store the workspace:
 
-```bash
-cd path/to/your-projects
-git clone https://github.com/username/repository-name.git
-```
+   ```bash
+   cd path/to/your-projects
+   git clone https://github.com/username/repository-name.git
+   ```
 
-**b) Import into Requestly**
+2. **Import into Requestly**
 
-- Open Requestly Desktop App
-- Click **"Create Workspace"** → **"Local Workspace"**
-- **Important:** Select the **parent folder** containing your cloned repository, not the cloned folder itself
-- Give the workspace the **same name** as the cloned repository folder
+   - Open Requestly Desktop App
+   - Click **"Create Workspace"** → **"Local Workspace"**
+   - **Important:** Select the **parent folder** containing your cloned repository, not the cloned folder itself
+   - Give the workspace the **same name** as the cloned repository folder
 
-![Clone and Import](../../images/how-to-use-git-with-local-workspace/clone-and-import.gif)
+   ![Clone and Import](/images/how-to-use-git-with-local-workspace/clone-and-import.gif)
 
-> **⚠️ Common Mistake:** Make sure to select the parent directory containing the cloned workspace, not the workspace folder itself. The workspace name should match the cloned folder name exactly.
+   > **⚠️ Common Mistake:** Make sure to select the parent directory containing the cloned workspace, not the workspace folder itself. The workspace name should match the cloned folder name exactly.
 
 You should now see all the APIs and collections created by your team member! ✅
 
@@ -171,26 +171,26 @@ You should now see all the APIs and collections created by your team member! ✅
 
 Now that User B has the workspace set up locally, let's see how they can make changes and share them with the team.
 
-**a) Make Your Changes**
+1. **Make Your Changes**
 
-- Open the workspace in Requestly
-- Modify existing APIs or create new ones
-- Save your changes in the Requestly interface
+   - Open the workspace in Requestly
+   - Modify existing APIs or create new ones
+   - Save your changes in the Requestly interface
 
-![Make changes to API](../../images/how-to-use-git-with-local-workspace/making-changes-to-api.gif)
+   ![Make changes to API](/images/how-to-use-git-with-local-workspace/making-changes-to-api.gif)
 
-**b) Commit and Push Changes**
+2. **Commit and Push Changes**
 
-Navigate to your workspace folder and push your updates:
+   Navigate to your workspace folder and push your updates:
 
-```bash
-cd path/to/your-workspace
-git add .
-git commit -m "Update API endpoints and add new mock responses"
-git push origin main
-```
+   ```bash
+   cd path/to/your-workspace
+   git add .
+   git commit -m "Update API endpoints and add new mock responses"
+   git push origin main
+   ```
 
-> **💡 Tip:** Write descriptive commit messages that clearly explain what changed. This helps your team understand the updates at a glance.
+   > **💡 Tip:** Write descriptive commit messages that clearly explain what changed. This helps your team understand the updates at a glance.
 
 ---
 
@@ -200,22 +200,22 @@ When User B pushes changes to GitHub, User A (and any other team members) need t
 
 Here's how User A pulls the changes User B just made:
 
-**a) Pull the Latest Updates**
+1. **Pull the Latest Updates**
 
-```bash
-cd path/to/your-workspace
-git pull origin main
-```
+   ```bash
+   cd path/to/your-workspace
+   git pull origin main
+   ```
 
-**b) Refresh Your Workspace**
+2. **Refresh Your Workspace**
 
-After pulling, refresh your Requestly workspace to see the updated APIs and collections made by User B.
+   After pulling, refresh your Requestly workspace to see the updated APIs and collections made by User B.
 
-![Pull Changes](../../images/how-to-use-git-with-local-workspace/pull-changes.png)
+   ![Pull Changes](/images/how-to-use-git-with-local-workspace/pull-changes.png)
 
-> **📝 Note:** If you have unsaved changes in Requestly, make sure to save them before pulling to avoid conflicts.
+   > **📝 Note:** If you have unsaved changes in Requestly, make sure to save them before pulling to avoid conflicts.
 
-> **🔄 Remember:** This workflow works both ways! User A can also make changes and push them, and User B would pull those updates. This is how Git enables seamless team collaboration.
+   > **🔄 Remember:** This workflow works both ways! User A can also make changes and push them, and User B would pull those updates. This is how Git enables seamless team collaboration.
 
 ---
 
@@ -229,7 +229,7 @@ Try refreshing the Requestly Desktop App or reimporting the workspace after pull
 
 By integrating Git with Requestly's Local Workspace, you've unlocked a powerful workflow for version control and collaboration. You can now:
 
-- ✅ Track changes to your APIs, mocks, and rules over time
+- ✅ Track changes to your APIs.
 - ✅ Collaborate seamlessly with your team using Git workflows
 - ✅ Roll back to previous versions if something breaks
 - ✅ Work offline and sync changes when ready
@@ -238,6 +238,4 @@ This setup transforms your Requestly workspace into a fully version-controlled p
 
 ## Additional Resources
 
-
 - [Version Control for Your APIs using Git](https://medium.com/@dmelloaries/version-control-for-your-apis-using-git-with-requestlys-local-workspace-4369cd766e93)
-
