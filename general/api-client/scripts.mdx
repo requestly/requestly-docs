@@ -90,241 +90,143 @@ if (rq.response.code !== 200) {
 
 We can also fetch and set API Keys or auth tokens, id, and other data from response of an API and use it in other APIs.
 
-You can access elements of the request, response, collection variables and environment variables, checkout Requestly’s JavaScript API.
+You can access elements of the request, response, collection variables and environment variables, checkout Requestly's JavaScript API.
 
 ***
+
+## Viewing Console Logs from Scripts
+You can use `console.log()` or `console.error()` in your Pre-Request and Post-Response Scripts to debug your logic and inspect values at runtime. The logs from these scripts are prefixed with **#script** for easy filtering and are visible directly in your browser’s Developer Tools Console (DevTools) or in the Requestly Debug Console for the desktop app.
+
+### For Browser App
+
+<Steps>
+<Step title="Open Developer Tools">
+Open your browser’s Developer Tools Console using **F12**, **Cmd + Option + J***,* or **Ctrl + Shift + J**. Logs from your Pre-Request and Post-Response Scripts will appear here in real time.
+</Step>
+<Step title="Filter Logs Using Keyword">
+In the console’s filter box, type or paste the keyword **#script** to view only Requestly script logs. This helps you isolate logs originating from your API client scripts.
+</Step>
+</Steps>
+
+### For Desktop App
+
+<Steps>
+<Step title="Open Debug Console">
+From the top menu bar, navigate to **View → Debug Requestly** to open the console window. All your Pre-Request and Post-Response Script logs will be displayed here.
+</Step>
+<Step title="Filter Logs Using Keyword">
+In the console’s search or filter box, enter **#script** to view logs generated from API client scripts. This allows you to quickly locate relevant log entries for debugging.
+</Step>
+</Steps>
 
 ## Requestly JavaScript API `rq`
 
-Requestly provides a robust set of JavaScript properties and methods to interact with API requests, responses, environments, and global variables. Below is a detailed documentation of these features, explaining each property and function with examples.
+Requestly provides a robust set of JavaScript properties and methods to interact with API requests, responses, environments, and global variables. The `rq` object is available in all pre-request and post-response scripts, giving you full control over your API workflow.
 
-### **Request Object** `rq.request`
+### Available Objects
 
-These properties and methods let you access the details of the API request in scripts.
+The Requestly JavaScript API consists of the following main objects:
 
-`rq.request.method`
+#### `rq.request`
+Access and manipulate API request details including method, headers, body, URL, and query parameters. Use this in both pre-request and post-response scripts to read or modify request data.
 
-Use this property to get the Request’s method. The HTTP method of the request (e.g. `GET`, `POST`, `PUT`, `OPTION`, `DELETE`, `PATCH`, `HEAD`).
-
-**Example:**
-
+**Quick Example:**
 ```jsx
-console.log("Request Method: ", rq.request.method);
-```
-
-`rq.request.headers`
-
-An list of header rows each having `key`, `value` & `isEnabled` for each custom header you create.
-
-**Example:**
-
-```jsx
-console.log("Headers: ", JSON.stringify(rq.request.headers));
-```
-
-`rq.request.body`
-
-The body of the request, accessible as a string. If you have selected `Form` under `Body` it would be returned in `object` format.
-
-**Example:**
-
-```jsx
-console.log("Body:", JSON.stringify(rq.request.body));
-```
-
-`rq.request.url`
-
-The full URL of the API request.
-
-**Example:**
-
-```jsx
+console.log("Request Method:", rq.request.method);
 console.log("Request URL:", rq.request.url);
 ```
 
-`rq.request.queryParams`
+[View complete rq.request documentation →](/general/api-client/rq-api-reference/rq-request)
 
-An object containing rows of query parameters each having `key`, `value` & `isEnabled`.
+----
 
-**Example:**
+#### `rq.response`
+Access API response details including body, headers, status code, and response time. Primarily used in post-response scripts to process and validate API responses.
 
-```jsx
-console.log("Query Params:", JSON.stringify(rq.request.queryParams));
-```
-
-***
-
-### **Response Object** `rq.response`
-
-These properties and methods let you access the details of the API’s response in scripts.
-
-`rq.response.body`
-
-The body of the response as a string.
-
-**Example:**
-
-```jsx
-console.log("Response Body:", rq.response.body);
-```
-
-`rq.response.responseTime`
-
-The time taken by the request to complete, in milliseconds.
-
-**Example:**
-
-```jsx
-console.log("Response Time:", rq.response.responseTime);
-```
-
-`rq.response.headers`
-
-An list of header rows each having `key`, `value` for each custom header you create.
-
-**Example:**
-
-```jsx
-console.log("Response Headers:", JSON.stringify(rq.response.headers));
-```
-
-`rq.response.code`
-
-The HTTP status code of the response.
-
-**Example:**
-
+**Quick Example:**
 ```jsx
 console.log("Response Code:", rq.response.code);
+const data = rq.response.json();
 ```
 
-```jsx
-if (rq.response.code !== 200) {
-    console.error("Unexpected Response Code:", rq.response.code);
-}
-```
+[View complete rq.response documentation →](/general/api-client/rq-api-reference/rq-response)
 
-`rq.response.json()`
+----
 
-Parses the response body as JSON and returns it as a JavaScript object.
+#### `rq.environment`
+Manage environment-specific variables dynamically. Environment variables are scoped to a specific environment (dev, staging, production) and can be used across multiple requests.
 
-**Example:**
-
-```jsx
-console.log("Response JSON:", JSON.stringify(rq.response.json()));
-```
-
-`rq.response.text()`
-
-Returns the response body as a plain string.
-
-**Example:**
-
-```jsx
-console.log("Response Body as String:", rq.response.text());
-```
-
-### **Environment Variables Object** `rq.environment`
-
-Environment methods let you dynamically manage environment variables during script execution.
-
-`rq.environment.set(key, value)`
-
-Sets an environment variable with the given key and value.
-
-**Example:**
-
+**Quick Example:**
 ```jsx
 rq.environment.set("authToken", "Bearer <TOKEN>");
-```
-
-`rq.environment.get(key)`
-
-Retrieves the value of the specified environment variable.
-
-**Example:**
-
-```jsx
 const token = rq.environment.get("authToken");
-console.log("Token:", token);
 ```
 
-`rq.environment.unset(key)`
+[View complete rq.environment documentation →](/general/api-client/rq-api-reference/rq-environment)
 
-Removes the specified environment variable.
+----
 
-**Example:**
+#### `rq.collectionVariables`
+Manage collection-scoped variables. Collection variables are only accessible within requests that belong to a specific collection and persist across all environments.
 
+**Quick Example:**
 ```jsx
-rq.environment.unset("authToken");
-```
-
-### **Collection Variables Object** `rq.collectionVariables`
-
-Collection variables are scoped to a specific collection. Unlike environment variables (scoped to a specific environment), collection variables are only accessible within the requests that belong to a given collection.
-
-#### `rq.collectionVariables.set(key, value)`
-
-Creates or updates a collection variable with the given key and value.
-
-**Example:**
-
-```javascript
 rq.collectionVariables.set("basePath", "/v1/users");
-```
-
-#### `rq.collectionVariables.get(key)`
-
-Retrieves the value of the specified collection variable.
-
-**Example:**
-
-```javascript
 const path = rq.collectionVariables.get("basePath");
-console.log("Collection Variable basePath:", path);
 ```
 
-#### `rq.collectionVariables.unset(key)`
+[View complete rq.collectionVariables documentation →](/general/api-client/rq-api-reference/rq-collection-variables)
 
-Removes the specified collection variable.
+----
 
-**Example:**
+#### `rq.globals`
+Manage global variables accessible across all collections and environments. Use for truly universal configuration and state.
 
-```javascript
-rq.collectionVariables.unset("basePath");
-```
-
-### **Global Variables Object** `rq.globals`
-
-Global variables work similarly to environment variables. Global variables are available to all collections and requests.
-
-`rq.globals.set(key, value)`
-
-Sets a global variable with the given key and value.
-
-**Example:**
-
+**Quick Example:**
 ```jsx
 rq.globals.set("appVersion", "1.0.0");
-```
-
-`rq.globals.get(key)`
-
-Retrieves the value of the specified global variable.
-
-**Example:**
-
-```jsx
 const version = rq.globals.get("appVersion");
-console.log("App Version:", version);
 ```
 
-`rq.globals.unset(key)`
+[View complete rq.globals documentation →](/general/api-client/rq-api-reference/rq-globals)
 
-Removes the specified global variable.
+----
 
-**Example:**
+#### `rq.test`
+Write tests to validate API responses and ensure your APIs work as expected. Tests help automate quality assurance in post-response scripts.
 
+**Quick Example:**
 ```jsx
-rq.globals.unset("appVersion");
+rq.test("Status code is 200", function() {
+    rq.expect(rq.response.code).to.equal(200);
+});
 ```
+
+[View complete rq.test documentation →](/general/api-client/rq-api-reference/rq-test)
+
+----
+
+#### `rq.expect`
+Write assertions for API testing using the powerful Chai.js assertion library. Use with `rq.test` to validate response data.
+
+**Quick Example:**
+```jsx
+rq.test("Response has user data", function() {
+    const data = rq.response.json();
+    rq.expect(data).to.have.property("id");
+    rq.expect(data.name).to.be.a("string");
+});
+```
+
+[View complete rq.expect documentation →](/general/api-client/rq-api-reference/rq-expect)
+
+----
+
+### Variable Scope Hierarchy
+
+When variables with the same name exist at multiple levels, the priority is:
+
+**Environment Variables > Collection Variables > Global Variables**
+
+This allows you to override global or collection defaults with environment-specific values.
+

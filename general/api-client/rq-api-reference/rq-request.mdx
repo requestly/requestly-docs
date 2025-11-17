@@ -1,0 +1,104 @@
+---
+title: Request Object (rq.request)
+label: rq.request
+slug: rq-request
+description: >-
+  Complete reference for the rq.request object in Requestly scripts, including properties and methods to access and manipulate API request details.
+seoDescription: >-
+  Learn how to use the rq.request object in Requestly to access request method, headers, body, URL, and query parameters in pre-request and post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.request` object provides access to all details of the API request in your Requestly scripts. You can use these properties and methods in both pre-request and post-response scripts to read and manipulate request data.
+
+## Properties and Methods
+
+### `rq.request.method`
+
+Use this property to get the Request's method. The HTTP method of the request (e.g. `GET`, `POST`, `PUT`, `OPTION`, `DELETE`, `PATCH`, `HEAD`).
+
+**Example:**
+
+```jsx
+console.log("Request Method: ", rq.request.method);
+```
+
+### `rq.request.headers`
+
+An list of header rows each having `key`, `value` & `isEnabled` for each custom header you create.
+
+**Example:**
+
+```jsx
+console.log("Headers: ", JSON.stringify(rq.request.headers));
+```
+
+### `rq.request.body`
+
+The body of the request, accessible as a string. If you have selected `Form` under `Body` it would be returned in `object` format.
+
+**Example:**
+
+```jsx
+console.log("Body:", JSON.stringify(rq.request.body));
+```
+
+### `rq.request.url`
+
+The full URL of the API request.
+
+**Example:**
+
+```jsx
+console.log("Request URL:", rq.request.url);
+```
+
+### `rq.request.queryParams`
+
+An object containing rows of query parameters each having `key`, `value` & `isEnabled`.
+
+**Example:**
+
+```jsx
+console.log("Query Params:", JSON.stringify(rq.request.queryParams));
+```
+
+## Common Use Cases
+
+### Logging Request Details
+
+```jsx
+console.log("Making " + rq.request.method + " request to " + rq.request.url);
+console.log("Request headers:", JSON.stringify(rq.request.headers));
+console.log("Request body:", JSON.stringify(rq.request.body));
+```
+
+### Conditional Logic Based on Request Method
+
+```jsx
+if (rq.request.method === "POST" || rq.request.method === "PUT") {
+    console.log("Sending data:", rq.request.body);
+}
+```
+
+### Accessing Query Parameters
+
+```jsx
+rq.request.queryParams.forEach(param => {
+    if (param.isEnabled) {
+        console.log(`Query param ${param.key}: ${param.value}`);
+    }
+});
+```
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [rq.environment Object](/general/api-client/rq-api-reference/rq-environment)
+- [rq.collectionVariables Object](/general/api-client/rq-api-reference/rq-collection-variables)
+- [rq.globals Object](/general/api-client/rq-api-reference/rq-globals)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)

@@ -1,0 +1,164 @@
+---
+title: Environment Variables (rq.environment)
+label: rq.environment
+slug: rq-environment
+description: >-
+  Complete reference for the rq.environment object in Requestly scripts to manage environment variables dynamically during API request execution.
+seoDescription: >-
+  Learn how to use the rq.environment object in Requestly to set, get, and unset environment variables in pre-request and post-response scripts.
+visibility: PUBLIC
+---
+
+***
+
+The `rq.environment` object provides methods to dynamically manage environment variables during script execution. Environment variables are scoped to a specific environment and can be used across multiple requests within that environment.
+
+## Methods
+
+### `rq.environment.set(key, value)`
+
+Sets an environment variable with the given key and value. If the variable already exists, it will be updated with the new value.
+
+**Parameters:**
+- `key` (string): The name of the environment variable
+- `value` (any): The value to store (will be converted to string)
+
+**Example:**
+
+```jsx
+rq.environment.set("authToken", "Bearer <TOKEN>");
+```
+
+### `rq.environment.get(key)`
+
+Retrieves the value of the specified environment variable.
+
+**Parameters:**
+- `key` (string): The name of the environment variable to retrieve
+
+**Returns:** The value of the environment variable, or `undefined` if it doesn't exist.
+
+**Example:**
+
+```jsx
+const token = rq.environment.get("authToken");
+console.log("Token:", token);
+```
+
+### `rq.environment.unset(key)`
+
+Removes the specified environment variable from the current environment.
+
+**Parameters:**
+- `key` (string): The name of the environment variable to remove
+
+**Example:**
+
+```jsx
+rq.environment.unset("authToken");
+```
+
+## Common Use Cases
+
+### Store Authentication Token
+
+After receiving a login response, store the auth token for use in subsequent requests:
+
+```jsx
+// In post-response script
+const responseData = rq.response.json();
+if (responseData.token) {
+    rq.environment.set("authToken", "Bearer " + responseData.token);
+    console.log("Auth token saved to environment");
+}
+```
+
+### Auto Increment Page Numbers
+
+Automatically increment a page number for pagination:
+
+```jsx
+// In pre-request script
+const currentPage = rq.environment.get("page_number") || 1;
+rq.environment.set("page_number", currentPage + 1);
+console.log("Next page:", currentPage + 1);
+```
+
+### Store API Response Data
+
+Extract and store data from API responses for use in other requests:
+
+```jsx
+// In post-response script
+const data = rq.response.json();
+rq.environment.set("user_id", data.id);
+rq.environment.set("user_email", data.email);
+rq.environment.set("created_at", data.created_at);
+```
+
+### Conditional Token Management
+
+Check if a token exists and set it only if needed:
+
+```jsx
+// In pre-request script
+const token = rq.environment.get("authToken");
+if (!token) {
+    console.error("Auth token not found! Please login first.");
+} else {
+    console.log("Using existing auth token");
+}
+```
+
+### Clean Up Sensitive Data
+
+Remove sensitive information after use:
+
+```jsx
+// After completing authenticated requests
+rq.environment.unset("authToken");
+rq.environment.unset("password");
+console.log("Sensitive data cleared from environment");
+```
+
+### Track Request Counts
+
+Keep track of how many times a request has been made:
+
+```jsx
+// In post-response script
+const requestCount = parseInt(rq.environment.get("request_count") || "0");
+rq.environment.set("request_count", requestCount + 1);
+console.log("This request has been made", requestCount + 1, "times");
+```
+
+## Best Practices
+
+1. **Use Descriptive Names**: Choose clear, descriptive names for environment variables (e.g., `authToken` instead of `token`)
+
+2. **Check for Existence**: Always check if a variable exists before using it:
+   ```jsx
+   const value = rq.environment.get("myVar");
+   if (value) {
+       // Use the value
+   } else {
+       console.error("Variable not found");
+   }
+   ```
+
+3. **Clean Up**: Remove sensitive data when no longer needed using `unset()`
+
+4. **Type Handling**: Remember that all environment variable values are stored as strings, so convert them when needed:
+   ```jsx
+   const pageNum = parseInt(rq.environment.get("page_number"));
+   ```
+
+## Related Documentation
+
+- [Pre-request & Post-response Scripts](/general/api-client/scripts)
+- [rq.request Object](/general/api-client/rq-api-reference/rq-request)
+- [rq.response Object](/general/api-client/rq-api-reference/rq-response)
+- [rq.collectionVariables Object](/general/api-client/rq-api-reference/rq-collection-variables)
+- [rq.globals Object](/general/api-client/rq-api-reference/rq-globals)
+- [rq.test Object](/general/api-client/rq-api-reference/rq-test)
+- [rq.expect Object](/general/api-client/rq-api-reference/rq-expect)
