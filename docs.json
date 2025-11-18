@@ -111,7 +111,9 @@
                       "general/api-client/rq-api-reference/rq-collection-variables",
                       "general/api-client/rq-api-reference/rq-globals",
                       "general/api-client/rq-api-reference/rq-test",
-                      "general/api-client/rq-api-reference/rq-expect"
+                      "general/api-client/rq-api-reference/rq-expect",
+                      "general/api-client/rq-api-reference/rq-info",
+                      "general/api-client/rq-api-reference/rq-iteration-data"
                     ]
                   },
                   {
