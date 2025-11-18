@@ -1,0 +1,143 @@
+---
+title: rq.info
+label: rq.info
+slug: rq-info
+description: Access execution metadata including request name, iteration index, and event name in Requestly API client scripts.
+seoDescription: Access execution metadata including request name, iteration index, and event name in Requestly API client scripts.
+visibility: PUBLIC
+---
+
+The `rq.info` object provides metadata about the current script execution context. It contains information about the request being executed, the current iteration (when running collections), and the event type.
+
+## Properties
+
+### `rq.info.requestId`
+
+**Type:** `string`
+
+The unique identifier of the request being executed.
+
+**Example:**
+```javascript
+console.log("Request ID:", rq.info.requestId);
+// Output: Request ID: abc123xyz
+```
+
+---
+
+### `rq.info.requestName`
+
+**Type:** `string`
+
+The name of the request being executed.
+
+**Example:**
+```javascript
+console.log("Executing request:", rq.info.requestName);
+// Output: Executing request: Get User Profile
+```
+
+---
+
+### `rq.info.eventName`
+
+**Type:** `"prerequest" | "postresponse"`
+
+The type of script event currently executing. Returns `"prerequest"` for pre-request scripts and `"postresponse"` for post-response scripts.
+
+**Example:**
+```javascript
+if (rq.info.eventName === "prerequest") {
+    console.log("Running pre-request script");
+} else {
+    console.log("Running post-response script");
+}
+```
+
+---
+
+### `rq.info.iteration`
+
+**Type:** `number`
+
+The current iteration index when running a collection with the Collection Runner. The index is **0-based**, meaning the first iteration is `0`, the second is `1`, and so on.
+
+For single request executions (not part of a collection run), this value is `0`.
+
+**Example:**
+```javascript
+console.log("Current iteration:", rq.info.iteration);
+// Output: Current iteration: 0 (first iteration)
+// Output: Current iteration: 2 (third iteration)
+```
+
+---
+
+### `rq.info.iterationCount`
+
+**Type:** `number`
+
+The total number of iterations configured for the collection run. For single request executions, this value is `1`.
+
+**Example:**
+```javascript
+console.log(`Running iteration ${rq.info.iteration + 1} of ${rq.info.iterationCount}`);
+// Output: Running iteration 3 of 10
+```
+
+---
+
+## Use Cases
+
+### Track Progress in Collection Runs
+
+```javascript
+// Pre-request script
+const progress = ((rq.info.iteration + 1) / rq.info.iterationCount * 100).toFixed(1);
+console.log(`Progress: ${progress}% (${rq.info.iteration + 1}/${rq.info.iterationCount})`);
+```
+
+### Conditional Logic Based on Iteration
+
+```javascript
+// Skip authentication on first iteration
+if (rq.info.iteration === 0) {
+    console.log("First iteration - setting up authentication");
+    rq.environment.set("authToken", "initial-token");
+} else {
+    console.log("Using existing authentication");
+}
+```
+
+### Different Behavior for First and Last Iterations
+
+```javascript
+// Pre-request script
+if (rq.info.iteration === 0) {
+    console.log("First iteration - initializing test data");
+    rq.collectionVariables.set("testData", []);
+}
+
+// Post-response script
+if (rq.info.iteration === rq.info.iterationCount - 1) {
+    console.log("Last iteration - cleaning up");
+    const allData = rq.collectionVariables.get("testData");
+    console.log("Collected data from all iterations:", allData);
+}
+```
+
+### Log Request Context
+
+```javascript
+// Post-response script
+console.log(`[${rq.info.requestName}] Status: ${rq.response.code} | Iteration: ${rq.info.iteration + 1}/${rq.info.iterationCount}`);
+```
+
+---
+
+## Notes
+
+- The `iteration` property is **0-based** (starts from 0, not 1)
+- For single request executions, `iteration` is `0` and `iterationCount` is `1`
+- The `rq.info` object is read-only and cannot be modified
+- All properties are available in both pre-request and post-response scripts
