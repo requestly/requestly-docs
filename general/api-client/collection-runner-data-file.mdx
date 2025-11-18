@@ -42,10 +42,9 @@ Follow these steps to run a collection with custom data:
     - For CSV files: verify column names and types
     - For JSON files: check object keys and structure
 
-    Each key or column name should match the variable used in your requests, such as `{{city}}` or `{{user_id}}`.
-    
+    Each key or column name should match the variable used in your requests, such as `{{storyId}}`.
+
     ![Requestly data preview screen displaying CSV and JSON structures, allowing users to verify columns, keys, and map variables like city or user_id.](/images/DatafilesupportforCollectionRunner\(preview\).png)
-    
   </Step>
   <Step title="Start the Run">
     Click **Save** and then **Start Run**.\
@@ -60,7 +59,7 @@ Follow these steps to run a collection with custom data:
 When you attach a CSV or JSON file to your manual run:
 
 - Each **row (CSV)** or **object (JSON)** represents one **iteration**
-- Variables inside your requests (like `{{name}}` or `{{email}}`) are replaced with the corresponding values
+- Variables inside your requests (like `{{storyId}}`) will be replaced with the corresponding values
 - Requestly automatically cycles through each data set until all iterations are complete
 
 ### Supported File Formats
