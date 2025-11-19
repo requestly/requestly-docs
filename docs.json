@@ -302,7 +302,7 @@
               "guides/modifying-response-asynchronously",
               "guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app",
               "guides/how-to-conditionally-fail-requests-based-on-request-counts",
-              "guides/modify-network-request-for-browserstack-local",
+              "guides/requestly-integration-browserstack-app-live",
               "guides/record-and-mock-flaky-apis-in-bulk",
               "guides/can-i-log-in-to-requestly-using-my-browserstack-account",
               "guides/how-to-update-requestly-extension-manually"
