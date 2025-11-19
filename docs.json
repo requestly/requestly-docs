@@ -946,6 +946,10 @@
     {
       "source": "/general/api-client/rq-expect",
       "destination": "/general/api-client/rq-api-reference/rq-expect"
+    },
+    {
+      "source":"/guides/modify-network-request-for-browserstack-local",
+      "destination":"/guides/requestly-integration-browserstack-app-live"
     }
   ]
 }
