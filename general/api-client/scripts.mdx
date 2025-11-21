@@ -220,6 +220,31 @@ rq.test("Response has user data", function() {
 
 [View complete rq.expect documentation →](/general/api-client/rq-api-reference/rq-expect)
 
+#### `rq.info`
+Access execution metadata including request name, iteration index, and event name. Useful for tracking progress in collection runs and implementing iteration-specific logic.
+
+**Quick Example:**
+```jsx
+console.log(`Running ${rq.info.requestName}`);
+console.log(`Iteration ${rq.info.iteration + 1} of ${rq.info.iterationCount}`);
+```
+
+[View complete rq.info documentation →](/general/api-client/rq-api-reference/rq-info)
+
+----
+
+#### `rq.iterationData`
+Access data from CSV or JSON files during collection runs. Each iteration receives different data from the file, enabling data-driven testing.
+
+**Quick Example:**
+```jsx
+const city = rq.iterationData.get("city");
+const temp = rq.iterationData.get("temperature");
+console.log(`Weather in ${city}: ${temp}°C`);
+```
+
+[View complete rq.iterationData documentation →](/general/api-client/rq-api-reference/rq-iteration-data)
+
 ----
 
 ### Variable Scope Hierarchy
@@ -229,4 +254,5 @@ When variables with the same name exist at multiple levels, the priority is:
 **Environment Variables > Collection Variables > Global Variables**
 
 This allows you to override global or collection defaults with environment-specific values.
+
 

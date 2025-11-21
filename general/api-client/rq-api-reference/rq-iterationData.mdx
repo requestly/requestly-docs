@@ -1,0 +1,132 @@
+---
+title: "Iteration Data (rq.iterationData)"
+label: "rq.iterationData"
+slug: "rq-iteration-data"
+description: "Access data from CSV or JSON files during collection runs in Requestly API client scripts."
+seoDescription: "Access data from CSV or JSON files during collection runs in Requestly API client scripts."
+visibility: "PUBLIC"
+---
+
+The `rq.iterationData` object provides access to data from CSV or JSON files when running collections with the Collection Runner. Each iteration of the collection run receives a different row (CSV) or object (JSON) from the data file, allowing you to parameterize your requests dynamically.
+
+<Note>
+  This feature works only when you run a collection with an attached data file, which is supported exclusively in the **Desktop App**. If you run a single request or a collection without a data file, rq.iterationData remains **undefined**.
+</Note>
+
+## Methods
+
+### `rq.iterationData.get(key)`
+
+Retrieves the value for a specific key from the current iteration's data.
+
+**Parameters:**
+
+- `key` (string): The name of the variable/column to retrieve
+
+**Returns:** The value associated with the key, or `undefined` if the key doesn't exist
+
+**Example:**
+
+```javascript
+// For a CSV with columns: city, temperature
+const city = rq.iterationData.get("city");
+const temp = rq.iterationData.get("temperature");
+
+console.log(`Weather in ${city}: ${temp}°C`);
+// Output: Weather in Vancouver: 10°C
+```
+
+---
+
+### `rq.iterationData.has(key)`
+
+Checks if a specific key exists in the current iteration's data.
+
+**Parameters:**
+
+- `key` (string): The name of the variable/column to check
+
+**Returns:** `true` if the key exists, `false` otherwise
+
+**Example:**
+
+```javascript
+if (rq.iterationData.has("userId")) {
+    const userId = rq.iterationData.get("userId");
+    console.log("User ID:", userId);
+} else {
+    console.log("No user ID in this iteration");
+}
+```
+
+### `rq.iterationData.unset(key)`
+
+Removes a specified variable from the iteration data during the the specific iteration.
+
+### `rq.iterationData.toObject()`
+
+Returns all data from the current iteration as a JavaScript object.
+
+**Returns:** An object containing all key-value pairs from the current iteration
+
+**Example:**
+
+```javascript
+const allData = rq.iterationData.toObject();
+console.log("Current iteration data:", allData);
+// Output: Current iteration data: { city: "Vancouver", temperature: 10 }
+```
+
+## Use Cases
+
+### Conditional Logic Based on Data
+
+```javascript
+// Pre-request script
+const userType = rq.iterationData.get("userType");
+
+if (userType === "admin") {
+    rq.request.headers.push({
+        key: "X-Admin-Token",
+        value: "admin-secret-token"
+    });
+} else {
+    rq.request.headers.push({
+        key: "X-User-Token",
+        value: "user-token"
+    });
+}
+```
+
+### Validating Response Against Expected Data
+
+```javascript
+// Post-response script
+const expectedStatus = rq.iterationData.get("expectedStatus");
+const actualStatus = rq.response.code;
+
+rq.test(`Status code matches expected (${expectedStatus})`, function() {
+    rq.expect(actualStatus).to.equal(parseInt(expectedStatus));
+});
+```
+
+---
+
+## Data File Format Examples
+
+### CSV Format
+
+```csv
+city,temperature,humidity
+Vancouver,10,75
+Austin,24,60
+London,12,80
+```
+
+**Accessing in script:**
+
+```javascript
+const city = rq.iterationData.get("city");        // "Vancouver"
+const temp = rq.iterationData.get("temperature"); // 10
+const humidity = rq.iterationData.get("humidity"); // 75
+```

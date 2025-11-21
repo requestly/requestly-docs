@@ -112,3 +112,22 @@ London
 ```
 
 Requestly will automatically replace `{{city}}` with each value during the run.
+
+### Accessing Data in Scripts
+
+You can access data file values programmatically in your pre-request and post-response scripts using the `rq.iterationData` object. This allows you to implement conditional logic, validate responses, or perform calculations based on the input data.
+
+**Example:**
+```javascript
+// Pre-request script
+const city = rq.iterationData.get("city");
+console.log(`Testing weather API for: ${city}`);
+
+// Post-response script
+const expectedCity = rq.iterationData.get("city");
+const responseData = rq.response.json();
+
+rq.test("Response contains correct city", function() {
+    rq.expect(responseData.city).to.equal(expectedCity);
+});
+```
