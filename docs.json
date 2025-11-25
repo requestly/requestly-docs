@@ -347,7 +347,9 @@
               "troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator",
               "troubleshoot/http-interceptor/intercepting-requests-from-localhost",
               "troubleshoot/http-interceptor/system-wide-proxy-not-working-macos",
+              "troubleshoot/http-interceptor/troubleshooting-proxy-not-shown-windows",
               "troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate",
+              "troubleshoot/http-interceptor/install-certificate-windows",
               "troubleshoot/http-interceptor/troubleshooting-safari",
               "troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
             ]
