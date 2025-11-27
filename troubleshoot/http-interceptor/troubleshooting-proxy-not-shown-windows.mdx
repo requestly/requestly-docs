@@ -3,11 +3,11 @@ title: Troubleshooting Proxy Not Shown Issue (Windows)
 description: Steps to troubleshoot when proxy is not shown in Requestly Desktop App on Windows
 ---
 
-## How to check if proxy is running in the background
+
 
 If you're seeing a "No Proxy" issue in the Requestly Desktop App on Windows, follow these troubleshooting steps:
 
-### Issue Diagnosis
+### Troubleshooting Steps
 
 <Steps>
   <Step title="Check if default port 8281 is available and identify the process">
@@ -31,7 +31,8 @@ If you're seeing a "No Proxy" issue in the Requestly Desktop App on Windows, fol
   
   <Step title="Try manual proxy connection (if Requestly is using the port)">
     If Requestly is using port 8281 but you still see the "No Proxy" issue:
-    - Get your local IP address by running `ipconfig` in Command Prompt
+    <img src="/images/troubleshoot-proxy-no-shown-windows/use-ipconfig.webp" alt="Use ipconfig to connect to proxy" />
+    - Get your local `IPv4` address by running `ipconfig` in Command Prompt
     - Try connecting to the proxy manually using your local IP and port 8281
     - Configure your system or browser to use this proxy: `<your-local-ip>:8281`
   </Step>
