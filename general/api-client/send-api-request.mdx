@@ -69,6 +69,11 @@ Review the headers sent back by the server in the **Headers** tab.
 
 In the **Query Params** section, you can add query parameters as **key-value pairs** to send extra information with the URL. To add more parameters, click on the `+ Add More` button.
 
+Each query parameter consists of:
+* **Key**: The parameter name
+* **Value**: The parameter value
+* **Description** (optional): Internal documentation to explain the purpose of this parameter
+
 For example:
 
 * Adding `uid=123` to `https://app.requestly.io/echo` results in: `https://app.requestly.io/echo?uid=123`
@@ -123,6 +128,11 @@ For POST or PUT requests, use the **Body** tab to send data
 ## Headers
 
 The **Headers** tab allows you to include additional information in your API request. Headers are key-value pairs that provide essential details for the request, such as authentication tokens, content type, or other metadata required by the API. To add more headers, click on the `+ Add More` button.
+
+Each header consists of:
+* **Key**: The header name (e.g., `Authorization`, `Content-Type`)
+* **Value**: The header value
+* **Description** (optional): Internal documentation to explain the purpose of this header
 
 For example: You can add headers like `Authorization: Bearer <token>` to authenticate your request, or `Content-Type: application/json` to specify the format of the data you're sending.
 
