@@ -963,6 +963,10 @@
     {
       "source":"/guides/modify-network-request-for-browserstack-local",
       "destination":"/guides/requestly-integration-browserstack-app-live"
+    },
+    {
+      "source":"/using-rules/modify-headers",
+      "destination":"/general/http-rules/rule-types/modify-headers"
     }
   ]
 }
