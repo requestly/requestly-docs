@@ -26,11 +26,11 @@ Now, you may be questioning what these scripts are.
 
 The Scripts are just functions written in JavaScript to customize and validate API requests, responses, dynamically inject headers, authentication tokens, and many more things you can do using scripts.
 
-> In fact they have introduced a new amazing feature that we can use NPM Packages inside Scripts, I will talk about them later in this article.
+> In fact, they have introduced an amazing new feature that allows you to use NPM packages inside scripts. I will talk about it later in this article.
 
 **In Requestly**, Scripts allow you to customize requests before the request is sent ( Pre-Request Scripts ) and validate the response data after the request is executed ( Post-Request Scripts)
 
-![Pre Request and Post Request Scripts](/images/guide-pre-and-post-scripts/scripts.png)
+![Pre-Request and Post-Request Scripts](/images/guide-pre-and-post-scripts/scripts.png)
 
 
 Before diving deep into pre-request scripts and post-request scripts, let's understand the basics of Scripting.
@@ -54,7 +54,7 @@ Before diving deep into pre-request scripts and post-request scripts, let's unde
 
 You can even use `console.log()` or `console.error()` in your Pre-Request and Post-Response Scripts to debug your logic and inspect values at runtime. The logs from these scripts are prefixed with #script for easy filtering and are visible directly in your browser's console or in the Requestly Debug Console for the desktop app.
 
-Let's now dive deep into the Pre and Post Request Scripts
+Let's now dive deep into the Pre-Request and Post-Request Scripts
 
 ---
 
@@ -91,7 +91,7 @@ In the Pre-request Script of your protected APIs, add:
 
 ```javascript
 const token = rq.environment.get("authToken");
-rq.headers["Authorization"] = `Bearer ${token}`;
+rq.request.headers["Authorization"] = `Bearer ${token}`;
 ```
 
 Now every request automatically carries the correct authentication token - no manual copying, no mistakes, no wasted time.
@@ -104,7 +104,7 @@ For paginated APIs, increment a page counter automatically: Suppose your API loo
 https://api.example.com/users?page={{page_number}}
 ```
 
-Pre-request script:
+Pre-Request script:
 
 ```javascript
 const currentPage = rq.environment.get("page_number") || 0;
@@ -200,7 +200,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const userId = uuidv4();
 
-rq.body = JSON.stringify({
+rq.request.body = JSON.stringify({
   id: userId,
   name: "Test User",
   role: "admin"
