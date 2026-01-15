@@ -6,43 +6,54 @@ visibility: "PUBLIC"
 format: "MDX"
 ---
 
-Variable precedence in Requestly ensures that when multiple variables with the same name exist, the most relevant one is chosen based on scope. The precedence order is as follows:
+Variable precedence in Requestly defines how a variable value is resolved when the same variable name exists in multiple scopes. The value is picked based on scope priority, ensuring the most relevant context is always applied.
 
-> Environment Variables → SubCollection Variables → Collection Variables → Global Variables
+## Precedence order
 
-In other words:
+> Runtime Variables → Environment Variables → SubCollection Variables → Collection Variables → Global Variables
 
-* Environment variables always take the highest priority and override any variable with the same name in other scopes.
+## How it works
 
-* If no matching environment variable exists, Requestly checks for the variable in the collection scope.
+- **Runtime variables** have the highest priority. If a runtime variable with the same name exists, it overrides all other scopes for the duration of the session.
+- **Environment variables** are checked next and override SubCollection, Collection, and Global variables.
+- **SubCollection variables** apply only within that SubCollection and override Collection and Global variables.
+- **Collection variables** apply to all requests in the collection unless overridden by a higher scope.
+- **Global variables** act as the final fallback when the variable is not found in any other scope.
 
-* Global variables serve as a fallback when the variable is not found in the environment or collection scopes.
+This model makes it easy to reuse variables globally while still allowing precise overrides for environments, collections, or temporary runtime use cases.
 
-This approach simplifies managing configurations across different use cases, ensuring that environment-specific values are prioritized without interfering with globally defined values.
+## Developer style explanation
 
-Or in developer's languages:
-
-```jsx
-Copyif (variable_name in environment_variables) {        //Check in environment
-    return environment_variables[variable_name];
-} else if (variable_name in collection_variables) {  //Check in collection
-    return collection_variables[variable_name];
-} else if (variable_name in global_variables) {      //Check in global
-    return global_variables[variable_name];
+```javascript
+if (variable_name in runtime_variables) {           // Check runtime
+  return runtime_variables[variable_name];
+} else if (variable_name in environment_variables) { // Check environment
+  return environment_variables[variable_name];
+} else if (variable_name in subcollection_variables) { // Check sub-collection
+  return subcollection_variables[variable_name];
+} else if (variable_name in collection_variables) {  // Check collection
+  return collection_variables[variable_name];
+} else if (variable_name in global_variables) {      // Check global
+  return global_variables[variable_name];
 } else {
-    return null; // Variable not found in any scope
+  return null; // Variable not found in any scope
 }
 ```
 
-### Example Scenario
+## Example scenario
 
-Let’s say the variable `{{base_url}}` is defined in multiple places:
+Assume the variable `{{base_url}}` is defined in multiple scopes:
 
-| Scope         | Value                                                      |
-| ------------- | ---------------------------------------------------------- |
-| Global        | [`https://global.api.com`](https://global.api.com)         |
-| Collection    | [`https://collection.api.com`](https://collection.api.com) |
-| SubCollection | [`https://sub.api.com`](https://sub.api.com)               |
-| Environment   | [`https://env.api.com`](https://env.api.com)               |
+| Scope         | Value                        |
+| ------------- | ---------------------------- |
+| Global        | `https://global.api.com`     |
+| Collection    | `https://collection.api.com` |
+| SubCollection | `https://sub.api.com`        |
+| Environment   | `https://env.api.com`        |
+| Runtime       | `https://runtime.api.com`    |
 
-If you send a request inside the **SubCollection** with an active **Environment**, the variable `{{base_url}}` will resolve to [`https://env.api.com`](https://env.api.com) because **environment variables** have the highest precedence.
+If you send a request inside a **SubCollection** with an active **Environment**, and a **runtime variable** with the same name exists, `{{base_url}}` resolves to:
+
+`https://runtime.api.com`
+
+If the runtime variable is removed, the value falls back to the **environment variable**, followed by SubCollection, Collection, and finally Global based on availability.
