@@ -97,13 +97,8 @@
                             {
                 "group": "Scripts & Tests",
                 "pages": [
-                  {
-                    "group": "Pre-request & Post-response Scripts",
-                    "pages": [
-                      "general/api-client/scripts",
-                      "general/api-client/ai-test-generator"
-                    ]
-                  },
+                  "general/api-client/scripts",
+                  "general/api-client/ai-test-generator",
                   "general/api-client/import-packages-into-your-scripts",
                   "general/api-client/tests",
                   {
