@@ -61,20 +61,21 @@ The documentation will be available at `http://localhost:3000`
 
 ```
 requestly-docs/
-├── changelogs/          # Release notes and changelogs
-├── general/             # General documentation
-│   ├── getting-started/ # Getting started guides
-│   ├── api-client/      # API Client documentation
-│   ├── http-rules/      # HTTP Rules guides
-│   ├── mock-server/     # Mock Server documentation
-│   ├── sessions/        # Session recording docs
-│   └── team/            # Team & collaboration features
-├── guides/              # How-to guides and tutorials
-├── public-apis/         # Public API documentation
-├── troubleshoot/        # Troubleshooting guides
-├── images/              # Image assets
-├── docs.json            # Mintlify configuration
-└── LICENSE              # License file
+├── changelogs/              # Release notes and changelogs
+├── community-content/       # Community-driven guides and examples
+├── general/                 # General documentation
+│   ├── getting-started/     # Getting started guides
+│   ├── api-client/          # API Client documentation
+│   ├── http-rules/          # HTTP Rules guides
+│   ├── mock-server/         # Mock Server documentation
+│   ├── sessions/            # Session recording docs
+│   └── team/                # Team & collaboration features
+├── guides/                  # How-to guides and tutorials
+├── images/                  # Image assets
+├── public-apis/             # Public API documentation
+├── troubleshoot/            # Troubleshooting guides
+├── docs.json                # Mintlify configuration
+└── LICENSE                  # License file
 ```
 
 ## 📝 Contributing
