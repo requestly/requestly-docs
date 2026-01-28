@@ -94,7 +94,7 @@
                   "general/api-client/environments-and-variables/using-variables-in-api-requests"
                 ]
               },
-                            {
+              {
                 "group": "Scripts & Tests",
                 "pages": [
                   "general/api-client/scripts",
@@ -267,7 +267,6 @@
               }
             ]
           },
-
           {
             "group": "Others",
             "pages": [
@@ -312,7 +311,9 @@
           },
           {
             "group": "Other",
-            "pages": ["guides/other/claim-your-requestly-github-student-pack-benefit"]
+            "pages": [
+              "guides/other/claim-your-requestly-github-student-pack-benefit"
+            ]
           }
         ]
       },
@@ -377,6 +378,8 @@
           {
             "group": "Overview",
             "pages": [
+              "changelogs/jan-27-2026",
+              "changelogs/jan-19-2026",
               "changelogs/jan-12-2026",
               "changelogs/dec-22-2025",
               "changelogs/dec-15-2025",
