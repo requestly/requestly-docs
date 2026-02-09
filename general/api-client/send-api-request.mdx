@@ -92,6 +92,33 @@ Review the headers sent back by the server in the **Headers** tab.
 
 ---
 
+## Path Variables
+
+Path variables allow you to define dynamic segments in your API URL using the `:variableName` syntax. This is useful for RESTful APIs where resource identifiers are part of the URL path.
+
+For example, if your API endpoint is:
+```
+https://api.example.com/users/:userId/posts/:postId
+```
+
+Requestly automatically detects the path variables (`:userId` and `:postId`) from the URL and displays them in the **Params** tab under **Path Variables**. You can then set values for each variable:
+
+| Key | Value | Description |
+|-----|-------|-------------|
+| userId | 123 | The user's unique identifier |
+| postId | 456 | The post's unique identifier |
+
+When you send the request, Requestly compiles the URL with your provided values:
+```
+https://api.example.com/users/123/posts/456
+```
+
+<Tip>
+  Path variables are automatically extracted from your URL. Simply type a URL with `:variableName` segments, and they'll appear in the Path Variables table for you to fill in.
+</Tip>
+
+---
+
 ## Query Parameters
 
 In the **Query Params** section, you can add query parameters as **key-value pairs** to send extra information with the URL. To add more parameters, click on the `+ Add More` button.
