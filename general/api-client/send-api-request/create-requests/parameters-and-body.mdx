@@ -1,0 +1,199 @@
+---
+title: "Parameters and Body Data"
+label: "Parameters and Body"
+slug: "parameters-and-body"
+description: "Learn how to add query parameters, path variables, and request body data to your API requests in Requestly."
+visibility: "PUBLIC"
+---
+
+Parameters and request bodies allow you to send data with your API requests. This guide covers query parameters, path variables, and different request body formats.
+
+## Path Variables
+
+Path variables allow you to define dynamic segments in your API URL using the **:variableName** syntax. This is useful for RESTful APIs where resource identifiers are part of the URL path.
+
+For example, if your API endpoint is:
+```
+https://api.example.com/users/:userId/posts/:postId
+```
+
+Requestly automatically detects the path variables (`:userId` and `:postId`) from the URL and displays them in the **Params** tab under **Path Variables**. You can then set values for each variable:
+
+| Key | Value | Description |
+|-----|-------|-------------|
+| userId | 123 | The user's unique identifier |
+| postId | 456 | The post's unique identifier |
+
+When you send the request, Requestly compiles the URL with your provided values:
+```
+https://api.example.com/users/123/posts/456
+```
+
+<Tip>
+  Path variables are automatically extracted from your URL. Simply type a URL with `:variableName` segments, and they'll appear in the Path Variables table for you to fill in.
+</Tip>
+
+## Query Parameters
+
+In the **Query Params** section, you can add query parameters as **key-value pairs** to send extra information with the URL. To add more parameters, click on the `+ Add More` button.
+
+Each query parameter consists of:
+
+- **Key**: The parameter name
+- **Value**: The parameter value
+- **Type**: An enum to enforce the value type
+- **Description** (optional): Internal documentation explaining the purpose of the parameter
+
+For example:
+
+- Adding `uid=123` to `https://app.requestly.io/echo` results in: `https://app.requestly.io/echo?uid=123`
+
+<Tip>
+  The checkboxes next to each parameter let you include or exclude them without deleting them. For instance, if you uncheck a parameter, the final URL will not include it.
+</Tip>
+
+
+### Bulk Edit Query Parameters
+<img src="/images/QueryParam-1.png" align="center" fullwidth="false" />
+
+You can also manage query parameters using **Bulk Edit**. This allows you to add or update multiple parameters at once in a key:value format.
+
+- Add one parameter per line
+- Separate keys and values using a colon `:`
+- Prefix any line with `//` to disable that parameter
+
+Bulk Edit is useful when working with a large number of query parameters or when making quick mass updates.
+
+**Example:**
+```
+page:1
+limit:50
+sort:desc
+// filter:active
+```
+
+## Request Body
+
+For POST, PUT, or PATCH requests, use the **Body** tab to send data to the server. Requestly supports multiple body formats to accommodate different API requirements.
+
+### Supported Body Types
+
+<Tabs>
+  <Tab title="RAW (JSON/Text)">
+    Send raw data as plain **text** or structured **JSON**.
+    
+    **When to use:**
+    - Sending JSON data to REST APIs
+    - Posting XML or plain text
+    - Sending custom formatted data
+    
+    You can select the language format:
+    - **JSON** – for structured data like API payloads
+    - **Text** – for plain string or unstructured data
+    - **XML** – for XML-based APIs
+    - **HTML** – for HTML content
+    
+    <img
+      src="/images/send-api-request/76a50480-84ca-4ffd-87c0-cf27e0e5208b.png"
+      align="center"
+      fullwidth="false"
+    />
+    
+    **Example JSON:**
+    ```json
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "age": 30,
+      "active": true
+    }
+    ```
+  </Tab>
+  
+  <Tab title="x-www-form-urlencoded">
+    Sends data as URL-encoded key-value pairs. This format is commonly used for HTML form submissions.
+    
+    **When to use:**
+    - Traditional web form submissions
+    - Simple key-value data
+    - APIs that expect form data
+    
+    Each field consists of:
+    - **Key**: Field name
+    - **Value**: Field value
+    - **Description**: Optional documentation
+    
+    <img
+      src="/images/send-api-request/79119883-fd9d-4b33-b617-4f7a7bf36f0e.png"
+      align="center"
+      fullwidth="false"
+    />
+    
+    **Example:**
+    ```
+    username=johndoe
+    password=secret123
+    remember=true
+    ```
+  </Tab>
+  
+  <Tab title="multipart/form-data">
+    Used when uploading files along with form fields. Each field is sent as a separate part of the request body.
+    
+    **When to use:**
+    - Uploading images, documents, or files
+    - Sending files with metadata
+    - Form submissions with file attachments
+    
+    Each field can be either:
+    - **Text field**: Regular key-value pair
+    - **File field**: File upload with browse button
+    
+    <img
+      src="/images/send-api-request/fa74f6c1-8ebb-4652-8667-7993cc3d57f7.png"
+      align="center"
+      fullwidth="false"
+    />
+    
+    **Example use case:** Uploading a user profile picture with name and bio
+  </Tab>
+  
+  <Tab title="GraphQL">
+    For GraphQL APIs, use the dedicated GraphQL request type which provides:
+    - Query/Mutation editor with syntax highlighting
+    - Variables panel
+    - Schema introspection
+    
+    Learn more in our [GraphQL Request guide](/general/api-client/graphql-request).
+  </Tab>
+</Tabs>
+
+## Autogenerated Headers
+
+Requestly will automatically add certain headers to your requests based on your request body selections. When you add a request body, Requestly automatically sets the appropriate `Content-Type` header:
+
+| Body Type | Content-Type Header |
+|-----------|-------------------|
+| RAW (JSON) | `application/json` |
+| RAW (Text) | `text/plain` |
+| RAW (XML) | `application/xml` |
+| x-www-form-urlencoded | `application/x-www-form-urlencoded` |
+| multipart/form-data | `multipart/form-data` |
+
+<Tip>
+  You can view and override the autogenerated headers in the Headers tab. These headers are automatically managed by Requestly to ensure your requests are properly formatted.
+</Tip>
+
+## What's Next?
+
+<CardGroup cols={3}>
+  <Card title="Configure Headers" icon="list" href="/general/api-client/send-api-request/request-headers">
+    Add authentication and custom headers to your requests
+  </Card>
+  <Card title="Add Authorization" icon="shield" href="/general/api-client/authorization">
+    Set up API authentication methods
+  </Card>
+  <Card title="Use Variables" icon="brackets-curly" href="/general/api-client/environments-and-variables">
+    Make your requests dynamic with variables
+  </Card>
+</CardGroup>

@@ -1,0 +1,143 @@
+---
+title: "Configure Request"
+label: "Configure Request"
+slug: "configure-request"
+description: "Learn how to configure HTTP methods, URLs, and send API requests in Requestly."
+visibility: "PUBLIC"
+---
+
+Configuring your API request properly is the first step to successful API testing. This guide covers how to set up HTTP methods, URLs, and send requests effectively.
+
+## HTTP Methods
+
+Requestly supports all standard HTTP methods for API requests:
+
+<Tabs>
+  <Tab title="GET">
+    **GET** retrieves data from a server. It's the most common method for fetching resources.
+    
+    **Use cases:**
+    - Fetch user data
+    - Get list of items
+    - Retrieve resource details
+  </Tab>
+  
+  <Tab title="POST">
+    **POST** sends data to create a new resource on the server.
+    
+    **Use cases:**
+    - Create new user
+    - Submit form data
+    - Upload content
+  </Tab>
+  
+  <Tab title="PUT">
+    **PUT** updates an existing resource by replacing it entirely.
+    
+    **Use cases:**
+    - Update user profile
+    - Replace document
+    - Modify configuration
+  </Tab>
+  
+  <Tab title="PATCH">
+    **PATCH** partially updates an existing resource.
+    
+    **Use cases:**
+    - Update specific fields
+    - Modify user settings
+    - Change status
+  </Tab>
+  
+  <Tab title="DELETE">
+    **DELETE** removes a resource from the server.
+    
+    **Use cases:**
+    - Delete user account
+    - Remove item
+    - Clear cache
+  </Tab>
+  
+  <Tab title="HEAD">
+    **HEAD** retrieves only the headers of a resource without the body. It's identical to GET but without the response body.
+    
+    **Use cases:**
+    - Check if resource exists
+    - Get content length before downloading
+    - Verify last modified date
+  </Tab>
+  
+  <Tab title="OPTIONS">
+    **OPTIONS** retrieves the communication options available for a resource or server.
+    
+    **Use cases:**
+    - Check supported HTTP methods
+    - Verify CORS configuration
+    - Discover API capabilities
+  </Tab>
+</Tabs>
+
+## Setting Up Your Request URL
+
+The request URL specifies where your API request should be sent. It consists of several components:
+
+<img src="/images/url-structure.png" alt="URL Structure" align="center" fullwidth="false" />
+
+## Naming Your Request
+
+Give your request a clear, descriptive name to easily identify it later:
+
+**Good naming examples:**
+- `Get User Profile`
+- `Create New Order`
+- `Update Product Inventory`
+- `Delete Customer Account`
+
+**Avoid:**
+- `Test`
+- `Request 1`
+- `API Call`
+
+<Tip>
+  Use action verbs and specific resource names to make your requests self-documenting. This helps when sharing with team members or revisiting later.
+</Tip>
+
+## Sending Your Request
+
+Once you've configured your request:
+
+<Steps>
+  <Step title="Save Your Configuration">
+    Click the **Save** button to preserve your request settings. This allows you to reuse it later without reconfiguring.
+  </Step>
+  
+  <Step title="Click Send">
+    Press the **Send** button to execute the request. Requestly will display the response in the panel below.
+  </Step>
+  
+  <Step title="Review Response">
+    Check the response status code, body, and headers to verify the request was successful.
+    
+    **Common status codes:**
+    - `200 OK` - Success
+    - `201 Created` - Resource created
+    - `400 Bad Request` - Invalid request
+    - `401 Unauthorized` - Authentication required
+    - `404 Not Found` - Resource doesn't exist
+    - `500 Server Error` - Server-side issue
+  </Step>
+</Steps>
+
+## What's Next?
+
+<CardGroup cols={3}>
+  <Card title="Add Parameters" icon="code" href="/general/api-client/send-api-request/parameters-and-body">
+    Learn how to add query params, path variables, and request body
+  </Card>
+  <Card title="Configure Headers" icon="list" href="/general/api-client/send-api-request/request-headers">
+    Set up authentication and custom headers
+  </Card>
+  <Card title="Use Authorization" icon="shield" href="/general/api-client/authorization">
+    Configure API Key, Bearer Token, or Basic Auth
+  </Card>
+</CardGroup>
