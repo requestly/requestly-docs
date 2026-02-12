@@ -1,0 +1,113 @@
+---
+title: "Request Headers"
+label: "Request Headers"
+slug: "request-headers"
+description: "Learn how to configure HTTP headers for authentication, content types, and custom metadata in your API requests."
+visibility: "PUBLIC"
+---
+
+HTTP headers are key-value pairs that provide additional information about your request. They're essential for authentication, specifying content types, and sending custom metadata to the API.
+
+## Understanding Headers
+
+Headers serve multiple purposes in HTTP requests:
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key">
+    Pass tokens, API keys, or credentials to authenticate with the API
+  </Card>
+  <Card title="Content Type" icon="file-code">
+    Tell the server what format your data is in (JSON, XML, etc.)
+  </Card>
+  <Card title="Accept Type" icon="check">
+    Specify what response format you expect from the server
+  </Card>
+  <Card title="Custom Metadata" icon="tag">
+    Send additional information like user agent, tracking IDs, or custom flags
+  </Card>
+</CardGroup>
+
+***
+
+## Adding Headers
+
+The **Headers** tab allows you to add Request Headers in your API request.
+Each header consists of:
+
+- **Key**: The header name (e.g., `Authorization`, `Content-Type`)
+- **Value**: The header value
+- **Description** (optional): Internal documentation to explain the purpose of this header
+
+<img
+  src="/images/Headers - Create Requests.png"
+  alt="Headers - Send API Request"
+  align="center"
+  fullwidth="false"
+/>
+
+<Tip>
+  The checkboxes next to each header let you include or exclude them without deleting them. This is useful for testing with and without certain headers.
+</Tip>
+
+### Bulk Edit Headers
+
+You can also manage headers using **Bulk Edit**. This allows you to add or update multiple headers at once in a `key:value` format.
+
+**How to use:**
+1. Click the **Bulk Edit** button in the Headers tab
+2. Add one header per line
+3. Separate keys and values using a colon `:`
+4. Prefix any line with `//` to disable that header
+
+**Example:**
+```
+Content-Type:application/json
+Authorization:Bearer {{token}}
+X-API-Version:v2
+// X-Debug:true
+```
+
+<Tip>
+  Bulk Edit is especially useful when copying headers from documentation or sharing with team members.
+</Tip>
+
+## Using Variables in Headers
+
+You can use variables in header values to make them dynamic:
+
+```
+Key: Authorization
+Value: Bearer {{authToken}}
+```
+
+<Info>
+  Learn more about using variables in [Variables and Environments](/general/api-client/environments-and-variables).
+</Info>
+
+## Header Inheritance
+
+Headers can be inherited from collections, making it easy to apply common headers across multiple requests:
+
+**Collection-Level Headers** → **Request-Level Headers** → **Authorization Tab**
+
+- **Collection-Level Headers**: Set headers at the collection level to apply them to all requests in that collection.
+- **Request-Level Headers**: Request-level headers override collection-level headers with the same key.
+- **Authorization Tab**: Headers set in the Authorization tab are applied in addition to manual headers.
+
+<Info>
+  Headers are applied in order, with each level potentially overriding the previous one. Request-level headers have the highest priority.
+</Info>
+
+## What's Next?
+
+<CardGroup cols={3}>
+  <Card title="Add Authorization" icon="shield" href="/general/api-client/authorization">
+    Use the Authorization tab for easier authentication setup
+  </Card>
+  <Card title="Use Scripts" icon="code" href="/general/api-client/send-api-request/save-and-manage-data">
+    Dynamically generate headers with pre-request scripts
+  </Card>
+  <Card title="Environment Variables" icon="globe" href="/general/api-client/environments-and-variables">
+    Learn how to use variables in headers
+  </Card>
+</CardGroup>

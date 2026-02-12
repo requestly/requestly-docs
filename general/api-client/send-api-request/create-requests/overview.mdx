@@ -1,0 +1,106 @@
+---
+title: "Overview"
+label: "Overview"
+slug: "overview"
+description: "Learn how to create and send API requests in Requestly. Test APIs, configure requests, and view responses without writing code."
+seoTitle: "Create API Requests in Requestly"
+seoDescription: "Complete guide to creating API requests in Requestly. Send HTTP requests, configure parameters, headers, and body data for effective API testing."
+visibility: "PUBLIC"
+---
+
+The API client in Requestly allows you to easily send API requests, without the need for writing code or using a terminal. It lets you test APIs, retrieve data, and explore how they work by simply creating a request, clicking Send, and viewing the response within Requestly.
+
+This feature is perfect for developers testing API endpoints during development, QA engineers validating API responses for edge cases, and support engineers debugging API issues in real-time.
+
+<iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/2UzBlZe0aMI?si=fEvlazKw8Htapa9K" />
+
+## Quick Start
+
+Follow these steps to send your first API request:
+
+<Steps>
+  <Step title="Open API Client and Create a New Request">
+    Click the **API Client** link in the left sidebar of the Requestly application, then click the `+ New` button to create a new request and select **Request** from the menu.
+
+    <img
+      src="/images/send-api-request/fdef96c4-3da6-4a3a-a885-8999e89898f1.png"
+      alt='The image shows the Requestly interface with the "New" button highlighted, displaying options: "Request," "Collection," and "Environment" in a dropdown menu.'
+      align="center"
+      fullwidth="false"
+    />
+  </Step>
+  <Step title="Name Your API Request">
+    Choose a descriptive title for your request to make it easy to identify later.
+
+    <img
+      src="/images/send-api-request/23b0f1b3-f06c-411b-b329-6e0c2794170d.png"
+      alt="The image shows the Requestly interface's new request creation flow, with an input field for entering the request name, labeled 'Send API Request'"
+      align="center"
+      fullwidth="false"
+    />
+  </Step>
+  <Step title="Enter the API URL and HTTP Method">
+    Pick the HTTP method (e.g., GET, POST) and type the URL of the API you want to test.
+
+    <img
+      src="/images/send-api-request/b027f3b9-8d3c-49ee-9f5e-f7a66f7a5fd0.png"
+      align="center"
+      fullwidth="false"
+    />
+  </Step>
+  <Step title="Save & Send the Request">
+    Click the **Save** & **Send** button to execute your request.
+
+    <img
+      src="/images/send-api-request/0143b46a-7adf-4483-bc4f-e81c8a6b1f0f.png"
+      alt='The image shows the Requestly interface with a POST request to https://app.requestly.io/echo and the "Send" button towards the top right corner highlighted for executing the request.'
+      align="center"
+      fullwidth="false"
+    />
+  </Step>
+</Steps>
+
+## Understanding the Response
+
+Once you send a request, you'll see the response displayed in the bottom panel with the following information:
+
+### View the Response Body
+
+Check the response body in the **Response Body** section. You can switch between formatted (pretty) and raw views.
+
+<img
+  src="/images/send-api-request/e258dee4-e903-417a-a847-1f1c7e438553.webp"
+  alt="Response Body - Send API Request"
+  align="center"
+  fullwidth="false"
+/>
+
+### Check the Response Headers
+
+Review the headers sent back by the server in the **Headers** tab.
+
+<img
+  src="/images/send-api-request/3c04e205-9117-4730-b0e1-8a7c0379f4ce.png"
+  alt="Response Headers - Send API Request"
+  align="center"
+  fullwidth="false"
+/>
+
+## Next Steps
+
+Now that you understand the basics, explore these guides to master API request creation:
+
+<CardGroup cols={2}>
+  <Card title="Configure Request" icon="sliders" href="/general/api-client/send-api-request/create-requests/configure-request">
+    Set up HTTP methods, URLs, and send your first request
+  </Card>
+  <Card title="Parameters and Body" icon="code" href="/general/api-client/send-api-request/create-requests/parameters-and-body">
+    Add query parameters, path variables, and request body data
+  </Card>
+  <Card title="Request Headers" icon="list" href="/general/api-client/send-api-request/create-requests/request-headers">
+    Configure headers for authentication and content types
+  </Card>
+  <Card title="Generate Client Code" icon="file-code" href="/general/api-client/generate-client-code">
+    Export your requests as code in multiple programming languages
+  </Card>
+</CardGroup>
