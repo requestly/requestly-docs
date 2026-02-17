@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "palm",
+  "theme": "mint",
   "name": "Requestly",
   "description": "Modify, Mock, Record & Debug HTTP requests - Comprehensive documentation for Requestly's powerful tools for API testing, debugging, and network request manipulation.",
   "colors": {
@@ -15,11 +15,16 @@
   },
   "favicon": "/images/favicon.webp",
   "navbar": {
-    "links": [],
+    "links": [
+      {
+        "label": "Open App",
+        "href": "https://app.requestly.io/api-client?utm_source=docs&utm_medium=navbar&utm_campaign=get_started"
+      }
+    ],
     "primary": {
       "type": "button",
-      "label": "Get Started",
-      "href": "https://app.requestly.io"
+      "label": "Download",
+      "href": "https://requestly.com/downloads"
     }
   },
   "navigation": {
@@ -57,11 +62,20 @@
               {
                 "group": "Sending Requests",
                 "pages": [
-                  "general/api-client/send-api-request",
-                  "general/api-client/graphql-request",
-                  "general/api-client/authorization",
-                  "general/api-client/replay-request-from-history",
-                  "general/api-client/generate-client-code"
+                  "general/api-client/send-api-request/overview",
+                  {
+                    "group": "Create Requests",
+                    "pages": [
+                      "general/api-client/send-api-request/create-requests/overview",
+                      "general/api-client/send-api-request/create-requests/configure-request",
+                      "general/api-client/send-api-request/create-requests/parameters-and-body",
+                      "general/api-client/send-api-request/create-requests/request-headers",
+                      "general/api-client/send-api-request/create-requests/generate-client-code"
+                    ]
+                  },
+                  "general/api-client/send-api-request/graphql-request",
+                  "general/api-client/send-api-request/authorization",
+                  "general/api-client/send-api-request/replay-request-from-history"
                 ]
               },
               {
@@ -965,12 +979,48 @@
       "destination": "/general/api-client/rq-api-reference/rq-expect"
     },
     {
-      "source":"/guides/modify-network-request-for-browserstack-local",
-      "destination":"/guides/requestly-integration-browserstack-app-live"
+      "source": "/guides/modify-network-request-for-browserstack-local",
+      "destination": "/guides/requestly-integration-browserstack-app-live"
     },
     {
-      "source":"/using-rules/modify-headers",
-      "destination":"/general/http-rules/rule-types/modify-headers"
+      "source": "/using-rules/modify-headers",
+      "destination": "/general/http-rules/rule-types/modify-headers"
+    },
+    {
+      "source": "/general/api-client/authorization",
+      "destination": "/general/api-client/send-api-request/authorization"
+    },
+    {
+      "source": "/general/api-client/send-api-request",
+      "destination": "/general/api-client/send-api-request/overview"
+    },
+    {
+      "source": "/general/api-client/create-requests",
+      "destination": "/general/api-client/send-api-request/create-requests/overview"
+    },
+    {
+      "source": "/general/api-client/send-api-request#query-parameters",
+      "destination": "/general/api-client/send-api-request/create-requests/parameters-and-body"
+    },
+    {
+      "source": "/general/api-client/send-api-request#request-body",
+      "destination": "/general/api-client/send-api-request/create-requests/parameters-and-body"
+    },
+    {
+      "source": "/general/api-client/send-api-request#headers",
+      "destination": "/general/api-client/send-api-request/create-requests/request-headers"
+    },
+    {
+      "source": "/general/api-client/generate-client-code",
+      "destination": "/general/api-client/send-api-request/create-requests/generate-client-code"
+    },
+    {
+      "source": "/general/api-client/graphql-request",
+      "destination": "/general/api-client/send-api-request/graphql-request"
+    },
+    {
+      "source": "/general/api-client/replay-request-from-history",
+      "destination": "/general/api-client/send-api-request/replay-request-from-history"
     }
   ]
 }
