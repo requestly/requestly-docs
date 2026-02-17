@@ -17,8 +17,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Go to Dashboard",
-        "href": "https://app.requestly.io/signup?utm_source=docs&utm_medium=navbar&utm_campaign=get_started"
+        "label": "Open App",
+        "href": "https://app.requestly.io/api-client?utm_source=docs&utm_medium=navbar&utm_campaign=get_started"
       }
     ],
     "primary": {
@@ -985,6 +985,42 @@
     {
       "source": "/using-rules/modify-headers",
       "destination": "/general/http-rules/rule-types/modify-headers"
+    },
+    {
+      "source": "/general/api-client/authorization",
+      "destination": "/general/api-client/send-api-request/authorization"
+    },
+    {
+      "source": "/general/api-client/send-api-request",
+      "destination": "/general/api-client/send-api-request/overview"
+    },
+    {
+      "source": "/general/api-client/create-requests",
+      "destination": "/general/api-client/send-api-request/create-requests/overview"
+    },
+    {
+      "source": "/general/api-client/send-api-request#query-parameters",
+      "destination": "/general/api-client/send-api-request/create-requests/parameters-and-body"
+    },
+    {
+      "source": "/general/api-client/send-api-request#request-body",
+      "destination": "/general/api-client/send-api-request/create-requests/parameters-and-body"
+    },
+    {
+      "source": "/general/api-client/send-api-request#headers",
+      "destination": "/general/api-client/send-api-request/create-requests/request-headers"
+    },
+    {
+      "source": "/general/api-client/generate-client-code",
+      "destination": "/general/api-client/send-api-request/create-requests/generate-client-code"
+    },
+    {
+      "source": "/general/api-client/graphql-request",
+      "destination": "/general/api-client/send-api-request/graphql-request"
+    },
+    {
+      "source": "/general/api-client/replay-request-from-history",
+      "destination": "/general/api-client/send-api-request/replay-request-from-history"
     }
   ]
 }
