@@ -104,6 +104,7 @@
                   "general/api-client/environments-and-variables/collection-and-subcollection-variables",
                   "general/api-client/environments-and-variables/global-variables",
                   "general/api-client/environments-and-variables/runtime-variables",
+                  "general/api-client/environments-and-variables/dynamic-variables",
                   "general/api-client/environments-and-variables/variable-precedence",
                   "general/api-client/environments-and-variables/using-variables-in-api-requests"
                 ]
