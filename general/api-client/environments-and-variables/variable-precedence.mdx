@@ -10,7 +10,11 @@ Variable precedence in Requestly defines how a variable value is resolved when t
 
 ## Precedence order
 
-> Runtime Variables → Environment Variables → SubCollection Variables → Collection Variables → Global Variables
+> Runtime Variables → Environment Variables → SubCollection Variables → Collection Variables → Global Variables → Dynamic Variables
+
+<Note>
+**Dynamic variables** are built-in variables (like `{{$timestamp}}`, `{{$randomUUID}}`, etc.) that have the lowest precedence. If you define a custom variable with the same name, your custom value will be used.
+</Note>
 
 ## How it works
 
@@ -35,10 +39,16 @@ if (variable_name in runtime_variables) {           // Check runtime
   return collection_variables[variable_name];
 } else if (variable_name in global_variables) {      // Check global
   return global_variables[variable_name];
+} else if (is_dynamic_variable(variable_name)) {     // Check dynamic variables
+  return generate_dynamic_value(variable_name);      // e.g., $timestamp, $randomUUID
 } else {
   return null; // Variable not found in any scope
 }
 ```
+
+<Note>
+When using the `$` prefix (e.g., `{{$timestamp}}`), the system skips user-defined variable lookups and directly generates the dynamic value.
+</Note>
 
 ## Example scenario
 
@@ -57,3 +67,35 @@ If you send a request inside a **SubCollection** with an active **Environment**,
 `https://runtime.api.com`
 
 If the runtime variable is removed, the value falls back to the **environment variable**, followed by SubCollection, Collection, and finally Global based on availability.
+
+## Dynamic variables precedence example
+
+Assume you want to use a timestamp in your request:
+
+**Scenario 1: Using `{{timestamp}}`** (without `$` prefix)
+
+| Scope         | Value (if defined)           |
+| ------------- | ---------------------------- |
+| Environment   | `"2024-01-15"`              |
+| Dynamic       | Current timestamp (e.g., `1613360320`) |
+
+Result: `{{timestamp}}` resolves to `"2024-01-15"` (your custom environment variable)
+
+**Scenario 2: Using `{{$timestamp}}`** (with `$` prefix)
+
+Result: `{{$timestamp}}` **always** resolves to the current Unix timestamp (e.g., `1613360320`), regardless of whether you have a custom `timestamp` variable defined.
+
+**Best Practice:**
+
+```javascript
+// In pre-request script
+// This uses your custom variable if defined, otherwise falls back to dynamic
+const myTimestamp = "{{timestamp}}";  
+
+// This always generates a fresh dynamic timestamp
+const freshTimestamp = rq.$timestamp();
+```
+
+<Tip>
+Use the `$` prefix (`{{$variableName}}` or `rq.$variableName()`) when you explicitly want to use a dynamic variable, even if a custom variable with the same name exists.
+</Tip>
