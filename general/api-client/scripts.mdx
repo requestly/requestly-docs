@@ -247,12 +247,44 @@ console.log(`Weather in ${city}: ${temp}°C`);
 
 ----
 
-### Variable Scope Hierarchy
+### Using Dynamic Variables in Scripts
 
-When variables with the same name exist at multiple levels, the priority is:
+Requestly provides dynamic variables, which are built in values that automatically generate common data such as timestamps, UUIDs, and random values. You can access them in scripts using the rq.$variableName() syntax.
 
-**Environment Variables > Collection Variables > Global Variables**
+**Quick Example:**
+```jsx
+const uniqueId = rq.$randomUUID();
+const timestamp = rq.$timestamp();
+const email = rq.$randomEmail();
 
-This allows you to override global or collection defaults with environment-specific values.
+console.log("Generated User ID:", uniqueId);
+console.log("Request Timestamp:", timestamp);
+```
+
+**Common Dynamic Variables:**
+- `rq.$randomUUID()` - Generate unique identifiers
+- `rq.$timestamp()` - Current Unix timestamp
+- `rq.$isoTimestamp()` - ISO 8601 timestamp
+- `rq.$randomInt()` - Random integer
+- `rq.$randomEmail()` - Random email address
+- `rq.$randomFirstName()` - Random first name
+- `rq.$randomCompanyName()` - Random company name
+
+**With Arguments:**
+```jsx
+// Generate random integer between 1-100
+const age = rq.$randomInt(1, 100);
+
+// Generate alphanumeric string of length 10
+const code = rq.$randomAlphaNumeric(10);
+
+// Generate password with specific length
+const password = rq.$randomPassword("20");
+
+// Generate email with custom name
+const email = rq.$randomEmail("John", "Doe");
+```
+
+[View complete Dynamic Variables documentation →](/general/api-client/environments-and-variables/dynamic-variables)
 
 
