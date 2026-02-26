@@ -15,6 +15,7 @@ Unlike environment, collection, or global variables which you define yourself, d
 </Info>
 
 They are accessed using the special `$` prefix syntax:
+
 ```
 {{$variableName}}
 ```
@@ -26,28 +27,44 @@ They are accessed using the special `$` prefix syntax:
 You can use dynamic variables anywhere in a request including the URL, headers, query params, and body.
 
 <Tabs>
-  <Tab title="Request Body">    
+  <Tab title="Request Body">
     Use dynamic variables like `{{$randomFirstName}}`, `{{$randomLastName}}`, and `{{$randomEmail}}` to create unique user data for each request:
-    <img src="/images/dynamic-variables/dynamic-variables-generate-random-user-data.png" align="center" fullwidth="false" />
+
+    <img
+      src="/images/dynamic-variables/dynamic-variables-generate-random-user-data.png"
+      align="center"
+      fullwidth="false"
+    />
   </Tab>
-  
   <Tab title="URL Parameters">
     Dynamic variables are great for generating unique query parameters or path segments:
-    
-    <img src="/images/dynamic-variables/dynamic-variables-url-with-random-query-parameter.png" align="center" fullwidth="false" />
+
+    <img
+      src="/images/dynamic-variables/dynamic-variables-url-with-random-query-parameter.png"
+      align="center"
+      fullwidth="false"
+    />
   </Tab>
-  
   <Tab title="Headers">
     You can also use dynamic variables in headers to generate unique values for each request:
-    
-    <img src="/images/dynamic-variables/dynamic-variables-headers-with-dynamic-values.png" align="center" fullwidth="false" />
+
+    <img
+      src="/images/dynamic-variables/dynamic-variables-headers-with-dynamic-values.png"
+      align="center"
+      fullwidth="false"
+    />
   </Tab>
 </Tabs>
+
 ### In Scripts
 
 You can also access dynamic variables in scripts using the `rq.$variableName()` method syntax:
 
-<img src="/images/dynamic-variables/dynamic-variables-in-pre-request.png" align="center" fullwidth="false" />
+<img
+  src="/images/dynamic-variables/dynamic-variables-in-pre-request.png"
+  align="center"
+  fullwidth="false"
+/>
 
 <Note>
   **Script syntax:** When using dynamic variables in scripts, call them as functions: `rq.$variableName()` instead of the template syntax `{{$variableName}}`.
@@ -59,7 +76,7 @@ When the same variable name is defined as both a dynamic variable and a user-def
 
 ### Precedence order
 
-**User-defined variables** (Runtime → Environment → SubCollection → Collection → Global) **>** **Dynamic variables**
+**User-defined variables** (Runtime → Environment → SubCollection → Collection → Global) **\>** **Dynamic variables**
 
 **Example :** If you define an environment variable named `$randomUUID`:
 
@@ -73,9 +90,9 @@ And then use `{{$randomUUID}}` in your request, it will resolve to `"123e4567-e8
   **Best practice:** Never use the `$` prefix (e.g., `{{$randomUUID}}`) for user-defined variables.
 </Tip>
 
-## Variable arguments
+## Use arguments with dynamic variables
 
-Some dynamic variables support optional arguments to customize their output. 
+Some dynamic variables support optional arguments to customize their output.
 
 ### Syntax
 
@@ -84,8 +101,9 @@ Some dynamic variables support optional arguments to customize their output.
     ```
     {{$variableName arg1 arg2 ...}}
     ```
-    
+
     **Example:**
+
     ```json
     {
       "id": "{{$randomAlphaNumeric 10}}",
@@ -95,13 +113,13 @@ Some dynamic variables support optional arguments to customize their output.
     }
     ```
   </Tab>
-  
   <Tab title="In Scripts">
     ```javascript
     rq.$variableName(arg1, arg2, ...);
     ```
-    
+
     **Example:**
+
     ```javascript
     const userId = rq.$randomAlphaNumeric(10);
     const email = rq.$randomEmail("John", "Doe");
@@ -117,210 +135,210 @@ Some dynamic variables support optional arguments to customize their output.
 
 ## Supported dynamic variables
 
-Requestly provides a comprehensive set of built-in dynamic variables organized by category. Variables marked with ✓ support custom arguments.
+Requestly provides a comprehensive set of built-in dynamic variables organized by category.
 
 ### Common
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$guid}}` | uuid-v4 style guid | `f47ac10b-58cc-4372-a567-0e02b2c3d479` |
-| `{{$timestamp}}` | Current UNIX timestamp in seconds | `1739404800` |
-| `{{$isoTimestamp}}` | Current ISO timestamp at zero UTC | `2026-02-13T14:25:30.177Z` |
-| `{{$randomUUID}}` | A random 36-character UUID | `a3bb189e-8bf9-3888-9912-ace4e6543002` |
+| Variable            | Description                       | Example                                |
+| ------------------- | --------------------------------- | -------------------------------------- |
+| `{{$guid}}`         | uuid-v4 style guid                | `f47ac10b-58cc-4372-a567-0e02b2c3d479` |
+| `{{$timestamp}}`    | Current UNIX timestamp in seconds | `1739404800`                           |
+| `{{$isoTimestamp}}` | Current ISO timestamp at zero UTC | `2026-02-13T14:25:30.177Z`             |
+| `{{$randomUUID}}`   | A random 36-character UUID        | `a3bb189e-8bf9-3888-9912-ace4e6543002` |
 
 ### Text, Numbers and Colors
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomAlphaNumeric}}` | A random alpha-numeric character | `t` |
-| `{{$randomBoolean}}` | A random boolean value | `FALSE` |
-| `{{$randomInt}}` | A random integer between 0 and 10000 | `472` |
-| `{{$randomColor}}` | A random human readable color | `blue` |
-| `{{$randomHexColor}}` | A random hex value | `#2f8a45` |
-| `{{$randomAbbreviation}}` | A random abbreviation | `HTTP` |
+| Variable                  | Description                          | Example   |
+| ------------------------- | ------------------------------------ | --------- |
+| `{{$randomAlphaNumeric}}` | A random alpha-numeric character     | `t`       |
+| `{{$randomBoolean}}`      | A random boolean value               | `FALSE`   |
+| `{{$randomInt}}`          | A random integer between 0 and 10000 | `472`     |
+| `{{$randomColor}}`        | A random human readable color        | `blue`    |
+| `{{$randomHexColor}}`     | A random hex value                   | `#2f8a45` |
+| `{{$randomAbbreviation}}` | A random abbreviation                | `HTTP`    |
 
 ### Internet and IP Addresses
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomIP}}` | A random IPv4 address | `192.168.45.233` |
-| `{{$randomIPV6}}` | A random IPv6 address | `2001:0db8:85a3:0000:0000:8a2e:0370:7334` |
-| `{{$randomMACAddress}}` | A random MAC address | `aa:bb:cc:dd:ee:ff` |
-| `{{$randomPassword}}` | A random 15-character alpha-numeric password | `8kP2mX9qL4nB5wV3` |
-| `{{$randomLocale}}` | A random two-letter language code (ISO 639-1) | `fr` |
-| `{{$randomUserAgent}}` | A random user agent | `Mozilla/5.0 ...` |
-| `{{$randomProtocol}}` | A random internet protocol | `https` |
+| Variable                | Description                                   | Example                                   |
+| ----------------------- | --------------------------------------------- | ----------------------------------------- |
+| `{{$randomIP}}`         | A random IPv4 address                         | `192.168.45.233`                          |
+| `{{$randomIPV6}}`       | A random IPv6 address                         | `2001:0db8:85a3:0000:0000:8a2e:0370:7334` |
+| `{{$randomMACAddress}}` | A random MAC address                          | `aa:bb:cc:dd:ee:ff`                       |
+| `{{$randomPassword}}`   | A random 15-character alpha-numeric password  | `8kP2mX9qL4nB5wV3`                        |
+| `{{$randomLocale}}`     | A random two-letter language code (ISO 639-1) | `fr`                                      |
+| `{{$randomUserAgent}}`  | A random user agent                           | `Mozilla/5.0 ...`                         |
+| `{{$randomProtocol}}`   | A random internet protocol                    | `https`                                   |
 
 ### Names
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomFirstName}}` | A random first name | `Sarah` |
-| `{{$randomLastName}}` | A random last name | `Johnson` |
-| `{{$randomFullName}}` | A random first and last name | `Michael Anderson` |
-| `{{$randomNamePrefix}}` | A random name prefix | `Ms.` |
-| `{{$randomNameSuffix}}` | A random name suffix | `Jr.` |
+| Variable                | Description                  | Example            |
+| ----------------------- | ---------------------------- | ------------------ |
+| `{{$randomFirstName}}`  | A random first name          | `Sarah`            |
+| `{{$randomLastName}}`   | A random last name           | `Johnson`          |
+| `{{$randomFullName}}`   | A random first and last name | `Michael Anderson` |
+| `{{$randomNamePrefix}}` | A random name prefix         | `Ms.`              |
+| `{{$randomNameSuffix}}` | A random name suffix         | `Jr.`              |
 
 ### Profession
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomJobArea}}` | A random job area | `Security` |
-| `{{$randomJobDescriptor}}` | A random job descriptor | `Chief` |
-| `{{$randomJobTitle}}` | A random job title | `Senior Data Analyst` |
-| `{{$randomJobType}}` | A random job type | `Engineer` |
+| Variable                   | Description             | Example               |
+| -------------------------- | ----------------------- | --------------------- |
+| `{{$randomJobArea}}`       | A random job area       | `Security`            |
+| `{{$randomJobDescriptor}}` | A random job descriptor | `Chief`               |
+| `{{$randomJobTitle}}`      | A random job title      | `Senior Data Analyst` |
+| `{{$randomJobType}}`       | A random job type       | `Engineer`            |
 
 ### Phone, Address and Location
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomPhoneNumber}}` | A random ten-digit phone number | `555-987-6543` |
-| `{{$randomPhoneNumberExt}}` | A random phone number with extension | `555-456-7890 x321` |
-| `{{$randomCity}}` | A random city name | `Riverside` |
-| `{{$randomStreetName}}` | A random street name | `Oak Avenue` |
-| `{{$randomStreetAddress}}` | A random street address | `456 Elm Drive` |
-| `{{$randomCountry}}` | A random country | `Canada` |
-| `{{$randomCountryCode}}` | A random two-letter country code (ISO 3166-1 alpha-2) | `US` |
-| `{{$randomLatitude}}` | A random latitude coordinate | `-23.5475` |
-| `{{$randomLongitude}}` | A random longitude coordinate | `151.2095` |
+| Variable                    | Description                                           | Example             |
+| --------------------------- | ----------------------------------------------------- | ------------------- |
+| `{{$randomPhoneNumber}}`    | A random ten-digit phone number                       | `555-987-6543`      |
+| `{{$randomPhoneNumberExt}}` | A random phone number with extension                  | `555-456-7890 x321` |
+| `{{$randomCity}}`           | A random city name                                    | `Riverside`         |
+| `{{$randomStreetName}}`     | A random street name                                  | `Oak Avenue`        |
+| `{{$randomStreetAddress}}`  | A random street address                               | `456 Elm Drive`     |
+| `{{$randomCountry}}`        | A random country                                      | `Canada`            |
+| `{{$randomCountryCode}}`    | A random two-letter country code (ISO 3166-1 alpha-2) | `US`                |
+| `{{$randomLatitude}}`       | A random latitude coordinate                          | `-23.5475`          |
+| `{{$randomLongitude}}`      | A random longitude coordinate                         | `151.2095`          |
 
 ### Images
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomAvatarImage}}` | A random avatar image | `https://example.com/avatar/512x512` |
-| `{{$randomImageUrl}}` | A URL of a random image | `https://example.com/images/640/480` |
-| `{{$randomAbstractImage}}` | A URL of a random abstract image | `https://loremflickr.com/640/480/abstract` |
-| `{{$randomAnimalsImage}}` | A URL of a random animal image | `https://loremflickr.com/640/480/animals` |
-| `{{$randomBusinessImage}}` | A URL of a random stock business image | `https://loremflickr.com/640/480/business` |
-| `{{$randomCatsImage}}` | A URL of a random cat image | `https://loremflickr.com/640/480/cats` |
-| `{{$randomCityImage}}` | A URL of a random city image | `https://loremflickr.com/640/480/city` |
-| `{{$randomFoodImage}}` | A URL of a random food image | `https://loremflickr.com/640/480/food` |
-| `{{$randomNightlifeImage}}` | A URL of a random nightlife image | `https://loremflickr.com/640/480/nightlife` |
-| `{{$randomFashionImage}}` | A URL of a random fashion image | `https://loremflickr.com/640/480/fashion` |
-| `{{$randomPeopleImage}}` | A URL of a random image of a person | `https://loremflickr.com/640/480/people` |
-| `{{$randomNatureImage}}` | A URL of a random nature image | `https://loremflickr.com/640/480/nature` |
-| `{{$randomSportsImage}}` | A URL of a random sports image | `https://loremflickr.com/640/480/sports` |
+| Variable                    | Description                            | Example                                     |
+| --------------------------- | -------------------------------------- | ------------------------------------------- |
+| `{{$randomAvatarImage}}`    | A random avatar image                  | `https://example.com/avatar/512x512`        |
+| `{{$randomImageUrl}}`       | A URL of a random image                | `https://example.com/images/640/480`        |
+| `{{$randomAbstractImage}}`  | A URL of a random abstract image       | `https://loremflickr.com/640/480/abstract`  |
+| `{{$randomAnimalsImage}}`   | A URL of a random animal image         | `https://loremflickr.com/640/480/animals`   |
+| `{{$randomBusinessImage}}`  | A URL of a random stock business image | `https://loremflickr.com/640/480/business`  |
+| `{{$randomCatsImage}}`      | A URL of a random cat image            | `https://loremflickr.com/640/480/cats`      |
+| `{{$randomCityImage}}`      | A URL of a random city image           | `https://loremflickr.com/640/480/city`      |
+| `{{$randomFoodImage}}`      | A URL of a random food image           | `https://loremflickr.com/640/480/food`      |
+| `{{$randomNightlifeImage}}` | A URL of a random nightlife image      | `https://loremflickr.com/640/480/nightlife` |
+| `{{$randomFashionImage}}`   | A URL of a random fashion image        | `https://loremflickr.com/640/480/fashion`   |
+| `{{$randomPeopleImage}}`    | A URL of a random image of a person    | `https://loremflickr.com/640/480/people`    |
+| `{{$randomNatureImage}}`    | A URL of a random nature image         | `https://loremflickr.com/640/480/nature`    |
+| `{{$randomSportsImage}}`    | A URL of a random sports image         | `https://loremflickr.com/640/480/sports`    |
 | `{{$randomTransportImage}}` | A URL of a random transportation image | `https://loremflickr.com/640/480/transport` |
-| `{{$randomImageDataUri}}` | A random image data URI | `data:image/svg+xml;charset=UTF-8...` |
+| `{{$randomImageDataUri}}`   | A random image data URI                | `data:image/svg+xml;charset=UTF-8...`       |
 
 ### Finance
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomBankAccount}}` | A random 8-digit bank account number | `78945612` |
-| `{{$randomBankAccountName}}` | A random bank account name | `Savings Account` |
-| `{{$randomCreditCardMask}}` | A random masked credit card number | `1234` |
-| `{{$randomBankAccountBic}}` | A random BIC (Bank Identifier Code) | `DEUTDEFF` |
-| `{{$randomBankAccountIban}}` | A random 15-31 character IBAN | `GB82WEST12345698765432` |
-| `{{$randomTransactionType}}` | A random transaction type | `payment` |
-| `{{$randomCurrencyCode}}` | A random 3-letter currency code (ISO-4217) | `EUR` |
-| `{{$randomCurrencyName}}` | A random currency name | `US Dollar` |
-| `{{$randomCurrencySymbol}}` | A random currency symbol | `€` |
-| `{{$randomBitcoin}}` | A random bitcoin address | `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` |
+| Variable                     | Description                                | Example                              |
+| ---------------------------- | ------------------------------------------ | ------------------------------------ |
+| `{{$randomBankAccount}}`     | A random 8-digit bank account number       | `78945612`                           |
+| `{{$randomBankAccountName}}` | A random bank account name                 | `Savings Account`                    |
+| `{{$randomCreditCardMask}}`  | A random masked credit card number         | `1234`                               |
+| `{{$randomBankAccountBic}}`  | A random BIC (Bank Identifier Code)        | `DEUTDEFF`                           |
+| `{{$randomBankAccountIban}}` | A random 15-31 character IBAN              | `GB82WEST12345698765432`             |
+| `{{$randomTransactionType}}` | A random transaction type                  | `payment`                            |
+| `{{$randomCurrencyCode}}`    | A random 3-letter currency code (ISO-4217) | `EUR`                                |
+| `{{$randomCurrencyName}}`    | A random currency name                     | `US Dollar`                          |
+| `{{$randomCurrencySymbol}}`  | A random currency symbol                   | `€`                                  |
+| `{{$randomBitcoin}}`         | A random bitcoin address                   | `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` |
 
 ### Business
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomCompanyName}}` | A random company name | `TechStart Solutions` |
-| `{{$randomCompanySuffix}}` | A random company suffix | `LLC` |
-| `{{$randomBs}}` | A random phrase of business-speak | `streamline innovative platforms` |
-| `{{$randomBsAdjective}}` | A random business-speak adjective | `dynamic` |
-| `{{$randomBsBuzz}}` | A random business-speak buzzword | `optimize` |
-| `{{$randomBsNoun}}` | A random business-speak noun | `solutions` |
+| Variable                   | Description                       | Example                           |
+| -------------------------- | --------------------------------- | --------------------------------- |
+| `{{$randomCompanyName}}`   | A random company name             | `TechStart Solutions`             |
+| `{{$randomCompanySuffix}}` | A random company suffix           | `LLC`                             |
+| `{{$randomBs}}`            | A random phrase of business-speak | `streamline innovative platforms` |
+| `{{$randomBsAdjective}}`   | A random business-speak adjective | `dynamic`                         |
+| `{{$randomBsBuzz}}`        | A random business-speak buzzword  | `optimize`                        |
+| `{{$randomBsNoun}}`        | A random business-speak noun      | `solutions`                       |
 
 ### Catchphrases
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomCatchPhrase}}` | A random catchphrase | `Innovative scalable methodology` |
-| `{{$randomCatchPhraseAdjective}}` | A random catchphrase adjective | `Robust` |
-| `{{$randomCatchPhraseDescriptor}}` | A random catchphrase descriptor | `cloud-based` |
-| `{{$randomCatchPhraseNoun}}` | A random catchphrase noun | `framework` |
+| Variable                           | Description                     | Example                           |
+| ---------------------------------- | ------------------------------- | --------------------------------- |
+| `{{$randomCatchPhrase}}`           | A random catchphrase            | `Innovative scalable methodology` |
+| `{{$randomCatchPhraseAdjective}}`  | A random catchphrase adjective  | `Robust`                          |
+| `{{$randomCatchPhraseDescriptor}}` | A random catchphrase descriptor | `cloud-based`                     |
+| `{{$randomCatchPhraseNoun}}`       | A random catchphrase noun       | `framework`                       |
 
 ### Databases
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomDatabaseColumn}}` | A random database column name | `userId` |
-| `{{$randomDatabaseType}}` | A random database type | `varchar` |
-| `{{$randomDatabaseCollation}}` | A random database collation | `utf8_unicode_ci` |
-| `{{$randomDatabaseEngine}}` | A random database engine | `InnoDB` |
+| Variable                       | Description                   | Example           |
+| ------------------------------ | ----------------------------- | ----------------- |
+| `{{$randomDatabaseColumn}}`    | A random database column name | `userId`          |
+| `{{$randomDatabaseType}}`      | A random database type        | `varchar`         |
+| `{{$randomDatabaseCollation}}` | A random database collation   | `utf8_unicode_ci` |
+| `{{$randomDatabaseEngine}}`    | A random database engine      | `InnoDB`          |
 
 ### Dates
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
+| Variable                | Description              | Example                    |
+| ----------------------- | ------------------------ | -------------------------- |
 | `{{$randomDateFuture}}` | A random future datetime | `2027-11-05T18:30:22.000Z` |
-| `{{$randomDatePast}}` | A random past datetime | `2023-08-14T15:45:33.000Z` |
+| `{{$randomDatePast}}`   | A random past datetime   | `2023-08-14T15:45:33.000Z` |
 | `{{$randomDateRecent}}` | A random recent datetime | `2026-02-07T10:20:15.000Z` |
-| `{{$randomWeekday}}` | A random weekday | `Monday` |
-| `{{$randomMonth}}` | A random month | `September` |
+| `{{$randomWeekday}}`    | A random weekday         | `Monday`                   |
+| `{{$randomMonth}}`      | A random month           | `September`                |
 
 ### Domains, Emails and Usernames
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomDomainName}}` | A random domain name | `test-site.net` |
-| `{{$randomDomainSuffix}}` | A random domain suffix | `org` |
-| `{{$randomDomainWord}}` | A random unqualified domain name | `sample` |
-| `{{$randomEmail}}` | A random email address | `sample@gmail.com` |
+| Variable                  | Description                                   | Example                    |
+| ------------------------- | --------------------------------------------- | -------------------------- |
+| `{{$randomDomainName}}`   | A random domain name                          | `test-site.net`            |
+| `{{$randomDomainSuffix}}` | A random domain suffix                        | `org`                      |
+| `{{$randomDomainWord}}`   | A random unqualified domain name              | `sample`                   |
+| `{{$randomEmail}}`        | A random email address                        | `sample@gmail.com`         |
 | `{{$randomExampleEmail}}` | A random email address from an example domain | `alex.johnson@example.org` |
-| `{{$randomUserName}}` | A random username | `techuser2024` |
-| `{{$randomUrl}}` | A random URL | `https://demo-website.io` |
+| `{{$randomUserName}}`     | A random username                             | `techuser2024`             |
+| `{{$randomUrl}}`          | A random URL                                  | `https://demo-website.io`  |
 
 ### Files and Directories
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomSemver}}` | A random semantic version number | `3.12.4` |
-| `{{$randomFileName}}` | A random file name (includes uncommon extensions) | `report_2024.pdf` |
-| `{{$randomFileType}}` | A random file type (includes uncommon file types) | `video` |
-| `{{$randomFileExt}}` | A random file extension (includes uncommon extensions) | `csv` |
-| `{{$randomCommonFileName}}` | A random file name | `presentation.pptx` |
-| `{{$randomCommonFileType}}` | A random, common file type | `image` |
-| `{{$randomCommonFileExt}}` | A random, common file extension | `jpg` |
-| `{{$randomFilePath}}` | A random file path | `/var/www/html/index.html` |
-| `{{$randomDirectoryPath}}` | A random directory path | `/opt/apps` |
-| `{{$randomMimeType}}` | A random MIME type | `image/jpeg` |
+| Variable                    | Description                                            | Example                    |
+| --------------------------- | ------------------------------------------------------ | -------------------------- |
+| `{{$randomSemver}}`         | A random semantic version number                       | `3.12.4`                   |
+| `{{$randomFileName}}`       | A random file name (includes uncommon extensions)      | `report_2024.pdf`          |
+| `{{$randomFileType}}`       | A random file type (includes uncommon file types)      | `video`                    |
+| `{{$randomFileExt}}`        | A random file extension (includes uncommon extensions) | `csv`                      |
+| `{{$randomCommonFileName}}` | A random file name                                     | `presentation.pptx`        |
+| `{{$randomCommonFileType}}` | A random, common file type                             | `image`                    |
+| `{{$randomCommonFileExt}}`  | A random, common file extension                        | `jpg`                      |
+| `{{$randomFilePath}}`       | A random file path                                     | `/var/www/html/index.html` |
+| `{{$randomDirectoryPath}}`  | A random directory path                                | `/opt/apps`                |
+| `{{$randomMimeType}}`       | A random MIME type                                     | `image/jpeg`               |
 
 ### Stores
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomPrice}}` | A random price between 0.00 and 1000.00 | `247.99` |
-| `{{$randomProduct}}` | A random product | `Shoes` |
-| `{{$randomProductAdjective}}` | A random product adjective | `Premium` |
-| `{{$randomProductMaterial}}` | A random product material | `Cotton` |
-| `{{$randomProductName}}` | A random product name | `Ergonomic Wooden Chair` |
-| `{{$randomDepartment}}` | A random commerce category | `Electronics` |
+| Variable                      | Description                             | Example                  |
+| ----------------------------- | --------------------------------------- | ------------------------ |
+| `{{$randomPrice}}`            | A random price between 0.00 and 1000.00 | `247.99`                 |
+| `{{$randomProduct}}`          | A random product                        | `Shoes`                  |
+| `{{$randomProductAdjective}}` | A random product adjective              | `Premium`                |
+| `{{$randomProductMaterial}}`  | A random product material               | `Cotton`                 |
+| `{{$randomProductName}}`      | A random product name                   | `Ergonomic Wooden Chair` |
+| `{{$randomDepartment}}`       | A random commerce category              | `Electronics`            |
 
 ### Grammar
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomNoun}}` | A random noun | `network` |
-| `{{$randomVerb}}` | A random verb | `generate` |
-| `{{$randomIngverb}}` | A random verb ending in -ing | `processing` |
-| `{{$randomAdjective}}` | A random adjective | `efficient` |
-| `{{$randomWord}}` | A random word | `system` |
-| `{{$randomWords}}` | Some random words | `quick brown fox jumps high` |
-| `{{$randomPhrase}}` | A random phrase | `Try to compress the TCP protocol...` |
+| Variable               | Description                  | Example                               |
+| ---------------------- | ---------------------------- | ------------------------------------- |
+| `{{$randomNoun}}`      | A random noun                | `network`                             |
+| `{{$randomVerb}}`      | A random verb                | `generate`                            |
+| `{{$randomIngverb}}`   | A random verb ending in -ing | `processing`                          |
+| `{{$randomAdjective}}` | A random adjective           | `efficient`                           |
+| `{{$randomWord}}`      | A random word                | `system`                              |
+| `{{$randomWords}}`     | Some random words            | `quick brown fox jumps high`          |
+| `{{$randomPhrase}}`    | A random phrase              | `Try to compress the TCP protocol...` |
 
 ### Lorem Ipsum
 
-| Variable | Description | Example |
-|----------|-------------|----------------|
-| `{{$randomLoremWord}}` | A random word of lorem ipsum text | `ipsum` |
-| `{{$randomLoremWords}}` | Some random words of lorem ipsum text | `dolor sit amet` |
-| `{{$randomLoremSentence}}` | A random sentence of lorem ipsum text | `Sed ut perspiciatis unde omnis iste natus.` |
-| `{{$randomLoremSentences}}` | A random 2 to 6 sentences of lorem ipsum text | `Nemo enim ipsam voluptatem...` |
-| `{{$randomLoremParagraph}}` | A random paragraph of lorem ipsum text | `Lorem ipsum dolor sit amet...` |
-| `{{$randomLoremParagraphs}}` | 3 random paragraphs of lorem ipsum text | `Voluptatem rem magnam...` |
-| `{{$randomLoremText}}` | A random amount of lorem ipsum text | `Temporibus autem quibusdam...` |
-| `{{$randomLoremSlug}}` | A random lorem ipsum URL slug | `lorem-ipsum-dolor` |
-| `{{$randomLoremLines}}` | 1 to 7 random lines of lorem ipsum | `Sed ut perspiciatis unde...` |
+| Variable                     | Description                                   | Example                                      |
+| ---------------------------- | --------------------------------------------- | -------------------------------------------- |
+| `{{$randomLoremWord}}`       | A random word of lorem ipsum text             | `ipsum`                                      |
+| `{{$randomLoremWords}}`      | Some random words of lorem ipsum text         | `dolor sit amet`                             |
+| `{{$randomLoremSentence}}`   | A random sentence of lorem ipsum text         | `Sed ut perspiciatis unde omnis iste natus.` |
+| `{{$randomLoremSentences}}`  | A random 2 to 6 sentences of lorem ipsum text | `Nemo enim ipsam voluptatem...`              |
+| `{{$randomLoremParagraph}}`  | A random paragraph of lorem ipsum text        | `Lorem ipsum dolor sit amet...`              |
+| `{{$randomLoremParagraphs}}` | 3 random paragraphs of lorem ipsum text       | `Voluptatem rem magnam...`                   |
+| `{{$randomLoremText}}`       | A random amount of lorem ipsum text           | `Temporibus autem quibusdam...`              |
+| `{{$randomLoremSlug}}`       | A random lorem ipsum URL slug                 | `lorem-ipsum-dolor`                          |
+| `{{$randomLoremLines}}`      | 1 to 7 random lines of lorem ipsum            | `Sed ut perspiciatis unde...`                |
 
 ## Variables with arguments
 
@@ -331,7 +349,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$guid">
     **Arguments:** `version` (`4`|`7`), `refDate`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -347,10 +365,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomUUID">
     **Arguments:** `version` (`4`|`7`), `refDate`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -373,7 +390,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomAlphaNumeric">
     **Arguments:** `length | (min max)`, `casing` (`upper`|`lower`|`mixed`), `exclude`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -389,10 +406,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomBoolean">
     **Arguments:** `probability` (`0-1`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -406,10 +422,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomInt">
     **Arguments:** `max | (min max)`, `multipleOf`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -427,10 +442,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomHexColor">
     **Arguments:** `format` (`hex`|`css`|`binary`), `includeAlpha` (`true`|`false`), `prefix`, `casing` (`upper`|`lower`|`mixed`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -453,7 +467,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomIP">
     **Arguments:** `cidrBlock | network`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -467,10 +481,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomMACAddress">
     **Arguments:** `separator`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -484,10 +497,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomPassword">
     **Arguments:** `length`, `memorable` (`true`|`false`), `pattern`, `prefix`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -510,7 +522,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomFirstName">
     **Arguments:** `gender` (`male`|`female`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -524,10 +536,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLastName">
     **Arguments:** `gender` (`male`|`female`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -541,10 +552,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomFullName">
     **Arguments:** `gender` (`male`|`female`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -558,10 +568,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomNamePrefix">
     **Arguments:** `gender` (`male`|`female`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -582,7 +591,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomPhoneNumber">
     **Arguments:** `style` (`human`|`national`|`international`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -596,10 +605,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomStreetAddress">
     **Arguments:** `useFullAddress` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -613,10 +621,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomCountryCode">
     **Arguments:** `variant` (`alpha-2`|`alpha-3`|`numeric`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -630,10 +637,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLatitude">
     **Arguments:** `max | (min max)`, `precision`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -649,10 +655,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLongitude">
     **Arguments:** `max | (min max)`, `precision`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -675,7 +680,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomImageUrl">
     **Arguments:** `width`, `height`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -689,10 +694,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomImageDataUri">
     **Arguments:** `width`, `height`, `color`, `type` (`svg-uri`|`svg-base64`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -713,7 +717,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomBankAccount">
     **Arguments:** `length` (default `8`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -727,10 +731,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomCreditCardMask">
     **Arguments:** `issuer`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -744,10 +747,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomBankAccountBic">
     **Arguments:** `includeBranchCode` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -761,10 +763,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomBankAccountIban">
     **Arguments:** `formatted` (`true`|`false`), `countryCode`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -778,10 +779,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomBitcoin">
     **Arguments:** `type` (`legacy`|`segwit`|`bech32`), `network` (`mainnet`|`testnet`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -802,7 +802,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomDateFuture">
     **Arguments:** `years`, `refDate`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -818,10 +818,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomDatePast">
     **Arguments:** `years`, `refDate`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -837,10 +836,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomDateRecent">
     **Arguments:** `days`, `refDate`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -856,10 +854,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomWeekday">
     **Arguments:** `abbreviated` (`true`|`false`), `context` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -873,10 +870,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomMonth">
     **Arguments:** `abbreviated` (`true`|`false`), `context` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -897,7 +893,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomEmail">
     **Arguments:** `firstName`, `lastName`, `provider`, `allowSpecialCharacters` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -913,10 +909,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomExampleEmail">
     **Arguments:** `firstName`, `lastName`, `allowSpecialCharacters` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -930,10 +925,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomUserName">
     **Arguments:** `firstName`, `lastName`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -947,10 +941,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomUrl">
     **Arguments:** `protocol` (`http`|`https`), `appendSlash` (`true`|`false`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -971,7 +964,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomFileName">
     **Arguments:** `extensionCount | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -987,10 +980,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomFileExt">
     **Arguments:** `mimeType`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1011,7 +1003,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomPrice">
     **Arguments:** `max | (min max)`, `dec`, `symbol`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1034,7 +1026,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomNoun">
     **Arguments:** `length | (min max)`, `strategy` (`fail`|`closest`|`shortest`|`longest`|`any-length`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1050,10 +1042,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomVerb">
     **Arguments:** `length | (min max)`, `strategy` (`fail`|`closest`|`shortest`|`longest`|`any-length`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1069,10 +1060,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomAdjective">
     **Arguments:** `length | (min max)`, `strategy` (`fail`|`closest`|`shortest`|`longest`|`any-length`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1088,10 +1078,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomWord">
     **Arguments:** `length | (min max)`, `strategy` (`fail`|`closest`|`shortest`|`longest`|`any-length`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1107,10 +1096,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomWords">
     **Arguments:** `count | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1133,7 +1121,7 @@ The following dynamic variables support optional arguments for customization. Us
 <AccordionGroup>
   <Accordion title="$randomLoremWord">
     **Arguments:** `length | (min max)`, `strategy` (`fail`|`closest`|`shortest`|`longest`|`any-length`)
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1149,10 +1137,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremWords">
     **Arguments:** `count | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1168,10 +1155,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremSentence">
     **Arguments:** `wordCount | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1187,10 +1173,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremSentences">
     **Arguments:** `count | (min max)`, `separator`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1206,10 +1191,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremParagraph">
     **Arguments:** `sentenceCount | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1225,10 +1209,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremParagraphs">
     **Arguments:** `count | (min max)`, `separator`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1244,10 +1227,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremSlug">
     **Arguments:** `count | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1263,10 +1245,9 @@ The following dynamic variables support optional arguments for customization. Us
       </Tab>
     </Tabs>
   </Accordion>
-  
   <Accordion title="$randomLoremLines">
     **Arguments:** `count | (min max)`
-    
+
     <Tabs>
       <Tab title="Template">
         ```javascript
@@ -1287,11 +1268,10 @@ The following dynamic variables support optional arguments for customization. Us
 ## What's Next?
 
 <CardGroup cols={2}>
-  <Card title="Environment Variables" icon="globe" href="/general/api-client/environments-and-variables/environment-variables">
+  <Card icon="globe" href="/general/api-client/environments-and-variables/environment-variables" title="Environment Variables">
     Store and manage auth tokens securely with variables
   </Card>
-  <Card title="Runtime Variables" icon="bolt" href="/general/api-client/environments-and-variables/runtime-variables">
+  <Card icon="bolt" href="/general/api-client/environments-and-variables/runtime-variables" title="Runtime Variables">
     Use temporary variables for request execution
   </Card>
 </CardGroup>
-
