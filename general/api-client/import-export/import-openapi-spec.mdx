@@ -1,5 +1,5 @@
 ---
-title: "Import OpenAPI Spec"
+title: "Import / Export OpenAPI Spec"
 description: "Learn how to import OpenAPI Specification (Swagger) files to instantly generate API collections and environments."
 ---
 
@@ -8,7 +8,6 @@ Import your **OpenAPI Specification** files directly into the **Requestly,** and
 This helps you bring your existing API definitions from Swagger, Postman, or your backend documentation straight into Requestly in just a few clicks.
 
 <iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/N3ZqNfI5omw?si=2oWuS5ySagf6NWJK" />
-
 
 ## What You Can Import
 
@@ -85,3 +84,37 @@ Once imported, Requestly automatically maps elements from your OpenAPI file to y
 | **Servers (path level)**        | Used as **collection variables in parent**                              |
 | **Schemas / Components**        | Used internally for request and response structure                      |
 | **Request bodies & parameters** | Automatically mapped to request body and query params                   |
+
+## Exporting an OpenAPI Spec
+
+Need an OpenAPI definition for sharing or documentation? You can export any API collection as a standard OpenAPI (Swagger) file directly from Requestly.
+
+### How to Export
+
+<Steps>
+  <Step title="Locate the Collection">
+    In the left sidebar of the API Client, hover over the collection you wish to export and click the **three‑dot menu (⋯)**.
+
+    <Frame>
+      ![Exportopen Apispec](/images/import-openapi-spec/exportopen-apispec.png)
+    </Frame>
+  </Step>
+  <Step title="Choose the Export Option">
+    Select **Export → OpenAPI** (or **Export as OpenAPI Spec** in some releases). Requestly will generate the spec based on the requests and variables in the collection.
+
+    <Frame>
+      ![Exportopen Apispec2](/images/import-openapi-spec/exportopen-apispec2.png)
+    </Frame>
+  </Step>
+  <Step title="Download the Spec">
+    A modal previews the generated file. Click **Download** to save the `.yaml` (or `.json`) spec to your device.
+
+    <Frame>
+      ![Exportopen Apispec3](/images/import-openapi-spec/exportopen-apispec3.png)
+    </Frame>
+  </Step>
+</Steps>
+
+<Tip>
+  **Tip**: Make sure the collection’s requests and environment variables are up to date, the exported spec reflects the current state of the collection.
+</Tip>
