@@ -83,6 +83,7 @@
                 "pages": [
                   "general/api-client/design-apis",
                   "general/api-client/api-collections",
+                  "general/api-client/examples",
                   {
                     "group": "Import & Export APIs",
                     "pages": [
