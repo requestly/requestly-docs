@@ -74,6 +74,7 @@
                     ]
                   },
                   "general/api-client/send-api-request/graphql-request",
+                  "general/api-client/send-api-request/send-soap",
                   "general/api-client/send-api-request/authorization",
                   "general/api-client/send-api-request/replay-request-from-history"
                 ]
@@ -89,6 +90,7 @@
                     "pages": [
                       "general/api-client/import-export",
                       "general/api-client/import-export/import-from-curl",
+                      "general/api-client/import-export/import-from-wsdl",
                       "general/api-client/import-export/import-from-postman",
                       "general/api-client/import-export/import-openapi-spec",
                       "general/api-client/import-export/import-export-api-collections",
