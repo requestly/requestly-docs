@@ -37,28 +37,18 @@
             "group": "Getting Started",
             "pages": [
               "general/getting-started/introduction",
+              "general/getting-started/quick-start-guide",
               "general/getting-started/downloads",
-              {
-                "group": "Quick Start Guide",
-                "pages": [
-                  "general/getting-started/quick-start-guide",
-                  "general/getting-started/quick-start-guide/browser-extension-setup",
-                  "general/getting-started/quick-start-guide/desktop-app-setup"
-                ]
-              }
+              "general/getting-started/quick-start-guide/browser-extension-setup",
+              "general/getting-started/quick-start-guide/desktop-app-setup",
+              "general/api-client/quick-start",
+              "general/api-client/difference-between-desktop-app-and-browser-extension"
             ]
           },
           {
-            "group": "API Client",
+            "group": "API Testing",
             "pages": [
               "general/api-client/overview",
-              {
-                "group": "Getting Started",
-                "pages": [
-                  "general/api-client/quick-start",
-                  "general/api-client/difference-between-desktop-app-and-browser-extension"
-                ]
-              },
               {
                 "group": "Sending Requests",
                 "pages": [
@@ -143,11 +133,88 @@
             ]
           },
           {
+            "group": "Collaboration & Workspaces",
+            "pages": [
+              "general/team/workspaces",
+              "general/team/local-workspace",
+              "general/team/multiple-workspaces",
+              {
+                "group": "Shared Workspace",
+                "pages": [
+                  "general/team/how-to-get-started-with-shared-workspace",
+                  "general/team/how-to-get-started-with-shared-workspace/managing-workspace",
+                  "general/team/how-to-get-started-with-shared-workspace/user-roles"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Account & Administration",
+            "pages": [
+              "general/others/billing-subscriptions",
+              "general/others/blocklist",
+              "general/others/how-is-bowser-extension-different-from-a-desktop-app",
+              {
+                "group": "Single Sign-On",
+                "pages": [
+                  "general/others/sso",
+                  "general/others/sso/how-to-set-up-sso-with-microsoft-entra-id",
+                  "general/others/sso/setup-sso-with-okta"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "HTTP Interception",
+        "icon": "globe",
+        "groups": [
+          {
+            "group": "Debugging & Interception",
+            "pages": [
+              "general/http-interceptor/overview",
+              {
+                "group": "Capture Traffic",
+                "pages": [
+                  "general/http-interceptor/browser-extension",
+                  "general/http-interceptor/browser-extension/browser-interception",
+                  "general/http-interceptor/desktop-app",
+                  "general/http-interceptor/desktop-app/browser-interception",
+                  "general/http-interceptor/desktop-app/desktop-app-interception",
+                  "general/http-interceptor/desktop-app/network-table",
+                  "general/http-interceptor/desktop-app/saving-logs-to-local-file"
+                ]
+              },
+              {
+                "group": "Intercept Different Devices & Runtimes",
+                "pages": [
+                  "general/http-interceptor/desktop-app/android-devices",
+                  "general/http-interceptor/desktop-app/android-simulator-interception",
+                  "general/http-interceptor/desktop-app/ios-devices-interception",
+                  "general/http-interceptor/desktop-app/ios-simulator-interception",
+                  "general/http-interceptor/desktop-app/nodejs",
+                  "general/http-interceptor/desktop-app/terminal"
+                ]
+              },
+              {
+                "group": "Record & Share Sessions",
+                "pages": [
+                  "general/sessions/overview",
+                  "general/sessions/record-api-sessions",
+                  "general/sessions/record-bug-reports",
+                  "general/sessions/import-view-har-file",
+                  "general/sessions/access-control-of-session"
+                ]
+              }
+            ]
+          },
+          {
             "group": "HTTP Rules",
             "pages": [
               "general/http-rules/overview",
               {
-                "group": "HTTP Rules",
+                "group": "Modify Requests & Responses",
                 "pages": [
                   "general/http-rules/rule-types",
                   "general/http-rules/rule-types/redirect-rule",
@@ -165,7 +232,7 @@
                 ]
               },
               {
-                "group": "Advanced Usage",
+                "group": "Advanced Traffic Rules",
                 "pages": [
                   "general/http-rules/advanced-usage",
                   "general/http-rules/advanced-usage/grouping",
@@ -182,17 +249,12 @@
                 ]
               },
               {
-                "group": "Sharing",
+                "group": "Share & Import Rules",
                 "pages": [
                   "general/http-rules/sharing",
                   "general/http-rules/sharing/share-in-workspace",
                   "general/http-rules/sharing/shared-list",
-                  "general/http-rules/sharing/download-rules"
-                ]
-              },
-              {
-                "group": "Import Rules",
-                "pages": [
+                  "general/http-rules/sharing/download-rules",
                   "general/imports/charles-proxy",
                   "general/imports/header-editor",
                   "general/imports/modheader",
@@ -202,143 +264,82 @@
             ]
           },
           {
-            "group": "HTTP Interceptor",
+            "group": "Mock APIs & Responses",
             "pages": [
-              "general/http-interceptor/overview",
               {
-                "group": "Browser Extension",
+                "group": "Quick Mocking",
                 "pages": [
-                  "general/http-interceptor/browser-extension",
-                  "general/http-interceptor/browser-extension/browser-interception"
+                  "general/api-mocking/api-mocking",
+                  "general/api-mocking/create-cloud-based-mocks",
+                  "general/api-mocking/create-local-api-mocks"
                 ]
               },
               {
-                "group": "Desktop App",
+                "group": "Mock Server",
                 "pages": [
-                  "general/http-interceptor/desktop-app",
-                  "general/http-interceptor/desktop-app/android-devices",
-                  "general/http-interceptor/desktop-app/android-simulator-interception",
-                  "general/http-interceptor/desktop-app/browser-interception",
-                  "general/http-interceptor/desktop-app/desktop-app-interception",
-                  "general/http-interceptor/desktop-app/ios-devices-interception",
-                  "general/http-interceptor/desktop-app/ios-simulator-interception",
-                  "general/http-interceptor/desktop-app/network-table",
-                  "general/http-interceptor/desktop-app/nodejs",
-                  "general/http-interceptor/desktop-app/saving-logs-to-local-file",
-                  "general/http-interceptor/desktop-app/terminal"
+                  "general/mock-server/overview",
+                  {
+                    "group": "Create Mocks",
+                    "pages": [
+                      "general/mock-server/create",
+                      "general/mock-server/create/create-mock-api",
+                      "general/mock-server/create/create-new-mock-file",
+                      "general/mock-server/create/mock-collection"
+                    ]
+                  },
+                  "general/mock-server/test",
+                  "general/mock-server/pre-configured-mocks",
+                  "general/mock-server/templating-in-mocks",
+                  "general/mock-server/import-and-export-mocks"
                 ]
               }
             ]
           },
           {
-            "group": "Api Mocking",
+            "group": "Guides",
             "pages": [
-              "general/api-mocking/api-mocking",
-              "general/api-mocking/create-cloud-based-mocks",
-              "general/api-mocking/create-local-api-mocks"
-            ]
-          },
-          {
-            "group": "Mock Server",
-            "pages": [
-              "general/mock-server/overview",
               {
-                "group": "Create Mocks",
+                "group": "API Testing & Automation",
                 "pages": [
-                  "general/mock-server/create",
-                  "general/mock-server/create/create-mock-api",
-                  "general/mock-server/create/create-new-mock-file",
-                  "general/mock-server/create/mock-collection"
+                  "guides/community-content/using-collection-runner-in-requestly",
+                  "guides/community-content/variables-and-environments-in-requestly"
                 ]
               },
-              "general/mock-server/test",
-              "general/mock-server/pre-configured-mocks",
-              "general/mock-server/templating-in-mocks",
-              "general/mock-server/import-and-export-mocks"
-            ]
-          },
-          {
-            "group": "Sessions",
-            "pages": [
-              "general/sessions/overview",
-              "general/sessions/record-api-sessions",
-              "general/sessions/record-bug-reports",
-              "general/sessions/import-view-har-file",
-              "general/sessions/access-control-of-session"
-            ]
-          },
-          {
-            "group": "Team",
-            "pages": [
-              "general/team/workspaces",
-              "general/team/local-workspace",
-              "general/team/multiple-workspaces",
               {
-                "group": "Shared Workspace",
+                "group": "Traffic Modification & Mocking",
                 "pages": [
-                  "general/team/how-to-get-started-with-shared-workspace",
-                  "general/team/how-to-get-started-with-shared-workspace/managing-workspace",
-                  "general/team/how-to-get-started-with-shared-workspace/user-roles"
+                  "guides/record-and-mock-flaky-apis-in-bulk",
+                  "guides/how-to-modify-cookies-using-requestly",
+                  "guides/modify-http-headers-in-web-automation-using-requestly",
+                  "guides/modify-html-document-using-modify-api-response-rule",
+                  "guides/how-to-use-shared-state-to-aggregate-data-and-use-across-requestly-rules",
+                  "guides/modifying-response-asynchronously",
+                  "guides/how-to-conditionally-fail-requests-based-on-request-counts",
+                  "guides/intercepting-and-modifying-network-requests-in-web-automation-frameworks-like-selenium-and-playwright"
+                ]
+              },
+              {
+                "group": "Debugging & Interception",
+                "pages": [
+                  "guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app",
+                  "guides/how-to-use-requestly-extension-in-browserstack-live",
+                  "guides/requestly-integration-browserstack-app-live",
+                  "guides/disable-rule-application-status-widget",
+                  "guides/disable-rules-syncing",
+                  "guides/can-i-log-in-to-requestly-using-my-browserstack-account",
+                  "guides/how-to-update-requestly-extension-manually"
+                ]
+              },
+              {
+                "group": "Other",
+                "pages": [
+                  "guides/other/claim-your-requestly-github-student-pack-benefit"
                 ]
               }
             ]
           },
           {
-            "group": "Others",
-            "pages": [
-              "general/others/billing-subscriptions",
-              "general/others/blocklist",
-              "general/others/how-is-bowser-extension-different-from-a-desktop-app",
-              {
-                "group": "SSO",
-                "pages": [
-                  "general/others/sso",
-                  "general/others/sso/how-to-set-up-sso-with-microsoft-entra-id",
-                  "general/others/sso/setup-sso-with-okta"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "icon": "lightbulb",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "guides/how-to-modify-cookies-using-requestly",
-              "guides/modify-http-headers-in-web-automation-using-requestly",
-              "guides/modify-html-document-using-modify-api-response-rule",
-              "guides/how-to-use-shared-state-to-aggregate-data-and-use-across-requestly-rules",
-              "guides/intercepting-and-modifying-network-requests-in-web-automation-frameworks-like-selenium-and-playwright",
-              "guides/disable-rule-application-status-widget",
-              "guides/disable-rules-syncing",
-              "guides/modifying-response-asynchronously",
-              "guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app",
-              "guides/how-to-conditionally-fail-requests-based-on-request-counts",
-              "guides/how-to-use-requestly-extension-in-browserstack-live",
-              "guides/requestly-integration-browserstack-app-live",
-              "guides/record-and-mock-flaky-apis-in-bulk",
-              "guides/can-i-log-in-to-requestly-using-my-browserstack-account",
-              "guides/how-to-update-requestly-extension-manually"
-            ]
-          },
-          {
-            "group": "Other",
-            "pages": [
-              "guides/other/claim-your-requestly-github-student-pack-benefit"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Public APIs",
-        "icon": "code",
-        "groups": [
-          {
-            "group": "Overview",
+            "group": "Public APIs",
             "pages": [
               "public-apis/overview",
               "public-apis/create-group",
@@ -350,39 +351,38 @@
               "public-apis/delete-group",
               "public-apis/delete-rule"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Troubleshoot",
-        "icon": "wrench",
-        "groups": [
-          {
-            "group": "HTTP Interceptor",
-            "pages": [
-              "troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator",
-              "troubleshoot/http-interceptor/intercepting-requests-from-localhost",
-              "troubleshoot/http-interceptor/system-wide-proxy-not-working-macos",
-              "troubleshoot/http-interceptor/troubleshooting-proxy-not-shown-windows",
-              "troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate",
-              "troubleshoot/http-interceptor/install-certificate-windows",
-              "troubleshoot/http-interceptor/troubleshooting-safari",
-              "troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
-            ]
           },
           {
-            "group": "HTTP  Rules",
+            "group": "Troubleshoot",
             "pages": [
-              "troubleshoot/http-rules/rules-not-working",
-              "troubleshoot/http-rules/error-on-saving-rule",
-              "troubleshoot/http-rules/rule-changes-not-reflecting-in-chrome-devtools"
-            ]
-          },
-          {
-            "group": "Miscellaneous",
-            "pages": [
-              "troubleshoot/miscellaneous/troubleshooting-login-issues",
-              "troubleshoot/miscellaneous/how-to-check-your-requestly-version-in-the-browser"
+              {
+                "group": "Interception Setup",
+                "pages": [
+                  "troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator",
+                  "troubleshoot/http-interceptor/intercepting-requests-from-localhost",
+                  "troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate",
+                  "troubleshoot/http-interceptor/install-certificate-windows",
+                  "troubleshoot/http-interceptor/system-wide-proxy-not-working-macos",
+                  "troubleshoot/http-interceptor/troubleshooting-proxy-not-shown-windows",
+                  "troubleshoot/http-interceptor/troubleshooting-safari",
+                  "troubleshoot/http-interceptor/disable-system-wide-proxy-macos"
+                ]
+              },
+              {
+                "group": "Rules & Traffic Modification",
+                "pages": [
+                  "troubleshoot/http-rules/rules-not-working",
+                  "troubleshoot/http-rules/error-on-saving-rule",
+                  "troubleshoot/http-rules/rule-changes-not-reflecting-in-chrome-devtools"
+                ]
+              },
+              {
+                "group": "Account & Miscellaneous",
+                "pages": [
+                  "troubleshoot/miscellaneous/troubleshooting-login-issues",
+                  "troubleshoot/miscellaneous/how-to-check-your-requestly-version-in-the-browser"
+                ]
+              }
             ]
           }
         ]
@@ -695,7 +695,7 @@
     },
     {
       "source": "/desktop-app/setup/connect-existing-browser-profile",
-      "destination": "http://localhost:3000/general/http-interceptor/desktop-app/browser-interception#connect-existing-browser-profile"
+      "destination": "/general/http-interceptor/desktop-app/browser-interception#connect-existing-browser-profile"
     },
     {
       "source": "/desktop-app/setup/android",

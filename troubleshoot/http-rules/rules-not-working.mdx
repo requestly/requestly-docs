@@ -6,6 +6,17 @@ description: "Having trouble with your rules? Follow this step-by-step checklist
 visibility: "PUBLIC"
 ---
 
+If your Requestly rules are not applying, use this checklist in order. Most issues come from extension permissions, paused Requestly state, inactive groups, or rule-type limitations.
+
+## Start Here
+
+Check these basics first:
+
+- the Requestly extension is installed and enabled
+- site access is allowed for the page you are testing
+- Requestly is running and not paused
+- the relevant rule group is turned on
+- you refreshed the page or retriggered the request after saving the rule
 ## 1. Confirm Extension Permissions
 
 <Steps>
@@ -100,6 +111,18 @@ Groups allow you to organize rules into logical groups and enable/disable them i
   </Step>
 </Steps>
 
+## 5. Recheck The Rule Match
+
+Before assuming the rule is broken, confirm that it actually matches the request:
+
+- the URL condition matches the request you are testing
+- the rule type supports the traffic you are trying to change
+- the target page is not a browser-internal page such as `chrome://`
+
+<Tip>
+  Use [Test This Rule](/general/http-rules/advanced-usage/test-rules) to verify whether the rule conditions match the request you expect.
+</Tip>
+
 ## **Common Issues by Rule Type**
 
 > Some rule types in Requestly have specific behaviors or limitations. Here's what you need to know for each one:
@@ -131,6 +154,23 @@ When you choose the **URL** method, only the external script is loaded. Any inli
 
 **Doesn’t run on internal browser pages**\
 Scripts won’t run on pages like `chrome://`, [`file://`](file://), or other system-level pages. For testing, use a local server or the **Desktop App**.
+
+## Next Best Debugging Steps
+
+<CardGroup cols={2}>
+  <Card title="Review HTTP Rules Overview" href="/general/http-rules/overview" icon="wand-magic-sparkles">
+    Revisit when to use each rule type and the recommended first workflows.
+  </Card>
+  <Card title="Inspect Traffic First" href="/general/http-interceptor/overview" icon="magnifying-glass">
+    Use HTTP Interceptor if you need to confirm what request is actually leaving the app.
+  </Card>
+  <Card title="Modify Headers" href="/general/http-rules/rule-types/modify-headers" icon="bars">
+    Start with a simple rule type to validate your setup.
+  </Card>
+  <Card title="Use The Desktop App" href="/general/getting-started/quick-start-guide/desktop-app-setup" icon="desktop">
+    Switch to the Desktop App for advanced traffic scenarios and larger delay limits.
+  </Card>
+</CardGroup>
 
 ## Still Stuck?
 

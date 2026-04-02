@@ -43,3 +43,31 @@ The Desktop App interface closely mirrors the Web App interface, maintaining a c
 The Desktop App’s additional capabilities make it ideal for scenarios requiring non-browser traffic interception and advanced mocking.
 
 <img src="/images/desktop-app-setup/97429918-0982-47e5-849e-173935928c07.png" align="center" fullwidth="false" />
+
+## When To Use The Desktop App
+
+Use the Desktop App when you want to:
+
+- intercept traffic from mobile apps, emulators, desktop apps, terminal tools, or Node.js
+- capture system-wide traffic through a local proxy
+- work with localhost traffic and advanced debugging scenarios
+- record API sessions, import HAR files, or create mocks from captured traffic
+
+If you only need browser-based interception and a lighter setup, start with the [Browser Extension setup](/general/getting-started/quick-start-guide/browser-extension-setup).
+
+## Recommended Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Inspect Live Traffic" href="/general/http-interceptor/overview" icon="magnifying-glass">
+    Learn how Requestly interception works across browsers, devices, and runtimes.
+  </Card>
+  <Card title="Capture API Sessions" href="/general/sessions/record-api-sessions" icon="camera">
+    Record requests and responses you can analyze, replay, or share.
+  </Card>
+  <Card title="Create Rules Or Mocks" href="/general/http-rules/overview" icon="wand-magic-sparkles">
+    Use captured traffic to modify, replay, or mock backend behavior.
+  </Card>
+  <Card title="Troubleshoot Interception" href="/troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator" icon="wrench">
+    Follow the interception troubleshooting path if setup is complete but traffic is missing.
+  </Card>
+</CardGroup>

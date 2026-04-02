@@ -5,90 +5,97 @@ slug: unable-to-intercept-web-traffic-on-browser-mobile-or-emulator
 description: Troubleshooting guide to resolve common interceptor issues
 visibility: PUBLIC
 ---
-If you're unable to intercept web traffic using the Requestly Desktop App, use the following guide to identify and resolve common issues based on your interception environment.
+Use this page as a decision tree when setup looks complete but traffic is still missing from Requestly.
 
-## Identify Your Interception Environment
+## Start With The Fastest Checks
 
-Determine where you're attempting to intercept traffic from:
+Before diving into platform-specific troubleshooting, confirm these basics:
 
-* Desktop browsers
+- Requestly is running and the correct browser, device, or runtime is connected
+- you completed the relevant [HTTP Interceptor setup guide](/general/http-interceptor/overview)
+- the traffic you expect is actually leaving the app or browser
+- you are looking in the correct Requestly interception view
 
-* System-wide traffic (entire machine)
+## Choose The Symptom That Matches Your Issue
 
-* iOS or Android devices
+<CardGroup cols={2}>
+  <Card title="Only HTTP Works" href="/troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate" icon="lock">
+    HTTPS traffic usually fails when the certificate is missing or not trusted.
+  </Card>
+  <Card title="Localhost Traffic Is Missing" href="/troubleshoot/http-interceptor/intercepting-requests-from-localhost" icon="house-laptop">
+    Localhost and `127.0.0.1` need additional setup.
+  </Card>
+  <Card title="Browser Or App Is Not Showing Any Traffic" href="/general/http-interceptor/desktop-app/browser-interception" icon="browser">
+    Revisit the matching browser or runtime setup path first.
+  </Card>
+  <Card title="Mobile Device Or Emulator Is Connected But Empty" href="/general/http-interceptor/desktop-app/android-devices" icon="mobile-screen">
+    Verify proxy, network, and certificate setup for the device or emulator.
+  </Card>
+</CardGroup>
 
-* Emulators (iOS or Android)
+## Browser And System-Wide Troubleshooting
 
-Each environment may require different troubleshooting steps.
+### Only HTTP Traffic Is Intercepted
 
-## Browsers and System-Wide Traffic
+HTTPS traffic usually means the SSL certificate is not installed or trusted correctly.
 
-### Issue: Only HTTP traffic is intercepted
+- Follow [Troubleshooting Untrusted SSL Certificate](/troubleshoot/http-interceptor/troubleshooting-untrusted-ssl-certificate)
+- Restart the browser or app after updating certificate trust
 
-If HTTPS traffic is not being intercepted, this is likely due to the SSL certificate not being installed or trusted on your system.
+### Localhost Traffic Is Missing
 
-Refer to the following guide:\
-[Troubleshooting Untrusted SSL Certificate](/troubleshoot/troubleshooting-untrusted-ssl-certificate)
+Intercepting `localhost` or `127.0.0.1` requires extra configuration.
 
-### Issue: Localhost traffic is not intercepted
+- Follow [Intercepting Requests from Localhost](/troubleshoot/http-interceptor/intercepting-requests-from-localhost)
 
-Intercepting traffic to `localhost` or `127.0.0.1` requires specific configuration.
+### Safari-Specific Problems
 
-Refer to:\
-[Intercepting Requests from Localhost](/troubleshoot/intercepting-requests-from-localhost)
+Safari can require certificate regeneration and a full app restart.
 
-## Mobile Devices and Emulators
+- Follow [Troubleshooting Safari](/troubleshoot/http-interceptor/troubleshooting-safari)
 
-### Issue: Emulator not detected by the desktop app
+## Mobile Devices And Emulators
 
-In rare cases, emulator may not appear in the list of connected devices. Restarting the Requestly desktop app generally resolves this issue.
+### Device Is Connected But Traffic Is Missing
 
-### Issue: Device is Connected, but Traffic is Not Being Intercepted
+Check all of the following:
 
-Please verify the following:
+- the device and desktop app are on the same network
+- the proxy settings match the Requestly desktop app
+- the SSL certificate is installed and trusted
+- the correct setup guide was followed for the device or simulator
 
-* The desktop app and mobile device are on the **same network**.
+Use these setup references:
 
-* All setup steps for the platform have been completed correctly.
+- [Android devices](/general/http-interceptor/desktop-app/android-devices)
+- [Android emulator](/general/http-interceptor/desktop-app/android-simulator-interception)
+- [iOS devices](/general/http-interceptor/desktop-app/ios-devices-interception)
+- [iOS simulator](/general/http-interceptor/desktop-app/ios-simulator-interception)
 
-* SSL certificate is trusted and localhost configuration is correct.
+### Emulator Is Not Detected
 
-Refer to: Desktop App [Setup Guide](/general/http-interceptor/desktop-app) for your device
+Restart the Requestly Desktop App and reconnect the emulator. If the emulator still does not appear, re-run the matching platform setup steps.
 
-### Issue: Only some mobile apps are intercepted
+### Only Some Mobile Apps Are Intercepted
 
-This typically occurs due to SSL pinning, especially on Android devices. SSL pinning prevents proxy-based tools from intercepting secure connections and is a technical limitation.
+This is commonly caused by SSL pinning. Proxy-based tools cannot intercept pinned secure traffic unless the app supports it.
 
-For further details, refer to:
+- Review the SSL pinning section in [Android devices](/general/http-interceptor/desktop-app/android-devices#ssl-pinning-if-required)
 
-[SSL Pinning android](/general/http-interceptor/desktop-app/android-devices#ssl-pinning-if-required)
+## Other Common Causes
 
-## General Troubleshooting
+### Blocked Domains
 
-### Blocked domains
+Make sure you did not exclude the target domain from interception.
 
-Ensure you have not manually excluded domains from being intercepted.\
-Refer to:\
-[How to Avoid Intercepting Certain Domains](/guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app)
-
-### Safari-specific issues
-
-If you are intercepting traffic from Safari and facing issues, regenerating the certificate can help.\
-Make sure to restart the app after regenerating the certificate.
-
-Refer to:\
-[Troubleshooting Safari](/troubleshoot/troubleshooting-safari)
+- See [How to Avoid Intercepting Certain Domains](/guides/how-to-avoid-intercepting-certain-domains-on-the-desktop-app)
 
 ## Still Need Help?
 
-If you're still unable to intercept traffic, contact support with the following details:
+If the issue persists, collect these details before contacting support:
 
-* Platform you're trying to intercept from (browser, system-wide, mobile, or emulator)
-
-* Network configuration
-
-* Console or network errors (if any)
-
-* Operating system and Requestly version
-
-This information will help our team assist you more effectively.
+- where you are intercepting from: browser, system-wide, mobile device, emulator, terminal, or Node.js
+- operating system and Requestly version
+- whether HTTP works while HTTPS fails
+- whether localhost traffic is involved
+- any visible proxy, certificate, or console errors

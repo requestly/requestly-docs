@@ -3,47 +3,76 @@ title: Overview
 label: Overview
 slug: overview
 description: >-
-  Learn how to use Session Book to record debug sessions, capture videos and
-  logs, and securely share them with your team. Streamline collaboration and
-  resolve issues faster
+  Learn when to use Sessions, how to record bug reports or API sessions, and how to share debugging context with your team.
 seoDescription: >-
-  Record, share, & debug faster with Session Book. Capture videos & logs of
-  debug sessions, then securely share with your team.
+  Record bug reports, capture API sessions, import HAR files, and share debugging context with Requestly Sessions.
 visibility: PUBLIC
 ---
-***
+Sessions help you capture the evidence around a problem so it is easier to debug, replay, share, or turn into a mock later.
 
-Sessions provide a structured way to record, analyze, and debug user interactions and network activity. Session Book helps QA teams and customer support professionals document issues during testing and support. On the other hand, capturing API sessions is essential for developers to effectively debug, resolve issues & create bulk mocks.
+## When To Use Sessions
 
-Requestly supports session creation through two primary methods:
+Use Sessions when you want to:
 
-* Browser Extension’s **Session Book** for <a target="_blank" href="/general/session-book/record-bug-reports">**recording bug reports**</a>**.**
+- record browser activity, console logs, network logs, and environment context for bug reports
+- capture API traffic from the Desktop App for replay, analysis, or bulk mocking
+- import HAR files for investigation
+- share reproducible debugging context with teammates
 
-* Desktop App for <a target="_blank" href="/general/session-book/record-api-sessions">**capturing API sessions**</a>.
+You may still encounter older references to **Session Book** in the product or legacy links. In the docs, this workflow is documented under **Sessions**.
 
-***
+## Choose The Right Session Workflow
 
-### Record Bug Reports with Session Book
+<Tabs>
+  <Tab title="Record Bug Reports">
+    Use this path when you want browser-focused debugging context such as screen activity, console logs, network logs, and environment details.
 
-The <a target="_blank" href="/general/session-book/record-bug-reports">Session Book</a> in Requestly streamlines bug reporting by enabling developers to record user interactions, network logs, console logs, environment details, and changes in local storage. While it supports manual recording, you can configure it for automatic recording of user activity. This ensures developers have the context needed to reproduce and resolve issues effectively. Sessions can be <a target="_blank" href="/general/session-book/access-control-of-session">shared securely,</a> offering flexible options such as private access, link sharing, or restricted visibility.
+    <Card title="Record Bug Reports" icon="bug" href="/general/sessions/record-bug-reports">
+      Capture reproducible bug reports directly from the browser workflow.
+    </Card>
+  </Tab>
+  <Tab title="Capture API Sessions">
+    Use this path when you want to record API traffic from the Desktop App, inspect requests and responses, or create mocks from captured traffic.
 
-***
+    <Card title="Capture API Sessions" icon="network-wired" href="/general/sessions/record-api-sessions">
+      Record and analyze network traffic from interception workflows.
+    </Card>
+  </Tab>
+</Tabs>
 
-### Create API Sessions in Requestly
+## First Success Path
 
-Requestly’s Desktop App allows developers to <a target="_blank" href="/general/session-book/record-api-sessions">capture and analyze API sessions</a> through methods like the <a target="_blank" href="/general/http-interceptor/overview">HTTP Interceptor</a>, HAR file import, and .rqly file import. These sessions can be shared with teams by <a target="_blank" href="/general/session-book/import-view-har-file">exporting and importing HAR files</a>, making it easy to collaborate, debug issues, and streamline workflows.
-***
+<Steps>
+  <Step title="Pick Bug Reports Or API Sessions">
+    Start with browser bug reports if you need user-facing reproduction context. Start with API sessions if the problem is primarily network behavior.
+  </Step>
+  <Step title="Capture The Session">
+    Use [Record Bug Reports](/general/sessions/record-bug-reports) or [Record API Sessions](/general/sessions/record-api-sessions) depending on the workflow.
+  </Step>
+  <Step title="Share Or Reuse The Output">
+    Share the session, import/export HAR files, or use captured traffic to support mocking and debugging flows.
+  </Step>
+</Steps>
 
-## What's Next?
+## Explore Sessions
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Record Bug Reports" icon="bug" href="/general/sessions/record-bug-reports">
-    Start recording user sessions to capture bugs effectively
+    Capture browser activity and rich debugging context for issue reproduction.
   </Card>
   <Card title="Capture API Sessions" icon="network-wired" href="/general/sessions/record-api-sessions">
-    Record and replay API interactions for debugging
+    Record and analyze traffic captured from Requestly interception workflows.
   </Card>
   <Card title="Import HAR Files" icon="file-import" href="/general/sessions/import-view-har-file">
-    Analyze existing HAR files in Requestly
+    Open and analyze existing HAR files in Requestly.
+  </Card>
+  <Card title="Access Control" icon="lock" href="/general/sessions/access-control-of-session">
+    Control who can view and use shared sessions.
+  </Card>
+  <Card title="Inspect Traffic First" icon="magnifying-glass" href="/general/http-interceptor/overview">
+    Start with HTTP Interceptor if you need to capture traffic before recording a reusable session.
+  </Card>
+  <Card title="Mock From Captured Traffic" icon="wand-magic-sparkles" href="/guides/record-and-mock-flaky-apis-in-bulk">
+    Use captured sessions to create repeatable mocking workflows.
   </Card>
 </CardGroup>

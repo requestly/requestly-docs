@@ -3,46 +3,91 @@ title: Quick Start
 label: Quick Start
 slug: quick-start-guide
 description: >-
-  Discover Requestly’s powerful tools for API development, traffic debugging,
-  and collaboration — from browser extensions to desktop apps and HTTP rules.
+  Choose the right Requestly workflow, complete setup, and get to your first successful task quickly.
 visibility: PUBLIC
 ---
-***
+Requestly can support several workflows, but most new users only need one path to start. Use this page to pick the right setup and reach your first success faster.
 
-## Learn More About Requestly Features
-
-Whether you're planning APIs, mocking endpoints, or debugging network traffic, Requestly simplifies every stage of API development.
+## Pick Your Starting Workflow
 
 <CardGroup cols={2}>
-  <Card title="Browser Extension" href="/general/getting-started/quick-start-guide/browser-extention-setup">
-    Learn how to navigate and use Requestly’s Browser Extension. Intercept & modify traffic directly inside your browser, available for Chrome, Firefox, Edge, Brave, Arc, Vivaldi, and Opera.
+  <Card title="API Testing" href="/general/api-client/quick-start" icon="paper-plane">
+    Best for sending requests, working with collections, managing environments, and writing assertions.
   </Card>
-
-  <Card title="Desktop App" href="/general/getting-started/quick-start-guide/desktop-app-setup">
-    Go beyond the browser with Requestly’s Desktop App. Intercept traffic from mobile apps, desktop software, and simulators. Mock local files, analyse HAR files, and record sessions — all from a single interface.
+  <Card title="Browser Traffic Debugging" href="/general/getting-started/quick-start-guide/browser-extension-setup" icon="browser">
+    Best for intercepting and modifying requests directly in supported browsers.
   </Card>
-
-  <Card title="API Client" href="/general/api-client/overview">
-    Modern web-based API client that runs in your browser and standalone desktop app. Send API requests, define contracts, organize collections, and test endpoints — all in one place.
+  <Card title="Mobile Or Desktop Traffic Debugging" href="/general/getting-started/quick-start-guide/desktop-app-setup" icon="desktop">
+    Best for mobile apps, emulators, localhost traffic, command-line tools, and system-wide debugging.
   </Card>
-
-  <Card title="HTTP Rules" href="/general/http-rules/rule-types">
-    Create rules to modify requests/responses in real-time. Redirect URLs, replace content, inject scripts, cancel requests, and more all in your browser without touching any code.
+  <Card title="Traffic Modification And Mocking" href="/general/http-rules/overview" icon="wand-magic-sparkles">
+    Best for modifying headers, redirecting URLs, rewriting responses, and simulating backend behavior.
   </Card>
+</CardGroup>
 
-  <Card title="File Server" href="/general/mock-server/overview">
-    Host your JSON, JS, or CSS files and get public URLs to use in testing and development. Ideal for mocking API responses or replacing scripts/styles into pages.
+## Which Setup Should You Choose?
+
+<Tabs>
+  <Tab title="Browser Extension">
+    Choose the Browser Extension when:
+
+    - you only need browser-based workflows
+    - you want quick setup with no system proxy configuration
+    - you plan to inspect traffic, create rules, or use the API Client in the browser
+
+    <Card title="Set Up Browser Extension" href="/general/getting-started/quick-start-guide/browser-extension-setup" icon="arrow-right">
+      Install the extension, understand the interface, and learn what it can do.
+    </Card>
+  </Tab>
+  <Tab title="Desktop App">
+    Choose the Desktop App when:
+
+    - you need to intercept mobile devices, emulators, or desktop apps
+    - you need system-wide or proxy-based interception
+    - you want richer network capture, HAR workflows, or advanced debugging
+
+    <Card title="Set Up Desktop App" href="/general/getting-started/quick-start-guide/desktop-app-setup" icon="arrow-right">
+      Install the desktop app and connect the right runtime for your workflow.
+    </Card>
+  </Tab>
+</Tabs>
+
+<Tip>
+  Still deciding? Read the [Browser Extension vs Desktop App comparison](/general/api-client/difference-between-desktop-app-and-browser-extension).
+</Tip>
+
+## Reach Your First Success
+
+<Steps>
+  <Step title="Complete Setup">
+    Finish either the [Browser Extension setup](/general/getting-started/quick-start-guide/browser-extension-setup) or [Desktop App setup](/general/getting-started/quick-start-guide/desktop-app-setup).
+  </Step>
+  <Step title="Choose One First Task">
+    Start with one clear outcome instead of exploring every feature at once.
+
+    - [Send your first API request](/general/api-client/quick-start)
+    - [Inspect traffic with HTTP Interceptor](/general/http-interceptor/overview)
+    - [Create your first HTTP Rule](/general/http-rules/rule-types)
+    - [Create your first mock](/general/mock-server/create/create-mock-api)
+  </Step>
+  <Step title="Go Deeper Once The Basics Work">
+    After your first successful task, expand into environments, assertions, automation, sessions, and collaboration workflows.
+  </Step>
+</Steps>
+
+## Common Journeys
+
+<CardGroup cols={2}>
+  <Card title="Send Requests And Validate Responses" href="/general/api-client/quick-start" icon="flask">
+    Start with API Client if your immediate goal is testing an endpoint.
   </Card>
-
-  <Card title="Network Interceptor" href="/general/http-interceptor/overview">
-    Inspect live network traffic from your browser, mobile device, or desktop app. Capture requests/responses with full headers and body content.
+  <Card title="Modify Headers Or Redirect Requests" href="/general/http-rules/overview" icon="shuffle">
+    Start with HTTP Rules if you need to change traffic without updating application code.
   </Card>
-
-  <Card title="Sessions" href="/general/sessions/overview">
-    Record sessions of your activity including network logs, console logs, local storage, screen recording, and environment details. Useful for sharing bug reports bug reports.
+  <Card title="Inspect Browser Or App Traffic" href="/general/http-interceptor/overview" icon="magnifying-glass">
+    Start with HTTP Interceptor if you need to see live network traffic and trace issues.
   </Card>
-
-  <Card title="Workspaces & Collaboration" href="/general/team/workspaces">
-    Create shared collections, sync rules, and collaborate with your team. Perfect for managing test environments and large projects.
+  <Card title="Record And Share Debug Sessions" href="/general/sessions/overview" icon="camera">
+    Start with Sessions if you need reproducible bug reports or sharable network captures.
   </Card>
 </CardGroup>

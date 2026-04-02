@@ -19,15 +19,14 @@
 
 ## 📖 About
 
-This repository contains the official documentation for [Requestly](https://requestly.com) - a powerful tool for API Mocking, Testing, and Debugging. The documentation covers:
+This repository contains the official documentation for [Requestly](https://requestly.com), organized around the main jobs users come to Requestly to do:
 
-- **Browser Extension** - HTTP interception and modification for Chrome, Firefox, Edge, and more
-- **Desktop App** - Advanced debugging for mobile apps, desktop software, and simulators
-- **API Client** - Modern API client for designing, testing, and managing APIs
-- **HTTP Rules** - Comprehensive guides for modifying requests and responses
-- **Mock Server** - API mocking and response simulation
-- **Team Collaboration** - Workspace management and team features
-- **Public APIs** - Programmatic access to Requestly features
+- **API Testing** - Send requests, manage environments, organize collections, and add assertions
+- **Debugging & Interception** - Inspect traffic from browsers, mobile apps, desktop apps, emulators, and runtimes
+- **Modify Traffic** - Rewrite headers, bodies, query params, redirects, and delays without changing application code
+- **Mock APIs & Responses** - Create quick mocks and reusable hosted mock endpoints
+- **Sessions & Collaboration** - Record bug reports, capture API sessions, and share workflows with your team
+- **Public APIs** - Automate Requestly workflows programmatically
 
 ## 🚀 Getting Started
 
@@ -62,16 +61,17 @@ The documentation will be available at `http://localhost:3000`
 ```
 requestly-docs/
 ├── changelogs/          # Release notes and changelogs
-├── general/             # General documentation
-│   ├── getting-started/ # Getting started guides
-│   ├── api-client/      # API Client documentation
-│   ├── http-rules/      # HTTP Rules guides
-│   ├── mock-server/     # Mock Server documentation
-│   ├── sessions/        # Session recording docs
-│   └── team/            # Team & collaboration features
-├── guides/              # How-to guides and tutorials
-├── public-apis/         # Public API documentation
-├── troubleshoot/        # Troubleshooting guides
+├── general/             # Core product docs and onboarding
+│   ├── getting-started/ # Intro, setup, and quick-start flows
+│   ├── api-client/      # API testing workflows
+│   ├── http-rules/      # Traffic modification workflows
+│   ├── http-interceptor/# Traffic inspection and interception workflows
+│   ├── mock-server/     # Hosted mocks and response simulation
+│   ├── sessions/        # Bug reports, API sessions, and HAR workflows
+│   └── team/            # Collaboration and workspaces
+├── guides/              # Task-based guides and integration tutorials
+├── public-apis/         # Programmatic Requestly APIs
+├── troubleshoot/        # Setup and workflow recovery guides
 ├── images/              # Image assets
 ├── docs.json            # Mintlify configuration
 └── LICENSE              # License file

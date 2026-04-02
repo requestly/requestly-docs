@@ -3,132 +3,81 @@ title: Overview
 label: Overview
 slug: overview
 description: >-
-  Learn how to customize HTTP requests, test traffic, and collaborate in
-  workspaces with Requestly's powerful HTTP rules and advanced features.
+  Learn when to use HTTP Rules, how to create your first rule, and which traffic modification workflows to explore next.
 seoTitle: Overview
 seoDescription: >-
-  Learn how to customize HTTP requests, test traffic, and collaborate in
-  workspaces with Requestly's powerful HTTP rules and advanced features.
+  Learn how to use Requestly HTTP Rules to modify headers, redirect URLs, rewrite bodies, delay responses, and share rules.
 visibility: PUBLIC
 ---
-***
+HTTP Rules are the fastest way to change traffic without changing your app. Use them to modify headers, rewrite request or response bodies, redirect calls, inject scripts, delay traffic, or map requests to local and remote resources.
 
-Requestly's HTTP Rules offer a powerful suite of tools to customize, test, and manage HTTP(S) traffic. Whether you're a developer, tester, or QA professional, these rules provide an easy way to manipulate requests and responses. Below, you'll find an introduction to each HTTP Rule with links to detailed guides.
+## When To Use HTTP Rules
 
-## HTTP Rules
+Use HTTP Rules when you want to:
 
-### Modify Request Body
+- modify headers, query params, bodies, or user agents
+- redirect requests between environments
+- simulate errors, delays, and edge cases
+- inject scripts or override resources during frontend testing
+- create repeatable traffic changes for demos, debugging, and QA
 
-Adjust outgoing API request payloads to meet testing and development requirements. Add static or dynamic data to refine request structures. See details in the [Modify Request Body guide](/general/http-rules/rule-types/modify-request-body).
+If your goal is to inspect live traffic first, use [HTTP Interceptor](/general/http-interceptor/overview). If you need hosted mock endpoints, use [Mock Server](/general/mock-server/overview).
 
-### Modify API Response
+## Start With These Rule Types
 
-Simulate API responses to test scenarios and edge cases. Use static data or dynamic transformations to validate application behavior. Learn more in the [Modify API Response guide](/general/http-rules/rule-types/modify-response-body).
-
-### Modify Headers
-
-Add, remove, or modify HTTP headers for debugging and control. Get started with the [Modify Headers guide](/general/http-rules/rule-types/modify-headers).
-
-### Cancel Request Rule
-
-Block specific network calls or simulate failure scenarios. Explore capabilities in the [Cancel Request Rule guide](/general/http-rules/rule-types/cancel-rule).
-
-### Modify Query Params
-
-Add, remove, or modify query parameters to refine API requests. Learn more in the [Modify Query Params guide](/general/http-rules/rule-types/modify-query-params).
-
-### Modify User Agents
-
-Test different browser and device environments by customizing User-Agent headers. Check out the [Modify User Agents guide](/general/http-rules/rule-types/modify-user-agents).
-
-### Redirect Request
-
-Redirect requests to different URLs to switch environments or resources during development. The <a target="_blank" href="/general/http-rules/rule-types/redirect-rule">Redirect Request guide provides details</a>.
-
-### Replace String Rule
-
-Modify URLs or paths by replacing specific substrings. Learn more in the [Replace String Rule guide](/general/http-rules/rule-types/replace-strings).
-
-### Insert Script
-
-Inject JavaScript or CSS into web pages for advanced customization. Get started with the [Insert Script guide](/general/http-rules/rule-types/insert-scripts).
-
-### Delay Network Requests
-
-Simulate real-world network latencies by introducing delays. Configure delays using the [Delay Network Requests guide](/general/http-rules/rule-types/delay-network-requests).
-
-### Map Local
-
-Serve files from your local environment to test offline changes. Start mapping files in the [Map Local guide](/general/http-rules/rule-types/map-local).
-
-### Map Remote
-
-Redirect requests to different servers or environments for advanced testing. Learn how in the [Map Remote guide](/general/http-rules/rule-types/map-remote).
-
-***
-
-## Advanced Options
-
-### Rules Grouping
-
-Organize related rules into groups for better clarity and management. Learn more in the [Rules Grouping guide](/general/http-rules/advanced-usage/grouping).
-
-### Rules Pinning
-
-Pinning rules in Requestly lets you quickly access and manage your rules from the Chrome toolbar, streamlining your workflow. Easily toggle rules on or off without opening the app. Learn more in the <a target="_blank" href="/general/http-rules/advanced-usage/pinning-rules">Pinning Rules guide</a>
-
-### Source Conditions
-
-Source conditions in Requestly allow you to define criteria for matching network requests, enabling precise rule application. These criteria include URL, host, or path matching, supporting advanced filters like resource type and HTTP methods. Learn more in the [Source Conditions guide](/general/http-rules/advanced-usage/source-conditions).
-
-### GraphQL Support
-
-Modify GraphQL requests and responses for flexible API interactions. Check out the [GraphQL Support guide](/general/http-rules/advanced-usage/graphql-modify-request-response).
-
-### Test this Rule
-
-**Test This Rule** feature in the HTTP Rules section lets you validate rule configurations in real-time by applying them to a specific webpage or endpoint. Learn more in the [Test This Rule guide](/general/http-rules/advanced-usage/test-rules).
-
-### Shared State
-
-Enable advanced workflows by sharing data between rules. Learn more in the [Shared State guide](/general/http-rules/advanced-usage/shared-state).
-
-### Pause/Resume Requestly
-
-Pause and Resume in Requestly lets you temporarily disable its functionality to test your website's original behavior without interference. Learn more in the [Pause and Resume guide](/general/http-rules/advanced-usage/pauseresume-requestly).
-
-### Rules Status Syncing
-
-Rules status syncing ensures consistent rule statuses across shared workspaces, automatically applying changes made by any member. Ideal for teams with non-technical roles, it guarantees universal configurations. Learn more in the [Rules Status Syncing guide](/general/http-rules/advanced-usage/rules-status-syncing).
-
-***
-
-## Rule Sharing
-
-### Share in Workspace
-
-Share in Workspace feature allows you to easily share HTTP rules within workspaces, promoting real-time collaboration and consistency among team members. Learn more in the [Share in Workspace guide](/general/http-rules/sharing/share-in-workspace).
-
-### SharedList
-
-Distribute rule collections for use across teams or environments. Learn more in the [SharedList guide](/general/http-rules/sharing/shared-list).
-
-### Download
-
-Export rules for offline use or transfer between systems. Find out how in the [Download guide](/general/http-rules/sharing/download-rules).
-
-***
-
-## What's Next?
-
-<CardGroup cols={3}>
-  <Card title="Create Your First Rule" icon="wand-magic-sparkles" href="/general/http-rules/rule-types">
-    Explore all available rule types and create your first modification
+<CardGroup cols={2}>
+  <Card title="Modify Headers" href="/general/http-rules/rule-types/modify-headers" icon="bars">
+    Add, remove, or overwrite headers for debugging and API testing.
   </Card>
-  <Card title="Modify Headers" icon="code" href="/general/http-rules/rule-types/modify-headers">
-    Start by learning how to modify HTTP headers
+  <Card title="Redirect Requests" href="/general/http-rules/rule-types/redirect-rule" icon="shuffle">
+    Switch requests between environments or alternate resources instantly.
   </Card>
-  <Card title="Share Rules with Team" icon="users" href="/general/http-rules/sharing">
-    Collaborate by sharing rules with your team members
+  <Card title="Modify Response Body" href="/general/http-rules/rule-types/modify-response-body" icon="file-code">
+    Simulate backend changes, mock responses, and reproduce edge cases.
+  </Card>
+  <Card title="Delay Requests" href="/general/http-rules/rule-types/delay-network-requests" icon="clock">
+    Reproduce slow networks and performance-related issues.
+  </Card>
+</CardGroup>
+
+## First Success Path
+
+<Steps>
+  <Step title="Pick One Rule Type">
+    Start with a single change such as [Modify Headers](/general/http-rules/rule-types/modify-headers) or [Redirect Rule](/general/http-rules/rule-types/redirect-rule).
+  </Step>
+  <Step title="Set Match Conditions">
+    Use URL and source conditions to target only the traffic you want to change.
+  </Step>
+  <Step title="Verify The Result">
+    Use [Test This Rule](/general/http-rules/advanced-usage/test-rules), app behavior, or your API workflow to confirm the traffic changed as expected.
+  </Step>
+</Steps>
+
+## Explore By Workflow
+
+<CardGroup cols={2}>
+  <Card title="All Rule Types" href="/general/http-rules/rule-types" icon="list">
+    Browse the full catalog of traffic modification capabilities.
+  </Card>
+  <Card title="Advanced Usage" href="/general/http-rules/advanced-usage" icon="sliders">
+    Learn grouping, source conditions, testing, shared state, and filters.
+  </Card>
+  <Card title="Share Rules" href="/general/http-rules/sharing" icon="users">
+    Share, sync, and distribute rules with your team or workspace.
+  </Card>
+  <Card title="Import Existing Rules" href="/general/imports/charles-proxy" icon="download">
+    Migrate rule configurations from other tools and extensions.
+  </Card>
+</CardGroup>
+
+## Related Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Inspect Live Traffic" href="/general/http-interceptor/overview" icon="magnifying-glass">
+    Use HTTP Interceptor when you need to see requests and responses before deciding what to modify.
+  </Card>
+  <Card title="Hosted Mocks" href="/general/mock-server/overview" icon="server">
+    Use Mock Server when you need reusable mock endpoints instead of in-place traffic overrides.
   </Card>
 </CardGroup>
