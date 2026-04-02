@@ -1,0 +1,19 @@
+---
+title: 'Mar 26, 2026'
+description: 'SOAP API support, fixes for environment variables and OpenAPI imports, and improved stability for collections'
+---
+
+## What's Changed
+
+<img width="1200" height="675" alt="changelog-23-mar" src="https://github.com/user-attachments/assets/135a9a57-aac7-4ea1-9ec9-2c12ab85e7dd" />
+
+
+### 🚀 New
+- Added support for **[SOAP APIs](https://docs.requestly.com/general/api-client/send-api-request/send-soap)**. (#4519)
+
+### 🐛 Fixes
+- Fixed an issue where **global environment variables could not be created in local workspaces**. [#4533](https://github.com/requestly/requestly/pull/4533)  
+- Fixed **OpenAPI import issues in local workspaces** to ensure smoother imports. [#4528](https://github.com/requestly/requestly/pull/4528)  
+- Added safeguards to **prevent crashes caused by cyclic parent references in collections**. [#4517](https://github.com/requestly/requestly/pull/4517)  
+
+**Full Changelog:** https://github.com/requestly/requestly/compare/changelog-2026.03.16...changelog-2026.03.23
