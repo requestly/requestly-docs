@@ -9,9 +9,9 @@ description: "Learn how to manage team collaboration securely in Requestly with 
 
 ***
 
-Requestly enhances collaboration and security by allowing workspace admins to assign specific roles to users. This role-based access control (RBAC) ensures that only authorized members can access sensitive configurations, such as API keys and authentication tokens, and helps prevent unauthorised modifications.
+Requestly enhances collaboration and security by allowing project admins to assign specific roles to users. This role-based access control (RBAC) ensures that only authorized members can access sensitive configurations, such as API keys and authentication tokens, and helps prevent unauthorised modifications.
 
-In this doc, you'll learn how Requestly's RBAC works, the specific roles available, the permissions associated with each role, and how to change user roles within your workspace
+In this doc, you'll learn how Requestly's RBAC works, the specific roles available, the permissions associated with each role, and how to change user roles within your project
 
 ## How RBAC Works in Requestly
 
@@ -19,11 +19,11 @@ Requestly uses role-based access control (RBAC) to ensure that every team member
 
 ## User Roles and Their Permissions
 
-Each workspace has three roles, each with distinct permissions:
+Each project has three roles, each with distinct permissions:
 
 #### **Admin**
 
-* Full control over **workspace settings, member management, and permissions**.
+* Full control over **project settings, member management, and permissions**.
 
 * Can **create, edit, delete, and execute** Rules, APIs, and Sessions.
 
@@ -31,7 +31,7 @@ Each workspace has three roles, each with distinct permissions:
 
 * Can **create, edit, delete, and execute** Rules, APIs, and Sessions.
 
-* **Cannot** manage team settings, members, or workspace-wide configurations.
+* **Cannot** manage team settings, members, or project-wide configurations.
 
 #### **Viewer**
 
@@ -41,14 +41,14 @@ Each workspace has three roles, each with distinct permissions:
 
 * **Read-only access**.
 
-* Can **view and execute** Rules, APIs, and Sessions but **cannot make any changes** or access sensitive workspace settings.
+* Can **view and execute** Rules, APIs, and Sessions but **cannot make any changes** or access sensitive project settings.
 
 ### Permissions Table
 
 Below is a table that outlines key permissions for each role:
 
 <Tabs>
-  <Tab title="Workspace">
+  <Tab title="Project">
     | **Permission**       | **Admin** | **Editor**           | **Viewer** |
     | -------------------- | --------- | -------------------- | ---------- |
     | Add a new user       | ✅         | ✅ (Add as an editor) | ❌          |
@@ -94,17 +94,17 @@ Below is a table that outlines key permissions for each role:
 
 ## Changing Roles
 
-At times, you may need to update a team member’s role. Follow these steps to change roles within your workspace:
+At times, you may need to update a team member’s role. Follow these steps to change roles within your project:
 
 <Steps>
-  <Step title="Switch to the Workspace">
-    Navigate to the Requestly dashboard and switch to the workspace where you want to add members.
+  <Step title="Switch to the project">
+    Navigate to the Requestly dashboard and switch to the project where you want to add members.
 
     <img src="/images/user-roles/d26f4d28-084f-4277-bcf1-abafe660efec.png" align="center" fullwidth="false" />
   </Step>
 
-  <Step title="Open Manage Workspace">
-    Open the switch workspace panel and select **“Manage workspace”**
+  <Step title="Open Manage project">
+    Open the switch project panel and select **“Manage project”**
 
     <img src="/images/user-roles/0b2e28a4-07c3-44a8-b35c-34cf0908a18a.png" align="center" fullwidth="false" />
   </Step>
