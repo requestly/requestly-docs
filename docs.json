@@ -15,12 +15,6 @@
   },
   "favicon": "/images/favicon.webp",
   "navbar": {
-    "links": [
-      {
-        "label": "Open App",
-        "href": "https://app.requestly.io/api-client?utm_source=docs&utm_medium=navbar&utm_campaign=get_started"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Download",
