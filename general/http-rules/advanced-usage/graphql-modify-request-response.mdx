@@ -4,12 +4,12 @@ slug: "graphql-modify-request-response"
 path: "/http-rules/advanced-usage/graphql-modify-request-response"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Learn to modify GraphQL API requests and responses using Requestly to debug and test GraphQL APIs."
+description: "Learn to modify GraphQL API requests and responses using Requestly Interceptor to debug and test GraphQL APIs."
 ---
 
 ***
 
-Unlike REST APIs, GraphQL APIs provide a flexible approach to querying and mutating data through a single endpoint. They allow clients to specify exactly what data is needed, reducing over-fetching and under-fetching issues common with REST APIs. GraphQL APIs can be modified to customize requests and responses for testing and debugging. This guide provides detailed steps to achieve this using Requestly.
+Unlike REST APIs, GraphQL APIs provide a flexible approach to querying and mutating data through a single endpoint. They allow clients to specify exactly what data is needed, reducing over-fetching and under-fetching issues common with REST APIs. GraphQL APIs can be modified to customize requests and responses for testing and debugging. This guide provides detailed steps to achieve this using Requestly Interceptor.
 
 ## Modifying GraphQL Responses
 
@@ -121,7 +121,7 @@ function modifyResponse(args) {
   const { url, response, requestData, responseJSON } = args;
 
   if (requestData.query?.includes("query getUsers")) {
-    console.log("Requestly: Modifying response", { query: requestData.query });
+    console.log("Requestly Interceptor: Modifying response", { query: requestData.query });
     return { ...responseJSON, custom: true };
   }
 

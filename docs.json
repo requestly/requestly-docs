@@ -156,8 +156,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "general/getting-started/introduction",
-              "general/getting-started/quick-start-guide",
+              "general/getting-started/overview",
               "general/getting-started/downloads",
               "general/getting-started/quick-start-guide/browser-extension-setup",
               "general/getting-started/quick-start-guide/desktop-app-setup",
@@ -541,6 +540,18 @@
     }
   },
   "redirects": [
+    {
+      "source": "/general/getting-started/quick-start-guide",
+      "destination": "/general/getting-started/overview"
+    },
+    {
+      "source": "/general/getting-started/induction",
+      "destination": "/general/getting-started/overview"
+    },
+    {
+      "source": "/general/getting-started/introduction",
+      "destination": "/general/getting-started/overview"
+    },
     {
       "source": "/general/api-client/make-an-api-request",
       "destination": "/general/api-client/overview"

@@ -3,7 +3,7 @@ title: Error on saving rule
 label: Error on saving rule
 slug: error-on-saving-rule
 description: >-
-  If you encounter an error while saving a rule in Requestly, follow the steps
+  If you encounter an error while saving a rule in Requestly Interceptor, follow the steps
   below to identify and resolve the issue:
 visibility: PUBLIC
 ---
@@ -28,7 +28,7 @@ If the error message indicates that the regex exceeds the supported size limit, 
 If the error message mentions *"Invalid regex"* or unsupported syntax such as **lookaheads**, it means the pattern is not compatible with the regex engine we use.
 
 <Info>
-  Requestly uses **RE2-compatible regular expressions**, as required by **Chrome's Manifest V3** security model.\
+  Requestly Interceptor uses **RE2-compatible regular expressions**, as required by **Chrome's Manifest V3** security model.\
   This is a technical limitation imposed by Chrome, and not something we can bypass.
 </Info>
 

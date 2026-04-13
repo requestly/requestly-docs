@@ -1,20 +1,20 @@
 ---
-title: How to Install Requestly CA Certificate in Windows Certificate Manager
-description: Steps to install Requestly CA (Certificate Authority) certificate to intercept HTTPS network traffic on Windows
+title: How to Install Requestly Interceptor CA Certificate in Windows Certificate Manager
+description: Steps to install Requestly Interceptor CA (Certificate Authority) certificate to intercept HTTPS network traffic on Windows
 ---
 
-To intercept HTTPS network traffic, you need to install the Requestly CA (Certificate Authority) certificate to your Windows certificate manager. There are two methods: automatic and manual.
+To intercept HTTPS network traffic, you need to install the Requestly Interceptor CA (Certificate Authority) certificate to your Windows certificate manager. There are two methods: automatic and manual.
 
 <Tabs>
   <Tab title="Automatic (Recommended)">
     <Steps>
-      <Step title="Open Requestly Desktop App">
-        Launch the Requestly Desktop App on your Windows system
+      <Step title="Open Requestly Interceptor Desktop App">
+        Launch the Requestly Interceptor Desktop App on your Windows system
       </Step>
       
       <Step title="Enable System-wide Proxy">
-        Click on **"Enable Requestly System-wide"**
-        <img src="/images/install-certificate-windows/requestly-desktop-app-windows.webp" alt="Requestly Desktop App Windows" />
+        Click on **"Enable Requestly Interceptor System-wide"**
+        <img src="/images/install-certificate-windows/requestly-desktop-app-windows.webp" alt="Requestly Interceptor Desktop App Windows" />
       </Step>
       
       <Step title="Install & Trust Certificate">
@@ -31,7 +31,7 @@ To intercept HTTPS network traffic, you need to install the Requestly CA (Certif
     
     <Steps>
       <Step title="Download the CA certificate">
-        - In Requestly Desktop App, go to the System Proxy popup
+        - In Requestly Interceptor Desktop App, go to the System Proxy popup
         - Click on **Manual** tab
         - Click on **Save Certificate** button
         - Save the CA certificate to any location on your system (e.g., Desktop or Downloads folder)
@@ -49,7 +49,7 @@ To intercept HTTPS network traffic, you need to install the Requestly CA (Certif
       
       <Step title="Verify the installation">
         - To verify if HTTPS traffic is being intercepted, connect to the proxy
-        - Check that secure (HTTPS) traffic is now being logged in Requestly
+        - Check that secure (HTTPS) traffic is now being logged in Requestly Interceptor
         <img src="/images/install-certificate-windows/intercepted-traffic.webp" alt="Intercepted HTTPS Traffic" />
       </Step>
     </Steps>

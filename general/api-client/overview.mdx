@@ -3,10 +3,10 @@ title: Overview
 label: Overview
 slug: overview
 description: >-
-  Learn when to use Requestly as your API client, how to send requests, get started fast, and which workflows to explore next.
+  Learn how to use Requestly, how to send requests, get started fast, and which workflows to explore next.
 seoDescription: >-
   Learn how to use Requestly for API testing, sending HTTP requests, environments, collections, scripts, and assertions.
-seoTitle: Requestly API client overview
+seoTitle: Requestly Overview
 visibility: PUBLIC
 ---
 In Requestly, you can send requests, inspect responses, organize APIs, and automate API testing workflows.
@@ -15,10 +15,10 @@ In Requestly, you can send requests, inspect responses, organize APIs, and autom
 
 Use Requestly when you want to:
 
-- send REST or GraphQL requests manually
-- manage collections, folders, and reusable environments
-- add authorization, scripts, and assertions
-- run repeatable request flows and share them with your team
+- Send REST or GraphQL requests manually
+- Manage collections, folders, and reusable environments
+- Add authorization, scripts, and assertions
+- Run repeatable request flows and share them with your team
 
 If your goal is to inspect live traffic from an app or browser, start with [HTTP Interceptor](/general/http-interceptor/overview) instead. If you need to rewrite traffic in-place, use [HTTP Rules](/general/http-rules/overview).
 
@@ -31,7 +31,7 @@ If your goal is to inspect live traffic from an app or browser, start with [HTTP
   <Card title="Organize with Collections" icon="folder-tree" href="/general/api-client/api-collections">
     Group related APIs into collections, folders, and reusable workflows.
   </Card>
-  <Card title="Dynamic Variables" icon="code" href="/general/api-client/environments-and-variables">
+  <Card title="Environment Variables" icon="code" href="/general/api-client/environments-and-variables">
     Switch between environments and reuse dynamic values safely.
   </Card>
   <Card title="Automate with Scripts" icon="wand-magic-sparkles" href="/general/api-client/scripts">
@@ -41,9 +41,7 @@ If your goal is to inspect live traffic from an app or browser, start with [HTTP
 
 ## Sending requests
 
-Whether you are building and testing your own API or integrating with a third-party API, you can use Requestly to send requests and connect to the APIs you are working with. Your requests can retrieve, create, update, or delete data, and they can include parameters and authorization details.
-
-For example, if you are building a client application such as a mobile or web app for a store, you might send one request to retrieve a list of available products, another request to create a new order with selected product details, and another request to log a customer into their account.
+Whether you are building your own API or working with a third-party service, Requestly lets you send `GET`, `POST`, `PUT`, `PATCH`, and `DELETE` requests. You can add query parameters, headers, request bodies, and authorization details to test how your API behaves across different scenarios.
 
 When you send a request, Requestly displays the API server’s response in a clear format so you can inspect, visualize, and troubleshoot it easily.
 
@@ -51,29 +49,29 @@ When you send a request, Requestly displays the API server’s response in a cle
 
 ### Get started with sending requests
 
-If you have not sent a request before, review [Sending your first request](/general/api-client/quick-start) before continuing.
+If you have not sent a request before, start with [Sending your first request](/general/api-client/quick-start) before continuing.
 
-Explore the topics below to learn how to send API requests in Requestly:
+Explore the topics below to learn how to send requests in Requestly:
 
-- To understand the basics of building requests, including selecting HTTP methods, entering URLs, and interpreting response status codes, see [Configure request](/general/api-client/send-api-request/create-requests/configure-request).
+- To understand the basics of building requests, including selecting `HTTP methods`, entering `URLs`, and getting `response status codes`, go to [Configure request ->](/general/api-client/send-api-request/create-requests/configure-request).
 
-- To learn how to add query parameters, path variables, and request body data in formats such as JSON, form data, and file uploads, see [Parameters and body data](/general/api-client/send-api-request/create-requests/parameters-and-body).
+- To learn how to add query parameters, path variables, and request body data in formats such as `JSON`, `form data`, and `file uploads`, go to [Parameters and body data ->](/general/api-client/send-api-request/create-requests/parameters-and-body).
 
-- If your API requires specific headers or authentication tokens, learn how to configure them in [Request headers](/general/api-client/send-api-request/create-requests/request-headers).
+- If your API requires specific headers or authentication tokens, learn how to configure them in [Request headers ->](/general/api-client/send-api-request/create-requests/request-headers).
 
-- Export requests as code snippets in multiple languages such as JavaScript, Python, and cURL. Learn more in [Generate client code](/general/api-client/send-api-request/create-requests/generate-client-code).
+- Export requests as code snippets in multiple languages such as JavaScript, Python, and cURL. Learn more in [Generate client code ->](/general/api-client/send-api-request/create-requests/generate-client-code).
 
 - If your API requires identity verification or access control, review the [authorization guide](/general/api-client/send-api-request/authorization).
 
-- Use collections to group related requests for better organization and collaboration. Learn more in [API collections](/general/api-client/api-collections).
+- Use collections to group related requests for better organization and collaboration. Learn more in [API collections ->](/general/api-client/api-collections).
 
-- Variables allow you to reuse data across requests and switch values based on environments such as development, staging, or production. See [Variables and environments](/general/api-client/environments-and-variables).
+- Variables allow you to reuse data across requests and switch values based on environments such as development, staging, or production. See [Variables and environments ->](/general/api-client/environments-and-variables).
 
-- Add JavaScript code to run before sending requests or after receiving responses to automate workflows and extract data. Learn more in [Scripts](/general/api-client/scripts).
+- Add JavaScript code to run before sending requests or after receiving responses to automate workflows and extract data. Learn more in [Scripts ->](/general/api-client/scripts).
 
-- Write automated tests to validate API responses and ensure reliability. See [Tests](/general/api-client/tests).
+- Write automated tests to validate API responses and ensure reliability. See [Tests ->](/general/api-client/tests).
 
-In addition to standard HTTP requests, Requestly also supports other formats and protocols such as [GraphQL](/general/api-client/send-api-request/graphql-request). You can also [import from cURL](/general/api-client/import-export/import-from-curl), [import from Postman](/general/api-client/import-export/import-from-postman), or [import OpenAPI specifications](/general/api-client/import-export/import-openapi-spec).
+In addition to standard HTTP requests, Requestly also supports other formats and protocols such as [GraphQL](/general/api-client/send-api-request/graphql-request) and [SOAP](/general/api-client/send-api-request/send-soap). You can also [import from cURL](/general/api-client/import-export/import-from-curl), [import from Postman](/general/api-client/import-export/import-from-postman), or [import OpenAPI specifications](/general/api-client/import-export/import-openapi-spec).
 
 <CardGroup cols={3}>
   <Card
@@ -101,9 +99,9 @@ In addition to standard HTTP requests, Requestly also supports other formats and
 
 ## What you need before you start
 
-- a browser or desktop access to Requestly
-- an endpoint to test, such as `https://app.requestly.io/echo`
-- optional credentials or tokens if your API requires authorization
+- Open Requestly Desktop App
+- Get an API endpoint to test, such as `https://backend.requestly.com/echo`
+- Optional credentials or tokens if your API requires authorization
 
 ## First success path
 
@@ -122,12 +120,9 @@ In addition to standard HTTP requests, Requestly also supports other formats and
   </Step>
 </Steps>
 
-## Explore by workflow
+## Explore Next
 
 <CardGroup cols={2}>
-  <Card title="Quick start" icon="rocket" href="/general/api-client/quick-start">
-    Follow the guided beginner walkthrough from first request to environments.
-  </Card>
   <Card title="Create requests" icon="paper-plane" href="/general/api-client/send-api-request/create-requests/overview">
     Learn request configuration, headers, body handling, authorization, and history.
   </Card>
@@ -142,16 +137,5 @@ In addition to standard HTTP requests, Requestly also supports other formats and
   </Card>
   <Card title="Collection runner" icon="play" href="/general/api-client/collection-runner">
     Execute multi-request workflows against environments and test data.
-  </Card>
-</CardGroup>
-
-## Related capabilities
-
-<CardGroup cols={2}>
-  <Card title="Modify traffic" href="/general/http-rules/overview" icon="shuffle">
-    Use HTTP Rules when you need to rewrite live requests and responses during testing.
-  </Card>
-  <Card title="Debug live traffic" href="/general/http-interceptor/overview" icon="magnifying-glass">
-    Use HTTP Interceptor when you need to inspect what your app is sending over the network.
   </Card>
 </CardGroup>

@@ -1,14 +1,14 @@
 ---
-title: "Requestly Integration with BrowserStack App Live"
-label: "Requestly Integration with BrowserStack App Live"
+title: "Requestly Interceptor Integration with BrowserStack App Live"
+label: "Requestly Interceptor Integration with BrowserStack App Live"
 slug: "requestly-integration-browserstack-app-live"
-description: "Learn how to use Requestly with BrowserStack App Live to inspect and modify network requests by configuring BrowserStack Local and system proxy settings."
+description: "Learn how to use Requestly Interceptor with BrowserStack App Live to inspect and modify network requests by configuring BrowserStack Local and system proxy settings."
 visibility: "PUBLIC"
 ---
 
 ## Prerequisite
 
-1. Download [Requestly Desktop app](https://requestly.com/downloads/desktop/)
+1. Download [Requestly Interceptor Desktop app](https://requestly.com/downloads/desktop/)
 2. You will also need your browser stack access key.
    1. Go to your browser stack account’s settings page - https://www.browserstack.com/accounts/settings
    2. Under the product section you should see an `Access Key` under the `Local Testing` section
@@ -22,7 +22,7 @@ Next you will need to setup the BrowserStackLocal App
     1. Download the [BrowserStackLocal App](https://www.browserstack.com/docs/local-testing/releases-and-downloads)
     2. Start the [Local App](https://www.browserstack.com/docs/app-live/local-testing#enable-local-testing)
     3. Open the Local dashboard at http://localhost:45454/
-    4. Under **Tunnel Settings,** set the ip and port as shown in the Requestly dashboard
+    4. Under **Tunnel Settings,** set the ip and port as shown in the Requestly Interceptor dashboard
 
        ![Tunnel Settingsinbrowserstacklocal(1) Pn](/images/TunnelSettingsinbrowserstacklocal\(1\).png)
     5. Enable the `Force Local` option.
@@ -56,4 +56,4 @@ Next you will need to setup the BrowserStackLocal App
 
    ![App Live Enablealltraffic Pn](/images/AppLive-Enablealltraffic.png)
 
-You should now be able to see all the requests from your app session running inside browserstack. You can also modify these requests using [Requestly Rules](/general/http-rules/overview) and see them take effect inside the App Live session.
+You should now be able to see all the requests from your app session running inside browserstack. You can also modify these requests using [Requestly Interceptor Rules](/general/http-rules/overview) and see them take effect inside the App Live session.

@@ -4,7 +4,7 @@ slug: "shared-state"
 path: "/http-rules/advanced-usage/shared-state"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Discover how to use Shared State in Requestly to manage data across Modify Request and Response rules with examples and best practices."
+description: "Discover how to use Shared State in Requestly Interceptor to manage data across Modify Request and Response rules with examples and best practices."
 ---
 
 ***
@@ -12,14 +12,14 @@ description: "Discover how to use Shared State in Requestly to manage data acros
 Shared State allows developers to store and retrieve data within and across Modify Request Body and Modify API Response rules. This functionality is facilitated by `$sharedState`, a JavaScript object where you can assign key-value pairs to enhance rule customisation.
 
 <Warning>
-  Shared State was introduced in the Requestly extension version `24.8.13` and Desktop App `1.7.1` . Make sure you are using the latest version.
+  Shared State was introduced in the Requestly Interceptor extension version `24.8.13` and Desktop App `1.7.1` . Make sure you are using the latest version.
 </Warning>
 
 ## Use Cases for Shared State
 
 1. **Conditional Request/Response Modification**: Use shared state to modify requests or responses dynamically based on conditions stored in prior requests. For example, you can conditionally fail requests based on request counts.
 
-2. **Data Aggregation Across Requests**: Collect and aggregate data from multiple requests to use within a rule. For instance, you can store API responses and utilize them for further processing across different Requestly rules.
+2. **Data Aggregation Across Requests**: Collect and aggregate data from multiple requests to use within a rule. For instance, you can store API responses and utilize them for further processing across different Requestly Interceptor rules.
 
 3. **Token Management Across API Requests**: Manage shared values such as tokens or other critical data across various API interactions, streamlining complex workflows.
 
@@ -27,7 +27,7 @@ Shared State allows developers to store and retrieve data within and across Modi
 
 <Steps>
   <Step title="Create or Modify a Rule">
-    Start by creating a new "Modify Request" or "Modify Response" rule in Requestly. You can access this feature in both the web app and desktop versions.
+    Start by creating a new "Modify Request" or "Modify Response" rule in Requestly Interceptor. You can access this feature in both the web app and desktop versions.
 
     <img src="/images/shared-state/c2c8fa1a-7f7c-402e-ab77-2a2ae3e535df.png" align="center" fullwidth="false" />
   </Step>
@@ -103,7 +103,7 @@ Shared State allows developers to store and retrieve data within and across Modi
   </Accordion>
 
   <Accordion title="How Long Does Data Persist in $sharedState?">
-    `$sharedState` has different runtime contexts in the Requestly Desktop App and the Requestly browser extension.
+    `$sharedState` has different runtime contexts in the Requestly Interceptor Desktop App and the Requestly Interceptor browser extension.
 
     * **Desktop App**: Data persists until the app is closed.
 

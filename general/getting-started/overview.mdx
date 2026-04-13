@@ -1,20 +1,16 @@
 ---
-title: "Introduction"
-label: "Introduction"
-slug: "introduction"
-description: "Start here to understand Requestly, choose the right workflow, and get to your first success quickly."
+title: "Overview"
+label: "Overview"
+slug: "overview"
+description: "Start here to understand Requestly Interceptor, choose the right workflow, complete setup, and reach your first success quickly."
 visibility: "PUBLIC"
 ---
-Requestly helps you test APIs, intercept traffic, modify requests and responses, mock backend behavior, and share debugging context with your team.
 
-If you are new to Requestly, start by choosing the workflow that matches what you want to do first.
+Requestly Interceptor helps you inspect and modify network traffic in real time. You can debug browser requests, intercept mobile and desktop app traffic, rewrite requests and responses, create mocks, and share debugging sessions with your team.
 
 ## Choose Your Path
 
 <CardGroup cols={2}>
-  <Card title="Test an API" href="/general/api-client/quick-start" icon="paper-plane">
-    Send your first request, organize collections, add environments, and validate responses.
-  </Card>
   <Card title="Debug Browser Traffic" href="/general/getting-started/quick-start-guide/browser-extension-setup" icon="browser">
     Use the Browser Extension when you want to inspect and modify traffic in the browser.
   </Card>
@@ -27,16 +23,9 @@ If you are new to Requestly, start by choosing the workflow that matches what yo
   <Card title="Create Mocks" href="/general/mock-server/overview" icon="server">
     Build reusable mock APIs and hosted responses for testing, demos, and collaboration.
   </Card>
-  <Card title="Capture And Share Debug Sessions" href="/general/sessions/overview" icon="camera">
-    Record bug reports, capture API sessions, import HAR files, and share findings with your team.
-  </Card>
 </CardGroup>
 
 ## Understand The Product Areas
-
-### API Testing
-
-Use the [API Client](/general/api-client/overview) to send requests, organize collections, manage environments, write assertions, and automate test flows.
 
 ### Debugging & Interception
 
@@ -50,19 +39,42 @@ Use [HTTP Rules](/general/http-rules/overview) to modify headers, redirect reque
 
 Use [API Mocking](/general/api-mocking/api-mocking) and [Mock Server](/general/mock-server/overview) to simulate backend behavior for development, testing, demos, and failure scenarios.
 
-### Collaboration & Sessions
+## Which Setup Should You Choose?
 
-Use [Sessions](/general/sessions/overview) and [Workspaces](/general/team/workspaces) to capture debugging context, share reproducible artifacts, and collaborate across teams.
+<Tabs>
+  <Tab title="Browser Extension">
+    Choose the Browser Extension when:
+
+    - you only need browser-based workflows
+    - you want quick setup with no system proxy configuration
+    - you plan to inspect traffic, create rules, or work from the extension popup
+
+    <Card title="Set Up Browser Extension" href="/general/getting-started/quick-start-guide/browser-extension-setup" icon="arrow-right">
+      Install the extension, understand the interface, and learn what it can do.
+    </Card>
+  </Tab>
+  <Tab title="Desktop App">
+    Choose the Desktop App when:
+
+    - you need to intercept mobile devices, emulators, or desktop apps
+    - you need system-wide or proxy-based interception
+    - you want richer network capture, HAR workflows, or advanced debugging
+
+    <Card title="Set Up Desktop App" href="/general/getting-started/quick-start-guide/desktop-app-setup" icon="arrow-right">
+      Install the desktop app and connect the right runtime for your workflow.
+    </Card>
+  </Tab>
+</Tabs>
+
+<Tip>
+  Still deciding? Read [how the Browser Extension differs from the Desktop App](/general/others/how-is-bowser-extension-different-from-a-desktop-app).
+</Tip>
 
 ## Recommended First Steps
 
 <Steps>
   <Step title="Choose Browser Extension Or Desktop App">
     If you only need browser-based traffic tools, start with the Browser Extension. If you need to intercept mobile apps, emulators, localhost traffic, or system-wide traffic, use the Desktop App.
-
-    <Tip>
-      Use the [platform comparison guide](/general/api-client/difference-between-desktop-app-and-browser-extension) if you are not sure which setup to choose.
-    </Tip>
   </Step>
   <Step title="Complete Setup">
     Follow either the [Browser Extension setup](/general/getting-started/quick-start-guide/browser-extension-setup) or [Desktop App setup](/general/getting-started/quick-start-guide/desktop-app-setup) guide.
@@ -70,23 +82,39 @@ Use [Sessions](/general/sessions/overview) and [Workspaces](/general/team/worksp
   <Step title="Reach Your First Success">
     Pick one clear first task:
 
-    - [Send your first API request](/general/api-client/quick-start)
     - [Inspect live traffic](/general/http-interceptor/overview)
     - [Create your first traffic rule](/general/http-rules/rule-types)
     - [Create your first mock](/general/mock-server/create/create-mock-api)
   </Step>
+  <Step title="Go Deeper Once The Basics Work">
+    After your first successful task, explore sessions, collaboration, advanced rules, and mock scenarios.
+  </Step>
 </Steps>
+
+## Common Journeys
+
+<CardGroup cols={2}>
+  <Card title="Modify Headers Or Redirect Requests" href="/general/http-rules/overview" icon="shuffle">
+    Start with HTTP Rules if you need to change traffic without updating application code.
+  </Card>
+  <Card title="Inspect Browser Or App Traffic" href="/general/http-interceptor/overview" icon="magnifying-glass">
+    Start with HTTP Interceptor if you need to see live network traffic and trace issues.
+  </Card>
+  <Card title="Record And Share Debug Sessions" href="/general/sessions/overview" icon="camera">
+    Start with Sessions if you need reproducible bug reports or sharable network captures.
+  </Card>
+  <Card title="Simulate Backend Behavior" href="/general/mock-server/overview" icon="server">
+    Start with Mock Server when you need stable responses for testing or demos.
+  </Card>
+</CardGroup>
 
 ## Next Steps
 
-<CardGroup cols={3}>
-  <Card title="Quick Start" href="/general/getting-started/quick-start-guide" icon="rocket">
-    Follow the guided onboarding flow for the most common Requestly workflows.
-  </Card>
+<CardGroup cols={2}>
   <Card title="Troubleshoot Setup" href="/troubleshoot/http-interceptor/unable-to-intercept-web-traffic-on-browser-mobile-or-emulator" icon="wrench">
     Get help with certificate, localhost, proxy, and device interception issues.
   </Card>
   <Card title="Public APIs" href="/public-apis/overview" icon="code">
-    Automate Requestly workflows programmatically.
+    Automate Requestly Interceptor workflows programmatically.
   </Card>
 </CardGroup>

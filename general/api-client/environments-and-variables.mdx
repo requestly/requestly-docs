@@ -13,7 +13,7 @@ When you run a request, Requestly replaces each `{{variable}}` with its actual v
 
 Example: `https://{{base_url}}/users/{{user_id}}`
 
-If you've defined `base_url = api.example.com` and `user_id = 123`, the request resolves to - [`https://api.example.com/users/123`](https://api.example.com/users/123)
+If you've defined `base_url = api.example.com` and `user_id = 123`, the request resolves to - `https://api.example.com/users/123`
 
 <Tip>
   +TIP: Hover over any `{{variable}}` in your request to preview its resolved value instantly.
@@ -31,7 +31,7 @@ Define values based on your working environment (e.g., dev, staging, prod).
 
 [Runtime Variables](/general/api-client/environments-and-variables/runtime-variables)
 
-Temporary values that last only for the current session—ideal for tokens or session IDs. They aren’t synced and can auto-clear after use.
+Temporary values that last only for the current session, ideal for tokens or session IDs. They aren’t synced and can auto-clear after use.
 
 [Collection & SubCollection Variables](/general/api-client/environments-and-variables/collection-and-subcollection-variables)
 

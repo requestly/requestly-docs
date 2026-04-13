@@ -4,19 +4,19 @@ slug: "modify-headers"
 path: "/http-rules/rule-types/modify-headers"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Modify HTTP request and response headers with Requestly for Free. Learn how to add, remove, or override headers for debugging, testing, and customizing API requests."
+description: "Modify HTTP request and response headers with Requestly Interceptor for Free. Learn how to add, remove, or override headers for debugging, testing, and customizing API requests."
 ---
 
 ***
 
-HTTP(s) Headers are key-value pairs that pass additional information with HTTP(s) requests or responses. This document explains how developers can use Requestly to modify these headers by adding, removing, or overriding values easily.
+HTTP(s) Headers are key-value pairs that pass additional information with HTTP(s) requests or responses. This document explains how developers can use Requestly Interceptor to modify these headers by adding, removing, or overriding values easily.
 
 ## Why Use the Modify Headers Rule
 
-* **Open Websites in an iframe for Testing:** Headers like `X-Frame-Options` and `Content-Security-Policy` prevent pages from being opened in iframes to avoid clickjacking. Use Requestly to modify these headers for testing purposes.\
+* **Open Websites in an iframe for Testing:** Headers like `X-Frame-Options` and `Content-Security-Policy` prevent pages from being opened in iframes to avoid clickjacking. Use Requestly Interceptor to modify these headers for testing purposes.\
   <a target="_blank" href="https://requestly.com/blog/bypass-iframe-busting-header/">Learn more →</a>
 
-* **Remove Content-Security-Policy:** The `Content-Security-Policy` header restricts the injection of external scripts. Requestly can remove this header for testing purposes.\
+* **Remove Content-Security-Policy:** The `Content-Security-Policy` header restricts the injection of external scripts. Requestly Interceptor can remove this header for testing purposes.\
   <a target="_blank" href="https://requestly.com/blog/learn-and-bypass-content-security-policy-http-response-header/">Learn more →</a>
 
 * **Debugging CORS Issues:** To resolve CORS errors in browsers, modify response headers such as `Access-Control-Allow-Origin`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`, and `Access-Control-Allow-Credentials`.\
@@ -81,7 +81,7 @@ HTTP(s) Headers are key-value pairs that pass additional information with HTTP(s
       </Tab>
 
       <Tab title="Modify Response Headers">
-        Test by calling the API from <a target="_blank" href="https://requestly.com/products/api-client/">Requestly’s API Client</a>.
+        Test by sending a request from the <a target="_blank" href="https://app.requestly.io/">Requestly Interceptor web app</a>.
 
         <img src="/images/modify-headers/cb8e7704-934a-424c-9b11-168713f217f9.png" align="left" fullwidth="false" />
       </Tab>

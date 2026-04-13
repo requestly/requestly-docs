@@ -2,27 +2,27 @@
 title: 'Create Local API Mocks '
 label: Create Local API Mocks
 slug: create-local-api-mocks
-description: Learn how to mock APIs locally with ease using Requestly
+description: Learn how to mock APIs locally with ease using Requestly Interceptor
 seoTitle: Create Local API Mocks
 visibility: PUBLIC
 ---
 ## **Introduction**
 
-Creating mock APIs locally with Requestly is a powerful way to simulate server responses directly in your development environment. This feature is invaluable for developers looking to test features, handle edge cases, or debug applications without relying on live servers.
+Creating mock APIs locally with Requestly Interceptor is a powerful way to simulate server responses directly in your development environment. This feature is invaluable for developers looking to test features, handle edge cases, or debug applications without relying on live servers.
 
-On this page, you'll see how to use Requestly’s Modify API Response rule to mock API responses and create bulk mocks using recorded sessions, making your workflow faster and more efficient.
+On this page, you'll see how to use Requestly Interceptor’s Modify API Response rule to mock API responses and create bulk mocks using recorded sessions, making your workflow faster and more efficient.
 
 ## **Steps to Create a Mock API Using the Modify Response Rule**
 
 The **Modify API Response** rule allows you to intercept and alter API responses without needing changes on the server. It’s a powerful feature for testing, debugging, and mocking APIs during development.
 
-This rule is available on both the **Requestly desktop app** and the **browser extension**, giving you flexibility across environments.
+This rule is available on both the **Requestly Interceptor desktop app** and the **browser extension**, giving you flexibility across environments.
 
 To create a mock API, you can use this rule to intercept and return a static response for a specific request without sending it to the server.
 
 <Steps>
-  <Step title="Open the Requestly Dashboard">
-    Log in to your Requestly account and navigate to the **HTTP** **Rules** section.
+  <Step title="Open the Requestly Interceptor Dashboard">
+    Log in to your Requestly Interceptor account and navigate to the **HTTP** **Rules** section.
 
     <img src="/images/create-local-api-mocks/e23ebdc7-dde8-4b6c-8239-9eb506135625.png" align="center" fullwidth="false" />
   </Step>
@@ -34,7 +34,7 @@ To create a mock API, you can use this rule to intercept and return a static res
   </Step>
 
   <Step title="Configure the Rule">
-    Set up your Modify API Response rule with the necessary configurations. We'll use [**Requestly Playground**](https://www.requestly-playground.com/) as a demo for this [example](https://app.requestly.io/rules#sharedList/320743d1f2eb488bb71047ae5501c7fc-Requestly-Playground):
+    Set up your Modify API Response rule with the necessary configurations. We'll use [**Requestly Interceptor Playground**](https://www.requestly-playground.com/) as a demo for this [example](https://app.requestly.io/rules#sharedList/320743d1f2eb488bb71047ae5501c7fc-Requestly Interceptor-Playground):
 
     <img src="/images/create-local-api-mocks/8802464c-1dac-49b8-ace3-f2ee8bb1b1c1.png" align="center" fullwidth="false" />
 
@@ -66,15 +66,15 @@ Bulk API Mocking allows you to mock multiple API endpoints at once using recorde
 
 **Record a Session**
 
-If you haven’t already recorded a session, start by capturing the API requests and responses you want to mock using Requestly’s interceptor and save it in a session, start by:
+If you haven’t already recorded a session, start by capturing the API requests and responses you want to mock using Requestly Interceptor’s interceptor and save it in a session, start by:
 
 <Steps>
-  <Step title="Open Requestly Desktop app">
-    Open the Requestly Desktop App and navigate to the **network traffic** tab on the left sidebar.
+  <Step title="Open Requestly Interceptor Desktop app">
+    Open the Requestly Interceptor Desktop App and navigate to the **network traffic** tab on the left sidebar.
   </Step>
 
   <Step title="Open the Connect Panel">
-    Click any of the `Connect Apps` buttons to open the **Connect Panel**, which displays all supported apps Requestly can connect to.
+    Click any of the `Connect Apps` buttons to open the **Connect Panel**, which displays all supported apps Requestly Interceptor can connect to.
 
     <img src="/images/create-local-api-mocks/63d6da6b-7eac-40d7-8fd7-a6181aad9b53.png" align="center" fullwidth="false" />
   </Step>
@@ -86,7 +86,7 @@ If you haven’t already recorded a session, start by capturing the API requests
   </Step>
 
   <Step title="Capture API Requests">
-    Perform the actions or user flows in your app or website to trigger the API requests you want to record. Requestly will log all requests and responses automatically.
+    Perform the actions or user flows in your app or website to trigger the API requests you want to record. Requestly Interceptor will log all requests and responses automatically.
   </Step>
 
   <Step title="Stop Recording">
@@ -108,7 +108,7 @@ Once you've recorded an API session, you can easily generate bulk mock rules bas
 
 <Steps>
   <Step title="Go to the Sessions Tab">
-    Navigate to the **Sessions** tab in the left sidebar of the Requestly dashboard.
+    Navigate to the **Sessions** tab in the left sidebar of the Requestly Interceptor dashboard.
 
     <img src="/images/create-local-api-mocks/02062a81-e7a1-486f-8eee-f6d3573c3796.png" align="center" fullwidth="false" />
   </Step>
@@ -154,7 +154,7 @@ Once you've recorded an API session, you can easily generate bulk mock rules bas
   </Step>
 
   <Step title="Create Rules">
-    Click **Create Rules** to generate the mock rules. Requestly will automatically create a collection of **Modify Response** rules, all enabled and ready to use.
+    Click **Create Rules** to generate the mock rules. Requestly Interceptor will automatically create a collection of **Modify Response** rules, all enabled and ready to use.
 
     <img src="/images/create-local-api-mocks/3d315c2e-6742-44c8-90d2-576a3a648574.png" align="center" fullwidth="false" />
   </Step>

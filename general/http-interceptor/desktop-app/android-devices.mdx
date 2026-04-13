@@ -4,12 +4,12 @@ slug: "android-devices"
 path: "/http-interceptor/desktop-app/android-devices"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Learn how to set up Requestly to intercept, monitor, and debug HTTP requests on your Android devices for Android app development, debugging, and testing."
+description: "Learn how to set up Requestly Interceptor to intercept, monitor, and debug HTTP requests on your Android devices for Android app development, debugging, and testing."
 ---
 
 ***
 
-When working with Android apps, debugging HTTP Requests can be a challenge. Requestly provides an easy-to-use solution for everyone who needs to monitor, modify, or debug HTTP requests and responses during development or QA testing. This section outlines step-by-step instructions, guiding you on how to set up Requestly for your Android device.
+When working with Android apps, debugging HTTP Requests can be a challenge. Requestly Interceptor provides an easy-to-use solution for everyone who needs to monitor, modify, or debug HTTP requests and responses during development or QA testing. This section outlines step-by-step instructions, guiding you on how to set up Requestly Interceptor for your Android device.
 
 By the end of this guide, you will have a fully functional interception setup tailored to your Android development needs.
 
@@ -25,11 +25,11 @@ If you have a rooted device the setup is straightforward -
   </Step>
 
   <Step title="Connect the Emulator">
-    Use a USB cable to connect your device to your computer and launch the **Requestly Desktop App**.
+    Use a USB cable to connect your device to your computer and launch the **Requestly Interceptor Desktop App**.
   </Step>
 
   <Step title="Connect Device">
-    On the Requestly dashboard click **Connect Apps > Mobile Apps and Browser**, and Requestly will automatically list out detected devices. Simply click **Connect** to proceed. 🎉
+    On the Requestly Interceptor dashboard click **Connect Apps > Mobile Apps and Browser**, and Requestly Interceptor will automatically list out detected devices. Simply click **Connect** to proceed. 🎉
   </Step>
 
   <Step title="Verify Connection">
@@ -39,7 +39,7 @@ If you have a rooted device the setup is straightforward -
 
 ## Non Rooted Setup
 
-If your device is not rooted, you can manually setup Requestly by following these steps:
+If your device is not rooted, you can manually setup Requestly Interceptor by following these steps:
 
 ### Configure proxy
 
@@ -65,9 +65,9 @@ If your device is not rooted, you can manually setup Requestly by following thes
 
     Input the following:
 
-    * **Proxy Hostname:** Use the IP shown in the Requestly Desktop App (e.g., `192.168.1.10`).
+    * **Proxy Hostname:** Use the IP shown in the Requestly Interceptor Desktop App (e.g., `192.168.1.10`).
 
-    * **Proxy Port:** Use the port displayed in the Requestly Desktop App (e.g., `8080`).
+    * **Proxy Port:** Use the port displayed in the Requestly Interceptor Desktop App (e.g., `8080`).
   </Step>
 
   <Step title="Save Changes">
@@ -77,7 +77,7 @@ If your device is not rooted, you can manually setup Requestly by following thes
 
 ### Install CA Certificate
 
-To intercept HTTPS traffic, you also need to install Requestly's root CA certificate on your device:
+To intercept HTTPS traffic, you also need to install Requestly Interceptor's root CA certificate on your device:
 
 <Steps>
   <Step title="Download Certificate">
@@ -148,7 +148,7 @@ Add these configs to your app codebase for it to work
 
 ## **Turn off Interception**
 
-Remember to disable the HTTP Proxy in your Settings when you stop using Requestly, otherwise, you'll get confusing network failures in your applications! You just need to set the network proxy(part 1) the next time you want to debug with Requestly.
+Remember to disable the HTTP Proxy in your Settings when you stop using Requestly Interceptor, otherwise, you'll get confusing network failures in your applications! You just need to set the network proxy(part 1) the next time you want to debug with Requestly Interceptor.
 
 <Steps>
   <Step title="Select Network">

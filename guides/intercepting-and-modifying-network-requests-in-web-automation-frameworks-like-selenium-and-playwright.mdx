@@ -11,7 +11,7 @@ description: ''
 seoTitle: Learn how to use requestly in testing frameworks like selenium and playwright
 visibility: PUBLIC
 ---
-**Requestly** is a powerful browser extension that allows developers and QAs to intercept and modify HTTP requests. It offers features like:
+**Requestly Interceptor** is a powerful browser extension that allows developers and QAs to intercept and modify HTTP requests. It offers features like:
 
 * HTTP header modifications
 
@@ -21,11 +21,11 @@ visibility: PUBLIC
 
 * Injecting custom CSS and JavaScript
 
-In this guide, we’ll show you how to use Requestly in an end-to-end (E2E) web testing framework.
+In this guide, we’ll show you how to use Requestly Interceptor in an end-to-end (E2E) web testing framework.
 
-### What You Can Do with Requestly in Automation For now
+### What You Can Do with Requestly Interceptor in Automation For now
 
-There are **2 main ways** to use Requestly in an automation environment:
+There are **2 main ways** to use Requestly Interceptor in an automation environment:
 
 <Tip>
   We also offer an NPM package, **@requestly/rq-automation**, to make this easier.\
@@ -34,7 +34,7 @@ There are **2 main ways** to use Requestly in an automation environment:
 
 1. **Header Modifications** — quick, one-off rules (no API key required)
 
-2. **Import Rules via API Key** — for predefined rules managed from your Requestly account
+2. **Import Rules via API Key** — for predefined rules managed from your Requestly Interceptor account
 
 ### Header Modifications
 
@@ -84,12 +84,12 @@ If you only need simple header overrides (without API key), like adding or remov
     </Tabs>
   </Step>
 
-  <Step title="Download the Requestly CRX Extension">
+  <Step title="Download the Requestly Interceptor CRX Extension">
     <Tip>
       If you're using our NPM package, you don’t need to download it. Simply call the function `getExtension()`.
     </Tip>
 
-    Download the CRX file of the [**Requestly Extension**](https://requestly.com/downloads/crx/).
+    Download the CRX file of the [**Requestly Interceptor Extension**](https://requestly.com/downloads/crx/).
   </Step>
 
   <Step title="Configure the Browser with the Extension">
@@ -97,7 +97,7 @@ If you only need simple header overrides (without API key), like adding or remov
 
     * Set the path to Chrome for Testing binary
 
-    * Add the Requestly CRX extension
+    * Add the Requestly Interceptor CRX extension
 
     <Tip>
       For JavaScript, use our NPM package `@requestly/rq-automation`.\
@@ -235,7 +235,7 @@ If you only need simple header overrides (without API key), like adding or remov
   </Step>
 
   <Step title="(Optional) Close Extension Welcome Page">
-    When Chrome installs the Requestly extension, it may open a "welcome" (post-install) tab that interrupts automation. You can close this tab programmatically:
+    When Chrome installs the Requestly Interceptor extension, it may open a "welcome" (post-install) tab that interrupts automation. You can close this tab programmatically:
 
     <Tabs>
       <Tab title="Selenium">
@@ -297,7 +297,7 @@ If you only need simple header overrides (without API key), like adding or remov
     </Tabs>
   </Step>
 
-  <Step title="Import Rules from Requestly">
+  <Step title="Import Rules from Requestly Interceptor">
     Visit the following URL in your automated browser to import all active rules from your account:
 
     <Tabs>

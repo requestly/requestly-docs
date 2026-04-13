@@ -4,12 +4,12 @@ slug: "ios-devices-interception"
 path: "/http-interceptor/desktop-app/ios-devices-interception"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Learn how to set up Requestly to intercept, monitor, and debug HTTP requests on your iOS Apps for iOS app development, debugging, and testing."
+description: "Learn how to set up Requestly Interceptor to intercept, monitor, and debug HTTP requests on your iOS Apps for iOS app development, debugging, and testing."
 ---
 
 ***
 
-When working with iOS apps, debugging HTTP requests can be challenging. Requestly offers an easy-to-use solution for monitoring, modifying, and debugging HTTP requests and responses during development or QA testing. Once you're familiar with the [HTTP Interceptor and network table](/general/http-interceptor/overview), you can follow step-by-step instructions to set up Requestly for intercepting network traffic on your iOS devices, ensuring a fully functional interception setup for your iOS app development needs.
+When working with iOS apps, debugging HTTP requests can be challenging. Requestly Interceptor offers an easy-to-use solution for monitoring, modifying, and debugging HTTP requests and responses during development or QA testing. Once you're familiar with the [HTTP Interceptor and network table](/general/http-interceptor/overview), you can follow step-by-step instructions to set up Requestly Interceptor for intercepting network traffic on your iOS devices, ensuring a fully functional interception setup for your iOS app development needs.
 
 <Info>
   iOS device interception is only supported on the <a target="_blank" href="https://requestly.com/downloads/">Desktop App</a>.
@@ -40,7 +40,7 @@ Setting up HTTP interception on physical iOS devices requires configuring a prox
   </Step>
 
   <Step title="Configure Proxy">
-    Set the proxy settings to `Manual`. Then, enter the IP address of the computer and the proxy port. You can find these on the top banner of the Requestly desktop app.
+    Set the proxy settings to `Manual`. Then, enter the IP address of the computer and the proxy port. You can find these on the top banner of the Requestly Interceptor desktop app.
 
     <img src="/images/ios-devices-interception/f7c0f2dc-8eb6-4582-bf03-eff86dea0b1e.png" align="center" fullwidth="false" />
   </Step>
@@ -56,7 +56,7 @@ Setting up HTTP interception on physical iOS devices requires configuring a prox
 
 <Steps>
   <Step title="Download CA Certificate">
-    Now open Safari on your IOS device and go to [**http://requestly.io/ssl**](http://requestly.io/ssl)**(remember to use HTTP, not HTTPS)**. This should download a custom profile on your device which contains the Requestly CA certificate.
+    Now open Safari on your IOS device and go to [**http://requestly.io/ssl**](http://requestly.io/ssl)**(remember to use HTTP, not HTTPS)**. This should download a custom profile on your device which contains the Requestly Interceptor CA certificate.
   </Step>
 
   <Step title="Install the Certificate">
@@ -66,7 +66,7 @@ Setting up HTTP interception on physical iOS devices requires configuring a prox
   </Step>
 
   <Step title="Trust the Certificate">
-    Finally, you need to enable trust for CA certificates that were installed along with this custom profile. Go to `Settings` → `General` → `About` → `Certificate Trust Settings`. You should see a certificate under the name RQProxyCA. Enable the trust for Requestly's certificate authority for intercepting HTTPS traffic.
+    Finally, you need to enable trust for CA certificates that were installed along with this custom profile. Go to `Settings` → `General` → `About` → `Certificate Trust Settings`. You should see a certificate under the name RQProxyCA. Enable the trust for Requestly Interceptor's certificate authority for intercepting HTTPS traffic.
 
     <img src="/images/ios-devices-interception/b9dd0c40-1ad9-4871-b27f-f2af05e195ef.png" align="left" fullwidth="false" />
   </Step>
@@ -78,7 +78,7 @@ Setting up HTTP interception on physical iOS devices requires configuring a prox
 
 ## **Turn off Interception**
 
-Remember to disable the HTTP Proxy in your Settings when you stop using Requestly, otherwise, you'll get confusing network failures in your applications! You just need to set the network proxy(part 1) the next time you want to debug with Requestly.
+Remember to disable the HTTP Proxy in your Settings when you stop using Requestly Interceptor, otherwise, you'll get confusing network failures in your applications! You just need to set the network proxy(part 1) the next time you want to debug with Requestly Interceptor.
 
 1. Navigate to `Settings` → `Wi-Fi` → `Select current Wi-Fi` → `Configure Proxy`
 

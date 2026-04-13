@@ -6,7 +6,7 @@ visibility: "PUBLIC"
 format: "MDX"
 ---
 
-Requestly desktop app allows you to connect multiple browsers, making it easy to configure and switch between them for network interception.
+Requestly Interceptor desktop app allows you to connect multiple browsers, making it easy to configure and switch between them for network interception.
 
 To connect browser instance, open the **Connect Panel**, follow these steps:
 
@@ -20,27 +20,27 @@ To connect browser instance, open the **Connect Panel**, follow these steps:
 
     <img src="/images/browser-interception/eee9bbf1-de2a-49b4-b731-65f074ad9cc0.png" align="center" fullwidth="false" />
 
-    This will open the **Connect Panel**, displaying all supported browsers on your system, along with other sources that Requestly supports.
+    This will open the **Connect Panel**, displaying all supported browsers on your system, along with other sources that Requestly Interceptor supports.
   </Step>
 
-  <Step title="Launch a Browser with Requestly Proxy">
-    Select your preferred browser from the Connect Panel and click **Launch/Open**. This will start a new browser instance configured with the Requestly proxy.
+  <Step title="Launch a Browser with Requestly Interceptor Proxy">
+    Select your preferred browser from the Connect Panel and click **Launch/Open**. This will start a new browser instance configured with the Requestly Interceptor proxy.
 
     <img src="/images/browser-interception/b7819290-87d6-497a-8156-23eb1d117088.png" align="center" fullwidth="false" />
 
-    1. For Chromium-based browsers, Requestly applies the `--proxy-server` flag, configuring the browser to route all network traffic through the Requestly proxy server
+    1. For Chromium-based browsers, Requestly Interceptor applies the `--proxy-server` flag, configuring the browser to route all network traffic through the Requestly Interceptor proxy server
 
     2. Then requestly automatically installs CA certificate to your system’s certificate store.
   </Step>
 
   <Step title="Verify Proxy Setup">
-    The newly launched browser instance will automatically open [amiusing.requestly.io](https://amiusing.requestly.io/). A success message on this page confirms that the browser is using Requestly’s proxy.
+    The newly launched browser instance will automatically open [amiusing.requestly.io](https://amiusing.requestly.io/). A success message on this page confirms that the browser is using Requestly Interceptor’s proxy.
 
     <img src="/images/browser-interception/64151f01-599f-4ba9-b74c-9bbda13095b3.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="View Captured Traffic">
-    Return to the Requestly dashboard to review all captured network traffic in the Network table.
+    Return to the Requestly Interceptor dashboard to review all captured network traffic in the Network table.
 
     <img src="/images/browser-interception/a2ac18d0-594c-4329-9f84-b0b8541cb2e4.png" align="center" fullwidth="false" />
   </Step>
@@ -48,7 +48,7 @@ To connect browser instance, open the **Connect Panel**, follow these steps:
 
 ## Supported Browsers & Profiles
 
-The **Connect Panel** shows a list of browsers that Requestly supports. You can select from various profiles for browsers such as Google Chrome, Firefox, and Safari. Here are the details of each browser and its profile options:
+The **Connect Panel** shows a list of browsers that Requestly Interceptor supports. You can select from various profiles for browsers such as Google Chrome, Firefox, and Safari. Here are the details of each browser and its profile options:
 
 * **Google Chrome (New Profile)**:
 
@@ -64,21 +64,21 @@ The **Connect Panel** shows a list of browsers that Requestly supports. You can 
 
 * **Arc**:
 
-  Arc is another modern browser supported by Requestly. You can create a new profile or use an existing one.
+  Arc is another modern browser supported by Requestly Interceptor. You can create a new profile or use an existing one.
 
 * **Safari**:
 
   Connect to the Safari browser, clicking the connect button will open a new Safari window.
 
 <Info>
-  When you launch Safari from Requestly, it sets a system-wide proxy due to technical constraints. Make sure to turn it off after done debugging
+  When you launch Safari from Requestly Interceptor, it sets a system-wide proxy due to technical constraints. Make sure to turn it off after done debugging
 </Info>
 
-For other browsers, find the proxy IP and port at the top of Requestly’s dashboard and refer to your browser's documentation to configure proxy settings.
+For other browsers, find the proxy IP and port at the top of Requestly Interceptor’s dashboard and refer to your browser's documentation to configure proxy settings.
 
 ## **Connect existing browser profile**
 
-You can connect your existing browser profile to the desktop app using the [**Requestly extension**](https://requestly.com/downloads/)**.**
+You can connect your existing browser profile to the desktop app using the [**Requestly Interceptor extension**](https://requestly.com/downloads/)**.**
 
 <Warning>
   Available on desktop app version >=1.7.4
@@ -90,7 +90,7 @@ You can connect your existing browser profile to the desktop app using the [**Re
 
 1. Launch the desktop app
 
-2. Open the Requestly extension popup in the browser profile you want to connect.
+2. Open the Requestly Interceptor extension popup in the browser profile you want to connect.
 
    <img src="/images/browser-interception/a60db20e-df15-416e-8a93-f5e3ac07568c.png" align="left" fullwidth="false" />
 
@@ -104,7 +104,7 @@ With this method, you can easily link your current browser profile to the deskto
 
 ## Custom Browser Launch Options
 
-Requestly offers **custom browser launch options** for certain browsers, specifically Chromium-based ones. These options allow you to tweak the behavior of the browser during interception.
+Requestly Interceptor offers **custom browser launch options** for certain browsers, specifically Chromium-based ones. These options allow you to tweak the behavior of the browser during interception.
 
 Use the buttons next to the browser selection to customize the launch options. Here's a quick rundown of the **preset configurations**:
 

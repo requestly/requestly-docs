@@ -4,12 +4,12 @@ slug: "android-simulator-interception"
 path: "/http-interceptor/desktop-app/android-simulator-interception"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Learn how to set up Requestly to intercept, monitor, and debug HTTP requests on your Android Simulator for Android app development and testing."
+description: "Learn how to set up Requestly Interceptor to intercept, monitor, and debug HTTP requests on your Android Simulator for Android app development and testing."
 ---
 
 ***
 
-When working with Android apps, debugging HTTP Requests can be a challenge. Requestly provides an easy-to-use solution for everyone who needs to monitor, modify, or debug HTTP requests and responses during development or QA testing. This section outlines step-by-step instructions, guiding you on how to set up Requestly for your Android emulator.
+When working with Android apps, debugging HTTP Requests can be a challenge. Requestly Interceptor provides an easy-to-use solution for everyone who needs to monitor, modify, or debug HTTP requests and responses during development or QA testing. This section outlines step-by-step instructions, guiding you on how to set up Requestly Interceptor for your Android emulator.
 
 By the end of this guide, you will have a fully functional interception setup tailored to your Android development needs.
 
@@ -23,15 +23,15 @@ For a visual walkthrough, check out our YouTube video guide:
 
 ## Automatic Setup
 
-Requestly offers a one-click setup for Android emulators using Desktop App version **1.7.0+**. Here's how:
+Requestly Interceptor offers a one-click setup for Android emulators using Desktop App version **1.7.0+**. Here's how:
 
 <Steps>
   <Step title="Start Your Android Emulator">
     Ensure your emulator is up and running before proceeding
   </Step>
 
-  <Step title="Open Requestly Desktop App">
-    Launch the Requestly desktop application on your computer.
+  <Step title="Open Requestly Interceptor Desktop App">
+    Launch the Requestly Interceptor desktop application on your computer.
   </Step>
 
   <Step title="Click any one of the Connect Apps buttons from the network table as shown below">
@@ -53,7 +53,7 @@ If you have ADB installed, you can skip the proxy setup through the emulator's U
 adb shell settings put global http_proxy "<ip>:<port>"
 ```
 
-Make sure to change the: in the above command to the one mentioned in the header of the Requestly desktop app
+Make sure to change the: in the above command to the one mentioned in the header of the Requestly Interceptor desktop app
 
 Otherwise, follow these steps to configure the proxy manually:
 
@@ -77,9 +77,9 @@ Otherwise, follow these steps to configure the proxy manually:
   <Step title="Enter Proxy Details, and input the following:">
     <img src="/images/android-simulator-interception/6bf13327-839c-4f7d-a777-d084d72c6c27.png" align="left" fullwidth="false" />
 
-    * **Proxy Hostname:** Use the IP shown in the Requestly Desktop App (e.g., `192.168.1.10`).
+    * **Proxy Hostname:** Use the IP shown in the Requestly Interceptor Desktop App (e.g., `192.168.1.10`).
 
-    * **Proxy Port:** Use the port displayed in the Requestly Desktop App (e.g., `8080`).
+    * **Proxy Port:** Use the port displayed in the Requestly Interceptor Desktop App (e.g., `8080`).
   </Step>
 
   <Step title="Save Changes">
@@ -89,13 +89,13 @@ Otherwise, follow these steps to configure the proxy manually:
 
 ## CA Certificate Installation
 
-To intercept HTTPS traffic, you need to install Requestly's root CA certificate on the emulator. You can do this in two ways:
+To intercept HTTPS traffic, you need to install Requestly Interceptor's root CA certificate on the emulator. You can do this in two ways:
 
 **Option 1: From the Desktop:**
 
 <Steps>
-  <Step title="Download the certificate from Requestly’’s Desktop app">
-    * Open the Requestly Desktop App.
+  <Step title="Download the certificate from Requestly Interceptor's Desktop app">
+    * Open the Requestly Interceptor Desktop App.
 
     * Navigate to **Connect Apps > Others > Manual Setup > Save Certificate** to download the root CA certificate.
   </Step>
@@ -188,7 +188,7 @@ Add these configs to your app codebase for it to work
 
 ## **Deactivate Proxy (After done debugging)**
 
-Please make sure to revert the proxy after you are done testing using Requestly
+Please make sure to revert the proxy after you are done testing using Requestly Interceptor
 
 ```bash
 adb shell settings put global http_proxy :0
@@ -214,9 +214,9 @@ Here's the code that makes this happen in a single click
 
 2. On `Connect`
 
-   1. Root the device (To install Requestly CA)
+   1. Root the device (To install Requestly Interceptor CA)
 
-   2. Inject Requestly CA (if not already)
+   2. Inject Requestly Interceptor CA (if not already)
 
    3. Setup Proxy on Emulator
 

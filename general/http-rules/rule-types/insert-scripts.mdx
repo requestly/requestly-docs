@@ -4,7 +4,7 @@ slug: "insert-scripts"
 path: "/http-rules/rule-types/insert-scripts"
 visibility: "PUBLIC"
 format: "MDX"
-description: "Learn how to use Requestly's Insert Script Rule to inject JavaScript or CSS into web pages without changing the original code"
+description: "Learn how to use Requestly Interceptor's Insert Script Rule to inject JavaScript or CSS into web pages without changing the original code"
 ---
 
 ***
@@ -54,7 +54,7 @@ To see how the Insert Script Rule can be configured and applied in different sce
 
       * **Value:** `requestly-playground.com`
 
-      This example targets any requests made to the [**Requestly Play**](/general/http-rules/advanced-usage/advance-targeting)[**ground**](https://requestly-playground.com), ensuring the script is applied wherever the URL contains `requestly-playground.com`.
+      This example targets any requests made to the [**Requestly Interceptor Play**](/general/http-rules/advanced-usage/advance-targeting)[**ground**](https://requestly-playground.com), ensuring the script is applied wherever the URL contains `requestly-playground.com`.
     </Card>
 
     <img src="/images/insert-scripts/d2288634-9de2-4f48-bbdf-6e4e8be99a3a.png" align="center" fullwidth="false" />
@@ -73,7 +73,7 @@ To see how the Insert Script Rule can be configured and applied in different sce
       <Tab title="URL">
         In the **URL** option, add a link to an external file containing the script or CSS.
 
-        > **You can also pick the response from the Requestly File Server using the** `Pick from File Server` **feature.** This allows you to inject scripts or JSON responses hosted on the File Server directly into your rule.
+        > **You can also pick the response from the Requestly Interceptor File Server using the** `Pick from File Server` **feature.** This allows you to inject scripts or JSON responses hosted on the File Server directly into your rule.
 
         <img src="/images/insert-scripts/3c7bff65-3c15-498c-8b32-c2698eb9b09f.png" align="center" fullwidth="false" />
       </Tab>
@@ -132,7 +132,7 @@ To see how the Insert Script Rule can be configured and applied in different sce
   <Step title="[Optional] Add Custom Attributes to Scripts">
     While injecting JavaScript, you can enhance the `<script>` tag by adding custom attributes. This is useful when you want to fine-tune how the script behaves in the browser, improve debugging, support conditional handling, or pass configuration data.
 
-    Requestly lets you define these attributes directly in the Insert Script Rule interface. You can specify standard or custom attributes like `defer`, `async`, `crossorigin`, `data-*`, and more all depending on your use case.
+    Requestly Interceptor lets you define these attributes directly in the Insert Script Rule interface. You can specify standard or custom attributes like `defer`, `async`, `crossorigin`, `data-*`, and more all depending on your use case.
 
     ```javascript
     <script 

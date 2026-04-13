@@ -1,12 +1,12 @@
 ---
-title: Modify HTTP Headers in Web Automation Using Requestly
-label: Modify HTTP Headers in Web Automation Using Requestly
+title: Modify HTTP Headers in Web Automation Using Requestly Interceptor
+label: Modify HTTP Headers in Web Automation Using Requestly Interceptor
 slug: modify-http-headers-in-web-automation-using-requestly
 visibility: PUBLIC
 ---
-In this guide, we’ll walk through how to integrate Requestly into any browser-based automation framework (Selenium, Playwright, Puppeteer, etc.) to programmatically modify request and response headers.
+In this guide, we’ll walk through how to integrate Requestly Interceptor into any browser-based automation framework (Selenium, Playwright, Puppeteer, etc.) to programmatically modify request and response headers.
 
-### Steps to Use Requestly for Header Modification in Automation
+### Steps to Use Requestly Interceptor for Header Modification in Automation
 
 <Tip>
   We also offer an NPM package, **@requestly/rq-automation**, to make this easier.\
@@ -50,12 +50,12 @@ In this guide, we’ll walk through how to integrate Requestly into any browser-
     </Tabs>
   </Step>
 
-  <Step title="Download the Requestly CRX Extension">
+  <Step title="Download the Requestly Interceptor CRX Extension">
     <Tip>
       If you're using our NPM package, you don’t need to download it. Simply call the function `getExtension()`.
     </Tip>
 
-    Download the CRX file of the [Requestly Extension](https://requestly.com/downloads/crx/).
+    Download the CRX file of the [Requestly Interceptor Extension](https://requestly.com/downloads/crx/).
   </Step>
 
   <Step title="Configure the Browser with the Extension">
@@ -63,7 +63,7 @@ In this guide, we’ll walk through how to integrate Requestly into any browser-
 
     * Set the path to Chrome for Testing binary
 
-    * Add the Requestly CRX extension
+    * Add the Requestly Interceptor CRX extension
 
     <Tip>
       For JavaScript, use our NPM package `@requestly/rq-automation`.\
@@ -201,7 +201,7 @@ In this guide, we’ll walk through how to integrate Requestly into any browser-
   </Step>
 
   <Step title="Close Extension Welcome Page">
-    When Chrome installs the Requestly extension, it may open a "welcome" (post-install) tab that interrupts automation. You can close this tab programmatically:
+    When Chrome installs the Requestly Interceptor extension, it may open a "welcome" (post-install) tab that interrupts automation. You can close this tab programmatically:
 
     <Tabs>
       <Tab title="Selenium">
@@ -265,7 +265,7 @@ In this guide, we’ll walk through how to integrate Requestly into any browser-
   </Step>
 
   <Step title="Perform Header Modifications Using Automation URLs">
-    Once the browser is launched with Requestly, hit the following URLs to programmatically apply rules:
+    Once the browser is launched with Requestly Interceptor, hit the following URLs to programmatically apply rules:
 
     <Tabs>
       <Tab title="Normal way">
@@ -455,7 +455,7 @@ Here’s a working example using **Selenium**, but this logic can be adapted eas
     async function setupDriver() {
       const options = new chrome.Options();
 
-      // Load Requestly extension
+      // Load Requestly Interceptor extension
       const extensionPath = getExtension("unpacked");
       options.addArguments(`--load-extension=${extensionPath}`);
       options.addArguments(`--disable-extensions-except=${extensionPath}`);

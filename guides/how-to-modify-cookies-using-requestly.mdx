@@ -1,10 +1,10 @@
 ---
-title: How to Modify Cookies Using Requestly
-label: How to Modify Cookies Using Requestly
+title: How to Modify Cookies Using Requestly Interceptor
+label: How to Modify Cookies Using Requestly Interceptor
 slug: how-to-modify-cookies-using-requestly
 visibility: PUBLIC
 ---
-Modifying cookies is useful when you're testing authentication flows, simulating different user states, or tweaking behavior without changing backend code. Requestly makes this easy by letting you **intercept HTTP requests/responses** and **manipulate cookies** on the fly.
+Modifying cookies is useful when you're testing authentication flows, simulating different user states, or tweaking behavior without changing backend code. Requestly Interceptor makes this easy by letting you **intercept HTTP requests/responses** and **manipulate cookies** on the fly.
 
 ## Use Cases
 
@@ -16,7 +16,7 @@ Modifying cookies is useful when you're testing authentication flows, simulating
 
 * Bypassing feature flags
 
-## Modify Cookies in Requestly
+## Modify Cookies in Requestly Interceptor
 
 <Tabs>
   <Tab title="In Request Header">
@@ -72,7 +72,7 @@ Modifying cookies is useful when you're testing authentication flows, simulating
     This is useful to **change or inject cookies** coming from the server (e.g., simulate logged-in state).
 
     <Warning>
-      Response Headers modification done by Requestly are not visible in Browsers devtool but they are actually modified
+      Response Headers modification done by Requestly Interceptor are not visible in Browsers devtool but they are actually modified
     </Warning>
 
     <Steps>

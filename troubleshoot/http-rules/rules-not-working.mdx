@@ -2,19 +2,19 @@
 title: "Rules Not working"
 label: "Rules Not Working"
 slug: "rules-not-working"
-description: "Having trouble with your rules? Follow this step-by-step checklist to quickly identify and resolve common issues with the Requestly browser extension."
+description: "Having trouble with your rules? Follow this step-by-step checklist to quickly identify and resolve common issues with the Requestly Interceptor browser extension."
 visibility: "PUBLIC"
 ---
 
-If your Requestly rules are not applying, use this checklist in order. Most issues come from extension permissions, paused Requestly state, inactive groups, or rule-type limitations.
+If your Requestly Interceptor rules are not applying, use this checklist in order. Most issues come from extension permissions, paused Requestly Interceptor state, inactive groups, or rule-type limitations.
 
 ## Start Here
 
 Check these basics first:
 
-- the Requestly extension is installed and enabled
+- the Requestly Interceptor extension is installed and enabled
 - site access is allowed for the page you are testing
-- Requestly is running and not paused
+- Requestly Interceptor is running and not paused
 - the relevant rule group is turned on
 - you refreshed the page or retriggered the request after saving the rule
 ## 1. Confirm Extension Permissions
@@ -23,8 +23,8 @@ Check these basics first:
   <Step title="Open Extension Settings">
     Go to `chrome://extensions/` in your browser.
   </Step>
-  <Step title="Access Requestly Details">
-    Find the Requestly extension and click **Details.**
+  <Step title="Access Requestly Interceptor Details">
+    Find the Requestly Interceptor extension and click **Details.**
 
     <img
       src="/images/rules-not-working/1e42a891-b028-499c-88f2-3f16a994f3aa.png"
@@ -50,7 +50,7 @@ Check these basics first:
     Go to `chrome://extensions/`
   </Step>
   <Step title="Check the Toggle">
-    Make sure the toggle for Requestly is **enabled** (blue).
+    Make sure the toggle for Requestly Interceptor is **enabled** (blue).
 
     <img
       src="/images/rules-not-working/0e737992-174a-4319-9c1b-c9de72919f21.png"
@@ -67,7 +67,7 @@ Groups allow you to organize rules into logical groups and enable/disable them i
 <Steps>
   <Step title="Open the Dashboard">
     Visit the <a target="_blank" href="https://app.requestly.io/">
-     Requestly dashboard</a>
+     Requestly Interceptor dashboard</a>
 
     .
   </Step>
@@ -88,8 +88,8 @@ Groups allow you to organize rules into logical groups and enable/disable them i
 ## 4. Activate the Extension (If Disabled)
 
 <Steps>
-  <Step title="Open Requestly Popup">
-    Locate and click the Requestly icon in your browser’s toolbar to open the menu.
+  <Step title="Open Requestly Interceptor Popup">
+    Locate and click the Requestly Interceptor icon in your browser’s toolbar to open the menu.
 
     <img
       src="/images/rules-not-working/91587b36-aa09-4918-8d8e-5b658b45eeaf.png"
@@ -97,8 +97,8 @@ Groups allow you to organize rules into logical groups and enable/disable them i
       fullwidth="false"
     />
   </Step>
-  <Step title="Enable Requestly">
-    Click the Requestly icon in your browser’s toolbar and find the toggle labeled "Requestly paused." Click the toggle to activate Requestly. The label will change to "Requestly running," confirming activation.
+  <Step title="Enable Requestly Interceptor">
+    Click the Requestly Interceptor icon in your browser’s toolbar and find the toggle labeled "Requestly Interceptor paused." Click the toggle to activate Requestly Interceptor. The label will change to "Requestly Interceptor running," confirming activation.
 
     <img
       src="/images/rules-not-working/88f3b0fe-7f2c-43e5-8d33-a1541dc15b43.png"
@@ -107,7 +107,7 @@ Groups allow you to organize rules into logical groups and enable/disable them i
     />
   </Step>
   <Step title="Refresh the Page">
-    Refresh your browser page to ensure that Requestly’s rules are properly applied.
+    Refresh your browser page to ensure that Requestly Interceptor’s rules are properly applied.
   </Step>
 </Steps>
 
@@ -125,12 +125,12 @@ Before assuming the rule is broken, confirm that it actually matches the request
 
 ## **Common Issues by Rule Type**
 
-> Some rule types in Requestly have specific behaviors or limitations. Here's what you need to know for each one:
+> Some rule types in Requestly Interceptor have specific behaviors or limitations. Here's what you need to know for each one:
 
 ### Modify API Response
 
 **Not visible in Chrome DevTools**\
-API response modifications made by Requestly don’t show up in the browser’s DevTools, but they’re still applied in the background.
+API response modifications made by Requestly Interceptor don’t show up in the browser’s DevTools, but they’re still applied in the background.
 
 **Only works with XHR/Fetch requests**\
 Modify API Response **can’t modify** HTML, CSS, or other static files in the extension. For that, use the [Desktop App](https://requestly.com/downloads/desktop/).
@@ -141,7 +141,7 @@ Only works with **XHR** and **Fetch** requests
 
 ### Modify Response Headers
 
-Response Headers modification done by Requestly are not visible in Browsers devtool but they are actually modified.
+Response Headers modification done by Requestly Interceptor are not visible in Browsers devtool but they are actually modified.
 
 ### Delay Request
 

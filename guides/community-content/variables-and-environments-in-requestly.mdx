@@ -1,20 +1,20 @@
 ---
-title: Mastering Variables & Environments in Requestly
+title: Mastering Variables & Environments in Requestly Interceptor
 author: Bhogeshwarj
 authorUrl: https://github.com/bhogeshwarj
 date: 2025-11-15
-description: A comprehensive hands-on guide to using Variables and Environments in Requestly's API Client for seamless multi-environment API testing and development.
+description: A comprehensive hands-on guide to using Variables and Environments in Requestly Interceptor's API Client for seamless multi-environment API testing and development.
 tags: [api-testing, variables, environments, workflow, configuration]
 difficulty: beginner
 ---
 
 ## Introduction
 
-When I first opened Requestly's API Client, I expected the usual — a request builder, a few tabs, maybe a scripting panel. What I didn't expect was how powerful and convenient their Variables and Environments system would be.
+When I first opened Requestly Interceptor's API Client, I expected the usual — a request builder, a few tabs, maybe a scripting panel. What I didn't expect was how powerful and convenient their Variables and Environments system would be.
 
 If you've ever switched between dev, staging, and production APIs and found yourself constantly rewriting URLs, headers, or tokens, this feature will feel like a lifesaver.
 
-While working on a recent contribution to Requestly, I got the chance to dive deep into Variables and Environments — and it turned out to be far more powerful than I expected. So in this article, I'm breaking down everything I learned in a simple, practical way.
+While working on a recent contribution to Requestly Interceptor, I got the chance to dive deep into Variables and Environments — and it turned out to be far more powerful than I expected. So in this article, I'm breaking down everything I learned in a simple, practical way.
 
 Think of this as your shortcut to mastering variables, with practical steps and screenshots that you can apply immediately in your own setup.
 
@@ -22,7 +22,7 @@ Think of this as your shortcut to mastering variables, with practical steps and 
 
 Before you begin, make sure you have:
 
-- Requestly app installed (desktop or browser extension)
+- Requestly Interceptor app installed (desktop or browser extension)
 - Basic understanding of APIs and HTTP requests
 - Access to multiple API environments (dev, staging, prod) - or you can use the free APIs mentioned in this guide
 - Familiarity with API testing concepts
@@ -46,7 +46,7 @@ Each environment has different:
 
 Hardcoding these values inside every request is painful. Updating them manually is even worse.
 
-Requestly solves all of this with a simple idea:
+Requestly Interceptor solves all of this with a simple idea:
 Define variables once → use them everywhere.
 
 You reference any variable using:
@@ -219,9 +219,9 @@ currency = USD
 payment_gateway = stripe
 ```
 
-### Understanding Variable Precedence in Requestly
+### Understanding Variable Precedence in Requestly Interceptor
 
-Requestly resolves variables based on the most specific scope first. If the same variable name exists in multiple places, this is the priority:
+Requestly Interceptor resolves variables based on the most specific scope first. If the same variable name exists in multiple places, this is the priority:
 
 ```
 Environment → SubCollection → Collection → Global
@@ -230,7 +230,7 @@ Environment → SubCollection → Collection → Global
 **Meaning:**
 
 1. **Environment variables** override everything
-2. If not found, Requestly checks **SubCollection**, then **Collection**
+2. If not found, Requestly Interceptor checks **SubCollection**, then **Collection**
 3. **Global variables** act as the final fallback
 
 This makes configuration predictable and ensures environment-specific values always take priority without breaking your global or shared setup.
@@ -243,13 +243,13 @@ If you have `base_url` defined in all scopes:
 - Collection: `https://api-v2.example.com`
 - Environment (Production): `https://prod.example.com`
 
-When Production environment is active, Requestly will use: `https://prod.example.com`
+When Production environment is active, Requestly Interceptor will use: `https://prod.example.com`
 
 ## Examples
 
 ### Using Variables in API Requests
 
-Once you've defined variables in Requestly — whether global, environment, collection, or subcollection — you can reference them anywhere inside your API requests. This includes:
+Once you've defined variables in Requestly Interceptor — whether global, environment, collection, or subcollection — you can reference them anywhere inside your API requests. This includes:
 
 - URLs
 - Headers
@@ -324,7 +324,7 @@ Headers: Authorization: Bearer {{auth_token}}
 
 ## Conclusion
 
-After working with Requestly's Variables & Environments, it's clear how much they simplify everyday API work. No more editing URLs or tokens by hand, no more messy requests, and no more switching values manually across environments.
+After working with Requestly Interceptor's Variables & Environments, it's clear how much they simplify everyday API work. No more editing URLs or tokens by hand, no more messy requests, and no more switching values manually across environments.
 
 **Key Takeaways:**
 
@@ -340,12 +340,12 @@ Once you start using variables properly, your entire workflow becomes smoother a
 
 ## Additional Resources
 
-- [Try Requestly App](https://app.requestly.io)
-- [Requestly Documentation — Environment and Variables](https://docs.requestly.com)
+- [Try Requestly Interceptor App](https://app.requestly.io)
+- [Requestly Interceptor Documentation — Environment and Variables](https://docs.requestly.com)
 - [JSONPlaceholder Fake REST API](https://jsonplaceholder.typicode.com)
 - [DummyJSON API](https://dummyjson.com)
-- [Join Requestly Discord Community](https://rqst.ly/join-community)
+- [Join Requestly Interceptor Discord Community](https://rqst.ly/join-community)
 
 ---
 
-**Have questions about variables or want to share your setup?** Join the [Requestly community](https://rqst.ly/join-community) or reach out at contact@requestly.io
+**Have questions about variables or want to share your setup?** Join the [Requestly Interceptor community](https://rqst.ly/join-community) or reach out at contact@requestly.io

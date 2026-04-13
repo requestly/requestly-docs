@@ -5,16 +5,16 @@ slug: unable-to-intercept-web-traffic-on-browser-mobile-or-emulator
 description: Troubleshooting guide to resolve common interceptor issues
 visibility: PUBLIC
 ---
-Use this page as a decision tree when setup looks complete but traffic is still missing from Requestly.
+Use this page as a decision tree when setup looks complete but traffic is still missing from Requestly Interceptor.
 
 ## Start With The Fastest Checks
 
 Before diving into platform-specific troubleshooting, confirm these basics:
 
-- Requestly is running and the correct browser, device, or runtime is connected
+- Requestly Interceptor is running and the correct browser, device, or runtime is connected
 - you completed the relevant [HTTP Interceptor setup guide](/general/http-interceptor/overview)
 - the traffic you expect is actually leaving the app or browser
-- you are looking in the correct Requestly interception view
+- you are looking in the correct interception view
 
 ## Choose The Symptom That Matches Your Issue
 
@@ -61,7 +61,7 @@ Safari can require certificate regeneration and a full app restart.
 Check all of the following:
 
 - the device and desktop app are on the same network
-- the proxy settings match the Requestly desktop app
+- the proxy settings match the Requestly Interceptor desktop app
 - the SSL certificate is installed and trusted
 - the correct setup guide was followed for the device or simulator
 
@@ -74,7 +74,7 @@ Use these setup references:
 
 ### Emulator Is Not Detected
 
-Restart the Requestly Desktop App and reconnect the emulator. If the emulator still does not appear, re-run the matching platform setup steps.
+Restart the Requestly Interceptor Desktop App and reconnect the emulator. If the emulator still does not appear, re-run the matching platform setup steps.
 
 ### Only Some Mobile Apps Are Intercepted
 
@@ -95,7 +95,7 @@ Make sure you did not exclude the target domain from interception.
 If the issue persists, collect these details before contacting support:
 
 - where you are intercepting from: browser, system-wide, mobile device, emulator, terminal, or Node.js
-- operating system and Requestly version
+- operating system and Requestly Interceptor version
 - whether HTTP works while HTTPS fails
 - whether localhost traffic is involved
 - any visible proxy, certificate, or console errors
