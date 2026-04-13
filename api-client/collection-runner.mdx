@@ -1,0 +1,125 @@
+---
+title: "Collection Runner"
+label: "Collection Runner"
+slug: "collection-runner"
+visibility: "PUBLIC"
+seotitle: "Collection Runner - Requestly"
+description: "Learn how to run collections, configure iterations, delays, and environments, reorder or skip requests, view and debug results, and export run summaries"
+---
+
+**Collection Runner** enables you to execute multiple saved API requests from a collection in one go, sequentially, while leveraging existing variable and scripting features. Think of it as automating a workflow of requests\
+(for example: login → create resource → fetch resource) in one run.
+
+<iframe src="https://www.youtube.com/embed/RtYCIBJPtR0" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+This documentation covers how to run collections, configure variables, view results, rerun or debug, explore automation options, and export results.
+
+### Running a Collection
+
+Follow these steps to run a collection using the Runner:
+
+<Steps>
+  <Step title="Open Collection Runner">
+    In the Collections sidebar, find the collection you want to execute and click the **Run** icon on menu option next to it.
+
+    <img
+      src="/images/collection-runner/304ede81-76f5-4099-a9d1-27f2a746a432.png"
+      align="center"
+      alt="Requestly Collection Runner showing how to open and run an API collection from the Collections sidebar or Runner tab."
+      fullwidth="false"
+    />
+
+    _You can also click_ **_Runner_** _from collections tab_
+  </Step>
+  <Step title="Configure Options">
+    - **Iterations:** Number of times to execute the full collection
+    - **Delay:** Wait time between requests (milliseconds)
+
+    <img
+      src="/images/collection-runner/63aa0b0c-72a3-4a5c-b052-eb2efc6e1472.png"
+      align="center"
+      fullwidth="false"
+      alt="Requestly Collection Runner settings panel showing configuration options for iterations, delay, and environment selection before running API tests."
+    />
+
+    If you want your collection to run with an environment, select it using the environment selector at the upper left corner, then select the environment you want to use
+  </Step>
+  <Step title="Adjust Request Order or Skip">
+    You can drag to reorder requests or uncheck ones you don’t want to include in this run.
+
+    <img
+      src="/images/collection-runner/8652b545-82d1-4243-8a1c-5f77292f2806.gif"
+      align="center"
+      fullwidth="false"
+      alt="Requestly Collection Runner interface showing how to reorder or skip specific API requests before executing a test collection."
+    />
+  </Step>
+  <Step title="Start the Run">
+    Click Save and then Run . The Runner will execute each request in order.
+
+    <img
+      src="/images/collection-runner/04897888-950c-4e63-bc87-902aeeec46f9.png"
+      align="center"
+      fullwidth="false"
+      alt="Screenshot of the Requestly Collection Runner showing the Save and Run buttons used to start executing API collections automatically."
+    />
+  </Step>
+</Steps>
+
+### How a Collection Runner Works
+
+<img
+  src="/images/collection-runner/2cc6558c-8b47-4407-811b-94676c887f91.png"
+  align="center"
+  fullwidth="false"
+  alt="Diagram explaining how Requestly Collection Runner executes API requests, resolves variables, and runs pre-request and test scripts."
+/>
+
+When you execute requests using the **Collection Runner**, here’s how things work:
+
+#### Variable Resolution
+
+- All `{{variable}}` placeholders resolve based on their **scope**.
+- **Environment variables** override values from the global scope.
+- **Collection-level variables** defined earlier are available to all requests within that collection.
+
+#### Script Execution
+
+- **Pre-request** and **Post-response** scripts execute as usual.
+- You can **set or modify variables** dynamically during the run.
+- Use `rq.expect(...)` for writing **test assertions** to validate responses.
+
+#### Viewing Run Results
+
+<img
+  src="/images/collection-runner/6567c990-ab2d-407d-b452-62fa4b2e500d.png"
+  align="center"
+  fullwidth="false"
+  alt="Requestly Collection Runner Run Summary showing test results, request details, response data, and execution duration."
+/>
+
+Once the run completes, the Runner displays a detailed **Run Summary**, including:
+
+- Total number of requests executed
+- Tests passed and failed
+- Total duration and time taken
+
+You can click on any request in the summary to view:
+
+- Request details - URL, headers, and body
+- Response data - status, headers, and body
+- The result of each test assertion
+
+## What's Next?
+
+<CardGroup cols={3}>
+  <Card title="Run with Data Files" icon="file-csv" href="/api-client/collection-runner-data-file">
+    Use CSV or JSON data files to parameterize collection runs across multiple inputs.
+  </Card>
+  <Card title="Write Tests" icon="flask" href="/api-client/tests">
+    Add assertions to validate response status, body, and headers on every run.
+  </Card>
+  <Card title="Use Variables" icon="brackets-curly" href="/api-client/environments-and-variables">
+    Set and modify variables dynamically during a run using pre/post scripts.
+  </Card>
+</CardGroup>
