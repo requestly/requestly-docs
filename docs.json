@@ -135,11 +135,10 @@
             "pages": [
               "account/billing-subscriptions",
               "account/blocklist",
-              "account/how-is-bowser-extension-different-from-a-desktop-app",
+              "account/how-is-browser-extension-different-from-a-desktop-app",
               {
                 "group": "Single Sign-On",
                 "pages": [
-                  "account/sso",
                   "account/sso/how-to-set-up-sso-with-microsoft-entra-id",
                   "account/sso/setup-sso-with-okta"
                 ]
@@ -267,7 +266,7 @@
                 ]
               },
               {
-                "group": "Mock Server",
+                "group": "File Server",
                 "pages": [
                   "http-interception/mock-server/overview",
                   {
@@ -386,11 +385,11 @@
           {
             "group": "Overview",
             "pages": [
+              "changelogs/mar-26-2026",
               "changelogs/mar-16-2026",
-              "changelogs/untitled-page-3",
-              "changelogs/untitled-page-2",
-              "changelogs/untitled-page-1",
-              "changelogs/untitled-page",
+              "changelogs/mar-09-2026",
+              "changelogs/mar-02-2026",
+              "changelogs/feb-16-2026",
               "changelogs/feb-9-2026",
               "changelogs/feb-2-2026",
               "changelogs/jan-27-2026",
