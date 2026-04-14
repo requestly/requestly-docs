@@ -548,7 +548,7 @@
     },
     {
       "source": "/general/getting-started/induction",
-      "destination": "/http-interception/getting-started/overview"
+      "destination": "/api-client/overview"
     },
     {
       "source": "/general/getting-started/introduction",
