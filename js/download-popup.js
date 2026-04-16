@@ -105,8 +105,8 @@
       /* dropdown container — positioned by JS */
       "#rq-dl-dropdown{position:absolute;z-index:99990;display:none;padding-top:8px}",
 
-      /* popup box */
-      "#rq-dl-popup{padding:8px;background:#232323;box-shadow:0 16px 64px 8px rgba(0,0,0,0.5);border-radius:12px;border:1px solid rgba(255,255,255,0.05);display:inline-flex;gap:8px;max-width:calc(100vw - 32px);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}",
+      /* popup box — dark (default) */
+      "#rq-dl-popup{padding:8px;background:#1a1919;box-shadow:0 16px 64px 8px rgba(0,0,0,0.5);border-radius:12px;border:1px solid rgba(255,255,255,0.05);display:inline-flex;gap:8px;max-width:calc(100vw - 32px);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}",
       "#rq-dl-dropdown.rq-visible #rq-dl-popup{opacity:1;transform:translateY(0)}",
 
       /* open-up: popup opens above the button */
@@ -114,31 +114,45 @@
       "#rq-dl-dropdown.open-up #rq-dl-popup{transform:translateY(6px)}",
       "#rq-dl-dropdown.open-up.rq-visible #rq-dl-popup{transform:translateY(0)}",
 
-      /* cards */
-      ".rq-dl-card{width:300px;padding:20px 24px;background:#2d2d2d;border-radius:8px;display:flex;flex-direction:column;gap:12px;border:1px solid rgba(255,255,255,0)}",
+      /* cards — dark */
+      ".rq-dl-card{width:300px;padding:20px 24px;background:#232222;border-radius:8px;display:flex;flex-direction:column;gap:12px;border:1px solid rgba(255,255,255,0)}",
 
-      /* icon + title */
+      /* icon + title — dark */
       ".rq-dl-header{display:flex;flex-direction:column;gap:10px}",
       ".rq-dl-header img{width:32px;height:32px;object-fit:contain}",
       ".rq-dl-title{color:#fff;font-size:15px;font-weight:300;font-family:Inter,system-ui,sans-serif;line-height:1.3}",
       ".rq-dl-subtitle{color:#999;font-size:13px;font-family:Inter,system-ui,sans-serif;font-weight:400;line-height:1.5}",
 
-      /* bullet list */
+      /* bullet list — dark */
       ".rq-dl-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;}",
-      ".rq-dl-features li{color:#bbb;font-size:13px;font-family:Inter,system-ui,sans-serif;line-height:1.5;padding-left:16px;position:relative;color:#999;}",
+      ".rq-dl-features li{color:#999;font-size:13px;font-family:Inter,system-ui,sans-serif;line-height:1.5;padding-left:16px;position:relative}",
       ".rq-dl-features li::before{content:'\\2022';position:absolute;left:0;color:#666}",
 
-      /* button */
-      ".rq-dl-btn{display:flex;padding:11px 16px;justify-content:center;align-items:center;border-radius:48px;border:1px solid rgba(255,255,255,0.2);background:linear-gradient(102deg,rgba(255,255,255,0.2) 8.88%,rgba(255,255,255,0.3) 44.24%,rgba(255,255,255,0.2) 61.3%,rgba(255,255,255,0.11) 90.5%);color:#fff;font-size:14px;font-weight:500;font-family:Inter,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:all .15s ease}",
-      ".rq-dl-btn:hover{border-color:#004eeb;background:#004eeb}",
+      /* button — solid flat style */
+      ".rq-dl-btn{display:flex;padding:11px 16px;justify-content:center;align-items:center;border-radius:48px;border:1px solid rgb(66 63 63 / 85%);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-weight:500;font-family:Inter,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:all .15s ease}",
+      ".rq-dl-btn:hover{border-color:#004eeb;background:#004eeb;color:#fff}",
 
-      /* platform / browser row */
+      /* platform / browser row — dark */
       ".rq-dl-alt{display:flex;align-items:center;gap:10px}",
       ".rq-dl-alt a{display:flex;align-items:center;text-decoration:none}",
       ".rq-dl-alt img{width:18px;height:18px;object-fit:contain;opacity:0.7;transition:opacity .15s}",
       ".rq-dl-alt a:hover img{opacity:1}",
       ".rq-dl-more{color:#999;font-size:13px;font-family:Inter,system-ui,sans-serif;font-weight:500;text-decoration:none;transition:color .15s;white-space:nowrap}",
       ".rq-dl-more:hover{color:#fff}",
+
+      /* ─── Light theme overrides ─── */
+      ":root:not(.dark) #rq-dl-popup{background:#fff;box-shadow:0 16px 64px 8px rgba(0,0,0,0.12);border-color:rgba(0,0,0,0.08)}",
+      ":root:not(.dark) .rq-dl-card{background:#f5f5f5;border-color:rgba(0,0,0,0.04)}",
+      ":root:not(.dark) .rq-dl-title{color:#111}",
+      ":root:not(.dark) .rq-dl-subtitle{color:#666}",
+      ":root:not(.dark) .rq-dl-features li{color:#555}",
+      ":root:not(.dark) .rq-dl-features li::before{color:#aaa}",
+      ":root:not(.dark) .rq-dl-btn{background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.15);color:#111}",
+      ":root:not(.dark) .rq-dl-btn:hover{background:#004eeb;border-color:#004eeb;color:#fff}",
+      ":root:not(.dark) .rq-dl-alt img{opacity:0.6}",
+      ":root:not(.dark) .rq-dl-alt a:hover img{opacity:1}",
+      ":root:not(.dark) .rq-dl-more{color:#666}",
+      ":root:not(.dark) .rq-dl-more:hover{color:#111}",
 
       /* responsive */
       "@media(max-width:640px){#rq-dl-popup{flex-direction:column}.rq-dl-card{width:100%;min-width:260px}}",
