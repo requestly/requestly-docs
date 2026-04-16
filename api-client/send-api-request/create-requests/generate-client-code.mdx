@@ -3,18 +3,15 @@ title: Generate Client Code
 label: Generate Client Code
 slug: generate-client-code
 description: >-
-  Easily generate client code snippets for API requests. Supports
-  multiple languages including Python, Ruby, PHP, R, and shell.
+  Export any API request as ready-to-run code in cURL, Python, JavaScript, Go, Java, C#, Swift, PHP, and 20+ other language/library combinations.
 seoDescription: >-
-  Easily generate client code snippets for API requests with Requestly. Supports
-  multiple languages including Python, Ruby, PHP, R, and shell.
+  Generate client code snippets from API requests in Requestly. Supports 20+ languages including cURL, Python, JavaScript, Go, Java, C#, Swift, PHP, Ruby, and more.
 visibility: PUBLIC
 ---
-Requestly can convert an API request into a client code snippet, making integrating API calls into application code easy. Requestly supports multiple programming languages and frameworks like Python, Ruby, R, PHP, and Shell.
+
+Requestly can convert any configured API request into a ready-to-paste code snippet. Use this to move from manual testing to implementation without rewriting the request from scratch.
 
 ## How to Generate Client Code
-
-Follow these steps to generate client code for your API request:
 
 <Steps>
   <Step title="Open API Request">
@@ -24,46 +21,207 @@ Follow these steps to generate client code for your API request:
   </Step>
 
   <Step title="Access Code Generation Menu">
-    Click on the **three dots** next to the **Save** button, and then, from the dropdown menu, click on **Copy As**.
+    Click the **three dots** next to the **Save** button, then select **Copy As** from the dropdown.
 
     <img src="/images/generate-client-code/4f431083-0dc2-42af-94f2-aef5824a8533.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="Choose a Programming Language">
-    A modal will open displaying the client code for the selected programming language. You can **switch between languages** using the dropdown at the top left of the modal.
+    A modal opens with the generated code. Use the dropdown at the top left to switch languages.
 
     <img src="/images/generate-client-code/ae31c8af-dac9-478d-8ec2-422b1f5cf462.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="Copy the Code">
-    Click the **Copy** button in the top right corner of the modal to copy the generated code snippet to your clipboard.
+    Click **Copy** in the top right corner to copy the snippet to your clipboard.
 
     <img src="/images/generate-client-code/252eed1c-d8bc-4d01-886e-385eee8b89c9.png" align="center" fullwidth="false" />
   </Step>
 </Steps>
 
+## Example Output
+
+For a `POST https://api.example.com/users` request with a JSON body and a Bearer token, here is what the generated code looks like per language:
+
+<Tabs>
+  <Tab title="Shell - cURL">
+    ```bash
+    curl --request POST \
+      --url https://api.example.com/users \
+      --header 'Authorization: Bearer YOUR_TOKEN' \
+      --header 'Content-Type: application/json' \
+      --data '{"name":"Jane Doe","email":"jane@example.com"}'
+    ```
+  </Tab>
+  <Tab title="JavaScript - Fetch">
+    ```javascript
+    const response = await fetch("https://api.example.com/users", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer YOUR_TOKEN",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name: "Jane Doe", email: "jane@example.com" })
+    });
+
+    const data = await response.json();
+    console.log(data);
+    ```
+  </Tab>
+  <Tab title="Python - Requests">
+    ```python
+    import requests
+
+    url = "https://api.example.com/users"
+    headers = {
+        "Authorization": "Bearer YOUR_TOKEN",
+        "Content-Type": "application/json"
+    }
+    payload = {"name": "Jane Doe", "email": "jane@example.com"}
+
+    response = requests.post(url, json=payload, headers=headers)
+    print(response.status_code, response.json())
+    ```
+  </Tab>
+  <Tab title="Go - Native">
+    ```go
+    package main
+
+    import (
+        "bytes"
+        "fmt"
+        "io"
+        "net/http"
+    )
+
+    func main() {
+        body := bytes.NewBufferString(`{"name":"Jane Doe","email":"jane@example.com"}`)
+        req, _ := http.NewRequest("POST", "https://api.example.com/users", body)
+        req.Header.Set("Authorization", "Bearer YOUR_TOKEN")
+        req.Header.Set("Content-Type", "application/json")
+
+        resp, _ := http.DefaultClient.Do(req)
+        defer resp.Body.Close()
+        data, _ := io.ReadAll(resp.Body)
+        fmt.Println(string(data))
+    }
+    ```
+  </Tab>
+  <Tab title="Java - OkHttp">
+    ```java
+    OkHttpClient client = new OkHttpClient();
+
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+        "{\"name\":\"Jane Doe\",\"email\":\"jane@example.com\"}");
+
+    Request request = new Request.Builder()
+        .url("https://api.example.com/users")
+        .post(body)
+        .addHeader("Authorization", "Bearer YOUR_TOKEN")
+        .addHeader("Content-Type", "application/json")
+        .build();
+
+    Response response = client.newCall(request).execute();
+    System.out.println(response.body().string());
+    ```
+  </Tab>
+  <Tab title="C# - HttpClient">
+    ```csharp
+    using var client = new HttpClient();
+    client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_TOKEN");
+
+    var content = new StringContent(
+        "{\"name\":\"Jane Doe\",\"email\":\"jane@example.com\"}",
+        System.Text.Encoding.UTF8, "application/json");
+
+    var response = await client.PostAsync("https://api.example.com/users", content);
+    Console.WriteLine(await response.Content.ReadAsStringAsync());
+    ```
+  </Tab>
+  <Tab title="Swift - URLSession">
+    ```swift
+    var request = URLRequest(url: URL(string: "https://api.example.com/users")!)
+    request.httpMethod = "POST"
+    request.setValue("Bearer YOUR_TOKEN", forHTTPHeaderField: "Authorization")
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = #"{"name":"Jane Doe","email":"jane@example.com"}"#.data(using: .utf8)
+
+    let (data, response) = try await URLSession.shared.data(for: request)
+    print(String(data: data, encoding: .utf8)!)
+    ```
+  </Tab>
+  <Tab title="PHP - cURL">
+    ```php
+    <?php
+    $ch = curl_init("https://api.example.com/users");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer YOUR_TOKEN",
+        "Content-Type: application/json"
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,
+        '{"name":"Jane Doe","email":"jane@example.com"}');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+    echo $response;
+    ```
+  </Tab>
+  <Tab title="PowerShell">
+    ```powershell
+    $headers = @{
+        "Authorization" = "Bearer YOUR_TOKEN"
+        "Content-Type"  = "application/json"
+    }
+    $body = '{"name":"Jane Doe","email":"jane@example.com"}'
+
+    Invoke-RestMethod -Method Post `
+      -Uri "https://api.example.com/users" `
+      -Headers $headers `
+      -Body $body
+    ```
+  </Tab>
+  <Tab title="Ruby - net::http">
+    ```ruby
+    require 'net/http'
+    require 'json'
+
+    uri = URI('https://api.example.com/users')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(uri)
+    request['Authorization'] = 'Bearer YOUR_TOKEN'
+    request['Content-Type'] = 'application/json'
+    request.body = { name: 'Jane Doe', email: 'jane@example.com' }.to_json
+
+    response = http.request(request)
+    puts response.code, response.body
+    ```
+  </Tab>
+</Tabs>
+
 ## Supported Languages
 
-Requestly supports generating client code in multiple programming languages, covering a wide range of use cases:
-
-* **PHP - Guzzle**
-
-* **PHP - HTTP v1**
-
-* **PHP - HTTP v2**
-
-* **PowerShell - Invoke-WebRequest**
-
-* **PowerShell - Invoke-RestMethod**
-
-* **Python - Requests**
-
-* **R - httr**
-
-* **Ruby - net::http**
-
-* **Shell - cURL**
-
-* **Shell - HTTPie**
-
-* **Shell - Wget**
+| Language | Library / Variant |
+|----------|------------------|
+| C | libcurl |
+| C# | HttpClient, RestSharp |
+| Clojure | clj-http |
+| Go | Native |
+| HTTP | Raw HTTP message |
+| Java | AsyncHttp, NetHttp, OkHttp, Unirest |
+| JavaScript | Axios, Fetch, jQuery, XHR |
+| Kotlin | OkHttp |
+| Node.js | Axios, Fetch, HTTP, Request, Unirest |
+| Objective-C | NSURLSession |
+| OCaml | CoHTTP |
+| PHP | cURL, Guzzle, HTTP v1, HTTP v2 |
+| PowerShell | Invoke-WebRequest, Invoke-RestMethod |
+| Python | Requests |
+| R | httr |
+| Ruby | net::http |
+| Shell | cURL, HTTPie, Wget |
+| Swift | URLSession |
