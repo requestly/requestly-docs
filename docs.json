@@ -23,7 +23,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "General",
+        "tab": "API Client",
         "icon": "house",
         "groups": [
           {
@@ -52,7 +52,6 @@
               {
                 "group": "Organizing APIs",
                 "pages": [
-                  "api-client/design-apis",
                   "api-client/api-collections",
                   "api-client/examples"
                 ]
@@ -85,9 +84,9 @@
               {
                 "group": "API Testing",
                 "pages": [
+                  "api-client/ai-test-generator",
                   "api-client/scripts",
                   "api-client/tests",
-                  "api-client/ai-test-generator",
                   "api-client/import-packages-into-your-scripts"
                 ]
               },
@@ -1004,6 +1003,10 @@
     },
     {
       "source": "/general/api-client/authorization",
+      "destination": "/api-client/send-api-request/authorization"
+    },
+    {
+      "source": "/api-client/authorization",
       "destination": "/api-client/send-api-request/authorization"
     },
     {

@@ -3,18 +3,15 @@ title: Generate Client Code
 label: Generate Client Code
 slug: generate-client-code
 description: >-
-  Easily generate client code snippets for API requests. Supports
-  multiple languages including Python, Ruby, PHP, R, and shell.
+  Export any API request as ready-to-run code in Python, Shell, Ruby, PHP, PowerShell, and R.
 seoDescription: >-
-  Easily generate client code snippets for API requests with Requestly. Supports
-  multiple languages including Python, Ruby, PHP, R, and shell.
+  Generate client code snippets from API requests in Requestly. Supports Python, Shell (cURL/HTTPie/Wget), Ruby, PHP, PowerShell, and R.
 visibility: PUBLIC
 ---
-Requestly can convert an API request into a client code snippet, making integrating API calls into application code easy. Requestly supports multiple programming languages and frameworks like Python, Ruby, R, PHP, and Shell.
+
+Requestly can convert any configured API request into a ready-to-paste code snippet. Use this to move from manual testing to implementation without rewriting the request from scratch.
 
 ## How to Generate Client Code
-
-Follow these steps to generate client code for your API request:
 
 <Steps>
   <Step title="Open API Request">
@@ -24,46 +21,132 @@ Follow these steps to generate client code for your API request:
   </Step>
 
   <Step title="Access Code Generation Menu">
-    Click on the **three dots** next to the **Save** button, and then, from the dropdown menu, click on **Copy As**.
+    Click the **three dots** next to the **Save** button, then select **Copy As** from the dropdown.
 
     <img src="/images/generate-client-code/4f431083-0dc2-42af-94f2-aef5824a8533.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="Choose a Programming Language">
-    A modal will open displaying the client code for the selected programming language. You can **switch between languages** using the dropdown at the top left of the modal.
+    A modal opens with the generated code. Use the dropdown at the top left to switch languages.
 
     <img src="/images/generate-client-code/ae31c8af-dac9-478d-8ec2-422b1f5cf462.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="Copy the Code">
-    Click the **Copy** button in the top right corner of the modal to copy the generated code snippet to your clipboard.
+    Click **Copy** in the top right corner to copy the snippet to your clipboard.
 
     <img src="/images/generate-client-code/252eed1c-d8bc-4d01-886e-385eee8b89c9.png" align="center" fullwidth="false" />
   </Step>
 </Steps>
 
+## Example Output
+
+For a `POST https://api.example.com/users` request with a JSON body and a Bearer token, here is what the generated code looks like per language:
+
+<Tabs>
+  <Tab title="Shell - cURL">
+    ```bash
+    curl --request POST \
+      --url https://api.example.com/users \
+      --header 'Authorization: Bearer YOUR_TOKEN' \
+      --header 'Content-Type: application/json' \
+      --data '{"name":"Jane Doe","email":"jane@example.com"}'
+    ```
+  </Tab>
+  <Tab title="Python - Requests">
+    ```python
+    import requests
+
+    url = "https://api.example.com/users"
+    headers = {
+        "Authorization": "Bearer YOUR_TOKEN",
+        "Content-Type": "application/json"
+    }
+    payload = {"name": "Jane Doe", "email": "jane@example.com"}
+
+    response = requests.post(url, json=payload, headers=headers)
+    print(response.status_code, response.json())
+    ```
+  </Tab>
+  <Tab title="Ruby - net::http">
+    ```ruby
+    require 'net/http'
+    require 'json'
+
+    uri = URI('https://api.example.com/users')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(uri)
+    request['Authorization'] = 'Bearer YOUR_TOKEN'
+    request['Content-Type'] = 'application/json'
+    request.body = { name: 'Jane Doe', email: 'jane@example.com' }.to_json
+
+    response = http.request(request)
+    puts response.code, response.body
+    ```
+  </Tab>
+  <Tab title="PHP - Guzzle">
+    ```php
+    <?php
+    $client = new \GuzzleHttp\Client();
+
+    $response = $client->post('https://api.example.com/users', [
+        'headers' => [
+            'Authorization' => 'Bearer YOUR_TOKEN',
+            'Content-Type'  => 'application/json',
+        ],
+        'json' => [
+            'name'  => 'Jane Doe',
+            'email' => 'jane@example.com',
+        ],
+    ]);
+
+    echo $response->getStatusCode();
+    echo $response->getBody();
+    ```
+  </Tab>
+  <Tab title="PowerShell">
+    ```powershell
+    $headers = @{
+        "Authorization" = "Bearer YOUR_TOKEN"
+        "Content-Type"  = "application/json"
+    }
+    $body = '{"name":"Jane Doe","email":"jane@example.com"}'
+
+    Invoke-RestMethod -Method Post `
+      -Uri "https://api.example.com/users" `
+      -Headers $headers `
+      -Body $body
+    ```
+  </Tab>
+  <Tab title="R - httr">
+    ```r
+    library(httr)
+
+    response <- POST(
+      "https://api.example.com/users",
+      add_headers(
+        Authorization = "Bearer YOUR_TOKEN",
+        `Content-Type` = "application/json"
+      ),
+      body = list(name = "Jane Doe", email = "jane@example.com"),
+      encode = "json"
+    )
+
+    cat(status_code(response), "\n")
+    print(content(response))
+    ```
+  </Tab>
+</Tabs>
+
 ## Supported Languages
 
-Requestly supports generating client code in multiple programming languages, covering a wide range of use cases:
-
-* **PHP - Guzzle**
-
-* **PHP - HTTP v1**
-
-* **PHP - HTTP v2**
-
-* **PowerShell - Invoke-WebRequest**
-
-* **PowerShell - Invoke-RestMethod**
-
-* **Python - Requests**
-
-* **R - httr**
-
-* **Ruby - net::http**
-
-* **Shell - cURL**
-
-* **Shell - HTTPie**
-
-* **Shell - Wget**
+| Language / Framework | Variants |
+|----------------------|---------|
+| Shell | cURL, HTTPie, Wget |
+| Python | Requests |
+| Ruby | net::http |
+| PHP | Guzzle, HTTP v1, HTTP v2 |
+| PowerShell | Invoke-WebRequest, Invoke-RestMethod |
+| R | httr |

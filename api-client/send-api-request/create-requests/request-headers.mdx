@@ -91,11 +91,11 @@ Headers can be inherited from collections, making it easy to apply common header
 **Collection-Level Headers** → **Request-Level Headers** → **Authorization Tab**
 
 - **Collection-Level Headers**: Set headers at the collection level to apply them to all requests in that collection.
-- **Request-Level Headers**: Request-level headers override collection-level headers with the same key.
-- **Authorization Tab**: Headers set in the Authorization tab are applied in addition to manual headers.
+- **Request-Level Headers**: Override collection-level headers with the same key. Request-level headers have the highest priority.
+- **Authorization Tab**: Headers set in the Authorization tab are applied in addition to manual headers and do not override them.
 
 <Info>
-  Headers are applied in order, with each level potentially overriding the previous one. Request-level headers have the highest priority.
+  Headers are resolved from most-specific to least-specific. Request-level headers always win over collection-level headers when both define the same key.
 </Info>
 
 ## What's Next?

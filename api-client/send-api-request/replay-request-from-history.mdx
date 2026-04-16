@@ -10,8 +10,6 @@ seoDescription: >-
   Client.
 visibility: PUBLIC
 ---
-***
-
 The API Call History feature allows users to track and manage all requests triggered from the API Client. The most recent request is displayed at the top of the history panel, providing a clear chronological view of interactions.
 
 <Warning>
@@ -23,6 +21,10 @@ The API Call History feature allows users to track and manage all requests trigg
 All API calls made from the client are listed in the left sidebar. Each entry can be clicked to load the request details back into the API Client. This enables users to quickly replay a request after editing some fields.
 
 <img src="/images/replay-request-from-history/f708edc8-da2e-4fdb-970c-31643c7c76d0.png" align="center" fullwidth="false" />
+
+<Warning>
+  Cached responses are session-only. If you refresh the page, all response data is cleared and requests must be re-sent to see their responses again.
+</Warning>
 
 Additionally, the response for any request made during the current session is cached and can be revisited without making a new call, provided the page has not been refreshed.
 

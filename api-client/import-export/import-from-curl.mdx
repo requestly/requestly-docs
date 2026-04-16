@@ -2,35 +2,114 @@
 title: "Import from cURL"
 slug: "import-from-curl"
 path: "/api-client/import-export/import-from-curl"
+description: "Paste any cURL command into Requestly and convert it into a fully editable API request in seconds."
 visibility: "PUBLIC"
 format: "MDX"
 ---
 
-Requestly allows you to easily **import cURL commands** and convert them into fully editable API requests. This makes it simple to migrate from terminal-based workflows or share API requests across tools.
+Requestly converts cURL commands into fully editable API requests. This makes it easy to migrate from terminal workflows, import requests from documentation, or grab a request straight from your browser's DevTools network panel.
 
 ## How to Import a cURL Command
 
 <Steps>
-  <Step title="Download and Open Requestly App">
-    Download and launch Requestly.
+  <Step title="Open Requestly App">
+    Download and launch the Requestly Desktop App.
     <img src="/images/import-from-curl/f4daa1cd-7634-4b8b-82a0-959baa0baceb.png" align="center" fullwidth="false" />
   </Step>
 
-  <Step title="Click on &#x22;Import&#x22; and Select cURL">
-    In the top-left corner of the API Client, click the **Import** button. From the dropdown, choose **cURL**.
+  <Step title="Click Import and Select cURL">
+    In the top-left corner of the API Client, click the **Import** button. Choose **cURL** from the dropdown.
 
     <img src="/images/import-from-curl/bc62d7c2-3620-4dba-81c1-4587859dcac0.png" align="center" fullwidth="false" />
   </Step>
 
   <Step title="Paste Your cURL Command">
-    A popup will appear. Paste your raw cURL command into the input box.
+    Paste your raw cURL command into the input box.
 
     <img src="/images/import-from-curl/8d2b68a2-974a-47a9-b282-3c634893706c.png" align="center" fullwidth="false" />
   </Step>
 
-  <Step title="Click &#x22;Import&#x22;">
-    Click the **Import** button, and Requestly will convert your cURL into an editable API request, ready to use in your workspace.
+  <Step title="Click Import">
+    Click **Import**. Requestly converts the cURL into an editable API request, ready to send or save to a collection.
 
     <img src="/images/import-from-curl/e2d5d27b-91d9-488e-ba7e-c9ac1faf4eca.png" align="center" fullwidth="false" />
   </Step>
 </Steps>
+
+## cURL Examples
+
+Paste any of these directly into the import dialog to see how they convert.
+
+**Simple GET request**
+```bash
+curl https://api.example.com/users
+```
+
+**GET with headers and query param**
+```bash
+curl "https://api.example.com/users?page=2" \
+  --header "Authorization: Bearer YOUR_TOKEN" \
+  --header "Accept: application/json"
+```
+
+**POST with JSON body**
+```bash
+curl --request POST \
+  --url https://api.example.com/users \
+  --header "Authorization: Bearer YOUR_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{"name":"Jane Doe","email":"jane@example.com"}'
+```
+
+**PUT to update a resource**
+```bash
+curl --request PUT \
+  --url https://api.example.com/users/42 \
+  --header "Authorization: Bearer YOUR_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{"name":"Jane Smith"}'
+```
+
+**DELETE request**
+```bash
+curl --request DELETE \
+  --url https://api.example.com/users/42 \
+  --header "Authorization: Bearer YOUR_TOKEN"
+```
+
+**POST with Basic Auth**
+```bash
+curl --request POST \
+  --url https://api.example.com/login \
+  --user "myuser:mypassword" \
+  --header "Content-Type: application/json" \
+  --data '{"remember_me": true}'
+```
+
+<Tip>
+  You can copy cURL commands directly from your browser's DevTools. Open DevTools → Network tab → right-click any request → **Copy as cURL**.
+</Tip>
+
+## What Gets Imported
+
+When you paste a cURL command, Requestly extracts:
+
+- HTTP method (`-X`, `--request`)
+- URL and query parameters
+- Headers (`-H`, `--header`)
+- Request body (`-d`, `--data`, `--data-raw`, `--data-binary`)
+- Basic Auth credentials (`-u`, `--user`)
+
+## What's Next?
+
+<CardGroup cols={3}>
+  <Card title="Save to a Collection" icon="folder" href="/api-client/api-collections">
+    Organize imported requests into collections
+  </Card>
+  <Card title="Add Environment Variables" icon="brackets-curly" href="/api-client/environments-and-variables">
+    Replace hardcoded values with reusable variables
+  </Card>
+  <Card title="Import from Postman" icon="box" href="/api-client/import-export/import-from-postman">
+    Migrate entire Postman collections
+  </Card>
+</CardGroup>
