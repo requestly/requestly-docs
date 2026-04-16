@@ -88,7 +88,7 @@
       ' amplitude-event-name="download_button_clicked"' +
       ' amplitude-event-type="click"' +
       ' amplitude-event-properties=\'' +
-      JSON.stringify({ source: "navbar", download_type: downloadType, type: type }) + "'";
+      JSON.stringify({ source: "navbar", download_type: downloadType, type: type, __host__: "docs.requestly.com", url: window.location.href }) + "'";
   }
 
   // ─── State ─────────────────────────────────────────────────────────
