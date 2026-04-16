@@ -50,13 +50,45 @@
 
   var browserLabel = browser.charAt(0).toUpperCase() + browser.slice(1);
 
-  // ─── Amplitude helper ──────────────────────────────────────────────
-  function trackAmplitude(eventName, props) {
-    try {
-      if (window.amplitude && typeof window.amplitude.track === "function") {
-        window.amplitude.track(eventName, props);
+  // ─── Amplitude SDK loader ───────────────────────────────────────────
+  var AMP_API_KEY = "6d37003f0cdb1921422bc474c634c135";
+  var ampReady = false;
+  var ampQueue = [];
+
+  function loadAmplitude() {
+    if (ampReady || document.getElementById("rq-amp-sdk")) return;
+    var s = document.createElement("script");
+    s.id = "rq-amp-sdk";
+    s.src = "https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz";
+    s.onload = function () {
+      if (window.amplitude && typeof window.amplitude.init === "function") {
+        window.amplitude.init(AMP_API_KEY, { autocapture: false });
+        ampReady = true;
+        ampQueue.forEach(function (q) { window.amplitude.track(q.name, q.props); });
+        ampQueue = [];
       }
-    } catch (e) { /* noop */ }
+    };
+    document.head.appendChild(s);
+  }
+
+  function trackEvent(eventName, props) {
+    if (ampReady && window.amplitude) {
+      window.amplitude.track(eventName, props);
+    } else {
+      ampQueue.push({ name: eventName, props: props });
+      loadAmplitude();
+    }
+  }
+
+  // ─── Analytics attribute helper ──────────────────────────────────────
+  function dlAttrs(downloadType, type) {
+    return ' data-event-wrapper="any_download_clicked,' + type + '_download_clicked"' +
+      ' data-source="download_popup"' +
+      ' data-type="' + type + '-install-button"' +
+      ' amplitude-event-name="download_button_clicked"' +
+      ' amplitude-event-type="click"' +
+      ' amplitude-event-properties=\'' +
+      JSON.stringify({ source: "navbar", download_type: downloadType, type: type }) + "'";
   }
 
   // ─── State ─────────────────────────────────────────────────────────
@@ -88,7 +120,7 @@
       /* icon + title */
       ".rq-dl-header{display:flex;flex-direction:column;gap:10px}",
       ".rq-dl-header img{width:32px;height:32px;object-fit:contain}",
-      ".rq-dl-title{color:#fff;font-size:15px;font-weight:500;font-family:Inter,system-ui,sans-serif;line-height:1.3}",
+      ".rq-dl-title{color:#fff;font-size:15px;font-weight:300;font-family:Inter,system-ui,sans-serif;line-height:1.3}",
       ".rq-dl-subtitle{color:#999;font-size:13px;font-family:Inter,system-ui,sans-serif;font-weight:400;line-height:1.5}",
 
       /* bullet list */
@@ -140,11 +172,11 @@
         '<li>API Tests</li>',
         '<li>Import from Postman, OpenAPI, etc</li>',
       '</ul>',
-      '<a class="rq-dl-btn" id="rq-dl-app-btn" href="' + (osLinks[os] || osLinks["mac-silicon"]) + '" target="_blank" rel="noopener">Download Now</a>',
+      '<a class="rq-dl-btn" id="rq-dl-app-btn" href="' + (osLinks[os] || osLinks["mac-silicon"]) + '" target="_blank" rel="noopener"' + dlAttrs("desktop", os) + '>Download Now</a>',
       '<div class="rq-dl-alt">',
-        '<a href="' + (osLinks["mac-silicon"] || osLinks["mac-intel"]) + '" target="_blank" rel="noopener" id="rq-dl-alt-mac" title="macOS"><img src="' + images.mac + '" alt="macOS"></a>',
-        '<a href="' + osLinks["windows"] + '" target="_blank" rel="noopener" id="rq-dl-alt-win" title="Windows"><img src="' + images.windows + '" alt="Windows"></a>',
-        '<a href="' + osLinks["linux"] + '" target="_blank" rel="noopener" id="rq-dl-alt-linux" title="Linux"><img src="' + images.linux + '" alt="Linux"></a>',
+        '<a href="' + (osLinks["mac-silicon"] || osLinks["mac-intel"]) + '" target="_blank" rel="noopener" id="rq-dl-alt-mac" title="macOS"' + dlAttrs("desktop", "mac") + '><img src="' + images.mac + '" alt="macOS"></a>',
+        '<a href="' + osLinks["windows"] + '" target="_blank" rel="noopener" id="rq-dl-alt-win" title="Windows"' + dlAttrs("desktop", "windows") + '><img src="' + images.windows + '" alt="Windows"></a>',
+        '<a href="' + osLinks["linux"] + '" target="_blank" rel="noopener" id="rq-dl-alt-linux" title="Linux"' + dlAttrs("desktop", "linux") + '><img src="' + images.linux + '" alt="Linux"></a>',
         '<a class="rq-dl-more" href="https://requestly.com/downloads" target="_blank" rel="noopener">More platforms \u2192</a>',
       '</div>',
     ].join("");
@@ -163,11 +195,11 @@
         '<li>Mock API / GraphQL responses</li>',
         '<li>Insert custom JavaScript scripts</li>',
       '</ul>',
-      '<a class="rq-dl-btn" id="rq-dl-ext-btn" href="' + (browserLinks[browser] || browserLinks.chrome) + '" target="_blank" rel="noopener">Add To ' + browserLabel + '</a>',
+      '<a class="rq-dl-btn" id="rq-dl-ext-btn" href="' + (browserLinks[browser] || browserLinks.chrome) + '" target="_blank" rel="noopener"' + dlAttrs("extension", browser) + '>Add To ' + browserLabel + '</a>',
       '<div class="rq-dl-alt">',
-        '<a href="' + browserLinks.chrome + '" target="_blank" rel="noopener" id="rq-dl-alt-chrome" title="Chrome"><img src="' + images.chrome + '" alt="Chrome"></a>',
-        '<a href="' + browserLinks.edge + '" target="_blank" rel="noopener" id="rq-dl-alt-edge" title="Edge"><img src="' + images.edge + '" alt="Edge"></a>',
-        '<a href="' + browserLinks.firefox + '" target="_blank" rel="noopener" id="rq-dl-alt-firefox" title="Firefox"><img src="' + images.firefox + '" alt="Firefox"></a>',
+        '<a href="' + browserLinks.chrome + '" target="_blank" rel="noopener" id="rq-dl-alt-chrome" title="Chrome"' + dlAttrs("extension", "chrome") + '><img src="' + images.chrome + '" alt="Chrome"></a>',
+        '<a href="' + browserLinks.edge + '" target="_blank" rel="noopener" id="rq-dl-alt-edge" title="Edge"' + dlAttrs("extension", "edge") + '><img src="' + images.edge + '" alt="Edge"></a>',
+        '<a href="' + browserLinks.firefox + '" target="_blank" rel="noopener" id="rq-dl-alt-firefox" title="Firefox"' + dlAttrs("extension", "firefox") + '><img src="' + images.firefox + '" alt="Firefox"></a>',
         '<a class="rq-dl-more" href="https://requestly.com/downloads" target="_blank" rel="noopener">More browsers \u2192</a>',
       '</div>',
     ].join("");
@@ -190,6 +222,17 @@
       if (e.key === "Escape") hideDropdown();
     });
 
+    // — Fire Amplitude events on download clicks (delegated) —
+    dropdown.addEventListener("click", function (e) {
+      var link = e.target.closest("a[amplitude-event-name]");
+      if (!link) return;
+      try {
+        var eventName = link.getAttribute("amplitude-event-name");
+        var props = JSON.parse(link.getAttribute("amplitude-event-properties") || "{}");
+        trackEvent(eventName, props);
+      } catch (err) { /* noop */ }
+    });
+
     // — Close when clicking outside —
     document.addEventListener("click", function (e) {
       var dd = document.getElementById("rq-dl-dropdown");
@@ -200,53 +243,6 @@
       }
     });
 
-    // — Amplitude events on download clicks —
-    bindAmplitudeEvents();
-  }
-
-  function bindAmplitudeEvents() {
-    var appBtn = document.getElementById("rq-dl-app-btn");
-    if (appBtn) {
-      appBtn.addEventListener("click", function () {
-        trackAmplitude("download_button_clicked", {
-          download_type: "api-client",
-          type: os,
-          source: "docs-download-popup",
-        });
-      });
-    }
-
-    var extBtn = document.getElementById("rq-dl-ext-btn");
-    if (extBtn) {
-      extBtn.addEventListener("click", function () {
-        trackAmplitude("download_button_clicked", {
-          download_type: "extension",
-          type: browser,
-          source: "docs-download-popup",
-        });
-      });
-    }
-
-    var altMap = {
-      "rq-dl-alt-mac":     { download_type: "api-client", type: "mac" },
-      "rq-dl-alt-win":     { download_type: "api-client", type: "windows" },
-      "rq-dl-alt-linux":   { download_type: "api-client", type: "linux" },
-      "rq-dl-alt-chrome":  { download_type: "extension",  type: "chrome" },
-      "rq-dl-alt-edge":    { download_type: "extension",  type: "edge" },
-      "rq-dl-alt-firefox": { download_type: "extension",  type: "firefox" },
-    };
-    Object.keys(altMap).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) {
-        el.addEventListener("click", function () {
-          trackAmplitude("download_button_clicked", {
-            download_type: altMap[id].download_type,
-            type: altMap[id].type,
-            source: "docs-download-popup",
-          });
-        });
-      }
-    });
   }
 
   // ─── Position the dropdown relative to the anchor button ───────────
@@ -300,8 +296,6 @@
     // Force reflow then add class for CSS transition
     void dropdown.offsetHeight;
     dropdown.classList.add("rq-visible");
-
-    trackAmplitude("download_popup_opened", { source: "docs-navbar" });
   }
 
   function scheduleHide() {
