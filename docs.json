@@ -62,7 +62,6 @@
                   "api-client/import-export",
                   "api-client/import-export/import-from-curl",
                   "api-client/import-export/import-from-postman",
-                  "api-client/import-export/import-from-bruno",
                   "api-client/import-export/import-from-wsdl",
                   "api-client/import-export/import-openapi-spec",
                   "api-client/import-export/import-export-api-collections",
