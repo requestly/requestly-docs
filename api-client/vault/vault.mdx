@@ -1,0 +1,166 @@
+---
+title: "Overview"
+description: "Store sensitive values locally, pull secrets from external providers like AWS Secrets Manager, and reference them in your API requests without ever exposing credentials in collections, exports, or cloud sync."
+---
+
+## What is Vault ?
+
+Vault is a local-first encrypted secrets store built into the Requestly desktop app. It lets you:
+
+- **Store secrets locally**: API keys, tokens, and passwords encrypted on your machine via OS keychain.
+- **Pull secrets from external providers**: connect services like [AWS Secrets Manager](/api-client/vault/aws-secrets-manager) to fetch centrally managed credentials.
+- **Reference secrets in requests**: use `{{vault:key}}` syntax in URLs, headers, auth fields, and body.
+- **Share collections safely**: secret references travel with collections, but values stay on each user's machine.
+
+<Info>
+Vault requires the **Requestly desktop app** (Electron) for OS-level encryption via `safeStorage`. Vault features are not available in the web-only mode.
+</Info>
+
+---
+
+## Local Vault
+
+The local vault is available to **all users**. No sign-in or paid plan is required. Secrets are encrypted at rest using your operating system's keychain (macOS Keychain, Windows Credential Manager, or Linux Secret Service).
+
+### Creating a local secret
+
+<Steps>
+  <Step title="Open the Vault">
+    Click the **Vault** button in the app footer to open the Vault page.
+  </Step>
+  <Step title="Add a secret">
+    Click **Add Secret** at the bottom of the Local Secrets table. A new row appears with editable Key and Value cells.
+  </Step>
+  <Step title="Enter key and value">
+    Type a key name (e.g., `my-api-key`) and a value (e.g., `sk-abc123`). Press **Enter** to save. The value masks immediately.
+  </Step>
+</Steps>
+
+### Using a vault secret in a request
+
+Reference any vault secret using the `{{vault:key}}` syntax in any request field:
+
+```
+Authorization: Bearer {{vault:my-api-key}}
+```
+
+When you send the request, `{{vault:my-api-key}}` resolves to the actual value. The resolved value **never** appears in the editor, console output, collection exports, or cloud sync. Only the `{{vault:key}}` reference is visible.
+
+<Tip>
+Vault secrets appear in the standard `{{` autocomplete dropdown alongside environment and collection variables, labeled with a **Vault** scope badge.
+</Tip>
+
+### Inline editing
+
+Click any key or value cell in the vault table to edit it in place. No modals or separate forms are needed. Changes save automatically on blur or Enter.
+
+### Deleting a secret
+
+Delete a vault secret from the table. Any `{{vault:key}}` references to the deleted secret become unresolved immediately.
+
+---
+
+## External secret providers
+
+Connect centrally managed secret managers to pull secrets into the vault. External provider secrets share the same `{{vault:key}}` namespace as local secrets, so your requests don't need to know where a secret comes from.
+
+- [**AWS Secrets Manager**](/api-client/vault/aws-secrets-manager): connect an AWS account to fetch and cache secrets, with support for JSON expansion, multiple configurations, and rotation refresh.
+
+<Note>
+External provider integrations require **Requestly authentication** and an **eligible plan**. Local vault remains fully functional without signing in.
+</Note>
+
+---
+
+## Scripting API
+
+Access vault secrets programmatically in pre-request and post-response scripts using the `rq.vault` API:
+
+```javascript
+// Pre-request script
+const signingKey = await rq.vault.get('signing-key');
+const jwt = generateJwt(payload, signingKey);
+rq.variables.set('auth-token', jwt);
+```
+
+Then use `{{auth-token}}` in the Authorization header. The signing key never leaves the vault.
+
+See the full [`rq.vault` reference](/api-client/rq-api-reference/rq-vault) for `get`, `set`, `unset`, and `has` methods.
+
+---
+
+## Importing from Postman
+
+Requestly preserves `{{vault:key}}` references when importing Postman collections. No syntax translation is needed.
+
+### What happens on import
+
+1. `{{vault:key}}` references in URLs, headers, auth fields, and body are **preserved as-is**.
+2. `pm.vault.get/set/unset/has` calls in scripts are **automatically translated** to `rq.vault.get/set/unset/has`.
+3. For each detected `{{vault:key}}` reference, a **local secret is pre-created** with an empty value.
+4. A post-import summary lists the pre-created secrets.
+
+### After import
+
+Open the Vault page. You'll see the pre-created secret keys with empty values. Fill in the values, and your imported requests will resolve immediately.
+
+<Info>
+Postman collection exports never include vault secret values, only the `{{vault:key}}` references. You'll need to re-enter the actual values in your Requestly vault.
+</Info>
+
+---
+
+## Namespace and resolution
+
+### Resolution priority
+
+If the same key exists in both Local Secrets and an external provider (e.g., AWS), the **external secret wins**. The local secret shows an amber "overridden by duplicate key" warning.
+
+### Variable hover
+
+Hovering over a `{{vault:key}}` reference in any editor field shows:
+- The masked value (`••••••••`)
+- The scope: **Vault**
+- The source: **Local** or the external provider name
+
+Unresolved references show an "Unresolved" diagnostic with guidance.
+
+### Console masking
+
+Vault secret values are **always masked** in the console and response viewer. You'll see the `{{vault:key}}` reference or `••••••••`, never the plaintext value.
+
+---
+
+## Security model
+
+| Property | Behavior |
+|----------|----------|
+| **Encryption at rest** | All vault data encrypted via Electron `safeStorage` (OS keychain). Files on disk are not human-readable. |
+| **Device isolation** | Each OS user account has a separate vault. A different OS user on the same machine cannot access your secrets. |
+| **No cloud sync** | Vault values are never sent to Requestly servers, never included in cloud workspace sync. |
+| **No export inclusion** | Collection exports contain `{{vault:key}}` references, never resolved values. |
+| **Provider credentials** | Stored encrypted alongside vault secrets. Never appear in logs or plaintext files. |
+| **Session independence** | Local vault works regardless of sign-in state. External provider features require authentication. |
+
+<Warning>
+**Linux users:** Vault requires a D-Bus Secret Service implementation (GNOME Keyring, KWallet, or equivalent). If no keyring is configured, vault features are disabled but the rest of the app works normally.
+</Warning>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Does vault work in the web app?">
+    No. Vault requires the desktop app (Electron) for OS-level encryption. This matches how Postman's vault requires the Desktop Agent.
+  </Accordion>
+  <Accordion title="What happens if I sign out?">
+    Local vault secrets persist and continue resolving. They're tied to your OS user session, not your Requestly account. Previously fetched external provider secrets also remain cached and resolvable. However, you cannot configure new providers or fetch new secrets until you sign back in.
+  </Accordion>
+  <Accordion title="What happens to vault references in CI/CD?">
+    Vault is desktop-only and does not work in CI/CD pipelines. For automated runs, use environment variables or your CI platform's native secret injection.
+  </Accordion>
+  <Accordion title="Can scripts modify secrets from external providers?">
+    No. `rq.vault.set()` and `rq.vault.unset()` only work on local secrets. External provider secrets are read-only from scripts. Use `rq.vault.get()` to read them.
+  </Accordion>
+</AccordionGroup>
