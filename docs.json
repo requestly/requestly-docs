@@ -78,7 +78,14 @@
                   "api-client/environments-and-variables/runtime-variables",
                   "api-client/environments-and-variables/dynamic-variables",
                   "api-client/environments-and-variables/variable-precedence",
-                  "api-client/environments-and-variables/using-variables-in-api-requests"
+                  "api-client/environments-and-variables/using-variables-in-api-requests",
+                  {
+                    "group": "Vault",
+                    "pages": [
+                      "api-client/vault/vault",
+                      "api-client/vault/aws-secrets-manager"
+                    ]
+                  }
                 ]
               },
               {
@@ -105,6 +112,7 @@
                   "api-client/rq-api-reference/rq-environment",
                   "api-client/rq-api-reference/rq-collection-variables",
                   "api-client/rq-api-reference/rq-globals",
+                  "api-client/rq-api-reference/rq-vault",
                   "api-client/rq-api-reference/rq-test",
                   "api-client/rq-api-reference/rq-expect",
                   "api-client/rq-api-reference/rq-iteration-data",

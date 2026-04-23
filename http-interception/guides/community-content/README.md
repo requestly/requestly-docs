@@ -10,10 +10,10 @@ Community Content includes user-contributed documentation, tutorials, guides, an
 
 We welcome various types of content, including:
 
-- **Tutorials & Guides** — Step-by-step use cases, integrations, and best practices  
-- **Use Cases & Examples** — Real-world debugging, API testing, automation workflows  
-- **Code Snippets** — Scripts, regex patterns, and JS snippets  
-- **Videos** — Tutorials, screencasts, and workshop recordings  
+- **Tutorials & Guides**, Step-by-step use cases, integrations, and best practices  
+- **Use Cases & Examples**, Real-world debugging, API testing, automation workflows  
+- **Code Snippets**, Scripts, regex patterns, and JS snippets  
+- **Videos**, Tutorials, screencasts, and workshop recordings  
 
 ## How to Contribute
 

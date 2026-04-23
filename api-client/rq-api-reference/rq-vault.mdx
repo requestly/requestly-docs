@@ -1,0 +1,161 @@
+---
+title: Vault (rq.vault)
+label: rq.vault
+slug: rq-vault
+description: >-
+  Complete reference for the rq.vault object in Requestly scripts to read and manage encrypted secrets from the local vault and AWS Secrets Manager.
+seoDescription: >-
+  Learn how to use the rq.vault object in Requestly to get, set, unset, and check vault secrets in pre-request and post-response scripts.
+visibility: PUBLIC
+---
+
+The `rq.vault` object provides methods to access encrypted secrets stored in the Requestly [Vault](/api-client/vault) during script execution. Vault secrets are kept out of collections, exports, and cloud sync. Only `{{vault:key}}` references travel with your project, while the resolved values stay on the user's machine.
+
+<Info>
+`rq.vault` is only available in the **Requestly desktop app**. Vault features are disabled in the web-only mode.
+</Info>
+
+## Methods
+
+### `rq.vault.get(key)`
+
+Retrieves the value of a vault secret. Works for both **local** secrets and **AWS Secrets Manager** secrets that have been fetched into the vault.
+
+**Parameters:**
+- `key` (string): The name of the vault secret to retrieve
+
+**Returns:** A `Promise` that resolves to the secret's string value, or `undefined` if the key doesn't exist.
+
+**Example:**
+
+```jsx
+const apiKey = await rq.vault.get("my-api-key");
+console.log("Key loaded:", Boolean(apiKey));
+```
+
+### `rq.vault.set(key, value)`
+
+Creates or updates a **local** vault secret. The value is persisted to encrypted storage via the OS keychain.
+
+**Parameters:**
+- `key` (string): The name of the vault secret to create or update
+- `value` (string): The value to store
+
+**Returns:** A `Promise` that resolves when the secret is persisted.
+
+**Example:**
+
+```jsx
+await rq.vault.set("temp-token", generatedToken);
+```
+
+<Warning>
+`rq.vault.set()` only works on local secrets. Calling it with a key that is already linked to an AWS Secrets Manager entry throws an error. AWS-linked secrets are read-only from scripts.
+</Warning>
+
+### `rq.vault.unset(key)`
+
+Removes a **local** vault secret.
+
+**Parameters:**
+- `key` (string): The name of the vault secret to remove
+
+**Returns:** A `Promise` that resolves when the secret is removed.
+
+**Example:**
+
+```jsx
+await rq.vault.unset("temp-token");
+```
+
+<Warning>
+`rq.vault.unset()` only works on local secrets. It cannot delete AWS-linked secrets. Manage those from the Vault page.
+</Warning>
+
+### `rq.vault.has(key)`
+
+Checks whether a vault secret with the given key exists. Works for both local and AWS secrets.
+
+**Parameters:**
+- `key` (string): The name of the vault secret to check
+
+**Returns:** A `Promise` that resolves to `true` if the secret exists, `false` otherwise.
+
+**Example:**
+
+```jsx
+if (await rq.vault.has("signing-key")) {
+  const key = await rq.vault.get("signing-key");
+  // generate JWT...
+}
+```
+
+## Common Use Cases
+
+### Generate a JWT Without Exposing the Signing Key
+
+Keep the signing key inside the vault and expose only the generated token to the request:
+
+```jsx
+// Pre-request script
+const signingKey = await rq.vault.get("signing-key");
+const jwt = generateJwt(payload, signingKey);
+rq.variables.set("auth-token", jwt);
+```
+
+Then reference `{{auth-token}}` in the Authorization header. The signing key never leaves the vault.
+
+### Cache a Short-Lived Token Locally
+
+Fetch a token once, store it in the vault, and reuse it across subsequent requests until it expires:
+
+```jsx
+let token = await rq.vault.get("session-token");
+
+if (!token) {
+  const res = await fetch("https://auth.example.com/token", { /* ... */ });
+  const body = await res.json();
+  token = body.access_token;
+  await rq.vault.set("session-token", token);
+}
+
+rq.request.headers.add({ key: "Authorization", value: `Bearer ${token}` });
+```
+
+### Guard Optional Secrets
+
+Only apply a signing step when the signing key is configured:
+
+```jsx
+if (await rq.vault.has("hmac-secret")) {
+  const secret = await rq.vault.get("hmac-secret");
+  const signature = signRequest(rq.request.body, secret);
+  rq.request.headers.add({ key: "X-Signature", value: signature });
+}
+```
+
+### Clean Up Temporary Secrets
+
+Remove a short-lived secret once it is no longer needed:
+
+```jsx
+await rq.vault.unset("one-time-code");
+```
+
+## Behavior Notes
+
+- **All methods are asynchronous.** Always `await` them. Synchronous usage will return a `Promise`, not the value.
+- **Values are strings.** Non-string values passed to `set()` should be stringified by the caller (e.g., `JSON.stringify(obj)`).
+- **AWS-linked secrets are read-only.** `set()` and `unset()` only operate on local secrets. Use `get()` / `has()` for AWS secrets.
+- **JSON secrets from AWS auto-expand.** For a secret named `dbCredentials` storing `{ "username": "admin" }`, use `rq.vault.get("dbCredentials.username")` to read the nested value.
+- **Masked in console.** Values returned from `rq.vault.get()` are masked in the Requestly console output. They resolve correctly at request time, but never appear in plaintext in logs.
+- **No cloud sync.** Anything written with `rq.vault.set()` stays on the current machine and is never included in collection exports or workspace sync.
+
+## Related Documentation
+
+- [Vault Overview](/api-client/vault)
+- [Pre-request & Post-response Scripts](/api-client/scripts)
+- [rq.request Object](/api-client/rq-api-reference/rq-request)
+- [rq.response Object](/api-client/rq-api-reference/rq-response)
+- [rq.environment Object](/api-client/rq-api-reference/rq-environment)
+- [rq.globals Object](/api-client/rq-api-reference/rq-globals)

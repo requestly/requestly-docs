@@ -10,7 +10,7 @@ difficulty: beginner
 
 ## Introduction
 
-"What if I could test all my APIs at once — like a chain reaction — without switching tabs or hitting Send repeatedly?"
+"What if I could test all my APIs at once, like a chain reaction, without switching tabs or hitting Send repeatedly?"
 
 If you've ever tested APIs manually, you know the pain:
 
@@ -19,9 +19,9 @@ If you've ever tested APIs manually, you know the pain:
 3. Paste it into the next request
 4. Then test one endpoint after another
 
-It's repetitive and time-consuming — especially when you're testing a whole workflow like **Login → Create User → Fetch User → Delete User**.
+It's repetitive and time-consuming, especially when you're testing a whole workflow like **Login → Create User → Fetch User → Delete User**.
 
-That's where Requestly Interceptor's Collection Runner shines. In this guide, I'll walk you through how I explored the Collection Runner feature, how it simplifies API automation, and how you can start using it right away — even if you're completely new to automated API testing.
+That's where Requestly Interceptor's Collection Runner shines. In this guide, I'll walk you through how I explored the Collection Runner feature, how it simplifies API automation, and how you can start using it right away, even if you're completely new to automated API testing.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The Collection Runner in Requestly Interceptor lets you execute multiple saved A
 
 Imagine chaining requests together: **Login → Create User → Fetch User → Delete User**
 
-You can run them one after another, apply test scripts, reuse variables, and even debug results visually — all without writing a single line of backend automation code.
+You can run them one after another, apply test scripts, reuse variables, and even debug results visually, all without writing a single line of backend automation code.
 
 ## Step-by-Step Guide
 
@@ -50,10 +50,10 @@ I named mine **User Management APIs**, because I wanted to simulate a typical CR
 
 Inside my collection, I added the following 4 requests:
 
-1. `GET /users` — Fetch all users
-2. `GET /users/1` — Get a specific user
-3. `POST /users` — Create a new user
-4. `DELETE /users/1` — Delete a user (mock)
+1. `GET /users`, Fetch all users
+2. `GET /users/1`, Get a specific user
+3. `POST /users`, Create a new user
+4. `DELETE /users/1`, Delete a user (mock)
 
 ![Setting Up](/images/using-collection-runner-in-requestly/setting-up.png)
 
@@ -98,7 +98,7 @@ rq.test("Response body is JSON object", () => {
 
 ![Scripts](/images/using-collection-runner-in-requestly/add-scripts.png)
 
-These tests automatically validate the response when your collection runs. So now, after every run, I could instantly see if a request passed or failed — without manually checking the response body.
+These tests automatically validate the response when your collection runs. So now, after every run, I could instantly see if a request passed or failed, without manually checking the response body.
 
 ### Step 3: Running All Your Requests at Once
 
@@ -110,23 +110,23 @@ This opened the Collection Runner, where I could configure:
 
 - **Iterations**: How many times to repeat the run
 - **Delay**: How long to wait between requests (useful if your server needs a breather)
-- **Select data file**: Optional — useful if you want to pass different input sets for multiple runs
+- **Select data file**: Optional, useful if you want to pass different input sets for multiple runs
 
 ### Step 4: Reordering or Skipping Requests
 
-Here's something I really liked — before running, I could reorder the requests or uncheck the ones I didn't want to include.
+Here's something I really liked, before running, I could reorder the requests or uncheck the ones I didn't want to include.
 
 I dragged my "Delete User" request to the end (because, obviously, who deletes before testing?). That small UX detail made the workflow feel super flexible.
 
 ![Reordering](/images/using-collection-runner-in-requestly/reordering.png)
 
-After setting everything up, I hit **Run Collection** — and boom! Requestly Interceptor started running all my requests in order, one after another, while I just watched it go.
+After setting everything up, I hit **Run Collection**, and boom! Requestly Interceptor started running all my requests in order, one after another, while I just watched it go.
 
 ![Collection-Running](/images/using-collection-runner-in-requestly/collection-successful-running.png)
 
 ### Step 5: Making It Dynamic with Variables & Environments
 
-Hardcoding URLs and values works for one-time tests — but it quickly becomes a hassle when switching between environments like dev, staging, or prod.
+Hardcoding URLs and values works for one-time tests, but it quickly becomes a hassle when switching between environments like dev, staging, or prod.
 
 That's where variables come in. Instead of writing full URLs, you can use placeholders like:
 
@@ -144,7 +144,7 @@ This way, you can easily switch between different environments without modifying
 
 After running my JSONPlaceholder collection, Requestly Interceptor displayed a **Run Summary** that instantly made everything click.
 
-It didn't just show "pass" or "fail" — it broke everything down clearly:
+It didn't just show "pass" or "fail", it broke everything down clearly:
 
 - ✅ Number of passed tests
 - ❌ Number of failed tests
@@ -166,7 +166,7 @@ Another really neat feature is the **History** tab in the top right corner. It a
 - Compare results between test iterations
 - Track when something started failing
 
-That means you can build up a timeline of test runs — perfect for debugging or regression tracking later on.
+That means you can build up a timeline of test runs, perfect for debugging or regression tracking later on.
 
 ## What's Actually Happening Behind the Scenes
 
@@ -178,7 +178,7 @@ Here's a simple breakdown of what goes on under the hood when you click **Run**:
 4. Post-response tests run automatically
 5. Everything is logged in the Test results for you to analyze
 
-It's basically like having a mini continuous testing pipeline, right inside Requestly Interceptor — but without the complexity of CI/CD setup.
+It's basically like having a mini continuous testing pipeline, right inside Requestly Interceptor, but without the complexity of CI/CD setup.
 
 ## Examples
 
@@ -206,11 +206,11 @@ The Collection Runner in Requestly Interceptor turns API testing from a manual c
 - The results dashboard provides instant visibility into test outcomes
 - History tracking helps with debugging and regression analysis
 
-It's like giving your APIs an autopilot mode. Try it once — and you'll never want to test manually again.
+It's like giving your APIs an autopilot mode. Try it once, and you'll never want to test manually again.
 
 ## Additional Resources
 
-- [Requestly Interceptor Documentation — Collection Runner](https://docs.requestly.com)
+- [Requestly Interceptor Documentation, Collection Runner](https://docs.requestly.com)
 - [Try Requestly Interceptor App](https://app.requestly.io)
 - [GitHub Docs Repo](https://github.com/requestly/requestly-docs)
 - [JSONPlaceholder Fake REST API](https://jsonplaceholder.typicode.com)

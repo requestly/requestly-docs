@@ -10,11 +10,11 @@ difficulty: beginner
 
 ## Introduction
 
-When I first opened Requestly Interceptor's API Client, I expected the usual — a request builder, a few tabs, maybe a scripting panel. What I didn't expect was how powerful and convenient their Variables and Environments system would be.
+When I first opened Requestly Interceptor's API Client, I expected the usual, a request builder, a few tabs, maybe a scripting panel. What I didn't expect was how powerful and convenient their Variables and Environments system would be.
 
 If you've ever switched between dev, staging, and production APIs and found yourself constantly rewriting URLs, headers, or tokens, this feature will feel like a lifesaver.
 
-While working on a recent contribution to Requestly Interceptor, I got the chance to dive deep into Variables and Environments — and it turned out to be far more powerful than I expected. So in this article, I'm breaking down everything I learned in a simple, practical way.
+While working on a recent contribution to Requestly Interceptor, I got the chance to dive deep into Variables and Environments, and it turned out to be far more powerful than I expected. So in this article, I'm breaking down everything I learned in a simple, practical way.
 
 Think of this as your shortcut to mastering variables, with practical steps and screenshots that you can apply immediately in your own setup.
 
@@ -65,7 +65,7 @@ https://{{base_url}}/users/{{user_id}}
 
 ### Step 1: Exploring Global Variables
 
-Global variables are available everywhere — across all requests and environments. They are ideal for constants or secrets that don't change frequently. I used them for things like API keys, common headers, or service base URLs.
+Global variables are available everywhere, across all requests and environments. They are ideal for constants or secrets that don't change frequently. I used them for things like API keys, common headers, or service base URLs.
 
 #### How to Create Global Variables
 
@@ -75,7 +75,7 @@ Global variables are available everywhere — across all requests and environmen
 
 ![Adding Global Variables](/images/guide-environment-and-variables/adding-global-variables.gif)
 
-The cool part? — Hovering on any `{{variable}}` in a request immediately shows the resolved value.
+The cool part?, Hovering on any `{{variable}}` in a request immediately shows the resolved value.
 
 **Example Global Variables:**
 
@@ -89,9 +89,9 @@ content_type = application/json
 
 For my testing, I used three different APIs that all support the `/users` endpoint:
 
-- **Development** — `https://jsonplaceholder.typicode.com`
-- **Staging** — `https://dummyjson.com`
-- **Production** — `https://jsonplaceholder.org`
+- **Development**, `https://jsonplaceholder.typicode.com`
+- **Staging**, `https://dummyjson.com`
+- **Production**, `https://jsonplaceholder.org`
 
 #### Setting Up Environments
 
@@ -130,7 +130,7 @@ environment = production
 
 #### Switching Between Environments
 
-Now I can fetch users from all three environments simply by switching the active environment — no URL editing needed.
+Now I can fetch users from all three environments simply by switching the active environment, no URL editing needed.
 
 1. Look for the environment dropdown (usually in the top-right)
 2. Select your desired environment (Dev, Staging, or Prod)
@@ -181,7 +181,7 @@ rq.environment.set("token", newtoken);
 
 ### Step 4: Collection & SubCollection Variables
 
-Until now, we've looked at Global, Environment, and Runtime variables. These cover most cases — but what if you want variables that belong only to a specific group of requests?
+Until now, we've looked at Global, Environment, and Runtime variables. These cover most cases, but what if you want variables that belong only to a specific group of requests?
 
 For example:
 
@@ -249,7 +249,7 @@ When Production environment is active, Requestly Interceptor will use: `https://
 
 ### Using Variables in API Requests
 
-Once you've defined variables in Requestly Interceptor — whether global, environment, collection, or subcollection — you can reference them anywhere inside your API requests. This includes:
+Once you've defined variables in Requestly Interceptor, whether global, environment, collection, or subcollection, you can reference them anywhere inside your API requests. This includes:
 
 - URLs
 - Headers
@@ -334,14 +334,14 @@ After working with Requestly Interceptor's Variables & Environments, it's clear 
 - **Collection Variables**: Organize variables by feature or service
 - **Variable Precedence**: Environment → SubCollection → Collection → Global
 
-Everything becomes cleaner, faster, and far easier to manage — whether you're a backend developer, tester, or someone who works with multiple APIs.
+Everything becomes cleaner, faster, and far easier to manage, whether you're a backend developer, tester, or someone who works with multiple APIs.
 
 Once you start using variables properly, your entire workflow becomes smoother and more organized. It's a small feature that makes a big difference, and honestly, it's hard to work without it once you get used to it.
 
 ## Additional Resources
 
 - [Try Requestly Interceptor App](https://app.requestly.io)
-- [Requestly Interceptor Documentation — Environment and Variables](https://docs.requestly.com)
+- [Requestly Interceptor Documentation, Environment and Variables](https://docs.requestly.com)
 - [JSONPlaceholder Fake REST API](https://jsonplaceholder.typicode.com)
 - [DummyJSON API](https://dummyjson.com)
 - [Join Requestly Interceptor Discord Community](https://rqst.ly/join-community)
