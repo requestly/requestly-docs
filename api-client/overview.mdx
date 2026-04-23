@@ -1,18 +1,16 @@
 ---
-title: Getting Started
-label: Overview
-slug: overview
-description: >-
-  Install the Requestly API Client, send your first request, save it to a collection, and set up environment variables.
-seoDescription: >-
-  Get started with Requestly API Client. Install the desktop app, send your first API request, organize with collections, and set up environment variables.
-seoTitle: Getting Started with Requestly API Client
-visibility: PUBLIC
+title: "Getting Started"
+label: "Overview"
+slug: "overview"
+description: "Install the Requestly API Client, send your first request, save it to a collection, and set up environment variables."
+seoDescription: "Get started with Requestly API Client. Install the desktop app, send your first API request, organize with collections, and set up environment variables."
+seoTitle: "Getting Started with Requestly API Client"
+visibility: "PUBLIC"
 ---
 
 Requestly API Client is a lightweight, privacy-first tool for sending API requests, organizing them into collections, and automating tests with scripts. All your data stays local on your machine.
 
-***
+---
 
 ## Step 1: Install
 
@@ -34,7 +32,7 @@ The API Client runs as a **desktop app** on macOS, Windows, and Linux.
   **What about the browser extension?** The Requestly browser extension is a separate product — an HTTP interceptor for modifying network traffic. The API Client is a standalone desktop app. You do not need the extension to use the API Client.
 </Info>
 
-***
+---
 
 ## Step 2: Create an Account (Optional)
 
@@ -42,36 +40,68 @@ You can start using the API Client immediately — **no account required**. All 
 
 If you want to sync data across devices or collaborate with a team, sign in with your Google or email account from the top-right menu.
 
-***
+---
 
 ## Step 3: Send Your First Request
 
 <Steps>
   <Step title="Create a New Request">
-    Click **+ New** → **Request** in the left sidebar.
+    Click **\+ New** → **Request** in the left sidebar.
 
-    <img src="/images/send-api-request/fdef96c4-3da6-4a3a-a885-8999e89898f1.png" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---9.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---9-2.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
-
   <Step title="Enter the URL">
     Set the method to **GET** and enter:
-    ```
+
+    ```text
     https://app.requestly.io/echo
     ```
 
-    <img src="/images/send-api-request/b027f3b9-8d3c-49ee-9f5e-f7a66f7a5fd0.png" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---2.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---2-1.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
-
   <Step title="Hit Send">
     Click **Send**. You’ll see the echo server’s JSON response in the panel below.
 
-    <img src="/images/send-api-request/e258dee4-e903-417a-a847-1f1c7e438553.webp" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---12.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---12-2.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
 </Steps>
 
 You’ve sent your first request. The response panel shows the body, headers, status code, and response time.
 
-***
+---
 
 ## Step 4: Save to a Collection
 
@@ -79,19 +109,29 @@ Collections keep related requests organized together.
 
 <Steps>
   <Step title="Create a Collection">
-    Click **+ New** → **Collection**. Name it `My APIs`.
+    Click **\+ New** → **Collection**. Name it `My APIs`.
 
-    <img src="/images/api-collections/dd563ae7-3b5e-4cc3-bc1b-cab7f320e655.png" align="center" fullwidth="false" />
+    <img
+      src="/images/API-Collection---1-1.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-Collection---1-2.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
-
   <Step title="Move Your Request Into It">
-    Drag the request you just created into the collection, or click the **+** icon next to the collection name to create new requests directly inside it.
+    Drag the request you just created into the collection, or click the **\+** icon next to the collection name to create new requests directly inside it.
   </Step>
 </Steps>
 
 You can also create folders inside collections to group requests by feature or endpoint. [Learn more about collections →](/api-client/api-collections)
 
-***
+---
 
 ## Step 5: Add an Environment Variable
 
@@ -99,35 +139,69 @@ Environment variables let you switch between dev, staging, and production withou
 
 <Steps>
   <Step title="Create an Environment">
-    Click **+ New** → **Environment**. Name it `Development`.
+    Click **\+ New** → **Environment**. Name it `Development`.
 
-    <img src="/images/api-client/quick-start/new-dropdown.webp" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---9-5.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---9-3.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
-
   <Step title="Add a Variable">
     Add a variable:
+
     - **Key**: `base_url`
     - **Value**: `https://app.requestly.io`
 
     Click **Save**.
 
-    <img src="/images/api-client/quick-start/development-environment.webp" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---13-1.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---13.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
-
   <Step title="Use It in a Request">
     Replace the URL in your request with:
-    ```
+
+    ```text
     {{base_url}}/echo
     ```
+
     Variables use double curly braces: `{{variable_name}}`
 
-    <img src="/images/api-client/quick-start/environment-variable.webp" align="center" fullwidth="false" />
+    <img
+      src="/images/API-client---11.png"
+      align="center"
+      fullwidth="false"
+      className="dark:hidden"
+    />
+    <img
+      src="/images/API-client---11-1.png"
+      align="center"
+      fullwidth="false"
+      className="hidden dark:block"
+    />
   </Step>
 </Steps>
 
 Now you can create a `Production` environment with a different `base_url` and switch between them using the environment dropdown. [Learn more about variables →](/api-client/environments-and-variables)
 
-***
+---
 
 ## What’s Next
 
@@ -135,18 +209,23 @@ Now you can create a `Production` environment with a different `base_url` and sw
   <Card title="Authorization" icon="shield" href="/api-client/send-api-request/authorization">
     Add API Key, Bearer Token, or Basic Auth to your requests.
   </Card>
+
   <Card title="Scripts" icon="wand-magic-sparkles" href="/api-client/scripts">
     Run JavaScript before requests or after responses for automation.
   </Card>
+
   <Card title="Tests" icon="flask" href="/api-client/tests">
     Write assertions to validate API responses automatically.
   </Card>
+
   <Card title="Collection Runner" icon="play" href="/api-client/collection-runner">
     Execute an entire collection of requests in sequence.
   </Card>
+
   <Card title="Import from Postman" icon="box" href="/api-client/import-export/import-from-postman">
     Bring your existing Postman collections into Requestly.
   </Card>
+
   <Card title="Import from cURL" icon="terminal" href="/api-client/import-export/import-from-curl">
     Paste a cURL command and convert it to a request instantly.
   </Card>
